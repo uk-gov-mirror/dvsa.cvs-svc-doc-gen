@@ -1,0 +1,44 @@
+<html>
+<head>
+    <style>
+div.header {
+    display: block;
+    text-align: center;
+    position: running(header);
+    background: green;
+}
+div.footer {
+    display: block;
+    text-align: center;
+    position: running(footer);
+    background: yellow;
+    margin-top: 1.5cm;
+}
+div.content {page-break-after: always;}
+@page {
+    size: A4 portrait;
+    margin-top:5.5cm;
+    margin-left:3cm;
+    margin-right:2cm;
+    margin-bottom:3.3cm;
+    @top-center {
+        content: element(header);
+    }
+    @bottom-center {
+        content: element(footer);
+    }
+}
+.40mm {
+    height: 40mm;
+    display: block;
+}
+</style>
+</head>
+<body>
+<div class='header'><div class="40mm">Header</div></div>
+<div class='footer'>Footer</div>
+<div class='content'>Page1</div>
+<div class='content'>Page2</div>
+<div>Page3</div>
+</body>
+</html>
