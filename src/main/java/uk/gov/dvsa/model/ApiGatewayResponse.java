@@ -1,4 +1,4 @@
-package uk.gov.dvsa;
+package uk.gov.dvsa.model;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;

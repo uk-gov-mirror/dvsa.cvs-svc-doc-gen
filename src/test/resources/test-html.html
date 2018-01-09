@@ -1,0 +1,88 @@
+<html>
+<head>
+    <style>
+
+@page{
+
+    @bottom-center {
+        content: element(footer);
+        vertical-align: top;
+        padding-top: 20px;
+    }
+
+    @top-center {
+        content: element(header);
+        vertical-align: bottom;
+        padding-bottom: 20px;
+    }
+
+    size: A4 portrait;
+    margin-top: 2.5cm;
+    margin-left: 1cm;
+    margin-right: 1cm;
+    margin-bottom: 4.8cm;
+}
+
+div.header {
+    display: block;
+    position: running(header);
+    border-bottom: 1px solid black;
+    margin-bottom: 1.0cm;
+    padding-bottom: 10px
+    background: #eee;
+}
+
+div.footer {
+    margin-top: 0.5cm;
+    display: block;
+    position: running(footer);
+    border-top: 1px solid black;
+    background: #eee;
+}
+
+div.content {
+    display: block;
+    text-align: justify;
+}
+
+#pagenumber:before {
+    content: counter(page);
+}
+
+#pagecount:before {
+    content: counter(pages);
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+    This is the header that will repeat on every page at top
+    <p>YOLO</p>
+</div>
+
+<div class="footer" >
+    <p>This is the footer that will repeat on every page at bottom</p>
+    <p>Page <span id="pagenumber"></span> of <span id="pagecount"></span></p>
+    <p>Awesomeness it is</p>
+</div>
+
+<div class="content">
+    <p>This is the content</p><p>This is the content</p><p>This is the content</p>
+    <p>This is the content</p><p>This is the content</p><p>This is the content</p>
+    <p>This is the content</p><p>This is the content</p><p>This is the content</p>
+    <p>This is the content</p><p>This is the content</p><p>This is the content</p>
+    <p>This is the content</p><p>This is the content</p><p>This is the content</p>
+    <p>This is the content</p><p>This is the content</p><p>This is the content</p>
+    <p>This is the content</p><p>This is the content</p><p>This is the content</p>
+    <p>This is the content</p><p>This is the content</p><p>This is the content</p>
+    <p>This is the content</p><p>This is the content</p><p>This is the content</p>
+    <p>This is the content</p><p>This is the content</p><p>This is the content</p>
+    <p>This is the content</p><p>This is the content</p><p>This is the content</p>
+    <p>This is the content</p><p>This is the content</p><p>This is the content</p>
+    <p>This is the content</p><p>This is the content</p><p>This is the content</p>
+</div>
+
+</body>
+</html>

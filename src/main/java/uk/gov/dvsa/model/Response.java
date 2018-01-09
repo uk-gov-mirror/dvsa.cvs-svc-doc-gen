@@ -1,4 +1,4 @@
-package uk.gov.dvsa;
+package uk.gov.dvsa.model;
 
 public class Response {
 
