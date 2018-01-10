@@ -1,0 +1,17 @@
+{
+  "resource": "/certificate-generation-service",
+  "path": "/certificate-print",
+  "httpMethod": "POST",
+  "headers": null,
+  "queryStringParameters": null,
+  "pathParameters": {
+    "reportName": "CT20"
+  },
+  "requestContext": {
+    "path": "/certificate-print",
+    "resourcePath": "/certificate-print",
+    "httpMethod": "POST"
+  },
+  "body": "{\"TestNumber\": \"POC123\"}",
+  "isBase64Encoded": false
+}

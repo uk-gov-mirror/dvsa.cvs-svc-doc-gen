@@ -18,5 +18,5 @@ Resources:
         Api:
           Type: Api
           Properties:
-            Path: /pdf
-            Method: get
+            Path: /{reportName}
+            Method: post

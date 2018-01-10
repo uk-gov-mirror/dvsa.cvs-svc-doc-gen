@@ -9,6 +9,9 @@ import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import org.apache.commons.io.FileUtils;
 import org.xhtmlrenderer.pdf.ITextRenderer;
 
+import uk.gov.dvsa.errors.HttpException;
+import uk.gov.dvsa.model.Document;
+
 import java.io.*;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -18,16 +21,24 @@ import java.util.Map;
 
 public class PdfGenerator implements RequestHandler<Map<String, Object>, ApiGatewayResponse> {
 
+    private RequestParser requestParser;
+
+    public PdfGenerator() {
+        requestParser = new RequestParser();
+    }
+
     @Override
     public ApiGatewayResponse handleRequest(Map<String, Object> input, Context context) {
 
         LambdaLogger logger = context.getLogger();
         logger.log("Loading Java Lambda handler of PdfGenerator");
 
-        try{
+        try {
+            Document request = requestParser.parseRequest(input);
 
             ByteArrayOutputStream outputPdf = new ByteArrayOutputStream();
-            String html = getHtmlContent();
+            String html = getHtmlContent()
+                    .replace("YOLO", request.getDocumentName());
             ITextRenderer renderer = new ITextRenderer();
             renderer.setDocumentFromString(html);
             renderer.layout();
@@ -44,9 +55,13 @@ public class PdfGenerator implements RequestHandler<Map<String, Object>, ApiGate
                     .setHeaders(headers)
                     .build();
 
-        }
-        catch(Exception e)
-        {
+        } catch (HttpException e) {
+            logger.log(e.getMessage());
+            return ApiGatewayResponse.builder()
+                    .setStatusCode(e.getHttpCode())
+                    .setRawBody(e.getMessage())
+                    .build();
+        } catch(Exception e) {
             return ApiGatewayResponse.builder()
                     .setStatusCode(500)
                     .setRawBody(e.getMessage())
