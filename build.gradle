@@ -1,11 +1,13 @@
 plugins {
     id 'com.adarshr.test-logger' version '1.1.2'
+    id 'com.github.johnrengelman.shadow' version '2.0.2'
 }
 
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'application'
 apply plugin: "jacoco"
+apply plugin: "com.github.johnrengelman.shadow"
 
 group 'uk.dvsa.mot'
 version '1.0-SNAPSHOT'
