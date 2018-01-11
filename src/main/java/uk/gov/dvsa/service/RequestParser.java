@@ -1,9 +1,9 @@
-package uk.gov.dvsa;
+package uk.gov.dvsa.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import uk.gov.dvsa.errors.HttpException;
+import uk.gov.dvsa.model.VT30v20;
 import uk.gov.dvsa.model.Document;
-import uk.gov.dvsa.model.VT20Certificate;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -20,7 +20,7 @@ public class RequestParser {
 
     static {
         HashMap<String, Class<? extends Document>> reportsMap = new HashMap<>();
-        reportsMap.put("CT20", VT20Certificate.class);
+        reportsMap.put("VT30_v2_0", VT30v20.class);
         documents = Collections.unmodifiableMap(reportsMap);
     }
 

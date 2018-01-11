@@ -5,7 +5,7 @@
   "headers": null,
   "queryStringParameters": null,
   "pathParameters": {
-    "reportName": "CT20"
+    "reportName": "VT30_v2_0"
   },
   "requestContext": {
     "path": "/certificate-print",

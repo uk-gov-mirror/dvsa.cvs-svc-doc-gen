@@ -1,20 +1,17 @@
 package uk.gov.dvsa;
 
-import java.io.IOException;
-
-import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
-
-import org.apache.commons.io.FileUtils;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
+import com.github.jknack.handlebars.Handlebars;
 import org.xhtmlrenderer.pdf.ITextRenderer;
+import uk.gov.dvsa.model.Document;
+import uk.gov.dvsa.service.HtmlGenerator;
 
 import uk.gov.dvsa.errors.HttpException;
-import uk.gov.dvsa.model.Document;
+import uk.gov.dvsa.service.RequestParser;
 
-import java.io.*;
-import java.net.URISyntaxException;
-import java.net.URL;
+import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,9 +19,11 @@ import java.util.Map;
 public class PdfGenerator implements RequestHandler<Map<String, Object>, ApiGatewayResponse> {
 
     private RequestParser requestParser;
+    private HtmlGenerator htmlGenerator;
 
     public PdfGenerator() {
-        requestParser = new RequestParser();
+        this.requestParser = new RequestParser();
+        this.htmlGenerator = new HtmlGenerator(new Handlebars());
     }
 
     @Override
@@ -34,11 +33,10 @@ public class PdfGenerator implements RequestHandler<Map<String, Object>, ApiGate
         logger.log("Loading Java Lambda handler of PdfGenerator");
 
         try {
-            Document request = requestParser.parseRequest(input);
-
             ByteArrayOutputStream outputPdf = new ByteArrayOutputStream();
-            String html = getHtmlContent()
-                    .replace("YOLO", request.getDocumentName());
+
+            Document document = requestParser.parseRequest(input);
+            String html = htmlGenerator.generate(document.getDocumentName(), document);
             ITextRenderer renderer = new ITextRenderer();
             renderer.setDocumentFromString(html);
             renderer.layout();
@@ -70,13 +68,5 @@ public class PdfGenerator implements RequestHandler<Map<String, Object>, ApiGate
 
 
     }
-
-    private static String getHtmlContent() throws URISyntaxException, IOException {
-        URL indexUrl = PdfGenerator.class.getResource("/index3.html");
-
-        File indexContent = new File(indexUrl.toURI());
-        return FileUtils.readFileToString(indexContent, "UTF-8");  // or any other encoding
-    }
-
 
 }

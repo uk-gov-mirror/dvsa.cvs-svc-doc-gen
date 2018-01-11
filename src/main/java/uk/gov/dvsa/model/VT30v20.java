@@ -2,7 +2,7 @@ package uk.gov.dvsa.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class VT20Certificate extends Document {
+public class VT30v20 extends Document {
     @JsonProperty("dup")
     private String duplicateMode;
 
@@ -67,7 +67,7 @@ public class VT20Certificate extends Document {
         return duplicateMode;
     }
 
-    public VT20Certificate setDuplicateMode(String duplicateMode) {
+    public VT30v20 setDuplicateMode(String duplicateMode) {
         this.duplicateMode = duplicateMode;
         return this;
     }
@@ -76,7 +76,7 @@ public class VT20Certificate extends Document {
         return testNumber;
     }
 
-    public VT20Certificate setTestNumber(String testNumber) {
+    public VT30v20 setTestNumber(String testNumber) {
         this.testNumber = testNumber;
         return this;
     }
@@ -85,7 +85,7 @@ public class VT20Certificate extends Document {
         return testStation;
     }
 
-    public VT20Certificate setTestStation(String testStation) {
+    public VT30v20 setTestStation(String testStation) {
         this.testStation = testStation;
         return this;
     }
@@ -94,7 +94,7 @@ public class VT20Certificate extends Document {
         return inspectionAuthority;
     }
 
-    public VT20Certificate setInspectionAuthority(String inspectionAuthority) {
+    public VT30v20 setInspectionAuthority(String inspectionAuthority) {
         this.inspectionAuthority = inspectionAuthority;
         return this;
     }
@@ -103,7 +103,7 @@ public class VT20Certificate extends Document {
         return odometer;
     }
 
-    public VT20Certificate setOdometer(String odometer) {
+    public VT30v20 setOdometer(String odometer) {
         this.odometer = odometer;
         return this;
     }
@@ -112,7 +112,7 @@ public class VT20Certificate extends Document {
         return issuedDate;
     }
 
-    public VT20Certificate setIssuedDate(String issuedDate) {
+    public VT30v20 setIssuedDate(String issuedDate) {
         this.issuedDate = issuedDate;
         return this;
     }
@@ -121,7 +121,7 @@ public class VT20Certificate extends Document {
         return issuersName;
     }
 
-    public VT20Certificate setIssuersName(String issuersName) {
+    public VT30v20 setIssuersName(String issuersName) {
         this.issuersName = issuersName;
         return this;
     }
@@ -130,7 +130,7 @@ public class VT20Certificate extends Document {
         return vrm;
     }
 
-    public VT20Certificate setVrm(String vrm) {
+    public VT30v20 setVrm(String vrm) {
         this.vrm = vrm;
         return this;
     }
@@ -139,7 +139,7 @@ public class VT20Certificate extends Document {
         return vin;
     }
 
-    public VT20Certificate setVin(String vin) {
+    public VT30v20 setVin(String vin) {
         this.vin = vin;
         return this;
     }
@@ -148,7 +148,7 @@ public class VT20Certificate extends Document {
         return make;
     }
 
-    public VT20Certificate setMake(String make) {
+    public VT30v20 setMake(String make) {
         this.make = make;
         return this;
     }
@@ -157,7 +157,7 @@ public class VT20Certificate extends Document {
         return model;
     }
 
-    public VT20Certificate setModel(String model) {
+    public VT30v20 setModel(String model) {
         this.model = model;
         return this;
     }
@@ -166,7 +166,7 @@ public class VT20Certificate extends Document {
         return countryOfRegistration;
     }
 
-    public VT20Certificate setCountryOfRegistration(String countryOfRegistration) {
+    public VT30v20 setCountryOfRegistration(String countryOfRegistration) {
         this.countryOfRegistration = countryOfRegistration;
         return this;
     }
@@ -175,7 +175,7 @@ public class VT20Certificate extends Document {
         return testClass;
     }
 
-    public VT20Certificate setTestClass(String testClass) {
+    public VT30v20 setTestClass(String testClass) {
         this.testClass = testClass;
         return this;
     }
@@ -184,7 +184,7 @@ public class VT20Certificate extends Document {
         return colour;
     }
 
-    public VT20Certificate setColour(String colour) {
+    public VT30v20 setColour(String colour) {
         this.colour = colour;
         return this;
     }
@@ -193,7 +193,7 @@ public class VT20Certificate extends Document {
         return odometerHistory;
     }
 
-    public VT20Certificate setOdometerHistory(String odometerHistory) {
+    public VT30v20 setOdometerHistory(String odometerHistory) {
         this.odometerHistory = odometerHistory;
         return this;
     }
@@ -202,7 +202,7 @@ public class VT20Certificate extends Document {
         return firstUseDate;
     }
 
-    public VT20Certificate setFirstUseDate(String firstUseDate) {
+    public VT30v20 setFirstUseDate(String firstUseDate) {
         this.firstUseDate = firstUseDate;
         return this;
     }
@@ -211,7 +211,7 @@ public class VT20Certificate extends Document {
         return failureInformation;
     }
 
-    public VT20Certificate setFailureInformation(String failureInformation) {
+    public VT30v20 setFailureInformation(String failureInformation) {
         this.failureInformation = failureInformation;
         return this;
     }
@@ -220,7 +220,7 @@ public class VT20Certificate extends Document {
         return advisoryInformation;
     }
 
-    public VT20Certificate setAdvisoryInformation(String advisoryInformation) {
+    public VT30v20 setAdvisoryInformation(String advisoryInformation) {
         this.advisoryInformation = advisoryInformation;
         return this;
     }
@@ -229,7 +229,7 @@ public class VT20Certificate extends Document {
         return expiryDate;
     }
 
-    public VT20Certificate setExpiryDate(String expiryDate) {
+    public VT30v20 setExpiryDate(String expiryDate) {
         this.expiryDate = expiryDate;
         return this;
     }
@@ -238,7 +238,7 @@ public class VT20Certificate extends Document {
         return additionalInformation;
     }
 
-    public VT20Certificate setAdditionalInformation(String additionalInformation) {
+    public VT30v20 setAdditionalInformation(String additionalInformation) {
         this.additionalInformation = additionalInformation;
         return this;
     }
