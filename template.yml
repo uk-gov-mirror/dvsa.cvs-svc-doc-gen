@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion : '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: A hello world application.
+Parameters:
+  Bucket:
+    Type: String
+  CodeZipKey:
+    Type: String
+Resources:
+  pdf:
+    Type: AWS::Serverless::Function
+    Properties:
+      Timeout: 30
+      Handler: uk.gov.dvsa.PdfGenerator
+      Runtime: java8
+      CodeUri: ./build/libs/certificate-generation-service-1.0-SNAPSHOT-all.jar
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /pdf
+            Method: get
