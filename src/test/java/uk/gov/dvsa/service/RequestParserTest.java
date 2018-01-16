@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 import uk.gov.dvsa.model.Document;
-import uk.gov.dvsa.model.VT30v20;
+import uk.gov.dvsa.model.mot.VT30;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -22,8 +22,8 @@ public class RequestParserTest {
 
         Document document = parser.parseRequest(input);
 
-        assertThat(document.getDocumentName(), equalTo("VT30_v2_0"));
-        assertThat(((VT30v20)document).getTestNumber(), equalTo("POC123"));
+        assertThat(document.getDocumentName(), equalTo("MOT/VT30"));
+        assertThat(((VT30)document).getData().getTestNumber(), equalTo("POC123"));
     }
 
     private static Map<String, Object> readLambdaInput() throws IOException {

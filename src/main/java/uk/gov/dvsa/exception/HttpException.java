@@ -1,4 +1,4 @@
-package uk.gov.dvsa.errors;
+package uk.gov.dvsa.exception;
 
 public abstract class HttpException extends RuntimeException {
     private final int httpCode;

@@ -5,13 +5,14 @@
   "headers": null,
   "queryStringParameters": null,
   "pathParameters": {
-    "reportName": "VT30_v2_0"
+    "documentDirectory": "MOT",
+    "documentName": "VT30"
   },
   "requestContext": {
     "path": "/certificate-print",
     "resourcePath": "/certificate-print",
     "httpMethod": "POST"
   },
-  "body": "{\"TestNumber\": \"POC123\"}",
+  "body": "{\"IssuerInfo\": \"Tester1\", \"DATA\": {\"TestNumber\": \"POC123\"}}",
   "isBase64Encoded": false
 }

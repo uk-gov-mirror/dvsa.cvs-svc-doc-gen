@@ -20,9 +20,9 @@ public class HtmlGenerator {
         return template.apply(context);
     }
 
-    private Template getTemplate(String templateName) throws HtmlTemplateException {
+    private Template getTemplate(String templateName) {
         try {
-            return handlebars.compile(String.format("views/MOT/%s", templateName));
+            return handlebars.compile(String.format("views/%s", templateName));
         } catch (IOException e) {
             throw new HtmlTemplateException(e);
         }

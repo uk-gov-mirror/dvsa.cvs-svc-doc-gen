@@ -1,8 +1,9 @@
-package uk.gov.dvsa.model;
+package uk.gov.dvsa.model.mot;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import uk.gov.dvsa.model.Document;
 
-public class VT30v20 extends Document {
+public class MotCertificateData {
     @JsonProperty("dup")
     private String duplicateMode;
 
@@ -51,9 +52,6 @@ public class VT30v20 extends Document {
     @JsonProperty("FirstUseDate")
     private String firstUseDate;
 
-    @JsonProperty("FailureInformation")
-    private String failureInformation;
-
     @JsonProperty("AdvisoryInformation")
     private String advisoryInformation;
 
@@ -67,7 +65,7 @@ public class VT30v20 extends Document {
         return duplicateMode;
     }
 
-    public VT30v20 setDuplicateMode(String duplicateMode) {
+    public MotCertificateData setDuplicateMode(String duplicateMode) {
         this.duplicateMode = duplicateMode;
         return this;
     }
@@ -76,7 +74,7 @@ public class VT30v20 extends Document {
         return testNumber;
     }
 
-    public VT30v20 setTestNumber(String testNumber) {
+    public MotCertificateData setTestNumber(String testNumber) {
         this.testNumber = testNumber;
         return this;
     }
@@ -85,7 +83,7 @@ public class VT30v20 extends Document {
         return testStation;
     }
 
-    public VT30v20 setTestStation(String testStation) {
+    public MotCertificateData setTestStation(String testStation) {
         this.testStation = testStation;
         return this;
     }
@@ -94,7 +92,7 @@ public class VT30v20 extends Document {
         return inspectionAuthority;
     }
 
-    public VT30v20 setInspectionAuthority(String inspectionAuthority) {
+    public MotCertificateData setInspectionAuthority(String inspectionAuthority) {
         this.inspectionAuthority = inspectionAuthority;
         return this;
     }
@@ -103,7 +101,7 @@ public class VT30v20 extends Document {
         return odometer;
     }
 
-    public VT30v20 setOdometer(String odometer) {
+    public MotCertificateData setOdometer(String odometer) {
         this.odometer = odometer;
         return this;
     }
@@ -112,7 +110,7 @@ public class VT30v20 extends Document {
         return issuedDate;
     }
 
-    public VT30v20 setIssuedDate(String issuedDate) {
+    public MotCertificateData setIssuedDate(String issuedDate) {
         this.issuedDate = issuedDate;
         return this;
     }
@@ -121,7 +119,7 @@ public class VT30v20 extends Document {
         return issuersName;
     }
 
-    public VT30v20 setIssuersName(String issuersName) {
+    public MotCertificateData setIssuersName(String issuersName) {
         this.issuersName = issuersName;
         return this;
     }
@@ -130,7 +128,7 @@ public class VT30v20 extends Document {
         return vrm;
     }
 
-    public VT30v20 setVrm(String vrm) {
+    public MotCertificateData setVrm(String vrm) {
         this.vrm = vrm;
         return this;
     }
@@ -139,7 +137,7 @@ public class VT30v20 extends Document {
         return vin;
     }
 
-    public VT30v20 setVin(String vin) {
+    public MotCertificateData setVin(String vin) {
         this.vin = vin;
         return this;
     }
@@ -148,7 +146,7 @@ public class VT30v20 extends Document {
         return make;
     }
 
-    public VT30v20 setMake(String make) {
+    public MotCertificateData setMake(String make) {
         this.make = make;
         return this;
     }
@@ -157,7 +155,7 @@ public class VT30v20 extends Document {
         return model;
     }
 
-    public VT30v20 setModel(String model) {
+    public MotCertificateData setModel(String model) {
         this.model = model;
         return this;
     }
@@ -166,7 +164,7 @@ public class VT30v20 extends Document {
         return countryOfRegistration;
     }
 
-    public VT30v20 setCountryOfRegistration(String countryOfRegistration) {
+    public MotCertificateData setCountryOfRegistration(String countryOfRegistration) {
         this.countryOfRegistration = countryOfRegistration;
         return this;
     }
@@ -175,7 +173,7 @@ public class VT30v20 extends Document {
         return testClass;
     }
 
-    public VT30v20 setTestClass(String testClass) {
+    public MotCertificateData setTestClass(String testClass) {
         this.testClass = testClass;
         return this;
     }
@@ -184,7 +182,7 @@ public class VT30v20 extends Document {
         return colour;
     }
 
-    public VT30v20 setColour(String colour) {
+    public MotCertificateData setColour(String colour) {
         this.colour = colour;
         return this;
     }
@@ -193,7 +191,7 @@ public class VT30v20 extends Document {
         return odometerHistory;
     }
 
-    public VT30v20 setOdometerHistory(String odometerHistory) {
+    public MotCertificateData setOdometerHistory(String odometerHistory) {
         this.odometerHistory = odometerHistory;
         return this;
     }
@@ -202,17 +200,8 @@ public class VT30v20 extends Document {
         return firstUseDate;
     }
 
-    public VT30v20 setFirstUseDate(String firstUseDate) {
+    public MotCertificateData setFirstUseDate(String firstUseDate) {
         this.firstUseDate = firstUseDate;
-        return this;
-    }
-
-    public String getFailureInformation() {
-        return failureInformation;
-    }
-
-    public VT30v20 setFailureInformation(String failureInformation) {
-        this.failureInformation = failureInformation;
         return this;
     }
 
@@ -220,7 +209,7 @@ public class VT30v20 extends Document {
         return advisoryInformation;
     }
 
-    public VT30v20 setAdvisoryInformation(String advisoryInformation) {
+    public MotCertificateData setAdvisoryInformation(String advisoryInformation) {
         this.advisoryInformation = advisoryInformation;
         return this;
     }
@@ -229,7 +218,7 @@ public class VT30v20 extends Document {
         return expiryDate;
     }
 
-    public VT30v20 setExpiryDate(String expiryDate) {
+    public MotCertificateData setExpiryDate(String expiryDate) {
         this.expiryDate = expiryDate;
         return this;
     }
@@ -238,7 +227,7 @@ public class VT30v20 extends Document {
         return additionalInformation;
     }
 
-    public VT30v20 setAdditionalInformation(String additionalInformation) {
+    public MotCertificateData setAdditionalInformation(String additionalInformation) {
         this.additionalInformation = additionalInformation;
         return this;
     }
