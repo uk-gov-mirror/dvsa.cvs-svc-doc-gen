@@ -4,9 +4,9 @@ import com.github.jknack.handlebars.Handlebars;
 import htmlverification.framework.page_object.CertificatePageObject;
 import htmlverification.service.CertificateTestDataProvider;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import uk.gov.dvsa.model.mot.MotFailCertificate;
+import uk.gov.dvsa.model.mot.MotFailCertificateData;
 import uk.gov.dvsa.service.HtmlGenerator;
 
 import java.io.IOException;
@@ -35,7 +35,9 @@ public class DefectSummaryTest {
     public void verifyResultName() {
         String resultName = certificatePageObject.getDefectSummaryComponent().getResultNameItem().text();
 
-        assertEquals("Fail", resultName);
+        assertEquals(String.format("%s %s",
+                MotFailCertificateData.EU_NUMBER_SUMMARY_HEADER, MotFailCertificateData.FAILED_SUMMARY_HEADER),
+                resultName);
     }
 
     @Test
@@ -46,10 +48,23 @@ public class DefectSummaryTest {
     }
 
     @Test
-    @Ignore("Skipping test. There are no minor defects in the model yet")
     public void verifyMinorDefects() {
         List<String> minorDefects = certificatePageObject.getDefectSummaryComponent().getMinorDefects().eachText();
 
-        assertEquals(20, minorDefects.size());
+        assertEquals(5, minorDefects.size());
+    }
+
+    @Test
+    public void verifyDangerousDefects() {
+        List<String> dangerousDefects = certificatePageObject.getDefectSummaryComponent().getDangerousDefects().eachText();
+
+        assertEquals(2, dangerousDefects.size());
+    }
+
+    @Test
+    public void verifyMajorDefects() {
+        List<String> majorDefects = certificatePageObject.getDefectSummaryComponent().getMajorDefects().eachText();
+
+        assertEquals(4, majorDefects.size());
     }
 }

@@ -1,6 +1,7 @@
 package htmlverification.service;
 
 
+import htmlverification.framework.component.DefectSummaryComponent;
 import uk.gov.dvsa.model.mot.MotFailCertificateData;
 import uk.gov.dvsa.model.mot.VT30;
 
@@ -11,14 +12,28 @@ import java.util.List;
 
 public class CertificateTestDataProvider {
     public static final String VIN = "QQIDAAAAAAA058568";
+    public static final String ADVISORY_RFR_TEXT = "Advisory RFR";
+    public static final String DANGEROUS_RFR_TEXT = "Dangerous RFR";
+    public static final String MAJOR_RFR_TEXT = "Major RFR";
+    public static final String MINOR_RFR_TEXT = "Minor RFR";
 
     public static VT30 getVt30() {
         VT30 vt30 = new VT30();
         vt30.setDocumentName("MOT/VT30");
         MotFailCertificateData vt30Data = new MotFailCertificateData();
         vt30Data
-            .setEuDangerousDefects(generateRFRs("Reason for rejection", 2))
-            .setEuAdvisoryDefects(generateRFRs("Advisory", 3))
+            .setDangerousDefectsHeader(DefectSummaryComponent.DANGEROUS_DEFECTS_HEADER_TEXT)
+            .setEuDangerousDefects(generateRFRs(DANGEROUS_RFR_TEXT, 2))
+
+            .setMajorDefectsHeader(DefectSummaryComponent.MAJOR_DEFECTS_HEADER_TEXT)
+            .setEuMajorDefects(generateRFRs(MAJOR_RFR_TEXT, 4))
+
+            .setMinorDefectsHeader(DefectSummaryComponent.MINOR_DEFECTS_HEADER_TEXT)
+            .setEuMinorDefects(generateRFRs(MINOR_RFR_TEXT, 5))
+
+            .setAdvisoryDefectsHeader(DefectSummaryComponent.ADVISORIES_HEADER_TEXT)
+            .setEuAdvisoryDefects(generateRFRs(ADVISORY_RFR_TEXT, 3))
+
             .setCountryOfRegistration("GB")
             .setVin(VIN)
             .setIssuedDate("12.10.2017")
@@ -44,8 +59,12 @@ public class CertificateTestDataProvider {
         vt30WithOverflownRFRs.setDocumentName("MOT/VT30");
         MotFailCertificateData vt30WithOverflownRFRsData = new MotFailCertificateData();
         vt30WithOverflownRFRsData
-            .setEuDangerousDefects(generateRFRs("Reason for rejection", 60))
-            .setEuAdvisoryDefects(generateRFRs("Advisory", 3))
+            .setDangerousDefectsHeader(DefectSummaryComponent.DANGEROUS_DEFECTS_HEADER_TEXT)
+            .setEuDangerousDefects(generateRFRs(DANGEROUS_RFR_TEXT, 60))
+
+            .setAdvisoryDefectsHeader(DefectSummaryComponent.ADVISORIES_HEADER_TEXT)
+            .setEuAdvisoryDefects(generateRFRs(ADVISORY_RFR_TEXT, 3))
+
             .setCountryOfRegistration("GB")
             .setVin(VIN)
             .setIssuedDate("12.10.2017")

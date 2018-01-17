@@ -1,13 +1,16 @@
 package uk.gov.dvsa.model.mot;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import uk.gov.dvsa.model.mot.reasonforrejection.Advisories;
-import uk.gov.dvsa.model.mot.reasonforrejection.ReasonsForRejectionGroup;
+import uk.gov.dvsa.model.mot.defect.DefectsList;
+import uk.gov.dvsa.model.mot.defect.DefectsListsGrouped;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MotCertificateData {
+
+    public static final String EU_NUMBER_SUMMARY_HEADER = "7";
+
+    DefectsListsGrouped defects;
 
     @JsonProperty("dup")
     private String duplicateMode;
@@ -45,8 +48,14 @@ public class MotCertificateData {
     @JsonProperty("CountryOfRegistration")
     private String countryOfRegistration;
 
+    @JsonProperty("CountryOfRegistrationCode")
+    private String countryOfRegistrationCode;
+
     @JsonProperty("TestClass")
     private String testClass;
+
+    @JsonProperty("VehicleEuClassification")
+    private String vehicleEuClassification;
 
     @JsonProperty("Colour")
     private String colour;
@@ -54,11 +63,20 @@ public class MotCertificateData {
     @JsonProperty("Odometer")
     private String odometer;
 
+    @JsonProperty("OdometerUnit")
+    private String odometerUnit;
+
     @JsonProperty("OdometerHistory")
     private List<String> odometerHistory;
 
     @JsonProperty("FirstUseDate")
     private String firstUseDate;
+
+    @JsonProperty("ExpiryDate")
+    private String expiryDate;
+
+    @JsonProperty("DateOfTheTest")
+    private String dateOfTheTest;
 
     @JsonProperty("AdvisoryInformation")
     private String advisoryInformation;
@@ -66,20 +84,15 @@ public class MotCertificateData {
     @JsonProperty("EuAdvisoryDefects")
     private List<String> euAdvisoryDefects;
 
-    @JsonProperty("ExpiryDate")
-    private String expiryDate;
 
     @JsonProperty("AdditionalInformation")
     private String additionalInformation;
 
-    List<ReasonsForRejectionGroup> results;
+    @JsonProperty("AdvisoryDefectsHeader")
+    private String advisoryDefectsHeader;
 
     MotCertificateData() {
-        results = new ArrayList<>();
-    }
-
-    public List<ReasonsForRejectionGroup> getResults() {
-        return results;
+        defects = new DefectsListsGrouped();
     }
 
     public String getDuplicateMode() {
@@ -233,7 +246,8 @@ public class MotCertificateData {
 
     public MotCertificateData setEuAdvisoryDefects(List<String> euAdvisoryDefects) {
         this.euAdvisoryDefects = euAdvisoryDefects;
-        results.add(new Advisories(euAdvisoryDefects));
+        defects.setAdvisory(new DefectsList(this.advisoryDefectsHeader, euAdvisoryDefects, "6") {
+        });
         return this;
     }
 
@@ -262,5 +276,50 @@ public class MotCertificateData {
     public MotCertificateData setTestStationAddress(String testStationAddress) {
         this.testStationAddress = testStationAddress;
         return this;
+    }
+
+    public String getAdvisoryDefectsHeader() {
+        return advisoryDefectsHeader;
+    }
+
+    public MotCertificateData setAdvisoryDefectsHeader(String advisoryDefectsHeader) {
+        this.advisoryDefectsHeader = advisoryDefectsHeader;
+        return this;
+    }
+
+    public DefectsListsGrouped getDefects() {
+        return defects;
+    }
+
+    public String getOdometerUnit() {
+        return odometerUnit;
+    }
+
+    public void setOdometerUnit(String odometerUnit) {
+        this.odometerUnit = odometerUnit;
+    }
+
+    public String getDateOfTheTest() {
+        return dateOfTheTest;
+    }
+
+    public void setDateOfTheTest(String dateOfTheTest) {
+        this.dateOfTheTest = dateOfTheTest;
+    }
+
+    public String getCountryOfRegistrationCode() {
+        return countryOfRegistrationCode;
+    }
+
+    public void setCountryOfRegistrationCode(String countryOfRegistrationCode) {
+        this.countryOfRegistrationCode = countryOfRegistrationCode;
+    }
+
+    public String getVehicleEuClassification() {
+        return vehicleEuClassification;
+    }
+
+    public void setVehicleEuClassification(String vehicleEuClassification) {
+        this.vehicleEuClassification = vehicleEuClassification;
     }
 }

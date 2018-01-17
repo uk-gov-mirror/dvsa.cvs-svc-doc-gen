@@ -5,7 +5,7 @@
     <!--<link rel="stylesheet" type="text/css" href="assets/stylesheets/version-2.hbs"/>-->
     <style type="text/css" media="print, screen">
             {{~> assets/stylesheets/version-2 this}}
-        </style>
+    </style>
 </head>
 
 <body>
@@ -92,7 +92,7 @@
     <div class="header">
       <div class="header__left">
         <h1 class="header__title">
-          {{title}}
+          Refusal of MOT test certificate
         </h1>
 
         <!-- heading-info -->
@@ -269,80 +269,15 @@
     </div>
     <!-- /header -->
 
-    {{#if data.results}}
+    {{#if data.defects}}
     <!-- results -->
     <div class="results">
       <div class="results__wrapper">
-
-        {{#each data.results}}
-        <!-- results__item -->
-        <div class="results__item" id="result-item-{{@index}}">
-
-          <!-- results__heading-and-first-item -->
-          <div class="results__heading-and-first-item">
-            {{#if number}}
-            <h2 class="results__heading">
-              <span class="results__heading-left">
-                <span class="circle-text">
-                  <span class="circle-text__number">{{number}}</span>
-                </span>
-              </span>
-              {{#if icon}}
-              <span class="results__heading-right results__heading-right--has-icon">
-                <span class="results__heading-message">
-                  {{title}}
-                  <span class="results__heading-icon">
-                    <img src="{{icon}}" class="results__heading-icon-img"/>
-                  </span>
-                </span>
-              </span>
-              {{else}}
-              <span class="results__heading-right">
-                <span class="results__heading-message">
-                  {{title}}
-                </span>
-              </span>
-              {{/if}}
-            </h2>
-            {{else}}
-            <h2 class="results__heading results__heading--without-number">
-              <span class="results__heading-message">
-                {{title}}
-              </span>
-            </h2>
-            {{/if}}
-
-            <!-- results__list -->
-            {{#if firstItem}}
-            <ul class="results__list results__list--first">
-              <li class="results__list-item">
-                <span class="results__list-text">
-                  {{firstItem.failureText}}
-                </span>
-              </li>
-            </ul>
-            {{/if}}
-            <!-- /results__list -->
-          </div>
-          <!-- /results__heading-and-first-item -->
-
-          {{#if otherItems}}
-          <!-- results__list -->
-          <ul class="results__list results__list--second">
-            {{#each otherItems}}
-            <li class="results__list-item">
-              <span class="results__list-text">
-                {{failureText}}
-              </span>
-            </li>
-            {{/each}}
-          </ul>
-          <!-- /results__list -->
-          {{/if}}
-        </div>
-        <!-- /results__item -->
-        {{/each}}
-
+          {{~> views/MOT/reasonsForRejection data.defects.summary}}
+          {{~> views/MOT/reasonsForRejection data.defects.dangerous}}
+          {{~> views/MOT/reasonsForRejection data.defects.major}}
+          {{~> views/MOT/reasonsForRejection data.defects.minor}}
+          {{~> views/MOT/reasonsForRejection data.defects.advisory}}
       </div>
     </div>
     <!-- /results -->
@@ -387,7 +322,7 @@
             </span>
           </h2>
           <span class="heading-info__content heading-info__content--uppercase" id="location-of-test">
-            {{{data.testStationAddress}}}
+            {{data.testStationAddress}}
           </span>
         </div>
         <!-- /heading-info -->
@@ -407,7 +342,7 @@
             </span>
           </h2>
           <span class="heading-info__content heading-info__content--uppercase" id="organisation-and-inspection-name">
-            {{{data.inspectionAuthority}}}
+            {{{newline data.inspectionAuthority}}}
           </span>
         </div>
         <!-- /heading-info -->

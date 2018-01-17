@@ -12,7 +12,7 @@ public class HtmlGenerator {
     private Handlebars handlebars;
 
     public HtmlGenerator(Handlebars handlebars) {
-        this.handlebars = handlebars;
+        this.handlebars = registerNewlineHelper(handlebars);
     }
 
     public String generate(Document context) throws IOException {
@@ -26,5 +26,11 @@ public class HtmlGenerator {
         } catch (IOException e) {
             throw new HtmlTemplateException(e);
         }
+    }
+
+    private Handlebars registerNewlineHelper(Handlebars handlebars) {
+        return handlebars.registerHelper("newline", (context, options) ->
+                context.toString().replace("\n", "<br/>")
+        );
     }
 }
