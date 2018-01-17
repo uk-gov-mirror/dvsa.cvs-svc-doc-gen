@@ -2,6 +2,12 @@ package uk.gov.dvsa.model.mot;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import uk.gov.dvsa.model.Document;
+import uk.gov.dvsa.model.reason_for_rejection.Advisories;
+import uk.gov.dvsa.model.reason_for_rejection.DangerousDefects;
+import uk.gov.dvsa.model.reason_for_rejection.ReasonsForRejectionGroup;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MotCertificateData {
     @JsonProperty("dup")
@@ -52,14 +58,35 @@ public class MotCertificateData {
     @JsonProperty("FirstUseDate")
     private String firstUseDate;
 
+    @JsonProperty("FailureInformation")
+    private List<String> failureInformation;
+
     @JsonProperty("AdvisoryInformation")
-    private String advisoryInformation;
+    private List<String> advisoryInformation;
 
     @JsonProperty("ExpiryDate")
     private String expiryDate;
 
     @JsonProperty("AdditionalInformation")
     private String additionalInformation;
+
+    @JsonProperty("IssuerInfo")
+    private String issuerInfo;
+
+    public List<ReasonsForRejectionGroup> getResults() {
+        List<ReasonsForRejectionGroup> results = new ArrayList<>();
+
+        ReasonsForRejectionGroup advisories = new Advisories();
+        advisories.setReasonsForRejection(advisoryInformation);
+
+        ReasonsForRejectionGroup dangerous = new DangerousDefects();
+        dangerous.setReasonsForRejection(failureInformation);
+
+        results.add(advisories);
+        results.add(dangerous);
+
+        return results;
+    }
 
     public String getDuplicateMode() {
         return duplicateMode;
@@ -205,11 +232,20 @@ public class MotCertificateData {
         return this;
     }
 
-    public String getAdvisoryInformation() {
+    public List<String> getFailureInformation() {
+        return failureInformation;
+    }
+
+    public MotCertificateData setFailureInformation(List<String> failureInformation) {
+        this.failureInformation = failureInformation;
+        return this;
+    }
+
+    public List<String> getAdvisoryInformation() {
         return advisoryInformation;
     }
 
-    public MotCertificateData setAdvisoryInformation(String advisoryInformation) {
+    public MotCertificateData setAdvisoryInformation(List<String> advisoryInformation) {
         this.advisoryInformation = advisoryInformation;
         return this;
     }

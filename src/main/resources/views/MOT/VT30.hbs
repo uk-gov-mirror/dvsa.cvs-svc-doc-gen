@@ -1,418 +1,420 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
-    <head>
-        <title>{{title}}</title>
-        <!--<link rel="stylesheet" type="text/css" href="assets/stylesheets/version-2.hbs"/>-->
-        <style type="text/css" media="print, screen">
+<head>
+    <title>{{title}}</title>
+    <!--<link rel="stylesheet" type="text/css" href="assets/stylesheets/version-2.hbs"/>-->
+    <style type="text/css" media="print, screen">
             {{~> assets/stylesheets/version-2 this}}
         </style>
-    </head>
+</head>
 
-    <body>
-        <!-- footer -->
-        <div class="footer footer--first-page">
-            <div class="footer__wrapper">
-                <div class="footer__top">
-                    <h5 class="footer__top-text">
-                        Inspector’s signature
-                    </h5>
-                </div>
+<body>
+<!-- footer -->
+<!-- This duplicate one is required as it is different on the first page -->
+<div class="footer footer--first-page">
+  <div class="footer__wrapper">
+    <div class="footer__top">
+      <h5 class="footer__top-text">
+        Inspector’s signature
+      </h5>
+    </div>
 
-                <div class="footer__bottom">
-                    <div class="footer__bottom-one"></div>
+    <div class="footer__bottom">
+      <div class="footer__bottom-one"></div>
 
-                    <div class="footer__bottom-two">
-                        <div class="footer__bottom-page-counter">
+      <div class="footer__bottom-two">
+        <div class="footer__bottom-page-counter">
           <span class="footer__bottom-page-counter-text">
             Page
           </span>
-                            <span class="footer__bottom-page-counter-text footer__bottom-page-counter-text--page-number"></span>
-                            <span class="footer__bottom-page-counter-text">
+          <span class="footer__bottom-page-counter-text footer__bottom-page-counter-text--page-number"></span>
+          <span class="footer__bottom-page-counter-text">
             of
           </span>
-                            <span class="footer__bottom-page-counter-text footer__bottom-page-counter-text--pages-count"></span>
-                        </div>
-                    </div>
+          <span class="footer__bottom-page-counter-text footer__bottom-page-counter-text--pages-count"></span>
+        </div>
+      </div>
 
-                    <div class="footer__bottom-three">
+      <div class="footer__bottom-three">
         <span class="footer__bottom-light-text">
           VT30/2.0
         </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /footer -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /footer -->
 
-        <!-- footer -->
-        <div class="footer">
-            <div class="footer__wrapper">
-                <div class="footer__top">
-                    <h5 class="footer__top-text">
-                        Inspector’s signature
-                    </h5>
-                </div>
+<!-- footer -->
+<div class="footer">
+  <div class="footer__wrapper">
+    <div class="footer__top">
+      <h5 class="footer__top-text">
+        Inspector’s signature
+      </h5>
+    </div>
 
-                <div class="footer__bottom">
-                    <div class="footer__bottom-one">
+    <div class="footer__bottom">
+      <div class="footer__bottom-one">
         <span class="footer__bottom-light-text footer__bottom-light-text--vin">
           VIN: {{VIN}}
         </span>
-                    </div>
+      </div>
 
-                    <div class="footer__bottom-two">
-                        <div class="footer__bottom-page-counter">
+      <div class="footer__bottom-two">
+        <div class="footer__bottom-page-counter">
           <span class="footer__bottom-page-counter-text">
             Page
           </span>
-                            <span class="footer__bottom-page-counter-text footer__bottom-page-counter-text--page-number"></span>
-                            <span class="footer__bottom-page-counter-text">
+          <span class="footer__bottom-page-counter-text footer__bottom-page-counter-text--page-number"></span>
+          <span class="footer__bottom-page-counter-text">
             of
           </span>
-                            <span class="footer__bottom-page-counter-text footer__bottom-page-counter-text--pages-count"></span>
-                        </div>
-                    </div>
+          <span class="footer__bottom-page-counter-text footer__bottom-page-counter-text--pages-count"></span>
+        </div>
+      </div>
 
-                    <div class="footer__bottom-three">
+      <div class="footer__bottom-three">
         <span class="footer__bottom-light-text">
           VT30/2.0
         </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /footer -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /footer -->
 
-        <!-- certificate -->
-        <div class="certificate">
-            <div class="certificate__wrapper">
+<!-- certificate -->
+<div class="certificate">
+  <div class="certificate__wrapper">
 
-                <!-- header -->
-                <div class="header">
-                    <div class="header__left">
-                        <h1 class="header__title">
-                            {{title}}
-                        </h1>
+    <!-- header -->
+    <div class="header">
+      <div class="header__left">
+        <h1 class="header__title">
+          {{title}}
+        </h1>
 
-                        <!-- heading-info -->
-                        <div class="heading-info">
-                            <h2 class="heading-info__title">
+        <!-- heading-info -->
+        <div class="heading-info">
+          <h2 class="heading-info__title">
             <span class="heading-info__title-left">
               <span class="circle-text">
                 <span class="circle-text__number">1</span>
               </span>
             </span>
-                                <span class="heading-info__title-right">
+            <span class="heading-info__title-right">
               <span class="heading-info__title-message">
                 Vehicle identification number
               </span>
             </span>
-                            </h2>
-                            <span class="heading-info__content heading-info__content--uppercase" id="vin">
-                                {{VIN}}
-                            </span>
-                        </div>
-                        <!-- /heading-info -->
+          </h2>
+          <span class="heading-info__content heading-info__content--uppercase" id="vin">
+            {{VIN}}
+          </span>
+        </div>
+        <!-- /heading-info -->
 
-                        <!-- header__two-columns -->
-                        <div class="header__two-columns">
-                            <div class="header__two-columns-one">
-                                <!-- heading-info -->
-                                <div class="heading-info">
-                                    <h2 class="heading-info__title">
+        <!-- header__two-columns -->
+        <div class="header__two-columns">
+          <div class="header__two-columns-one">
+            <!-- heading-info -->
+            <div class="heading-info">
+              <h2 class="heading-info__title">
                 <span class="heading-info__title-left">
                   <span class="circle-text">
                     <span class="circle-text__number">2a</span>
                   </span>
                 </span>
-                                        <span class="heading-info__title-right">
+                <span class="heading-info__title-right">
                   <span class="heading-info__title-message">
                     Registration number
                   </span>
                 </span>
-                                    </h2>
-                                    <span class="heading-info__content heading-info__content--uppercase" id="reg-number">
-                                        {{VRM}}
-                                    </span>
-                                </div>
-                                <!-- /heading-info -->
-                            </div>
+              </h2>
+              <span class="heading-info__content heading-info__content--uppercase" id="reg-number">
+                {{regNumber}}
+              </span>
+            </div>
+            <!-- /heading-info -->
+          </div>
 
-                            <div class="header__two-columns-two">
-                                <!-- heading-info -->
-                                <div class="heading-info">
-                                    <h2 class="heading-info__title">
+          <div class="header__two-columns-two">
+            <!-- heading-info -->
+            <div class="heading-info">
+              <h2 class="heading-info__title">
                 <span class="heading-info__title-left">
                   <span class="circle-text">
                     <span class="circle-text__number">2b</span>
                   </span>
                 </span>
-                                        <span class="heading-info__title-right">
+                <span class="heading-info__title-right">
                   <span class="heading-info__title-message">
                     Country of registration
                   </span>
                 </span>
-                                    </h2>
-                                    <span class="heading-info__content heading-info__content--uppercase" id="country">
-                                        {{countryOfRegistration}}
-                                    </span>
-                                </div>
-                                <!-- /heading-info -->
-                            </div>
-                        </div>
-                        <!-- /header__two-columns -->
+              </h2>
+              <span class="heading-info__content heading-info__content--uppercase" id="country">
+                {{countryOfRegistration}}
+              </span>
+            </div>
+            <!-- /heading-info -->
+          </div>
+        </div>
+        <!-- /header__two-columns -->
 
-                        <!-- heading-info -->
-                        <div class="heading-info">
-                            <h2 class="heading-info__title">
+        <!-- heading-info -->
+        <div class="heading-info">
+          <h2 class="heading-info__title">
             <span class="heading-info__title-message">
               Make and model
             </span>
-                            </h2>
-                            <span class="heading-info__content heading-info__content--uppercase" id="make-model">
-                                {{makeModel}}
-                            </span>
-                        </div>
-                        <!-- /heading-info -->
+          </h2>
+          <span class="heading-info__content heading-info__content--uppercase" id="make-model">
+            {{makeModel}}
+          </span>
+        </div>
+        <!-- /heading-info -->
+      </div>
 
-                        <!-- header__three-columns -->
-                        <div class="header__three-columns">
-                            <div class="header__three-columns-one">
-                                <!-- heading-info -->
-                                <div class="heading-info">
-                                    <h2 class="heading-info__title">
-                <span class="heading-info__title-left">
-                  <span class="circle-text">
-                    <span class="circle-text__number">5</span>
-                  </span>
-                </span>
-                                        <span class="heading-info__title-right">
-                  <span class="heading-info__title-message">
-                    Vehicle category
-                  </span>
-                </span>
-                                    </h2>
-                                    <span class="heading-info__content heading-info__content--uppercase" id="vehicle-category">
-                                        {{vehicleCategory}}
-                                    </span>
-                                </div>
-                                <!-- /heading-info -->
-                            </div>
+      <div class="header__right">
+        {{#if crown}}
+        <img src="{{crown.logoUrl}}" alt="{{crown.imageAlt}}" class="header__logo"/>
+        {{/if}}
+      </div>
 
-                            <div class="header__three-columns-two">
-                                <!-- heading-info -->
-                                <div class="heading-info">
-                                    <h2 class="heading-info__title">
-                <span class="heading-info__title-left">
-                  <span class="circle-text">
-                    <span class="circle-text__number">4</span>
-                  </span>
-                </span>
-                                        <span class="heading-info__title-right">
-                  <span class="heading-info__title-message">
-                    Mileage
-                  </span>
-                </span>
-                                    </h2>
-                                    <span class="heading-info__content" id="mileage">
-                                        {{mileage}}
-                                    </span>
-                                </div>
-                                <!-- /heading-info -->
-                            </div>
+      <div class="clearfix"></div>
 
-                            {{#if milageHistory}}
-                                <div class="header__three-columns-three">
-                                    <!-- heading-info -->
-                                    <div class="heading-info">
-                                        <h2 class="heading-info__title">
+      <!-- header__three-columns -->
+      <div class="header__three-columns">
+        <div class="header__three-columns-one">
+          <!-- heading-info -->
+          <div class="heading-info">
+            <h2 class="heading-info__title">
+              <span class="heading-info__title-left">
+                <span class="circle-text">
+                  <span class="circle-text__number">5</span>
+                </span>
+              </span>
+              <span class="heading-info__title-right">
                 <span class="heading-info__title-message">
-                  Mileage history
+                  Vehicle category
                 </span>
-                                        </h2>
-                                        <div class="heading-info__content" id="mileage-history">
-                                            <!-- header__histories -->
-                                            <ul class="header__histories">
-                                                {{#each milageHistory}}
-                                                    <li class="header__history">
-                                                        <div class="header__history-left">
-                      <span class="header__history-mileage">
-                          {{#if mileage}}{{mileage}}{{/if}}
-                      </span>
-                                                        </div>
-                                                        <div class="header__history-right">
-                      <span class="header__history-date">
-                          {{#if mileage}}{{date}}{{/if}}
-                      </span>
-                                                        </div>
-                                                    </li>
-                                                {{/each}}
-                                            </ul>
-                                            <!-- /header__histories -->
-                                        </div>
-                                    </div>
-                                    <!-- /heading-info -->
-                                </div>
-                            {{/if}}
-                        </div>
-                        <!-- header__three-columns -->
+              </span>
+            </h2>
+            <span class="heading-info__content heading-info__content--uppercase" id="vehicle-category">
+              {{vehicleCategory}}
+            </span>
+          </div>
+          <!-- /heading-info -->
+        </div>
 
-                    </div>
+        <div class="header__three-columns-two">
+          <!-- heading-info -->
+          <div class="heading-info">
+            <h2 class="heading-info__title">
+              <span class="heading-info__title-left">
+                <span class="circle-text">
+                  <span class="circle-text__number">4</span>
+                </span>
+              </span>
+              <span class="heading-info__title-right">
+                <span class="heading-info__title-message">
+                  Mileage
+                </span>
+              </span>
+            </h2>
+            <span class="heading-info__content" id="mileage">
+              {{mileage}}
+            </span>
+          </div>
+          <!-- /heading-info -->
+        </div>
 
-                    <div class="header__right">
-                        {{#if crown}}
-                            <img src="{{crown.logoUrl}}" alt="{{crown.imageAlt}}" class="header__logo"/>
-                        {{/if}}
-                    </div>
-                </div>
-                <!-- /header -->
+        {{#if milageHistory}}
+        <div class="header__three-columns-three">
+          <!-- heading-info -->
+          <div class="heading-info">
+            <h2 class="heading-info__title">
+              <span class="heading-info__title-message">
+                Mileage history
+              </span>
+            </h2>
+            <div class="heading-info__content" id="mileage-history">
+              <!-- header__histories -->
+              <ul class="header__histories">
+                {{#each milageHistory}}
+                <li class="header__history">
+                  <div class="header__history-left">
+                    <span class="header__history-mileage">
+                      {{#if mileage}}{{mileage}}{{/if}}
+                    </span>
+                  </div>
+                  <div class="header__history-right">
+                    <span class="header__history-date">
+                      {{#if mileage}}{{date}}{{/if}}
+                    </span>
+                  </div>
+                </li>
+                {{/each}}
+              </ul>
+              <!-- /header__histories -->
+            </div>
+          </div>
+          <!-- /heading-info -->
+        </div>
+        {{/if}}
+      </div>
+      <!-- header__three-columns -->
+    </div>
+    <!-- /header -->
 
-                {{#if results}}
-                    <!-- results -->
-                    <div class="results">
-                        <div class="results__wrapper">
+    {{#if results}}
+    <!-- results -->
+    <div class="results">
+      <div class="results__wrapper">
 
-                            {{#each results}}
-                                <!-- results__item -->
-                                <div class="results__item" id="results">
+        {{#each results}}
+        <!-- results__item -->
+        <div class="results__item" id="result-item-{{@index}}">
 
-                                    <!-- results__heading-and-first-item -->
-                                    <div class="results__heading-and-first-item">
-                                        {{#if number}}
-                                            <h2 class="results__heading">
+          <!-- results__heading-and-first-item -->
+          <div class="results__heading-and-first-item">
+            {{#if number}}
+            <h2 class="results__heading">
               <span class="results__heading-left">
                 <span class="circle-text">
                   <span class="circle-text__number">{{number}}</span>
                 </span>
               </span>
-                                                {{#if icon}}
-                                                    <span class="results__heading-right results__heading-right--has-icon">
+              {{#if icon}}
+              <span class="results__heading-right results__heading-right--has-icon">
                 <span class="results__heading-message">
                   {{title}}
-                    <span class="results__heading-icon">
+                  <span class="results__heading-icon">
                     <img src="{{icon}}" class="results__heading-icon-img"/>
                   </span>
                 </span>
               </span>
-                                                {{else}}
-                                                    <span class="results__heading-right">
+              {{else}}
+              <span class="results__heading-right">
                 <span class="results__heading-message">
-                    {{title}}
-                </span>
-              </span>
-                                                {{/if}}
-                                            </h2>
-                                        {{else}}
-                                            <h2 class="results__heading results__heading--without-number">
-              <span class="results__heading-message">
                   {{title}}
-              </span>
-                                            </h2>
-                                        {{/if}}
-
-                                        <!-- results__list -->
-                                        {{#if firstItem}}
-                                            <ul class="results__list results__list--first">
-                                                <li class="results__list-item">
-                <span class="results__list-text">
-                    {{firstItem}}
                 </span>
-                                                </li>
-                                            </ul>
-                                        {{/if}}
-                                        <!-- /results__list -->
-                                    </div>
-                                    <!-- /results__heading-and-first-item -->
-
-                                    {{#if otherItems}}
-                                        <!-- results__list -->
-                                        <ul class="results__list results__list--second">
-                                            {{#each otherItems}}
-                                                <li class="results__list-item">
-              <span class="results__list-text">
-                  {{this}}
               </span>
-                                                </li>
-                                            {{/each}}
-                                        </ul>
-                                        <!-- /results__list -->
-                                    {{/if}}
-                                </div>
-                                <!-- /results__item -->
-                            {{/each}}
+              {{/if}}
+            </h2>
+            {{else}}
+            <h2 class="results__heading results__heading--without-number">
+              <span class="results__heading-message">
+                {{title}}
+              </span>
+            </h2>
+            {{/if}}
 
-                        </div>
-                    </div>
-                    <!-- /results -->
-                {{/if}}
+            <!-- results__list -->
+            {{#if firstItem}}
+            <ul class="results__list results__list--first">
+              <li class="results__list-item">
+                <span class="results__list-text">
+                  {{firstItem}}
+                </span>
+              </li>
+            </ul>
+            {{/if}}
+            <!-- /results__list -->
+          </div>
+          <!-- /results__heading-and-first-item -->
 
-                <!-- test-information -->
-                <div class="test-information">
-                    <div class="test-information__wrapper">
+          {{#if reasonsForRejection}}
+          <!-- results__list -->
+          <ul class="results__list results__list--second">
+            {{#each reasonsForRejection}}
+            <li class="results__list-item">
+              <span class="results__list-text">
+                {{failureText}}
+              </span>
+            </li>
+            {{/each}}
+          </ul>
+          <!-- /results__list -->
+          {{/if}}
+        </div>
+        <!-- /results__item -->
+        {{/each}}
 
-                        <!-- heading-info -->
-                        <div class="heading-info">
-                            <h2 class="heading-info__title">
+      </div>
+    </div>
+    <!-- /results -->
+    {{/if}}
+
+    <!-- test-information -->
+    <div class="test-information">
+      <div class="test-information__wrapper">
+
+        <!-- heading-info -->
+        <div class="heading-info">
+          <h2 class="heading-info__title">
             <span class="heading-info__title-left">
               <span class="circle-text">
                 <span class="circle-text__number">3b</span>
               </span>
             </span>
-                                <span class="heading-info__title-right">
+            <span class="heading-info__title-right">
               <span class="heading-info__title-message">
                 Date of the test
               </span>
             </span>
-                            </h2>
-                            <span class="heading-info__content heading-info__content--uppercase" id="date-of-test">
-                                {{dateOfTest}}
-                            </span>
-                        </div>
-                        <!-- /heading-info -->
+          </h2>
+          <span class="heading-info__content heading-info__content--uppercase" id="date-of-test">
+            {{dateOfTest}}
+          </span>
+        </div>
+        <!-- /heading-info -->
 
-                        <!-- heading-info -->
-                        <div class="heading-info">
-                            <h2 class="heading-info__title">
+        <!-- heading-info -->
+        <div class="heading-info">
+          <h2 class="heading-info__title">
             <span class="heading-info__title-left">
               <span class="circle-text">
                 <span class="circle-text__number">3a</span>
               </span>
             </span>
-                                <span class="heading-info__title-right">
+            <span class="heading-info__title-right">
               <span class="heading-info__title-message">
                 Location of the test
               </span>
             </span>
-                            </h2>
-                            <span class="heading-info__content heading-info__content--uppercase" id="location-of-test">
-                                {{{locationOfTest}}}
-                            </span>
-                        </div>
-                        <!-- /heading-info -->
+          </h2>
+          <span class="heading-info__content heading-info__content--uppercase" id="location-of-test">
+            {{{locationOfTest}}}
+          </span>
+        </div>
+        <!-- /heading-info -->
 
-                        <!-- heading-info -->
-                        <div class="heading-info">
-                            <h2 class="heading-info__title">
+        <!-- heading-info -->
+        <div class="heading-info">
+          <h2 class="heading-info__title">
             <span class="heading-info__title-left">
               <span class="circle-text">
                 <span class="circle-text__number">9</span>
               </span>
             </span>
-                                <span class="heading-info__title-right">
+            <span class="heading-info__title-right">
               <span class="heading-info__title-message">
                 Testing organisation and inspector’s name
               </span>
             </span>
-                            </h2>
-                            <span class="heading-info__content heading-info__content--uppercase" id="organisation-and-inspection-name">
-                                {{{organisationAndInspectorName}}}
-                            </span>
-                        </div>
-                        <!-- /heading-info -->
+          </h2>
+          <span class="heading-info__content heading-info__content--uppercase" id="organisation-and-inspection-name">
+            {{{organisationAndInspectorName}}}
+          </span>
+        </div>
+        <!-- /heading-info -->
 
-                        <!-- heading-info -->
-                        <div class="heading-info">
-                            <h2 class="heading-info__title">
+        <!-- heading-info -->
+        <div class="heading-info">
+          <h2 class="heading-info__title">
             <span class="heading-info__title-message">
               MOT test number
             </span>
@@ -423,24 +425,24 @@
                         </div>
                         <!-- /heading-info -->
 
-                        <p class="test-information__message test-information__message--limit-width">
-                            To find out about retests, or if you disagree with the test result, see the fees and appeals poster at the vehicle testing station. Alternatively, visit <a class="test-information__message-link" href="www.gov.uk/getting-an-mot">www.gov.uk/getting-an-mot</a>
-                        </p>
+        <p class="test-information__message test-information__message--limit-width">
+          To find out about retests, or if you disagree with the test result, see the fees and appeals poster at the vehicle testing station. Alternatively, visit <a class="test-information__message-link" href="www.gov.uk/getting-an-mot">www.gov.uk/getting-an-mot</a>
+        </p>
 
-                        <p class="test-information__message">
-                            If any of the details are not correct, please contact DVSA by email at <br/><a class="test-information__message-link" href="mailto:enquires@dvsa.gov.uk">enquires@dvsa.gov.uk</a> or by telephone on 0300 1239000.
-                        </p>
+        <p class="test-information__message">
+          If any of the details are not correct, please contact DVSA by email at <br/><a class="test-information__message-link" href="mailto:enquires@dvsa.gov.uk">enquires@dvsa.gov.uk</a> or by telephone on 0300 1239000.
+        </p>
 
-                        <p class="test-information__message">
-                            Find out about the vehicle’s MOT history at <a class="test-information__message-link" href="www.gov.uk/mot-history">www.gov.uk/mot-history</a>
-                        </p>
+        <p class="test-information__message">
+          Find out about the vehicle’s MOT history at <a class="test-information__message-link" href="www.gov.uk/mot-history">www.gov.uk/mot-history</a>
+        </p>
 
-                    </div>
-                </div>
-                <!-- /test-information -->
+      </div>
+    </div>
+    <!-- /test-information -->
 
-            </div>
-        </div>
-        <!-- /certificate -->
-    </body>
+  </div>
+</div>
+<!-- /certificate -->
+</body>
 </html>
