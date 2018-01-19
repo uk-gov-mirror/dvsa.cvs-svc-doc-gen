@@ -12,7 +12,7 @@ public abstract class MotCertificate extends Document {
     private String issuerInfo;
 
     @JsonProperty("DATA")
-    private MotCertificateData data;
+    protected MotCertificateData data;
 
     public String getId() {
         return id;
@@ -36,7 +36,7 @@ public abstract class MotCertificate extends Document {
         return data;
     }
 
-    public MotCertificate setData(MotCertificateData data) {
+    public Document setData(MotCertificateData data) {
         this.data = data;
         return this;
     }

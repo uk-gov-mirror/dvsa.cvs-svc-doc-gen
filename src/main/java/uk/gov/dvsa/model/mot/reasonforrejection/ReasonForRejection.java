@@ -1,4 +1,5 @@
-package uk.gov.dvsa.model.reason_for_rejection;
+package uk.gov.dvsa.model.mot.reasonforrejection;
+
 
 public class ReasonForRejection {
     private String testItemSelectorDescription;
@@ -17,7 +18,7 @@ public class ReasonForRejection {
     }
 
     public String getFailureText() {
-        return "[TODO] " + failureText;
+        return failureText;
     }
 
     public void setFailureText(String failureText) {

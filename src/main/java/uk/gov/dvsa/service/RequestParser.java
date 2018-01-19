@@ -2,8 +2,8 @@ package uk.gov.dvsa.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import uk.gov.dvsa.exception.HttpException;
-import uk.gov.dvsa.model.mot.VT30;
 import uk.gov.dvsa.model.Document;
+import uk.gov.dvsa.model.mot.VT30;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -36,7 +36,7 @@ public class RequestParser {
             document.setDocumentName(documentName);
             return document;
         } catch (IOException e) {
-            throw new HttpException.BadRequestException("Error parsing parameters", e);
+            throw new HttpException.BadRequestException("Error parsing parameters: " + e.getMessage());
         }
     }
 

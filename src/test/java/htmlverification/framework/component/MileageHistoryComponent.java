@@ -1,4 +1,4 @@
-package html_verification.framework.component;
+package htmlverification.framework.component;
 
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;

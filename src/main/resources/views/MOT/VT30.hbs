@@ -57,7 +57,7 @@
     <div class="footer__bottom">
       <div class="footer__bottom-one">
         <span class="footer__bottom-light-text footer__bottom-light-text--vin">
-          VIN: {{VIN}}
+          VIN: {{data.vin}}
         </span>
       </div>
 
@@ -110,7 +110,7 @@
             </span>
           </h2>
           <span class="heading-info__content heading-info__content--uppercase" id="vin">
-            {{VIN}}
+            {{data.vin}}
           </span>
         </div>
         <!-- /heading-info -->
@@ -133,7 +133,7 @@
                 </span>
               </h2>
               <span class="heading-info__content heading-info__content--uppercase" id="reg-number">
-                {{regNumber}}
+                {{data.vrm}}
               </span>
             </div>
             <!-- /heading-info -->
@@ -155,7 +155,7 @@
                 </span>
               </h2>
               <span class="heading-info__content heading-info__content--uppercase" id="country">
-                {{countryOfRegistration}}
+                {{data.countryOfRegistration}}
               </span>
             </div>
             <!-- /heading-info -->
@@ -171,15 +171,15 @@
             </span>
           </h2>
           <span class="heading-info__content heading-info__content--uppercase" id="make-model">
-            {{makeModel}}
+            {{data.make}} {{data.model}}
           </span>
         </div>
         <!-- /heading-info -->
       </div>
 
       <div class="header__right">
-        {{#if crown}}
-        <img src="{{crown.logoUrl}}" alt="{{crown.imageAlt}}" class="header__logo"/>
+        {{#if crownLogoUrl}}
+        <img src="{{crownLogoUrl}}" alt="{{crownImageAlt}}" class="header__logo"/>
         {{/if}}
       </div>
 
@@ -203,7 +203,7 @@
               </span>
             </h2>
             <span class="heading-info__content heading-info__content--uppercase" id="vehicle-category">
-              {{vehicleCategory}}
+              {{data.testClass}}
             </span>
           </div>
           <!-- /heading-info -->
@@ -225,13 +225,13 @@
               </span>
             </h2>
             <span class="heading-info__content" id="mileage">
-              {{mileage}}
+              {{data.odometer}}
             </span>
           </div>
           <!-- /heading-info -->
         </div>
 
-        {{#if milageHistory}}
+        {{#if data.odometerHistory}}
         <div class="header__three-columns-three">
           <!-- heading-info -->
           <div class="heading-info">
@@ -243,16 +243,16 @@
             <div class="heading-info__content" id="mileage-history">
               <!-- header__histories -->
               <ul class="header__histories">
-                {{#each milageHistory}}
+                {{#each data.odometerHistory}}
                 <li class="header__history">
                   <div class="header__history-left">
                     <span class="header__history-mileage">
-                      {{#if mileage}}{{mileage}}{{/if}}
+                      {{#if data.odometer}}{{data.odometer}}{{/if}}
                     </span>
                   </div>
                   <div class="header__history-right">
                     <span class="header__history-date">
-                      {{#if mileage}}{{date}}{{/if}}
+                      {{#if data.odometer}}{{data.date}}{{/if}}
                     </span>
                   </div>
                 </li>
@@ -269,12 +269,12 @@
     </div>
     <!-- /header -->
 
-    {{#if results}}
+    {{#if data.results}}
     <!-- results -->
     <div class="results">
       <div class="results__wrapper">
 
-        {{#each results}}
+        {{#each data.results}}
         <!-- results__item -->
         <div class="results__item" id="result-item-{{@index}}">
 
@@ -317,7 +317,7 @@
             <ul class="results__list results__list--first">
               <li class="results__list-item">
                 <span class="results__list-text">
-                  {{firstItem}}
+                  {{firstItem.failureText}}
                 </span>
               </li>
             </ul>
@@ -326,10 +326,10 @@
           </div>
           <!-- /results__heading-and-first-item -->
 
-          {{#if reasonsForRejection}}
+          {{#if otherItems}}
           <!-- results__list -->
           <ul class="results__list results__list--second">
-            {{#each reasonsForRejection}}
+            {{#each otherItems}}
             <li class="results__list-item">
               <span class="results__list-text">
                 {{failureText}}
@@ -367,7 +367,7 @@
             </span>
           </h2>
           <span class="heading-info__content heading-info__content--uppercase" id="date-of-test">
-            {{dateOfTest}}
+            {{data.issuedDate}}
           </span>
         </div>
         <!-- /heading-info -->
@@ -387,7 +387,7 @@
             </span>
           </h2>
           <span class="heading-info__content heading-info__content--uppercase" id="location-of-test">
-            {{{locationOfTest}}}
+            {{{data.testStationAddress}}}
           </span>
         </div>
         <!-- /heading-info -->
@@ -407,7 +407,7 @@
             </span>
           </h2>
           <span class="heading-info__content heading-info__content--uppercase" id="organisation-and-inspection-name">
-            {{{organisationAndInspectorName}}}
+            {{{data.inspectionAuthority}}}
           </span>
         </div>
         <!-- /heading-info -->
@@ -418,12 +418,12 @@
             <span class="heading-info__title-message">
               MOT test number
             </span>
-                            </h2>
-                            <span class="heading-info__content heading-info__content--uppercase" id="mot-test-number">
-                                {{data.testNumber}}
-                            </span>
-                        </div>
-                        <!-- /heading-info -->
+          </h2>
+          <span class="heading-info__content heading-info__content--uppercase" id="mot-test-number">
+            {{data.testNumber}}
+          </span>
+        </div>
+        <!-- /heading-info -->
 
         <p class="test-information__message test-information__message--limit-width">
           To find out about retests, or if you disagree with the test result, see the fees and appeals poster at the vehicle testing station. Alternatively, visit <a class="test-information__message-link" href="www.gov.uk/getting-an-mot">www.gov.uk/getting-an-mot</a>

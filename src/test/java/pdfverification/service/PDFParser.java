@@ -1,4 +1,4 @@
-package pdf_verification.service;
+package pdfverification.service;
 
 import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.parser.PdfTextExtractor;

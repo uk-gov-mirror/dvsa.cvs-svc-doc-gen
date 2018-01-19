@@ -34,7 +34,7 @@ public class PdfGenerator implements RequestHandler<Map<String, Object>, ApiGate
 
         try {
             Document document = requestParser.parseRequest(input);
-            String html = htmlGenerator.generate(document.getDocumentName(), document);
+            String html = htmlGenerator.generate(document);
             byte [] binaryBody = new PDFGenerationService(new ITextRenderer()).generate(html);
 
             Map<String, String> headers = new HashMap<>();
