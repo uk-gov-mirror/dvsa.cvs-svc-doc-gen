@@ -1,22 +1,30 @@
 package uk.gov.dvsa;
 
-import java.io.IOException;
-
-import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
-
-import org.apache.commons.io.FileUtils;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
+import com.github.jknack.handlebars.Handlebars;
 import org.xhtmlrenderer.pdf.ITextRenderer;
+import uk.gov.dvsa.exception.HttpException;
+import uk.gov.dvsa.model.Document;
+import uk.gov.dvsa.model.ApiGatewayResponse;
+import uk.gov.dvsa.service.HtmlGenerator;
+import uk.gov.dvsa.service.PDFGenerationService;
+import uk.gov.dvsa.service.RequestParser;
 
-import java.io.*;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
 
 public class PdfGenerator implements RequestHandler<Map<String, Object>, ApiGatewayResponse> {
+
+    private RequestParser requestParser;
+    private HtmlGenerator htmlGenerator;
+
+    public PdfGenerator() {
+        this.requestParser = new RequestParser();
+        this.htmlGenerator = new HtmlGenerator(new Handlebars());
+    }
 
     @Override
     public ApiGatewayResponse handleRequest(Map<String, Object> input, Context context) {
@@ -24,29 +32,27 @@ public class PdfGenerator implements RequestHandler<Map<String, Object>, ApiGate
         LambdaLogger logger = context.getLogger();
         logger.log("Loading Java Lambda handler of PdfGenerator");
 
-        try{
-
-            ByteArrayOutputStream outputPdf = new ByteArrayOutputStream();
-            String html = getHtmlContent();
-            ITextRenderer renderer = new ITextRenderer();
-            renderer.setDocumentFromString(html);
-            renderer.layout();
-            renderer.createPDF(outputPdf);
-
-            byte [] binaryBody = outputPdf.toByteArray();
+        try {
+            Document document = requestParser.parseRequest(input);
+            String html = htmlGenerator.generate(document.getDocumentName(), document);
+            byte [] binaryBody = new PDFGenerationService(new ITextRenderer()).generate(html);
 
             Map<String, String> headers = new HashMap<>();
 
-            headers.put("Content-Type", "application/json");
+            headers.put("Content-Type", "text/plain");
             return ApiGatewayResponse.builder()
                     .setStatusCode(200)
                     .setBinaryBody(binaryBody)
                     .setHeaders(headers)
                     .build();
 
-        }
-        catch(Exception e)
-        {
+        } catch (HttpException e) {
+            logger.log(e.getMessage());
+            return ApiGatewayResponse.builder()
+                    .setStatusCode(e.getHttpCode())
+                    .setRawBody(e.getMessage())
+                    .build();
+        } catch(Exception e) {
             return ApiGatewayResponse.builder()
                     .setStatusCode(500)
                     .setRawBody(e.getMessage())
@@ -55,13 +61,5 @@ public class PdfGenerator implements RequestHandler<Map<String, Object>, ApiGate
 
 
     }
-
-    private static String getHtmlContent() throws URISyntaxException, IOException {
-        URL indexUrl = PdfGenerator.class.getResource("/index3.html");
-
-        File indexContent = new File(indexUrl.toURI());
-        return FileUtils.readFileToString(indexContent, "UTF-8");  // or any other encoding
-    }
-
 
 }
