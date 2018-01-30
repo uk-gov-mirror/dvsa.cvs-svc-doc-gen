@@ -1,6 +1,11 @@
 package uk.gov.dvsa.model.mot;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import uk.gov.dvsa.model.mot.reasonforrejection.DangerousDefects;
+import uk.gov.dvsa.model.mot.reasonforrejection.FailedSummaryHeader;
+import uk.gov.dvsa.model.mot.reasonforrejection.ReasonsForRejectionGroup;
+
+import java.util.List;
 
 public class MotFailCertificateData extends MotCertificateData {
 
@@ -13,12 +18,21 @@ public class MotFailCertificateData extends MotCertificateData {
     @JsonProperty("ReasonForCancelComment")
     private String reasonForCancelComment;
 
-    public String getFailureInformation() {
-        return failureInformation;
+    @JsonProperty("EuDangerousDefects")
+    private List<String> euDangerousDefects;
+
+    public MotFailCertificateData() {
+        results.add(new FailedSummaryHeader());
     }
 
     public MotFailCertificateData setFailureInformation(String failureInformation) {
         this.failureInformation = failureInformation;
+        return this;
+    }
+
+    public MotFailCertificateData setEuDangerousDefects(List<String> euDangerousDefects) {
+        super.results.add(new DangerousDefects(euDangerousDefects));
+        this.euDangerousDefects = euDangerousDefects;
         return this;
     }
 
@@ -38,5 +52,10 @@ public class MotFailCertificateData extends MotCertificateData {
     public MotFailCertificateData setReasonForCancelComment(String reasonForCancelComment) {
         this.reasonForCancelComment = reasonForCancelComment;
         return this;
+    }
+
+    @Override
+    public List<ReasonsForRejectionGroup> getResults() {
+        return super.getResults();
     }
 }

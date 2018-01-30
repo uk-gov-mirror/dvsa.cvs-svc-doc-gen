@@ -29,9 +29,9 @@ public class RequestParserTest {
     private static Map<String, Object> readLambdaInput() throws IOException {
         return new ObjectMapper()
                 .readValue(
-                        RequestParserTest.class.getResource("/lambdaInput.json"),
+                    RequestParserTest.class.getResource("/lambdaInput.json"),
                         new TypeReference<HashMap<String, Object>>() {
-                        }
+                    }
                 );
     }
 }

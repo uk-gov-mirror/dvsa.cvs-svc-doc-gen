@@ -15,8 +15,8 @@ public class HtmlGenerator {
         this.handlebars = handlebars;
     }
 
-    public String generate(String documentName, Document context) throws IOException {
-        Template template = getTemplate(documentName);
+    public String generate(Document context) throws IOException {
+        Template template = getTemplate(context.getDocumentName());
         return template.apply(context);
     }
 

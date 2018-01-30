@@ -1,9 +1,14 @@
 package uk.gov.dvsa.model.mot;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import uk.gov.dvsa.model.Document;
+import uk.gov.dvsa.model.mot.reasonforrejection.Advisories;
+import uk.gov.dvsa.model.mot.reasonforrejection.ReasonsForRejectionGroup;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MotCertificateData {
+
     @JsonProperty("dup")
     private String duplicateMode;
 
@@ -13,11 +18,11 @@ public class MotCertificateData {
     @JsonProperty("TestStation")
     private String testStation;
 
+    @JsonProperty("TestStationAddress")
+    private String testStationAddress;
+
     @JsonProperty("InspectionAuthority")
     private String inspectionAuthority;
-
-    @JsonProperty("Odometer")
-    private String odometer;
 
     @JsonProperty("IssuedDate")
     private String issuedDate;
@@ -46,8 +51,11 @@ public class MotCertificateData {
     @JsonProperty("Colour")
     private String colour;
 
+    @JsonProperty("Odometer")
+    private String odometer;
+
     @JsonProperty("OdometerHistory")
-    private String odometerHistory;
+    private List<String> odometerHistory;
 
     @JsonProperty("FirstUseDate")
     private String firstUseDate;
@@ -55,11 +63,24 @@ public class MotCertificateData {
     @JsonProperty("AdvisoryInformation")
     private String advisoryInformation;
 
+    @JsonProperty("EuAdvisoryDefects")
+    private List<String> euAdvisoryDefects;
+
     @JsonProperty("ExpiryDate")
     private String expiryDate;
 
     @JsonProperty("AdditionalInformation")
     private String additionalInformation;
+
+    List<ReasonsForRejectionGroup> results;
+
+    MotCertificateData() {
+        results = new ArrayList<>();
+    }
+
+    public List<ReasonsForRejectionGroup> getResults() {
+        return results;
+    }
 
     public String getDuplicateMode() {
         return duplicateMode;
@@ -187,11 +208,11 @@ public class MotCertificateData {
         return this;
     }
 
-    public String getOdometerHistory() {
+    public List<String> getOdometerHistory() {
         return odometerHistory;
     }
 
-    public MotCertificateData setOdometerHistory(String odometerHistory) {
+    public MotCertificateData setOdometerHistory(List<String> odometerHistory) {
         this.odometerHistory = odometerHistory;
         return this;
     }
@@ -205,12 +226,14 @@ public class MotCertificateData {
         return this;
     }
 
-    public String getAdvisoryInformation() {
-        return advisoryInformation;
-    }
-
     public MotCertificateData setAdvisoryInformation(String advisoryInformation) {
         this.advisoryInformation = advisoryInformation;
+        return this;
+    }
+
+    public MotCertificateData setEuAdvisoryDefects(List<String> euAdvisoryDefects) {
+        this.euAdvisoryDefects = euAdvisoryDefects;
+        results.add(new Advisories(euAdvisoryDefects));
         return this;
     }
 
@@ -229,6 +252,15 @@ public class MotCertificateData {
 
     public MotCertificateData setAdditionalInformation(String additionalInformation) {
         this.additionalInformation = additionalInformation;
+        return this;
+    }
+
+    public String getTestStationAddress() {
+        return testStationAddress;
+    }
+
+    public MotCertificateData setTestStationAddress(String testStationAddress) {
+        this.testStationAddress = testStationAddress;
         return this;
     }
 }
