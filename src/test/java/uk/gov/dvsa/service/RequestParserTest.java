@@ -7,6 +7,7 @@ import uk.gov.dvsa.model.Document;
 import uk.gov.dvsa.model.mot.VT30;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,6 +25,7 @@ public class RequestParserTest {
 
         assertThat(document.getDocumentName(), equalTo("MOT/VT30"));
         assertThat(((VT30)document).getData().getTestNumber(), equalTo("POC123"));
+        assertThat(((VT30)document).getData().getDateOfTheTest(), equalTo(LocalDate.of(2017, 11, 20)));
     }
 
     private static Map<String, Object> readLambdaInput() throws IOException {

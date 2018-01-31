@@ -51,13 +51,12 @@ public class CommonCertificatesTest {
                 (htmlElement, expectedValue) -> {
                     String actualText = certificatePageObject.getTextOf(htmlElement);
 
-                    assertEquals(expectedValue, actualText);
+                    assertEquals(htmlElement, expectedValue, actualText);
                 }
         );
     }
 
     @Test
-    @Ignore("Skipping test. Logo needs to be added in a story related to a particular certificate")
     public void verifyDVSALogoIsLinked() {
         Element dvsaLogoElement = certificatePageObject.getElement(CertificatePageSelector.DVSA_LOGO_SELECTOR.getSelector());
 
@@ -74,20 +73,20 @@ public class CommonCertificatesTest {
     private Map<String, String> getExpectedValues() {
         Map<String, String> expectedValues = new HashMap<>();
 
-        expectedValues.put(CertificatePageSelector.VIN_ID.getSelector(), testCertificate.getData().getVin());
-        expectedValues.put(CertificatePageSelector.REGISTRATION_NUMBER_ID.getSelector(), testCertificate.getData().getVrm());
-        expectedValues.put(CertificatePageSelector.COUNTRY_ID.getSelector(), testCertificate.getData().getCountryOfRegistration());
+        expectedValues.put(CertificatePageSelector.VIN_ID.getSelector(), testCertificate.getData().getRawVin());
+        expectedValues.put(CertificatePageSelector.REGISTRATION_NUMBER_ID.getSelector(), testCertificate.getData().getRawVrm());
+        expectedValues.put(CertificatePageSelector.COUNTRY_ID.getSelector(), testCertificate.getData().getCountryOfRegistrationCode());
         expectedValues.put(CertificatePageSelector.MAKE_AND_MODEL_ID.getSelector(), testCertificate.getData().getMake());
         expectedValues.put(
             CertificatePageSelector.MAKE_AND_MODEL_ID.getSelector(),
             String.format("%s %s", testCertificate.getData().getMake(), testCertificate.getData().getModel())
         );
-        expectedValues.put(CertificatePageSelector.VEHICLE_CATEGORY_ID.getSelector(), testCertificate.getData().getTestClass());
+        expectedValues.put(CertificatePageSelector.VEHICLE_CATEGORY_ID.getSelector(), testCertificate.getData().getVehicleEuClassification());
         expectedValues.put(CertificatePageSelector.MILEAGE_ID.getSelector(), testCertificate.getData().getOdometer());
         expectedValues.put(CertificatePageSelector.DATE_OF_THE_TEST_ID.getSelector(), testCertificate.getData().getIssuedDate());
         expectedValues.put(CertificatePageSelector.LOCATION_OF_THE_TEST_ID.getSelector(), testCertificate.getData().getTestStationAddress());
         expectedValues.put(CertificatePageSelector.TESTING_ORG_AND_INSP_NAME_ID.getSelector(), testCertificate.getData().getInspectionAuthority());
-        expectedValues.put(CertificatePageSelector.MOT_TEST_NUMBER_ID.getSelector(), testCertificate.getData().getTestNumber());
+        expectedValues.put(CertificatePageSelector.MOT_TEST_NUMBER_ID.getSelector(), "1806 8140 0628");
 
         return expectedValues;
     }

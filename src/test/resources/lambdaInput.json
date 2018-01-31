@@ -13,6 +13,6 @@
     "resourcePath": "/certificate-print",
     "httpMethod": "POST"
   },
-  "body": "{\"IssuerInfo\": \"Tester1\", \"DATA\": {\"TestNumber\": \"POC123\"}}",
+  "body": "{\"IssuerInfo\": \"Tester1\", \"DATA\": {\"TestNumber\": \"POC123\", \"DateOfTheTest\": \"2017-11-20\"}}",
   "isBase64Encoded": false
 }

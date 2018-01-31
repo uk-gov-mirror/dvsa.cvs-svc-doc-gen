@@ -1,15 +1,22 @@
 package uk.gov.dvsa.model.mot;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import uk.gov.dvsa.model.mot.defect.DefectsList;
-import uk.gov.dvsa.model.mot.defect.DefectsListsGrouped;
+import uk.gov.dvsa.model.mot.results.DefectsList;
+import uk.gov.dvsa.model.mot.results.DefectsListsGrouped;
 
 import java.util.List;
+
+import static uk.gov.dvsa.model.mot.results.Summary.EU_NUMBER_SUMMARY_HEADER;
 
 public class MotFailCertificateData extends MotCertificateData {
 
     public static final String FAILED_SUMMARY_HEADER = "Fail"; // header displayed above other lists of RFRs
-    public static final String EU_NUMBER_FOR_DEFECTS = "6";
+    private static final String DANGEROUS_DEFECTS_HEADER = "Do not drive until repaired (dangerous defects)";
+    private static final String MAJOR_DEFECTS_HEADER = "Repair immediately (major defects)";
+
+    public List<String> getNoticeInformationOnRejection() {
+        return noticeInformationOnRejection;
+    }
 
     @JsonProperty("FailureInformation")
     private String failureInformation;
@@ -26,18 +33,14 @@ public class MotFailCertificateData extends MotCertificateData {
     @JsonProperty("MajorDefectsHeader")
     private String majorDefectsHeader;
 
-    @JsonProperty("MinorDefectsHeader")
-    private String minorDefectsHeader;
+    @JsonProperty("NoticeInformationOnRejection")
+    private List<String> noticeInformationOnRejection;
 
-    @JsonProperty("EuDangerousDefects")
-    private List<String> euDangerousDefects;
+    @JsonProperty("DangerousDefects")
+    private String oldDangerousDefects;
 
-    @JsonProperty("EuMajorDefects")
-    private List<String> euMajorDefects;
-
-    @JsonProperty("EuMinorDefects")
-    private List<String> euMinorDefects;
-
+    @JsonProperty("MajorDefects")
+    private String oldMajorDefects;
 
     public MotFailCertificateData() {
         super.defects.setSummary(new DefectsList(FAILED_SUMMARY_HEADER, EU_NUMBER_SUMMARY_HEADER));
@@ -53,21 +56,17 @@ public class MotFailCertificateData extends MotCertificateData {
         return this;
     }
 
+    @JsonProperty("EuDangerousDefects")
     public MotFailCertificateData setEuDangerousDefects(List<String> euDangerousDefects) {
-        super.defects.setDangerous(new DefectsList(getDangerousDefectsHeader(), euDangerousDefects, EU_NUMBER_FOR_DEFECTS));
-        this.euDangerousDefects = euDangerousDefects;
+        DefectsList dangerousDefects = new DefectsList(DANGEROUS_DEFECTS_HEADER, euDangerousDefects, EU_NUMBER_FOR_DEFECTS);
+        dangerousDefects.setIconSrc("assets/images/exclamation-mark.png");
+        super.defects.setDangerous(dangerousDefects);
         return this;
     }
 
+    @JsonProperty("EuMajorDefects")
     public MotFailCertificateData setEuMajorDefects(List<String> euMajorDefects) {
-        super.defects.setMajor(new DefectsList(getMajorDefectsHeader(), euMajorDefects, EU_NUMBER_FOR_DEFECTS));
-        this.euMajorDefects = euMajorDefects;
-        return this;
-    }
-
-    public MotFailCertificateData setEuMinorDefects(List<String> euMinorDefects) {
-        super.defects.setMinor(new DefectsList(getMinorDefectsHeader(), euMinorDefects, EU_NUMBER_FOR_DEFECTS));
-        this.euMajorDefects = euMinorDefects;
+        super.defects.setMajor(new DefectsList(MAJOR_DEFECTS_HEADER, euMajorDefects, EU_NUMBER_FOR_DEFECTS));
         return this;
     }
 
@@ -107,12 +106,13 @@ public class MotFailCertificateData extends MotCertificateData {
         return this;
     }
 
-    public String getMinorDefectsHeader() {
-        return minorDefectsHeader;
+    public MotFailCertificateData setOldDangerousDefects(String oldDangerousDefects) {
+        this.oldDangerousDefects = oldDangerousDefects;
+        return this;
     }
 
-    public MotFailCertificateData setMinorDefectsHeader(String minorDefectsHeader) {
-        this.minorDefectsHeader = minorDefectsHeader;
+    public MotFailCertificateData setOldMajorDefects(String oldMajorDefects) {
+        this.oldMajorDefects = oldMajorDefects;
         return this;
     }
 }

@@ -10,12 +10,12 @@
                   <span class="circle-text__number">{{euCompliantNumber}}</span>
                 </span>
               </span>
-                {{#if icon}}
+                {{#if iconSrc}}
                     <span class="results__heading-right results__heading-right--has-icon">
                 <span class="results__heading-message">
                   {{title}}
                     <span class="results__heading-icon">
-                    <img src="{{icon}}" class="results__heading-icon-img"/>
+                    <img src="{{@root.root}}/{{iconSrc}}" class="results__heading-icon-img"/>
                   </span>
                 </span>
               </span>

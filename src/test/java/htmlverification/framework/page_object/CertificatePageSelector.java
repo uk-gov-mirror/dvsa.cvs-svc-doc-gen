@@ -13,7 +13,8 @@ public enum CertificatePageSelector {
     TESTING_ORG_AND_INSP_NAME_ID("organisation-and-inspection-name"),
     MOT_TEST_NUMBER_ID("mot-test-number"),
     RESULTS_SUMMARY_CLASS("results"),
-    DVSA_LOGO_SELECTOR("img[src*=dvsa_crest.png]");
+    DVSA_LOGO_SELECTOR("img[src*=dvsa_crest.png]"),
+    EXPIRY_DATE_ID("expiry-date");
 
     private final String selector;
 

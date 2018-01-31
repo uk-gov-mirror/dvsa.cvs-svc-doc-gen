@@ -1,42 +1,30 @@
-package uk.gov.dvsa.model.mot.defect;
+package uk.gov.dvsa.model.mot.results;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-public class DefectsList {
-
-    /**
-     *  Displayed together with the title, may contain letters, optional
-     */
-    private String euCompliantNumber;
+public class DefectsList extends ResultsItem {
 
     /**
-     *  Header describing a list of reasons for rejection that are displayed below it
+     * Path to an iconSrc displayed along with the title
      */
-    private String title;
+    private String iconSrc;
 
     private List<String> reasonsForRejection = new ArrayList<>();
 
     public DefectsList(String title, String euCompliantNumber) {
-        this.title = title;
-        this.euCompliantNumber = euCompliantNumber;
+        super(title, euCompliantNumber);
     }
 
     public DefectsList(String title, List<String> reasonsForRejection) {
-        this.title = title;
+        super(title, "");
         this.reasonsForRejection = reasonsForRejection;
-        this.euCompliantNumber = "";
     }
 
     public DefectsList(String title, List<String> reasonsForRejection, String euCompliantNumber) {
         this(title, euCompliantNumber);
         this.reasonsForRejection = reasonsForRejection;
-    }
-
-    public DefectsList setReasonsForRejection(String title, List<String> reasonsForRejection) {
-        this.reasonsForRejection = reasonsForRejection;
-        this.title = title;
-        return this;
     }
 
     /**
@@ -60,19 +48,21 @@ public class DefectsList {
         return this.reasonsForRejection.subList(1, reasonsForRejection.size());
     }
 
-    public String getTitle() {
-        return title;
+    public String getIconSrc() {
+        return iconSrc;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setIconSrc(String iconSrc) {
+        this.iconSrc = iconSrc;
     }
 
-    public String getEuCompliantNumber() {
-        return euCompliantNumber;
+    public boolean isEmpty() {
+        return Optional.ofNullable(this.reasonsForRejection)
+                .map(List::isEmpty)
+                .orElse(true);
     }
 
-    public void setEuCompliantNumber(String euCompliantNumber) {
-        this.euCompliantNumber = euCompliantNumber;
+    public boolean isPresent() {
+        return !isEmpty();
     }
 }

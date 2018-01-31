@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static uk.gov.dvsa.model.mot.results.Summary.EU_NUMBER_SUMMARY_HEADER;
 
 public class DefectSummaryTest {
 
@@ -36,7 +37,7 @@ public class DefectSummaryTest {
         String resultName = certificatePageObject.getDefectSummaryComponent().getResultNameItem().text();
 
         assertEquals(String.format("%s %s",
-                MotFailCertificateData.EU_NUMBER_SUMMARY_HEADER, MotFailCertificateData.FAILED_SUMMARY_HEADER),
+                EU_NUMBER_SUMMARY_HEADER, MotFailCertificateData.FAILED_SUMMARY_HEADER),
                 resultName);
     }
 
