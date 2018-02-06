@@ -367,6 +367,12 @@
         </div>
         <!-- /heading-info -->
 
+        {{#if data.certificateIssuerInfo}}
+            <p class="test-information__message test-information__message--limit-width">
+              {{data.certificateIssuerInfo}}
+            </p>
+        {{/if}}
+
         <p class="test-information__message test-information__message--limit-width">
           To find out about retests, or if you disagree with the test result, see the fees and appeals poster at the vehicle testing station. Alternatively, visit <br/><a class="test-information__message-link" href="www.gov.uk/getting-an-mot">www.gov.uk/getting-an-mot</a>
         </p>
