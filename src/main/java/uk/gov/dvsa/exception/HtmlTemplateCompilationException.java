@@ -2,8 +2,8 @@ package uk.gov.dvsa.exception;
 
 import java.io.IOException;
 
-public class HtmlTemplateException extends RuntimeException{
-    public HtmlTemplateException(IOException e) {
+public class HtmlTemplateCompilationException extends RuntimeException{
+    public HtmlTemplateCompilationException(IOException e) {
         super(e);
     }
 

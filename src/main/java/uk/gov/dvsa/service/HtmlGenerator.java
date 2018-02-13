@@ -2,7 +2,12 @@ package uk.gov.dvsa.service;
 
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Template;
-import uk.gov.dvsa.exception.HtmlTemplateException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import uk.gov.dvsa.exception.HtmlTemplateCompilationException;
+import uk.gov.dvsa.exception.HtmlTemplateProcessingException;
+import uk.gov.dvsa.logging.EventType;
+import uk.gov.dvsa.logging.LoggingExecutor;
 import uk.gov.dvsa.model.Document;
 import uk.gov.dvsa.model.mot.enums.DocumentsConfig;
 
@@ -12,35 +17,60 @@ import java.util.List;
 
 public class HtmlGenerator {
 
-    private Handlebars handlebars;
+    private static final Logger logger = LogManager.getLogger(HtmlGenerator.class);
+
+    private final LoggingExecutor executor = new LoggingExecutor(logger);
+
+    private final Handlebars handlebars;
 
     public HtmlGenerator(Handlebars handlebars) {
         this.handlebars = registerNewlineHelper(handlebars);
     }
 
     public List<String> generate(Document context) throws IOException {
-        List<String> htmlDocuments = new ArrayList<>();
-        String[] templateNames = DocumentsConfig.fromDocumentName(context.getDocumentName()).getTemplateNames();
-
-        for (String templateName: templateNames) {
-            Template template = getTemplate(templateName);
-            htmlDocuments.add(template.apply(context));
-        }
-
+        List<Template> templates = executor.timed(
+            () -> getTemplates(context.getDocumentName()),
+            EventType.CERT_TEMPLATES_COMPILATION
+        );
+        List<String> htmlDocuments = executor.timed(
+            () -> processTemplates(context, templates),
+            EventType.CERT_HTML_GENERATION
+        );
         return htmlDocuments;
     }
 
-    private Template getTemplate(String templateName) {
+    private List<Template> getTemplates(String documentName) {
+        List<Template> templates = new ArrayList<>();
+        String[] templateNames = DocumentsConfig.fromDocumentName(documentName).getTemplateNames();
+        for (String templateName: templateNames) {
+            templates.add(compileTemplate(templateName));
+        }
+        return templates;
+    }
+
+    private Template compileTemplate(String templateName) {
         try {
             return handlebars.compile(String.format("views/%s", templateName));
         } catch (IOException e) {
-            throw new HtmlTemplateException(e);
+            throw new HtmlTemplateCompilationException(e);
         }
     }
 
     private Handlebars registerNewlineHelper(Handlebars handlebars) {
         return handlebars.registerHelper("newline", (context, options) ->
-                context.toString().replace("\n", "<br/>")
+            context.toString().replace("\n", "<br/>")
         );
+    }
+
+    private List<String> processTemplates(Document context, List<Template> templates) {
+        List<String> htmls = new ArrayList<>();
+        try {
+            for (Template template : templates) {
+                htmls.add(template.apply(context));
+            }
+            return htmls;
+        } catch (IOException e) {
+            throw new HtmlTemplateProcessingException(e);
+        }
     }
 }
