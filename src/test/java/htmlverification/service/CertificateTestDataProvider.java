@@ -63,6 +63,12 @@ public class CertificateTestDataProvider {
         return vt20;
     }
 
+    public static VT20 getVt20Duplicate() {
+        VT20 vt20 = getVt20();
+        vt20.setCertificateIssuerInfo("Duplicate certificate issued by B. T. Arctor Tester1 on 13 February 2018");
+        return vt20;
+    }
+
     public static VT30 getVt30() {
         VT30 vt30 = new VT30();
         vt30.setDocumentName("MOT/VT30");
@@ -107,6 +113,12 @@ public class CertificateTestDataProvider {
             .setTestNumber("1806 8140 0628");
         vt30.setData(vt30Data);
 
+        return vt30;
+    }
+
+    public static VT30 getVt30Duplicate() {
+        VT30 vt30 = getVt30();
+        vt30.setCertificateIssuerInfo("Duplicate certificate issued by B. T. Arctor Tester1 on 13 February 2018");
         return vt30;
     }
 

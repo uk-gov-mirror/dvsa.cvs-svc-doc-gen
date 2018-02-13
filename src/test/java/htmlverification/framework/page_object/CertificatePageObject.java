@@ -63,4 +63,8 @@ public class CertificatePageObject extends BasePageObject {
     public String getTestNumber() {
         return getElementById(MOT_TEST_NUMBER_ID.getSelector()).text();
     }
+
+    public String getIssuerInfo() {
+        return getElementById(ISSUER_INFO_ID.getSelector()).text();
+    }
 }
