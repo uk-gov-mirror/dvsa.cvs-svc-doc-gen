@@ -26,4 +26,8 @@ public abstract class Document {
         this.documentName = documentName;
         return this;
     }
+
+    public String getRoot() {
+        return System.getenv("LAMBDA_TASK_ROOT");
+    }
 }

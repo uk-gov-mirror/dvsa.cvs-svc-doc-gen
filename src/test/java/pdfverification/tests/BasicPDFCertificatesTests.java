@@ -60,12 +60,16 @@ public class BasicPDFCertificatesTests {
 
     @Test
     public void verifyRfrsOverflowToSecondPage() throws Exception {
-        String baseRfrTitle = "Reason for rejection #";
 
         List<String> expectedFirstPageRfrs = new ArrayList<>();
-        IntStream.range(0, 29).forEach(number -> expectedFirstPageRfrs.add(baseRfrTitle + number + "\n"));
+        IntStream.range(0, 24).forEach(number ->
+                expectedFirstPageRfrs.add(CertificateTestDataProvider.DANGEROUS_RFR_TEXT + " #" + number + "\n")
+        );
+
         List<String> expectedSecondPageRfrs = new ArrayList<>();
-        IntStream.range(30, 58).forEach(number -> expectedSecondPageRfrs.add(baseRfrTitle + number + "\n"));
+        IntStream.range(25, 60).forEach(number ->
+                expectedSecondPageRfrs.add(CertificateTestDataProvider.DANGEROUS_RFR_TEXT + " #" + number + "\n")
+        );
 
         PdfReader reader = pdfParser.readPdf(pdfData);
         String firstPageText = pdfParser.getRawText(reader, 1);

@@ -24,4 +24,43 @@ public class CertificatePageObject extends BasePageObject {
         return new DefectSummaryComponent(defectSummaryElement);
     }
 
+    public String getVin() {
+        return getElementById(VIN_ID.getSelector()).text();
+    }
+
+    public String getCountryOfRegistration() {
+        return getElementById(COUNTRY_ID.getSelector()).text();
+    }
+
+    public String getMakeAndModel() {
+        return getElementById(MAKE_AND_MODEL_ID.getSelector()).text();
+    }
+
+    public String getVehicleCategory() {
+        return getElementById(VEHICLE_CATEGORY_ID.getSelector()).text();
+    }
+
+    public String getMileage() {
+        return getElementById(MILEAGE_ID.getSelector()).text();
+    }
+
+    public String getDateOfTheTest() {
+        return getElementById(DATE_OF_THE_TEST_ID.getSelector()).text();
+    }
+
+    public String getExpiryDate() {
+        return getElementById(EXPIRY_DATE_ID.getSelector()).text();
+    }
+
+    public String getLocationOfTheTest() {
+        return getElementById(LOCATION_OF_THE_TEST_ID.getSelector()).text();
+    }
+
+    public String getTestingOrganisationAndInspectorsName() {
+        return getElementById(TESTING_ORG_AND_INSP_NAME_ID.getSelector()).text();
+    }
+
+    public String getTestNumber() {
+        return getElementById(MOT_TEST_NUMBER_ID.getSelector()).text();
+    }
 }

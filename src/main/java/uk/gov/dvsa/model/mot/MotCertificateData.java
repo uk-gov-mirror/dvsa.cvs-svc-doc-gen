@@ -1,13 +1,32 @@
 package uk.gov.dvsa.model.mot;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import uk.gov.dvsa.model.mot.reasonforrejection.Advisories;
-import uk.gov.dvsa.model.mot.reasonforrejection.ReasonsForRejectionGroup;
+import uk.gov.dvsa.model.mot.results.DefectsList;
+import uk.gov.dvsa.model.mot.results.DefectsListsGrouped;
+import uk.gov.dvsa.model.mot.results.Summary;
+import uk.gov.dvsa.view.mot.CountryCodeFormatter;
+import uk.gov.dvsa.view.mot.OdometerReadingFormatter;
 
-import java.util.ArrayList;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class MotCertificateData {
+
+    public static final String EU_NUMBER_FOR_DEFECTS = "6";
+
+    public static final String PASS_SUMMARY_HEADER = "Pass";
+    public static final String PASS_WITH_DEFECTS_HEADER = "Pass with defects";
+    private static final String ADVISORIES_HEADER = "Monitor and repair if necessary (advisories)";
+    private static final String MINOR_DEFECTS_HEADER = "Repair as soon as possible (minor defects)";
+    protected static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+    private static final OdometerReadingFormatter ODOMETER_FORMATTER =  new OdometerReadingFormatter();
+    private static final CountryCodeFormatter COUNTRY_CODE_FORMATTER = new CountryCodeFormatter();
+    private static final String TEST_NUMBER_PATTERN = "\\B(?=(?:.{4})+$)";
+    private static final String TEST_NUMBER_SEPARATOR = " ";
 
     @JsonProperty("dup")
     private String duplicateMode;
@@ -24,6 +43,9 @@ public class MotCertificateData {
     @JsonProperty("InspectionAuthority")
     private String inspectionAuthority;
 
+    @JsonProperty("AuthorisedExaminer")
+    private String authorisedExaminer;
+
     @JsonProperty("IssuedDate")
     private String issuedDate;
 
@@ -33,8 +55,14 @@ public class MotCertificateData {
     @JsonProperty("VRM")
     private String vrm;
 
+    @JsonProperty("RawVRM")
+    private String rawVrm;
+
     @JsonProperty("VIN")
     private String vin;
+
+    @JsonProperty("RawVIN")
+    private String rawVin;
 
     @JsonProperty("Make")
     private String make;
@@ -45,8 +73,14 @@ public class MotCertificateData {
     @JsonProperty("CountryOfRegistration")
     private String countryOfRegistration;
 
+    @JsonProperty("CountryOfRegistrationCode")
+    private String countryOfRegistrationCode;
+
     @JsonProperty("TestClass")
     private String testClass;
+
+    @JsonProperty("VehicleEuClassification")
+    private String vehicleEuClassification;
 
     @JsonProperty("Colour")
     private String colour;
@@ -54,11 +88,23 @@ public class MotCertificateData {
     @JsonProperty("Odometer")
     private String odometer;
 
+    @JsonProperty("CurrentOdometer")
+    private OdometerReading currentOdometer;
+
+    @JsonProperty("OdometerUnit")
+    private String odometerUnit;
+
     @JsonProperty("OdometerHistory")
-    private List<String> odometerHistory;
+    private String odometerHistory;
 
     @JsonProperty("FirstUseDate")
     private String firstUseDate;
+
+    @JsonProperty("ExpiryDate")
+    private String expiryDate;
+
+    @JsonProperty("DateOfTheTest")
+    private LocalDate dateOfTheTest;
 
     @JsonProperty("AdvisoryInformation")
     private String advisoryInformation;
@@ -66,20 +112,36 @@ public class MotCertificateData {
     @JsonProperty("EuAdvisoryDefects")
     private List<String> euAdvisoryDefects;
 
-    @JsonProperty("ExpiryDate")
-    private String expiryDate;
-
     @JsonProperty("AdditionalInformation")
     private String additionalInformation;
 
-    List<ReasonsForRejectionGroup> results;
+    @JsonProperty("AdvisoryDefectsHeader")
+    private String advisoryDefectsHeader;
 
-    MotCertificateData() {
-        results = new ArrayList<>();
+    @JsonProperty("OdometerHistoryList")
+    private List<OdometerReading> odometerHistoryList;
+
+    @JsonProperty("DateOfTheExpiryTest")
+    private String dateOfTheExpiryTest;
+
+    @JsonProperty("MinorDefectsHeader")
+    private String minorDefectsHeader;
+
+    @JsonProperty("MinorDefects")
+    private String oldMinorDefects;
+
+    protected DefectsListsGrouped defects;
+
+    public MotCertificateData() {
+        defects = new DefectsListsGrouped();
     }
 
-    public List<ReasonsForRejectionGroup> getResults() {
-        return results;
+    private static String buildSummaryTitle(DefectsListsGrouped defects) {
+        if (!defects.hasMinor()) {
+            return PASS_SUMMARY_HEADER;
+        } else {
+            return PASS_WITH_DEFECTS_HEADER;
+        }
     }
 
     public String getDuplicateMode() {
@@ -93,6 +155,12 @@ public class MotCertificateData {
 
     public String getTestNumber() {
         return testNumber;
+    }
+
+    public String getFormattedTestNumber() {
+        return testNumber
+                .replace(TEST_NUMBER_SEPARATOR, "")
+                .replaceAll(TEST_NUMBER_PATTERN, TEST_NUMBER_SEPARATOR);
     }
 
     public MotCertificateData setTestNumber(String testNumber) {
@@ -127,6 +195,19 @@ public class MotCertificateData {
         return this;
     }
 
+    public OdometerReading getCurrentOdometer() {
+        return currentOdometer;
+    }
+
+    public String getFormattedCurrentOdometer() {
+        return ODOMETER_FORMATTER.formatValue(currentOdometer);
+    }
+
+    public MotCertificateData setCurrentOdometer(OdometerReading currentOdometer) {
+        this.currentOdometer = currentOdometer;
+        return this;
+    }
+
     public String getIssuedDate() {
         return issuedDate;
     }
@@ -154,12 +235,30 @@ public class MotCertificateData {
         return this;
     }
 
+    public String getRawVrm() {
+        return rawVrm;
+    }
+
+    public MotCertificateData setRawVrm(String rawVrm) {
+        this.rawVrm = rawVrm;
+        return this;
+    }
+
     public String getVin() {
         return vin;
     }
 
     public MotCertificateData setVin(String vin) {
         this.vin = vin;
+        return this;
+    }
+
+    public String getRawVin() {
+        return rawVin;
+    }
+
+    public MotCertificateData setRawVin(String rawVin) {
+        this.rawVin = rawVin;
         return this;
     }
 
@@ -208,11 +307,11 @@ public class MotCertificateData {
         return this;
     }
 
-    public List<String> getOdometerHistory() {
+    public String getOdometerHistory() {
         return odometerHistory;
     }
 
-    public MotCertificateData setOdometerHistory(List<String> odometerHistory) {
+    public MotCertificateData setOdometerHistory(String odometerHistory) {
         this.odometerHistory = odometerHistory;
         return this;
     }
@@ -233,7 +332,7 @@ public class MotCertificateData {
 
     public MotCertificateData setEuAdvisoryDefects(List<String> euAdvisoryDefects) {
         this.euAdvisoryDefects = euAdvisoryDefects;
-        results.add(new Advisories(euAdvisoryDefects));
+        defects.setAdvisory(new DefectsList(ADVISORIES_HEADER, euAdvisoryDefects));
         return this;
     }
 
@@ -259,8 +358,136 @@ public class MotCertificateData {
         return testStationAddress;
     }
 
+    public String getTestStationAddressLine() {
+        return testStationAddress.replace("\n", ", ");
+    }
+
     public MotCertificateData setTestStationAddress(String testStationAddress) {
         this.testStationAddress = testStationAddress;
+        return this;
+    }
+
+    public String getAdvisoryDefectsHeader() {
+        return advisoryDefectsHeader;
+    }
+
+    public MotCertificateData setAdvisoryDefectsHeader(String advisoryDefectsHeader) {
+        this.advisoryDefectsHeader = advisoryDefectsHeader;
+        return this;
+    }
+
+    public DefectsListsGrouped getDefects() {
+        return defects;
+    }
+
+    public String getOdometerUnit() {
+        return odometerUnit;
+    }
+
+    public void setOdometerUnit(String odometerUnit) {
+        this.odometerUnit = odometerUnit;
+    }
+
+    public LocalDate getDateOfTheTest() {
+        return dateOfTheTest;
+    }
+
+    public MotCertificateData setDateOfTheTest(LocalDate dateOfTheTest) {
+        this.dateOfTheTest = dateOfTheTest;
+        return this;
+    }
+
+    public String getCountryOfRegistrationCode() {
+        return countryOfRegistrationCode;
+    }
+
+    public String getCountryOfRegistrationCodeFormatted() {
+        return COUNTRY_CODE_FORMATTER.format(countryOfRegistrationCode);
+    }
+
+    public MotCertificateData setCountryOfRegistrationCode(String countryOfRegistrationCode) {
+        this.countryOfRegistrationCode = countryOfRegistrationCode;
+        return this;
+    }
+
+    public String getVehicleEuClassification() {
+        return vehicleEuClassification;
+    }
+
+    public MotCertificateData setVehicleEuClassification(String vehicleEuClassification) {
+        this.vehicleEuClassification = vehicleEuClassification;
+        return this;
+    }
+
+    public List<OdometerReading> getOdometerHistoryList() {
+        return odometerHistoryList;
+    }
+
+    public List<FormattedOdometerReading> getMileageHistory() {
+        if (null != odometerHistoryList) {
+            return odometerHistoryList.stream()
+                .map(
+                    entry -> new FormattedOdometerReading(
+                        ODOMETER_FORMATTER.formatValue(entry),
+                        DATE_FORMATTER.format(entry.getDate())
+                    )
+                )
+                .collect(Collectors.toList());
+        } else {
+            return Collections.emptyList();
+        }
+    }
+
+    public MotCertificateData setOdometerHistoryList(List<OdometerReading> odometerHistoryList) {
+        this.odometerHistoryList = odometerHistoryList;
+        return this;
+    }
+
+    public String getDateOfTheExpiryTest() {
+        return dateOfTheExpiryTest;
+    }
+
+    public MotCertificateData setDateOfTheExpiryTest(String dateOfTheExpiryTest) {
+        this.dateOfTheExpiryTest = dateOfTheExpiryTest;
+        return this;
+    }
+
+    public Summary getSummary() {
+        return new Summary(buildSummaryTitle(defects));
+    }
+
+    public String getFormattedDateOfTheTest() {
+        return Optional.ofNullable(dateOfTheTest)
+                .map(date -> date.format(DATE_FORMATTER))
+                .orElse("");
+    }
+
+    public String getAuthorisedExaminer() {
+        return authorisedExaminer;
+    }
+
+    public MotCertificateData setAuthorisedExaminer(String authorisedExaminer) {
+        this.authorisedExaminer = authorisedExaminer;
+        return this;
+    }
+
+    @JsonProperty("EuMinorDefects")
+    public MotCertificateData setEuMinorDefects(List<String> euMinorDefects) {
+        defects.setMinor(new DefectsList(MINOR_DEFECTS_HEADER, euMinorDefects, EU_NUMBER_FOR_DEFECTS));
+        return this;
+    }
+
+    public String getMinorDefectsHeader() {
+        return minorDefectsHeader;
+    }
+
+    public MotCertificateData setMinorDefectsHeader(String minorDefectsHeader) {
+        this.minorDefectsHeader = minorDefectsHeader;
+        return this;
+    }
+
+    public MotCertificateData setOldMinorDefects(String oldMinorDefects) {
+        this.oldMinorDefects = oldMinorDefects;
         return this;
     }
 }

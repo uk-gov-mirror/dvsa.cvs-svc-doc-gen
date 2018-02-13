@@ -2,10 +2,9 @@
 <html>
 <head>
     <title>{{title}}</title>
-    <!--<link rel="stylesheet" type="text/css" href="assets/stylesheets/version-2.hbs"/>-->
     <style type="text/css" media="print, screen">
-            {{~> assets/stylesheets/version-2 this}}
-        </style>
+        {{~> assets/stylesheets/version-2 this}}
+    </style>
 </head>
 
 <body>
@@ -57,7 +56,7 @@
     <div class="footer__bottom">
       <div class="footer__bottom-one">
         <span class="footer__bottom-light-text footer__bottom-light-text--vin">
-          VIN: {{data.vin}}
+          VIN: {{data.rawVin}}
         </span>
       </div>
 
@@ -92,7 +91,7 @@
     <div class="header">
       <div class="header__left">
         <h1 class="header__title">
-          {{title}}
+          Refusal of MOT test certificate
         </h1>
 
         <!-- heading-info -->
@@ -110,7 +109,7 @@
             </span>
           </h2>
           <span class="heading-info__content heading-info__content--uppercase" id="vin">
-            {{data.vin}}
+            {{data.rawVin}}
           </span>
         </div>
         <!-- /heading-info -->
@@ -133,7 +132,7 @@
                 </span>
               </h2>
               <span class="heading-info__content heading-info__content--uppercase" id="reg-number">
-                {{data.vrm}}
+                {{data.rawVrm}}
               </span>
             </div>
             <!-- /heading-info -->
@@ -154,8 +153,8 @@
                   </span>
                 </span>
               </h2>
-              <span class="heading-info__content heading-info__content--uppercase" id="country">
-                {{data.countryOfRegistration}}
+              <span class="heading-info__content" id="country">
+                {{data.countryOfRegistrationCodeFormatted}}
               </span>
             </div>
             <!-- /heading-info -->
@@ -178,9 +177,7 @@
       </div>
 
       <div class="header__right">
-        {{#if crownLogoUrl}}
-        <img src="{{crownLogoUrl}}" alt="{{crownImageAlt}}" class="header__logo"/>
-        {{/if}}
+        <img src="{{root}}/assets/images/dvsa_crest.png" alt="DVSA Crown" class="header__logo"/>
       </div>
 
       <div class="clearfix"></div>
@@ -203,7 +200,7 @@
               </span>
             </h2>
             <span class="heading-info__content heading-info__content--uppercase" id="vehicle-category">
-              {{data.testClass}}
+              {{data.vehicleEuClassification}}
             </span>
           </div>
           <!-- /heading-info -->
@@ -225,7 +222,7 @@
               </span>
             </h2>
             <span class="heading-info__content" id="mileage">
-              {{data.odometer}}
+              {{data.formattedCurrentOdometer}}
             </span>
           </div>
           <!-- /heading-info -->
@@ -269,84 +266,25 @@
     </div>
     <!-- /header -->
 
-    {{#if data.results}}
     <!-- results -->
     <div class="results">
       <div class="results__wrapper">
-
-        {{#each data.results}}
-        <!-- results__item -->
-        <div class="results__item" id="result-item-{{@index}}">
-
-          <!-- results__heading-and-first-item -->
-          <div class="results__heading-and-first-item">
-            {{#if number}}
-            <h2 class="results__heading">
-              <span class="results__heading-left">
-                <span class="circle-text">
-                  <span class="circle-text__number">{{number}}</span>
-                </span>
-              </span>
-              {{#if icon}}
-              <span class="results__heading-right results__heading-right--has-icon">
-                <span class="results__heading-message">
-                  {{title}}
-                  <span class="results__heading-icon">
-                    <img src="{{icon}}" class="results__heading-icon-img"/>
-                  </span>
-                </span>
-              </span>
-              {{else}}
-              <span class="results__heading-right">
-                <span class="results__heading-message">
-                  {{title}}
-                </span>
-              </span>
-              {{/if}}
-            </h2>
-            {{else}}
-            <h2 class="results__heading results__heading--without-number">
-              <span class="results__heading-message">
-                {{title}}
-              </span>
-            </h2>
-            {{/if}}
-
-            <!-- results__list -->
-            {{#if firstItem}}
-            <ul class="results__list results__list--first">
-              <li class="results__list-item">
-                <span class="results__list-text">
-                  {{firstItem.failureText}}
-                </span>
-              </li>
-            </ul>
-            {{/if}}
-            <!-- /results__list -->
-          </div>
-          <!-- /results__heading-and-first-item -->
-
-          {{#if otherItems}}
-          <!-- results__list -->
-          <ul class="results__list results__list--second">
-            {{#each otherItems}}
-            <li class="results__list-item">
-              <span class="results__list-text">
-                {{failureText}}
-              </span>
-            </li>
-            {{/each}}
-          </ul>
-          <!-- /results__list -->
+          {{~> views/MOT/reasonsForRejection data.defects.summary}}
+          {{#if data.defects.dangerous.present}}
+            {{~> views/MOT/reasonsForRejection data.defects.dangerous}}
           {{/if}}
-        </div>
-        <!-- /results__item -->
-        {{/each}}
-
+          {{#if data.defects.major.present}}
+            {{~> views/MOT/reasonsForRejection data.defects.major}}
+          {{/if}}
+          {{#if data.defects.minor.present}}
+            {{~> views/MOT/reasonsForRejection data.defects.minor}}
+          {{/if}}
+          {{#if data.defects.advisory.present}}
+            {{~> views/MOT/reasonsForRejection data.defects.advisory}}
+          {{/if}}
       </div>
     </div>
     <!-- /results -->
-    {{/if}}
 
     <!-- test-information -->
     <div class="test-information">
@@ -367,7 +305,7 @@
             </span>
           </h2>
           <span class="heading-info__content heading-info__content--uppercase" id="date-of-test">
-            {{data.issuedDate}}
+            {{data.formattedDateOfTheTest}}
           </span>
         </div>
         <!-- /heading-info -->
@@ -386,8 +324,10 @@
               </span>
             </span>
           </h2>
-          <span class="heading-info__content heading-info__content--uppercase" id="location-of-test">
-            {{{data.testStationAddress}}}
+          <span class="heading-info__content" id="location-of-test">
+            {{data.testStation}}
+            <br/>
+            {{data.testStationAddressLine}}
           </span>
         </div>
         <!-- /heading-info -->
@@ -407,7 +347,9 @@
             </span>
           </h2>
           <span class="heading-info__content heading-info__content--uppercase" id="organisation-and-inspection-name">
-            {{{data.inspectionAuthority}}}
+            {{data.authorisedExaminer}}
+              <br/>
+            {{data.issuersName}}
           </span>
         </div>
         <!-- /heading-info -->
@@ -420,13 +362,13 @@
             </span>
           </h2>
           <span class="heading-info__content heading-info__content--uppercase" id="mot-test-number">
-            {{data.testNumber}}
+            {{data.formattedTestNumber}}
           </span>
         </div>
         <!-- /heading-info -->
 
         <p class="test-information__message test-information__message--limit-width">
-          To find out about retests, or if you disagree with the test result, see the fees and appeals poster at the vehicle testing station. Alternatively, visit <a class="test-information__message-link" href="www.gov.uk/getting-an-mot">www.gov.uk/getting-an-mot</a>
+          To find out about retests, or if you disagree with the test result, see the fees and appeals poster at the vehicle testing station. Alternatively, visit <br/><a class="test-information__message-link" href="www.gov.uk/getting-an-mot">www.gov.uk/getting-an-mot</a>
         </p>
 
         <p class="test-information__message">
@@ -434,7 +376,7 @@
         </p>
 
         <p class="test-information__message">
-          Find out about the vehicle’s MOT history at <a class="test-information__message-link" href="www.gov.uk/mot-history">www.gov.uk/mot-history</a>
+          Find out about the vehicle’s MOT history at <a class="test-information__message-link" href="www.gov.uk/check-mot-history">www.gov.uk/check-mot-history</a>
         </p>
 
       </div>

@@ -1,8 +1,10 @@
 package uk.gov.dvsa.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import uk.gov.dvsa.exception.HttpException;
 import uk.gov.dvsa.model.Document;
+import uk.gov.dvsa.model.mot.VT20;
 import uk.gov.dvsa.model.mot.VT30;
 
 import java.io.IOException;
@@ -22,6 +24,7 @@ public class RequestParser {
     static {
         HashMap<String, Class<? extends Document>> documentsMap = new HashMap<>();
         documentsMap.put("MOT/VT30", VT30.class);
+        documentsMap.put("MOT/VT20", VT20.class);
         documents = Collections.unmodifiableMap(documentsMap);
     }
 
@@ -32,11 +35,12 @@ public class RequestParser {
 
         try {
             ObjectMapper om = new ObjectMapper();
+            om.registerModule(new JavaTimeModule());
             Document document = om.readValue(documentJson, documentType);
             document.setDocumentName(documentName);
             return document;
         } catch (IOException e) {
-            throw new HttpException.BadRequestException("Error parsing parameters: " + e.getMessage());
+            throw new HttpException.BadRequestException("Error parsing parameters", e);
         }
     }
 
