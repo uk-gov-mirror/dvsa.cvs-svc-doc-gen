@@ -397,6 +397,12 @@
                 </div>
                 <!-- /heading-info -->
 
+                {{#if certificateIssuerInfo}}
+                    <p class="test-information__message test-information__message--limit-width" id="issuer-info">
+                        {{certificateIssuerInfo}}
+                    </p>
+                {{/if}}
+
                 <p class="test-information__message">
                     Check that this document is genuine by visiting <a class="test-information__message-link"
                                                                        href="www.gov.uk/check-mot-history">www.gov.uk/check-mot-history</a>
