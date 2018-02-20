@@ -1,12 +1,10 @@
-package uk.gov.dvsa.model.mot;
+package uk.gov.dvsa.model.mot.certificateData;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import uk.gov.dvsa.model.mot.results.DefectsList;
-import uk.gov.dvsa.model.mot.results.DefectsListsGrouped;
+import uk.gov.dvsa.model.mot.results.Summary;
 
 import java.util.List;
-
-import static uk.gov.dvsa.model.mot.results.Summary.EU_NUMBER_SUMMARY_HEADER;
 
 public class MotFailCertificateData extends MotCertificateData {
 
@@ -42,31 +40,24 @@ public class MotFailCertificateData extends MotCertificateData {
     @JsonProperty("MajorDefects")
     private String oldMajorDefects;
 
-    public MotFailCertificateData() {
-        super.defects.setSummary(new DefectsList(FAILED_SUMMARY_HEADER, EU_NUMBER_SUMMARY_HEADER));
-    }
+    @JsonProperty("EuDangerousDefects")
+    private List<String> euDangerousDefects;
 
-    @Override
-    public DefectsListsGrouped getDefects() {
-        return super.getDefects();
-    }
+    @JsonProperty("EuMajorDefects")
+    private List<String> euMajorDefects;
 
     public MotFailCertificateData setFailureInformation(String failureInformation) {
         this.failureInformation = failureInformation;
         return this;
     }
 
-    @JsonProperty("EuDangerousDefects")
     public MotFailCertificateData setEuDangerousDefects(List<String> euDangerousDefects) {
-        DefectsList dangerousDefects = new DefectsList(DANGEROUS_DEFECTS_HEADER, euDangerousDefects, EU_NUMBER_FOR_DEFECTS);
-        dangerousDefects.setIconSrc("assets/images/exclamation-mark.png");
-        super.defects.setDangerous(dangerousDefects);
+        this.euDangerousDefects = euDangerousDefects;
         return this;
     }
 
-    @JsonProperty("EuMajorDefects")
     public MotFailCertificateData setEuMajorDefects(List<String> euMajorDefects) {
-        super.defects.setMajor(new DefectsList(MAJOR_DEFECTS_HEADER, euMajorDefects, EU_NUMBER_FOR_DEFECTS));
+        this.euMajorDefects = euMajorDefects;
         return this;
     }
 
@@ -114,5 +105,18 @@ public class MotFailCertificateData extends MotCertificateData {
     public MotFailCertificateData setOldMajorDefects(String oldMajorDefects) {
         this.oldMajorDefects = oldMajorDefects;
         return this;
+    }
+
+    public DefectsList getMajor() {
+        return new DefectsList(MAJOR_DEFECTS_HEADER, this.euMajorDefects, EU_NUMBER_FOR_DEFECTS);
+    }
+
+    public DefectsList getDangerous() {
+        DefectsList dangerousDefects = new DefectsList(DANGEROUS_DEFECTS_HEADER, this.euDangerousDefects, EU_NUMBER_FOR_DEFECTS);
+        return dangerousDefects.setIsDangerous(true);
+    }
+
+    public Summary getSummary() {
+        return new Summary(FAILED_SUMMARY_HEADER);
     }
 }

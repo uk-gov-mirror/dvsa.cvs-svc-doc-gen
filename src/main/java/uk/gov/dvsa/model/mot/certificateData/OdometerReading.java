@@ -1,4 +1,4 @@
-package uk.gov.dvsa.model.mot;
+package uk.gov.dvsa.model.mot.certificateData;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -14,11 +14,21 @@ public class OdometerReading {
     @JsonProperty
     private LocalDate date;
 
+    @JsonProperty
+    private String valueCy;
+
     public OdometerReading() {
     }
 
     public OdometerReading(String value, String unit, LocalDate date) {
         this.value = value;
+        this.unit = unit;
+        this.date = date;
+    }
+
+    public OdometerReading(String value, String valueCy, String unit, LocalDate date) {
+        this.value = value;
+        this.valueCy = valueCy;
         this.unit = unit;
         this.date = date;
     }
@@ -47,6 +57,15 @@ public class OdometerReading {
 
     public OdometerReading setDate(LocalDate date) {
         this.date = date;
+        return this;
+    }
+
+    public String getValueCy() {
+        return valueCy;
+    }
+
+    public OdometerReading setValueCy() {
+        this.valueCy = valueCy;
         return this;
     }
 }

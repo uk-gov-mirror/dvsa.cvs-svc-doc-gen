@@ -3,12 +3,11 @@ package uk.gov.dvsa.view.mot;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import uk.gov.dvsa.model.mot.OdometerReading;
+import uk.gov.dvsa.model.mot.certificateData.OdometerReading;
 
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.stream.Collectors;
 
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
@@ -22,23 +21,27 @@ public class OdometerReadingFormatterTest {
         return Arrays.asList(new Object[][] {
             {
                 "format in miles",
-                new OdometerReading("10230", "mi", LocalDate.of(2017, 1, 12)),
-                "10,230 miles"
+                new OdometerReading("10230", "10230", "mi", LocalDate.of(2017, 1, 12)),
+                "10,230 miles",
+                "10,230 milltiroedd"
             },
             {
                 "format in kilometers",
-                new OdometerReading("15012", "km", LocalDate.of(2017, 1, 12)),
+                new OdometerReading("15012", "15012", "km", LocalDate.of(2017, 1, 12)),
+                "15,012 km",
                 "15,012 km"
             },
             {
                 "format without unit",
-                new OdometerReading("40,040", null, LocalDate.of(2017, 1, 12)),
+                new OdometerReading("40,040", "40,040", null, LocalDate.of(2017, 1, 12)),
+                "40,040",
                 "40,040"
             },
             {
                 "format remark",
-                new OdometerReading("Not readable", "mi", LocalDate.of(2017, 1, 12)),
-                "Not readable"
+                new OdometerReading("Not readable", "Dim yn ddarllenadwy", "mi", LocalDate.of(2017, 1, 12)),
+                "Not readable",
+                "Dim yn ddarllenadwy"
             }
         });
     }
@@ -52,6 +55,9 @@ public class OdometerReadingFormatterTest {
     @Parameterized.Parameter(2)
     public String expectedValue;
 
+    @Parameterized.Parameter(3)
+    public String expectedWelshValue;
+
     private OdometerReadingFormatter formatter = new OdometerReadingFormatter();
 
     @Test
@@ -59,5 +65,12 @@ public class OdometerReadingFormatterTest {
 
         String result = formatter.formatValue(odometer);
         assertThat(result, equalTo(expectedValue));
+    }
+
+    @Test
+    public void testWelshFormatting() {
+
+        String result = formatter.formatWelshValue(odometer);
+        assertThat(result, equalTo(expectedWelshValue));
     }
 }

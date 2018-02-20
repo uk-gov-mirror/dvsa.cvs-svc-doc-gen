@@ -1,8 +1,7 @@
-package uk.gov.dvsa.model.mot;
+package uk.gov.dvsa.model.mot.certificateData;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import uk.gov.dvsa.model.mot.results.DefectsList;
-import uk.gov.dvsa.model.mot.results.DefectsListsGrouped;
 import uk.gov.dvsa.model.mot.results.Summary;
 import uk.gov.dvsa.view.mot.CountryCodeFormatter;
 import uk.gov.dvsa.view.mot.OdometerReadingFormatter;
@@ -18,12 +17,12 @@ public class MotCertificateData {
 
     public static final String EU_NUMBER_FOR_DEFECTS = "6";
 
-    public static final String PASS_SUMMARY_HEADER = "Pass";
-    public static final String PASS_WITH_DEFECTS_HEADER = "Pass with defects";
     private static final String ADVISORIES_HEADER = "Monitor and repair if necessary (advisories)";
     private static final String MINOR_DEFECTS_HEADER = "Repair as soon as possible (minor defects)";
+    public static final String PASS_SUMMARY_HEADER = "Pass";
+    public static final String PASS_WITH_DEFECTS_HEADER = "Pass with defects";
     protected static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-    private static final OdometerReadingFormatter ODOMETER_FORMATTER =  new OdometerReadingFormatter();
+    public static final OdometerReadingFormatter ODOMETER_FORMATTER =  new OdometerReadingFormatter();
     private static final CountryCodeFormatter COUNTRY_CODE_FORMATTER = new CountryCodeFormatter();
     private static final String TEST_NUMBER_PATTERN = "\\B(?=(?:.{4})+$)";
     private static final String TEST_NUMBER_SEPARATOR = " ";
@@ -130,19 +129,11 @@ public class MotCertificateData {
     @JsonProperty("MinorDefects")
     private String oldMinorDefects;
 
-    protected DefectsListsGrouped defects;
+    @JsonProperty("EarliestDateOfTheNextTest")
+    private LocalDate earliestDateOfTheNextTest;
 
-    public MotCertificateData() {
-        defects = new DefectsListsGrouped();
-    }
-
-    private static String buildSummaryTitle(DefectsListsGrouped defects) {
-        if (!defects.hasMinor()) {
-            return PASS_SUMMARY_HEADER;
-        } else {
-            return PASS_WITH_DEFECTS_HEADER;
-        }
-    }
+    @JsonProperty("EuMinorDefects")
+    private List<String> euMinorDefects;
 
     public String getDuplicateMode() {
         return duplicateMode;
@@ -332,8 +323,11 @@ public class MotCertificateData {
 
     public MotCertificateData setEuAdvisoryDefects(List<String> euAdvisoryDefects) {
         this.euAdvisoryDefects = euAdvisoryDefects;
-        defects.setAdvisory(new DefectsList(ADVISORIES_HEADER, euAdvisoryDefects));
         return this;
+    }
+
+    public List<String> getEuAdvisoryDefects() {
+        return this.euAdvisoryDefects;
     }
 
     public String getExpiryDate() {
@@ -374,10 +368,6 @@ public class MotCertificateData {
     public MotCertificateData setAdvisoryDefectsHeader(String advisoryDefectsHeader) {
         this.advisoryDefectsHeader = advisoryDefectsHeader;
         return this;
-    }
-
-    public DefectsListsGrouped getDefects() {
-        return defects;
     }
 
     public String getOdometerUnit() {
@@ -452,10 +442,6 @@ public class MotCertificateData {
         return this;
     }
 
-    public Summary getSummary() {
-        return new Summary(buildSummaryTitle(defects));
-    }
-
     public String getFormattedDateOfTheTest() {
         return Optional.ofNullable(dateOfTheTest)
                 .map(date -> date.format(DATE_FORMATTER))
@@ -471,10 +457,13 @@ public class MotCertificateData {
         return this;
     }
 
-    @JsonProperty("EuMinorDefects")
     public MotCertificateData setEuMinorDefects(List<String> euMinorDefects) {
-        defects.setMinor(new DefectsList(MINOR_DEFECTS_HEADER, euMinorDefects, EU_NUMBER_FOR_DEFECTS));
+        this.euMinorDefects = euMinorDefects;
         return this;
+    }
+
+    public List<String> getEuMinorDefects() {
+        return this.euMinorDefects;
     }
 
     public String getMinorDefectsHeader() {
@@ -489,5 +478,45 @@ public class MotCertificateData {
     public MotCertificateData setOldMinorDefects(String oldMinorDefects) {
         this.oldMinorDefects = oldMinorDefects;
         return this;
+    }
+
+    public LocalDate getEarliestDateOfTheNextTest() {
+        return earliestDateOfTheNextTest;
+    }
+
+    public MotCertificateData setEarliestDateOfTheNextTest(LocalDate earliestDateOfTheNextTest) {
+        this.earliestDateOfTheNextTest = earliestDateOfTheNextTest;
+        return this;
+    }
+
+    public String getFormattedEarliestDateOfTheNextTest() {
+        return Optional.ofNullable(earliestDateOfTheNextTest)
+                .map(date -> date.format(DATE_FORMATTER))
+                .orElseThrow(() -> new RuntimeException("The earliest date of the next test is missing."));
+    }
+
+    public DefectsList getAdvisory() {
+        return new DefectsList(ADVISORIES_HEADER, this.euAdvisoryDefects);
+    }
+
+    public DefectsList getMinor() {
+        return new DefectsList(MINOR_DEFECTS_HEADER, this.euMinorDefects, EU_NUMBER_FOR_DEFECTS);
+
+    }
+
+    public Summary getSummary() {
+        return new Summary(buildSummaryTitle());
+    }
+
+    private String buildSummaryTitle() {
+        if (!hasMinorDefects(getEuMinorDefects())) {
+            return PASS_SUMMARY_HEADER;
+        } else {
+            return PASS_WITH_DEFECTS_HEADER;
+        }
+    }
+
+    public boolean hasMinorDefects(List<String> minorDefects) {
+        return minorDefects != null && !minorDefects.isEmpty();
     }
 }

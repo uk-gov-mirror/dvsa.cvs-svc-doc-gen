@@ -11,6 +11,8 @@ public class DefectSummaryComponent {
     public static final String  MINOR_DEFECTS_HEADER_TEXT = "Repair as soon as possible (minor defects)";
     public static final String  ADVISORIES_HEADER_TEXT = "Monitor and repair if necessary (advisories)";
     public static final String  DANGEROUS_DEFECTS_HEADER_TEXT = "Do not drive until repaired (dangerous defects)";
+    public static final String  ADVISORIES_HEADER_TEXT_WELSH = "Monitro a thrwsio os oes angen (cynghorol)";
+    public static final String  MINOR_DEFECTS_HEADER_TEXT_WELSH = "Rhaid trwsio cyn gynted â phosibl (mân ddiffygion)";
 
     protected Element resultSummaryElement;
 
@@ -42,6 +44,14 @@ public class DefectSummaryComponent {
         return getResultItemEntries(DANGEROUS_DEFECTS_HEADER_TEXT);
     }
 
+    public Elements getMinorDefectsWelsh() {
+        return getResultItemEntries(MINOR_DEFECTS_HEADER_TEXT_WELSH);
+    }
+
+    public Elements getAdvisoriesWelsh() {
+        return getResultItemEntries(ADVISORIES_HEADER_TEXT_WELSH);
+    }
+
     protected Elements getResultItemEntries(String resultItemHeader) {
         return getResultItems().stream()
                 .filter(i -> i.getElementsContainingOwnText(resultItemHeader).size() > 0)
@@ -50,4 +60,7 @@ public class DefectSummaryComponent {
                 .getElementsByTag("li");
     }
 
+    public boolean isDefectsHeaderPresent(String header) {
+        return getResultItems().stream().anyMatch(i -> i.getElementsContainingOwnText(header).size() > 0);
+    }
 }

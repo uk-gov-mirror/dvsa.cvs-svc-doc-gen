@@ -4,13 +4,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import uk.gov.dvsa.exception.HttpException;
 import uk.gov.dvsa.model.Document;
-import uk.gov.dvsa.model.mot.VT20;
-import uk.gov.dvsa.model.mot.VT30;
+import uk.gov.dvsa.model.mot.enums.DocumentsConfig;
 
 import java.io.IOException;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class RequestParser {
 
@@ -19,13 +16,8 @@ public class RequestParser {
     private static final String DOCUMENT_DIRECTORY_PARAMETER = "documentDirectory";
     private static final String REQUEST_BODY = "body";
 
-    private static final Map<String, Class<? extends Document>> documents;
-
     static {
         HashMap<String, Class<? extends Document>> documentsMap = new HashMap<>();
-        documentsMap.put("MOT/VT30", VT30.class);
-        documentsMap.put("MOT/VT20", VT20.class);
-        documents = Collections.unmodifiableMap(documentsMap);
     }
 
     public Document parseRequest(Map<String, Object> input) {
@@ -45,7 +37,7 @@ public class RequestParser {
     }
 
     private Class<? extends Document> readDocumentType(String documentName) {
-        return documents.get(documentName);
+        return DocumentsConfig.fromDocumentName(documentName).getBaseClass();
     }
 
     private static String readDocumentName(Map<String, Object> input) {
@@ -66,13 +58,7 @@ public class RequestParser {
         String documentName = pathParameters.get(DOCUMENT_NAME_PARAMETER);
         String documentDirectory = pathParameters.get(DOCUMENT_DIRECTORY_PARAMETER);
 
-        String documentPath = trimFileExtension(documentDirectory + "/" + documentName);
-
-        if (!documents.containsKey(documentPath)) {
-            throw new HttpException.NotFoundException("Unknown document name: " + documentPath);
-        }
-
-        return documentPath;
+        return trimFileExtension(documentDirectory + "/" + documentName);
     }
 
     private static String trimFileExtension(String documentPath) {

@@ -7,7 +7,6 @@ import htmlverification.framework.page_object.CertificatePageSelector;
 import htmlverification.service.CertificateTestDataProvider;
 import org.jsoup.nodes.Element;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -19,7 +18,9 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(Parameterized.class)
 public class CommonCertificatesTest {
@@ -41,7 +42,7 @@ public class CommonCertificatesTest {
 
     @Before
     public void setup() throws IOException {
-        String certHtml = htmlGenerator.generate(testCertificate);
+        String certHtml = htmlGenerator.generate(testCertificate).get(0);
         certificatePageObject = new CertificatePageObject(certHtml);
     }
 
@@ -59,7 +60,6 @@ public class CommonCertificatesTest {
     @Test
     public void verifyDVSALogoIsLinked() {
         Element dvsaLogoElement = certificatePageObject.getElement(CertificatePageSelector.DVSA_LOGO_SELECTOR.getSelector());
-
         assertNotNull(dvsaLogoElement);
     }
 
@@ -83,7 +83,7 @@ public class CommonCertificatesTest {
         );
         expectedValues.put(CertificatePageSelector.VEHICLE_CATEGORY_ID.getSelector(), testCertificate.getData().getVehicleEuClassification());
         expectedValues.put(CertificatePageSelector.MILEAGE_ID.getSelector(), testCertificate.getData().getOdometer());
-        expectedValues.put(CertificatePageSelector.DATE_OF_THE_TEST_ID.getSelector(), testCertificate.getData().getIssuedDate());
+        expectedValues.put(CertificatePageSelector.DATE_OF_THE_TEST_ID.getSelector(), "12.10.2017");
         expectedValues.put(CertificatePageSelector.LOCATION_OF_THE_TEST_ID.getSelector(), testCertificate.getData().getTestStationAddress());
         expectedValues.put(CertificatePageSelector.TESTING_ORG_AND_INSP_NAME_ID.getSelector(), testCertificate.getData().getInspectionAuthority());
         expectedValues.put(CertificatePageSelector.MOT_TEST_NUMBER_ID.getSelector(), "1806 8140 0628");

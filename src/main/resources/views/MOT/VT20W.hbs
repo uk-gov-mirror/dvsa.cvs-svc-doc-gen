@@ -1,20 +1,30 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
-    <title>{{title}}</title>
+    <title>Tystysgrif prawf MOT</title>
     <style type="text/css" media="print, screen">
         {{~> assets/stylesheets/version-2 this}}
     </style>
 </head>
-
 <body>
+<!-- running-header -->
+<!-- Remove this to stop the not valid message showing up -->
+<!--<div class="running-header">-->
+  <!--<div class="running-header__inner">-->
+    <!--<span class="running-header__text">-->
+      <!--NOT VALID-->
+    <!--</span>-->
+  <!--</div>-->
+<!--</div>-->
+<!-- /running-header -->
+
 <!-- footer -->
 <!-- This duplicate one is required as it is different on the first page -->
 <div class="footer footer--first-page">
   <div class="footer__wrapper">
     <div class="footer__top">
       <h5 class="footer__top-text">
-        Inspector’s signature
+        Llofnod yr arolygydd
       </h5>
     </div>
 
@@ -24,11 +34,11 @@
       <div class="footer__bottom-two">
         <div class="footer__bottom-page-counter">
           <span class="footer__bottom-page-counter-text">
-            Page
+            Tudalen
           </span>
           <span class="footer__bottom-page-counter-text footer__bottom-page-counter-text--page-number"></span>
           <span class="footer__bottom-page-counter-text">
-            of
+            o
           </span>
           <span class="footer__bottom-page-counter-text footer__bottom-page-counter-text--pages-count"></span>
         </div>
@@ -36,7 +46,7 @@
 
       <div class="footer__bottom-three">
         <span class="footer__bottom-light-text">
-          VT30/2.0
+          VT20W/2.0
         </span>
       </div>
     </div>
@@ -49,7 +59,7 @@
   <div class="footer__wrapper">
     <div class="footer__top">
       <h5 class="footer__top-text">
-        Inspector’s signature
+        Llofnod yr arolygydd
       </h5>
     </div>
 
@@ -63,11 +73,11 @@
       <div class="footer__bottom-two">
         <div class="footer__bottom-page-counter">
           <span class="footer__bottom-page-counter-text">
-            Page
+            Tudalen
           </span>
           <span class="footer__bottom-page-counter-text footer__bottom-page-counter-text--page-number"></span>
           <span class="footer__bottom-page-counter-text">
-            of
+            o
           </span>
           <span class="footer__bottom-page-counter-text footer__bottom-page-counter-text--pages-count"></span>
         </div>
@@ -75,7 +85,7 @@
 
       <div class="footer__bottom-three">
         <span class="footer__bottom-light-text">
-          VT30/2.0
+          VT20W/2.0
         </span>
       </div>
     </div>
@@ -91,7 +101,7 @@
     <div class="header">
       <div class="header__left">
         <h1 class="header__title">
-          Refusal of MOT test certificate
+            Tystysgrif prawf MOT
         </h1>
 
         <!-- heading-info -->
@@ -104,7 +114,7 @@
             </span>
             <span class="heading-info__title-right">
               <span class="heading-info__title-message">
-                Vehicle identification number
+                Rhif adnabod y cerbyd
               </span>
             </span>
           </h2>
@@ -127,7 +137,7 @@
                 </span>
                 <span class="heading-info__title-right">
                   <span class="heading-info__title-message">
-                    Registration number
+                    Rhif cofrestru
                   </span>
                 </span>
               </h2>
@@ -149,7 +159,7 @@
                 </span>
                 <span class="heading-info__title-right">
                   <span class="heading-info__title-message">
-                    Country of registration
+                    Gwlad y cofrestru
                   </span>
                 </span>
               </h2>
@@ -166,7 +176,7 @@
         <div class="heading-info">
           <h2 class="heading-info__title">
             <span class="heading-info__title-message">
-              Make and model
+              Math a model
             </span>
           </h2>
           <span class="heading-info__content" id="make-model">
@@ -174,16 +184,17 @@
           </span>
         </div>
         <!-- /heading-info -->
+
       </div>
 
       <div class="header__right">
-        <img src="{{root}}/assets/images/dvsa_crest.png" alt="DVSA Crown" class="header__logo"/>
+        <img src="{{root}}/assets/images/dvsa-crest-welsh-v2.png" alt="DVSA Crown" class="header__logo"/>
       </div>
 
       <div class="clearfix"></div>
 
       <!-- header__three-columns -->
-      <div class="header__three-columns">
+      <div class="header__three-columns header__three-columns--welsh">
         <div class="header__three-columns-one">
           <!-- heading-info -->
           <div class="heading-info">
@@ -195,7 +206,7 @@
               </span>
               <span class="heading-info__title-right">
                 <span class="heading-info__title-message">
-                  Vehicle category
+                  Categori’r cerbyd
                 </span>
               </span>
             </h2>
@@ -217,39 +228,39 @@
               </span>
               <span class="heading-info__title-right">
                 <span class="heading-info__title-message">
-                  Mileage
+                  Milltiroedd
                 </span>
               </span>
             </h2>
             <span class="heading-info__content" id="mileage">
-              {{data.formattedCurrentOdometer}}
+              {{data.formattedCurrentOdometerCy}}
             </span>
           </div>
           <!-- /heading-info -->
         </div>
 
-        {{#if data.odometerHistory}}
+        {{#if data.odometerHistoryList}}
         <div class="header__three-columns-three">
           <!-- heading-info -->
           <div class="heading-info">
             <h2 class="heading-info__title">
               <span class="heading-info__title-message">
-                Mileage history
+                Hanes y milltiroedd
               </span>
             </h2>
             <div class="heading-info__content" id="mileage-history">
               <!-- header__histories -->
               <ul class="header__histories">
-                {{#each data.odometerHistory}}
+                {{#each data.mileageHistoryCy}}
                 <li class="header__history">
                   <div class="header__history-left">
                     <span class="header__history-mileage">
-                      {{#if data.odometer}}{{data.odometer}}{{/if}}
+                      {{this.value}}
                     </span>
                   </div>
                   <div class="header__history-right">
                     <span class="header__history-date">
-                      {{#if data.odometer}}{{data.date}}{{/if}}
+                      {{this.date}}
                     </span>
                   </div>
                 </li>
@@ -269,19 +280,13 @@
     <!-- results -->
     <div class="results">
       <div class="results__wrapper">
-          {{~> views/MOT/reasonsForRejection data.summary}}
-          {{#if data.dangerous.present}}
-            {{~> views/MOT/reasonsForRejection data.dangerous}}
-          {{/if}}
-          {{#if data.major.present}}
-            {{~> views/MOT/reasonsForRejection data.major}}
-          {{/if}}
-          {{#if data.minor.present}}
-            {{~> views/MOT/reasonsForRejection data.minor}}
-          {{/if}}
-          {{#if data.advisory.present}}
-            {{~> views/MOT/reasonsForRejection data.advisory}}
-          {{/if}}
+        {{~> views/MOT/reasonsForRejection data.summaryCy}}
+        {{#if data.minorCy.present}}
+          {{~> views/MOT/reasonsForRejection data.minorCy}}
+        {{/if}}
+        {{#if data.advisoryCy.present}}
+          {{~> views/MOT/reasonsForRejection data.advisoryCy}}
+        {{/if}}
       </div>
     </div>
     <!-- /results -->
@@ -290,25 +295,57 @@
     <div class="test-information">
       <div class="test-information__wrapper">
 
-        <!-- heading-info -->
-        <div class="heading-info">
-          <h2 class="heading-info__title">
-            <span class="heading-info__title-left">
-              <span class="circle-text">
-                <span class="circle-text__number">3b</span>
+        <!-- test-information__two-columns -->
+        <div class="test-information__two-columns">
+          <div class="test-information__two-columns-one">
+            <!-- heading-info -->
+            <div class="heading-info heading-info--no-margin">
+              <h2 class="heading-info__title">
+                <span class="heading-info__title-left">
+                  <span class="circle-text">
+                    <span class="circle-text__number">3b</span>
+                  </span>
+                </span>
+                <span class="heading-info__title-right">
+                  <span class="heading-info__title-message">
+                    Dyddiad y prawf
+                  </span>
+                </span>
+              </h2>
+              <span class="heading-info__content" id="date-of-test">
+                {{data.formattedDateOfTheTest}}
               </span>
-            </span>
-            <span class="heading-info__title-right">
-              <span class="heading-info__title-message">
-                Date of the test
+            </div>
+            <!-- /heading-info -->
+          </div>
+
+          <div class="text-information__two-columns-two">
+            <!-- heading-info -->
+            <div class="heading-info heading-info--no-margin">
+              <h2 class="heading-info__title">
+                <span class="heading-info__title-left">
+                  <span class="circle-text">
+                    <span class="circle-text__number">8</span>
+                  </span>
+                </span>
+                <span class="heading-info__title-right">
+                  <span class="heading-info__title-message">
+                    Dyddiad daw i derfyn
+                  </span>
+                </span>
+              </h2>
+              <span class="heading-info__content" id="expiry-date">
+                {{data.dateOfTheExpiryTest}}
               </span>
-            </span>
-          </h2>
-          <span class="heading-info__content" id="date-of-test">
-            {{data.formattedDateOfTheTest}}
-          </span>
+            </div>
+            <!-- /heading-info -->
+          </div>
         </div>
-        <!-- /heading-info -->
+        <!-- /test-information__two-columns -->
+
+        <p class="test-information__message test-information__message--margin-top">
+          Er mwyn cadw at y dyddiad terfyn, y dyddiad cynharaf y medrwch gyflwyno eich cerbyd <br/>ar gyfer y prawf yw <span id="earliest-preserve-date">{{data.formattedEarliestDateOfTheNextTest}}</span>.
+        </p>
 
         <!-- heading-info -->
         <div class="heading-info">
@@ -320,14 +357,14 @@
             </span>
             <span class="heading-info__title-right">
               <span class="heading-info__title-message">
-                Location of the test
+                Lleoliad y prawf
               </span>
             </span>
           </h2>
           <span class="heading-info__content" id="location-of-test">
-            {{data.testStation}}
+            {{{data.testStation}}}
             <br/>
-            {{data.testStationAddressLine}}
+            {{{data.testStationAddressLine}}}
           </span>
         </div>
         <!-- /heading-info -->
@@ -342,14 +379,14 @@
             </span>
             <span class="heading-info__title-right">
               <span class="heading-info__title-message">
-                Testing organisation and inspector’s name
+                Sefydliad sy’n profi ac enw’r arolygydd
               </span>
             </span>
           </h2>
           <span class="heading-info__content" id="organisation-and-inspection-name">
-            {{data.authorisedExaminer}}
-              <br/>
-            {{data.issuersName}}
+              {{{data.authorisedExaminer}}}
+            <br/>
+              {{{data.issuersName}}}
           </span>
         </div>
         <!-- /heading-info -->
@@ -358,7 +395,7 @@
         <div class="heading-info">
           <h2 class="heading-info__title">
             <span class="heading-info__title-message">
-              MOT test number
+              Rhif prawf MOT
             </span>
           </h2>
           <span class="heading-info__content" id="mot-test-number">
@@ -367,22 +404,16 @@
         </div>
         <!-- /heading-info -->
 
-        {{#if certificateIssuerInfo}}
-            <p class="test-information__message test-information__message--limit-width" id="issuer-info">
-              {{certificateIssuerInfo}}
-            </p>
-        {{/if}}
+        <p class="test-information__message test-information__message--limit-width">
+          Gwiriwch bod y ddogfen hon yn ddilys trwy fynd i <br/><a class="test-information__message-link" href="www.gov.uk/check-mot-history">www.gov.uk/check-mot-history</a>
+        </p>
 
         <p class="test-information__message test-information__message--limit-width">
-          To find out about retests, or if you disagree with the test result, see the fees and appeals poster at the vehicle testing station. Alternatively, visit <br/><a class="test-information__message-link" href="www.gov.uk/getting-an-mot">www.gov.uk/getting-an-mot</a>
+          Os oes unrhyw fanylion nad ydynt yn gywir dylech gysylltu â’r DVSA trwy <br/>e-bostio <a class="test-information__message-link" href="mailto:enquires@dvsa.gov.uk">enquires@dvsa.gov.uk</a> neu trwy ffonio 0300 1239000.
         </p>
 
-        <p class="test-information__message">
-          If any of the details are not correct, please contact DVSA by email at <br/><a class="test-information__message-link" href="mailto:enquires@dvsa.gov.uk">enquires@dvsa.gov.uk</a> or by telephone on 0300 1239000.
-        </p>
-
-        <p class="test-information__message">
-          Find out about the vehicle’s MOT history at <a class="test-information__message-link" href="www.gov.uk/check-mot-history">www.gov.uk/check-mot-history</a>
+        <p class="test-information__message test-information__message--limit-width">
+          Medrwch gael nodyn atgoffa blynyddol ynghylch MOT am ddim trwy danysgrifio i <a class="test-information__message-link" href="www.gov.uk/mot-reminder">www.gov.uk/mot-reminder</a> neu trwy ffonio 0300 1239000.
         </p>
 
       </div>

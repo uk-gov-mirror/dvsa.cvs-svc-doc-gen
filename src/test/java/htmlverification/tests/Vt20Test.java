@@ -6,16 +6,13 @@ import htmlverification.service.CertificateTestDataProvider;
 import org.junit.Before;
 import org.junit.Test;
 import uk.gov.dvsa.model.mot.MotCertificate;
-import uk.gov.dvsa.model.mot.MotCertificateData;
-import uk.gov.dvsa.model.mot.MotFailCertificate;
-import uk.gov.dvsa.model.mot.MotFailCertificateData;
 import uk.gov.dvsa.service.HtmlGenerator;
 
 import java.io.IOException;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static uk.gov.dvsa.model.mot.MotCertificateData.PASS_WITH_DEFECTS_HEADER;
+import static uk.gov.dvsa.model.mot.certificateData.MotCertificateData.PASS_WITH_DEFECTS_HEADER;
 import static uk.gov.dvsa.model.mot.results.Summary.EU_NUMBER_SUMMARY_HEADER;
 
 public class Vt20Test {
@@ -31,7 +28,7 @@ public class Vt20Test {
     @Before
     public void setup() throws IOException {
         testCertificate = CertificateTestDataProvider.getVt20();
-        String certHtml = htmlGenerator.generate(testCertificate);
+        String certHtml = htmlGenerator.generate(testCertificate).get(0);
         certificatePageObject = new CertificatePageObject(certHtml);
     }
 

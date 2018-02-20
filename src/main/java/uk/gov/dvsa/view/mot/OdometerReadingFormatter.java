@@ -1,11 +1,14 @@
 package uk.gov.dvsa.view.mot;
 
 import org.apache.commons.lang3.StringUtils;
-import uk.gov.dvsa.model.mot.OdometerReading;
+import uk.gov.dvsa.model.mot.certificateData.OdometerReading;
 
 import java.util.Optional;
 
 public class OdometerReadingFormatter {
+
+    public static final String MILES_ENGLISH = "miles";
+    public static final String MILES_WELSH = "milltiroedd";
 
     private static final String MILES_UNIT = "mi";
     private static final String KILOMETERS_UNIT = "km";
@@ -23,14 +26,29 @@ public class OdometerReadingFormatter {
 
         return formatNumberValue(odometer.getValue()) +
             Optional.ofNullable(odometer.getUnit())
-            .map(unit -> " " + formatUnit(unit))
+            .map(unit -> " " + formatUnit(unit, false))
             .orElse("");
     }
 
-    private String formatUnit(String unit) {
+    public String formatWelshValue(OdometerReading odometer) {
+        if (odometer == null) {
+            return "";
+        }
+
+        if (isRemark(odometer)) {
+            return odometer.getValueCy();
+        }
+
+        return formatNumberValue(odometer.getValueCy()) +
+                Optional.ofNullable(odometer.getUnit())
+                        .map(unit -> " " + formatUnit(unit, true))
+                        .orElse("");
+    }
+
+    private String formatUnit(String unit, Boolean unitWelsh) {
         switch (unit) {
             case MILES_UNIT:
-                return "miles";
+                return unitWelsh ? MILES_WELSH : MILES_ENGLISH;
             case KILOMETERS_UNIT:
                 return "km";
             default:
