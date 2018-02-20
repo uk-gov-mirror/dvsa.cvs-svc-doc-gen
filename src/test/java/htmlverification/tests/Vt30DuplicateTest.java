@@ -25,7 +25,7 @@ public class Vt30DuplicateTest {
     @Before
     public void setup() throws IOException {
         testCertificate = CertificateTestDataProvider.getVt30Duplicate();
-        String certHtml = htmlGenerator.generate(testCertificate);
+        String certHtml = htmlGenerator.generate(testCertificate).get(0);
         certificatePageObject = new CertificatePageObject(certHtml);
     }
 

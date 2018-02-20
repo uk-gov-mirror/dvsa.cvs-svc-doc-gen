@@ -1,12 +1,11 @@
 package htmlverification.service;
 
-
 import htmlverification.framework.component.DefectSummaryComponent;
-import uk.gov.dvsa.model.mot.MotCertificateData;
-import uk.gov.dvsa.model.mot.MotFailCertificateData;
-import uk.gov.dvsa.model.mot.OdometerReading;
-import uk.gov.dvsa.model.mot.VT20;
-import uk.gov.dvsa.model.mot.VT30;
+import uk.gov.dvsa.model.mot.*;
+import uk.gov.dvsa.model.mot.certificateData.MotCertificateData;
+import uk.gov.dvsa.model.mot.certificateData.MotCertificateDataWelsh;
+import uk.gov.dvsa.model.mot.certificateData.MotFailCertificateData;
+import uk.gov.dvsa.model.mot.certificateData.OdometerReading;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -14,12 +13,17 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
+import static uk.gov.dvsa.view.mot.OdometerReadingFormatter.MILES_ENGLISH;
+
 public class CertificateTestDataProvider {
     public static final String VIN = "QQIDAAAAAAA058568";
     public static final String ADVISORY_RFR_TEXT = "Advisory RFR";
     public static final String DANGEROUS_RFR_TEXT = "Dangerous RFR";
     public static final String MAJOR_RFR_TEXT = "Major RFR";
     public static final String MINOR_RFR_TEXT = "Minor RFR";
+    public static final String ADVISORY_RFR_WELSH_TEXT = "Advisory Welsh RFR";
+    public static final String MINOR_RFR_WELSH_TEXT = "Minor Welsh RFR";
+    public static final String ODOMETER_VALUE = "22,341";
 
     public static VT20 getVt20() {
         VT20 vt20 = new VT20();
@@ -34,18 +38,18 @@ public class CertificateTestDataProvider {
 
             .setCountryOfRegistrationCode("GB")
             .setRawVin(VIN)
-            .setIssuedDate("12.10.2017")
+            .setIssuedDate("2017-10-12")
             .setDateOfTheTest(LocalDate.of(2017, 10, 12))
             .setExpiryDate("12.10.2018")
             .setDateOfTheExpiryTest("12.10.2018")
-            .setFirstUseDate("12.10.2010")
+            .setFirstUseDate("2010-10-12")
             .setTestStationAddress("VTS004004 53, Call Road, Worthing BN12 6PB, United Kingdom")
             .setMake("Aston Martin")
             .setModel("DB11")
             .setTestClass("4")
             .setVehicleEuClassification("M1")
             .setRawVrm("KA1SAPH")
-            .setOdometer("22,341 miles")
+            .setOdometer(ODOMETER_VALUE + " " + MILES_ENGLISH)
             .setCurrentOdometer(
                 new OdometerReading("22341", "mi", LocalDate.now())
             )
@@ -57,7 +61,8 @@ public class CertificateTestDataProvider {
             .setIssuersName("R.DREWNO")
             .setInspectionAuthority("MILKE GROUP LIMITED R.DREWNO")
             .setAuthorisedExaminer("MILKE GROUP LIMITED")
-            .setTestNumber("1806 8140 0628");
+            .setTestNumber("1806 8140 0628")
+            .setEarliestDateOfTheNextTest(LocalDate.of(2018, 10, 13));
         vt20.setData(vt20Data);
 
         return vt20;
@@ -88,17 +93,17 @@ public class CertificateTestDataProvider {
 
             .setCountryOfRegistrationCode("GB")
             .setRawVin(VIN)
-            .setIssuedDate("12.10.2017")
+            .setIssuedDate("2017-10-12")
             .setDateOfTheTest(LocalDate.of(2017, 10, 12))
             .setExpiryDate("12.10.2018")
-            .setFirstUseDate("12.10.2010")
+            .setFirstUseDate("2010-10-12")
             .setTestStationAddress("VTS004004 53, Call Road, Worthing BN12 6PB, United Kingdom")
             .setMake("Aston Martin")
             .setModel("DB11")
             .setTestClass("4")
             .setVehicleEuClassification("M1")
             .setRawVrm("KA1SAPH")
-            .setOdometer("22,341 miles")
+            .setOdometer(ODOMETER_VALUE + " " + MILES_ENGLISH)
             .setOdometerHistory("1 2 2016 200 miles\n 30 1 2017 300 miles")
             .setCurrentOdometer(
                 new OdometerReading("22341", "mi", LocalDate.now())
@@ -110,7 +115,8 @@ public class CertificateTestDataProvider {
             .setIssuersName("R.DREWNO")
             .setInspectionAuthority("MILKE GROUP LIMITED R.DREWNO")
             .setAuthorisedExaminer("MILKE GROUP LIMITED")
-            .setTestNumber("1806 8140 0628");
+            .setTestNumber("1806 8140 0628")
+            .setEarliestDateOfTheNextTest(LocalDate.of(2018, 10, 13));
         vt30.setData(vt30Data);
 
         return vt30;
@@ -135,17 +141,17 @@ public class CertificateTestDataProvider {
 
             .setCountryOfRegistrationCode("GB")
             .setRawVin(VIN)
-            .setIssuedDate("12.10.2017")
+            .setIssuedDate("2017-10-12")
             .setDateOfTheTest(LocalDate.of(2017, 10, 12))
             .setExpiryDate("12.10.2018")
-            .setFirstUseDate("12.10.2010")
+            .setFirstUseDate("2010-10-12")
             .setTestStationAddress("VTS004004 53, Call Road, Worthing BN12 6PB, United Kingdom")
             .setMake("Aston Martin")
             .setModel("DB11")
             .setTestClass("4")
             .setVehicleEuClassification("M1")
             .setRawVrm("KA1SAPH")
-            .setOdometer("22,341 miles")
+            .setOdometer(ODOMETER_VALUE + " " + MILES_ENGLISH)
             .setOdometerHistory("1 2 2016 200 miles\n 30 1 2017 300 miles")
             .setCurrentOdometer(
                 new OdometerReading("22341", "mi", LocalDate.now())
@@ -158,10 +164,55 @@ public class CertificateTestDataProvider {
             .setIssuersName("R.DREWNO")
             .setInspectionAuthority("MILKE GROUP LIMITED R.DREWNO")
             .setAuthorisedExaminer("MILKE GROUP LIMITED")
-            .setTestNumber("180681400628");
+            .setTestNumber("180681400628")
+            .setEarliestDateOfTheNextTest(LocalDate.of(2018, 10, 13));
 
         vt30WithOverflownRFRs.setData(vt30WithOverflownRFRsData);
         return vt30WithOverflownRFRs;
+    }
+
+    public static VT20W getVt20W() {
+        VT20W vt20W = new VT20W();
+        vt20W.setDocumentName("MOT/VT20W");
+        MotCertificateDataWelsh vt20WData = new MotCertificateDataWelsh();
+        vt20WData
+                .setEuMinorDefectsCy(generateRFRs(MINOR_RFR_WELSH_TEXT, 5))
+                .setEuAdvisoryDefectsCy(generateRFRs(ADVISORY_RFR_WELSH_TEXT, 3))
+                .setEuMinorDefects(generateRFRs(MINOR_RFR_TEXT, 5))
+                .setEuAdvisoryDefects(generateRFRs(ADVISORY_RFR_TEXT, 3))
+                .setMinorDefectsHeader(DefectSummaryComponent.MINOR_DEFECTS_HEADER_TEXT_WELSH)
+                .setAdvisoryDefectsHeader(DefectSummaryComponent.ADVISORIES_HEADER_TEXT_WELSH)
+                .setCountryOfRegistrationCode("GB")
+                .setRawVin(VIN)
+                .setIssuedDate("2017-10-12")
+                .setDateOfTheTest(LocalDate.of(2017, 10, 12))
+                .setExpiryDate("12.10.2018")
+                .setDateOfTheExpiryTest("12.10.2018")
+                .setFirstUseDate("2010-10-12")
+                .setTestStationAddress("VTS004004 53, Call Road, Worthing BN12 6PB, United Kingdom")
+                .setMake("Aston Martin")
+                .setModel("DB11")
+                .setTestClass("4")
+                .setVehicleEuClassification("M1")
+                .setRawVrm("KA1SAPH")
+                .setOdometer(ODOMETER_VALUE + " " + MILES_ENGLISH)
+                .setCurrentOdometer(
+                        new OdometerReading("22341", "22341", "mi", LocalDate.now())
+                )
+                .setOdometerHistory("1 2 2016 200 miles\n 30 1 2017 300 miles")
+                .setOdometerHistoryList(Arrays.asList(
+                        new OdometerReading("120", "120", "km", LocalDate.of(2016, 2, 1)),
+                        new OdometerReading("330", "330", "km", LocalDate.of(2017, 1, 30))
+                ))
+                .setIssuersName("R.DREWNO")
+                .setInspectionAuthority("MILKE GROUP LIMITED R.DREWNO")
+                .setAuthorisedExaminer("MILKE GROUP LIMITED")
+                .setTestNumber("1806 8140 0628")
+                .setEarliestDateOfTheNextTest(LocalDate.of(2018, 10, 13))
+                .setAdditionalInformation("Not really used information");
+        vt20W.setData(vt20WData);
+
+        return vt20W;
     }
 
     public static Collection<Object[]> getCertificatesTestData() {

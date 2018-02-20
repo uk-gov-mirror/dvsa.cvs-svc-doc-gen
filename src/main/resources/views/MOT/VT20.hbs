@@ -107,7 +107,7 @@
               </span>
             </span>
                     </h2>
-                    <span class="heading-info__content heading-info__content--uppercase" id="vin">
+                    <span class="heading-info__content" id="vin">
                         {{data.rawVin}}
                     </span>
                 </div>
@@ -130,7 +130,7 @@
                   </span>
                 </span>
                             </h2>
-                            <span class="heading-info__content heading-info__content--uppercase" id="reg-number">
+                            <span class="heading-info__content" id="reg-number">
                                 {{data.rawVrm}}
                             </span>
                         </div>
@@ -168,7 +168,7 @@
                           Make and model
                         </span>
                     </h2>
-                    <span class="heading-info__content heading-info__content--uppercase" id="make-model">
+                    <span class="heading-info__content" id="make-model">
                         {{data.make}} {{data.model}}
                     </span>
                 </div>
@@ -198,7 +198,7 @@
                 </span>
               </span>
                         </h2>
-                        <span class="heading-info__content heading-info__content--uppercase" id="vehicle-category">
+                        <span class="heading-info__content" id="vehicle-category">
                             {{data.vehicleEuClassification}}
                         </span>
                     </div>
@@ -269,11 +269,11 @@
         <div class="results">
             <div class="results__wrapper">
                 {{~> views/MOT/reasonsForRejection data.summary}}
-                {{#if data.defects.minor.present}}
-                    {{~> views/MOT/reasonsForRejection data.defects.minor}}
+                {{#if data.minor.present}}
+                    {{~> views/MOT/reasonsForRejection data.minor}}
                 {{/if}}
-                {{#if data.defects.advisory.present}}
-                    {{~> views/MOT/reasonsForRejection data.defects.advisory}}
+                {{#if data.advisory.present}}
+                    {{~> views/MOT/reasonsForRejection data.advisory}}
                 {{/if}}
             </div>
         </div>
@@ -300,7 +300,7 @@
                                   </span>
                                 </span>
                             </h2>
-                            <span class="heading-info__content heading-info__content--uppercase" id="date-of-test">
+                            <span class="heading-info__content" id="date-of-test">
                                 {{data.formattedDateOfTheTest}}
                             </span>
                         </div>
@@ -322,7 +322,7 @@
                                   </span>
                                 </span>
                             </h2>
-                            <span class="heading-info__content heading-info__content--uppercase" id="expiry-date">
+                            <span class="heading-info__content" id="expiry-date">
                                 {{data.dateOfTheExpiryTest}}
                             </span>
                         </div>
@@ -332,11 +332,8 @@
                 <!-- /test-information__two-columns -->
 
                 <p class="test-information__message test-information__message--margin-top">
-                    {{data.additionalInformation}}
-                    <!-- TODO Bold the date -->
-                    <!-- TODO Format the date -->
-                    <!--To preserve the anniversary of the expiry date, the earliest you can present your vehicle for test-->
-                    <!--is <span id="earliest-preserve-date">13.09.2018</span>.-->
+                    To preserve the anniversary of the expiry date, the earliest you can present your vehicle for test
+                    is <span id="earliest-preserve-date">{{data.formattedEarliestDateOfTheNextTest}}</span>.
                 </p>
 
                 <!-- heading-info -->
@@ -375,7 +372,7 @@
                           </span>
                         </span>
                     </h2>
-                    <span class="heading-info__content heading-info__content--uppercase"
+                    <span class="heading-info__content"
                           id="organisation-and-inspection-name">
                       {{data.authorisedExaminer}}
                       <br/>
@@ -391,7 +388,7 @@
               MOT test number
             </span>
                     </h2>
-                    <span class="heading-info__content heading-info__content--uppercase" id="mot-test-number">
+                    <span class="heading-info__content" id="mot-test-number">
                         {{data.formattedTestNumber}}
                     </span>
                 </div>

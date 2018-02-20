@@ -6,10 +6,7 @@ import java.util.Optional;
 
 public class DefectsList extends ResultsItem {
 
-    /**
-     * Path to an iconSrc displayed along with the title
-     */
-    private String iconSrc;
+    private Boolean isDangerous;
 
     private List<String> reasonsForRejection = new ArrayList<>();
 
@@ -48,12 +45,13 @@ public class DefectsList extends ResultsItem {
         return this.reasonsForRejection.subList(1, reasonsForRejection.size());
     }
 
-    public String getIconSrc() {
-        return iconSrc;
+    public Boolean getIsDangerous() {
+        return isDangerous;
     }
 
-    public void setIconSrc(String iconSrc) {
-        this.iconSrc = iconSrc;
+    public DefectsList setIsDangerous(Boolean isDangerous) {
+        this.isDangerous = isDangerous;
+        return this;
     }
 
     public boolean isEmpty() {

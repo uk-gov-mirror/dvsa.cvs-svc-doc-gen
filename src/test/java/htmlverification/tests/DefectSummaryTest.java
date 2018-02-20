@@ -5,8 +5,8 @@ import htmlverification.framework.page_object.CertificatePageObject;
 import htmlverification.service.CertificateTestDataProvider;
 import org.junit.Before;
 import org.junit.Test;
-import uk.gov.dvsa.model.mot.MotFailCertificate;
-import uk.gov.dvsa.model.mot.MotFailCertificateData;
+import uk.gov.dvsa.model.Document;
+import uk.gov.dvsa.model.mot.certificateData.MotFailCertificateData;
 import uk.gov.dvsa.service.HtmlGenerator;
 
 import java.io.IOException;
@@ -18,7 +18,7 @@ import static uk.gov.dvsa.model.mot.results.Summary.EU_NUMBER_SUMMARY_HEADER;
 public class DefectSummaryTest {
 
     protected HtmlGenerator htmlGenerator;
-    protected MotFailCertificate testCertificate;
+    protected Document testCertificate;
     protected CertificatePageObject certificatePageObject;
 
     public DefectSummaryTest() {
@@ -28,7 +28,7 @@ public class DefectSummaryTest {
     @Before
     public void setup() throws IOException {
         testCertificate = CertificateTestDataProvider.getVt30();
-        String certHtml = htmlGenerator.generate(testCertificate);
+        String certHtml = htmlGenerator.generate(testCertificate).get(0);
         certificatePageObject = new CertificatePageObject(certHtml);
     }
 

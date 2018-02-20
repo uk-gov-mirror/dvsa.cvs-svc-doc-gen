@@ -7,10 +7,11 @@ import org.xhtmlrenderer.pdf.ITextRenderer;
 
 import java.io.File;
 import java.net.URL;
-
-import static org.junit.Assert.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import static junit.framework.TestCase.fail;
+import static org.junit.Assert.*;
 
 public class PDFGenerationServiceTest {
 
@@ -23,7 +24,8 @@ public class PDFGenerationServiceTest {
 
     @Test
     public void checkIfValidHtmlIsConvertedToPdf() {
-        String validHtmlContent = getHtmlContent();
+        List<String> validHtmlContent = new ArrayList<>();
+        validHtmlContent.add(getHtmlContent());
 
         byte [] outputPdf = null;
 
@@ -39,7 +41,8 @@ public class PDFGenerationServiceTest {
 
     @Test
     public void checkIfInvalidHtmlResultsInExceptionBeingThrown() {
-        String invalidHtmlContent = "<htm";
+        List<String> invalidHtmlContent = new ArrayList<>();
+        invalidHtmlContent.add("<htm");
 
         byte [] outputPdf = null;
 

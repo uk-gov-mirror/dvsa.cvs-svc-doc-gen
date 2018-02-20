@@ -11,11 +11,6 @@ import uk.gov.dvsa.model.mot.MotCertificate;
 import uk.gov.dvsa.service.HtmlGenerator;
 import uk.gov.dvsa.service.PDFGenerationService;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.IntStream;
-
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 

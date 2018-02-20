@@ -2,6 +2,7 @@ package uk.gov.dvsa.model.mot;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import uk.gov.dvsa.model.Document;
+import uk.gov.dvsa.model.mot.certificateData.MotCertificateData;
 
 public abstract class MotCertificate extends Document {
 

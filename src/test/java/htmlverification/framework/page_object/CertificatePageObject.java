@@ -67,4 +67,8 @@ public class CertificatePageObject extends BasePageObject {
     public String getIssuerInfo() {
         return getElementById(ISSUER_INFO_ID.getSelector()).text();
     }
+
+    public String getEarliestDateOfTheNextTest() {
+        return getElementById(EARLIEST_DATE_OF_THE_NEXT_TEST.getSelector()).text();
+    }
 }
