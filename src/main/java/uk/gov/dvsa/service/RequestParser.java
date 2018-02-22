@@ -2,12 +2,20 @@ package uk.gov.dvsa.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import uk.gov.dvsa.exception.HttpException;
+import uk.gov.dvsa.logging.EventType;
+import uk.gov.dvsa.logging.LogContextWrapper;
+import uk.gov.dvsa.logging.LoggingExecutor;
+import uk.gov.dvsa.logging.LoggingExecutor;
 import uk.gov.dvsa.model.Document;
 import uk.gov.dvsa.model.mot.enums.DocumentsConfig;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 public class RequestParser {
 
@@ -16,18 +24,30 @@ public class RequestParser {
     private static final String DOCUMENT_DIRECTORY_PARAMETER = "documentDirectory";
     private static final String REQUEST_BODY = "body";
 
+    private static final Logger logger = LogManager.getLogger(RequestParser.class);
+
+    private final LoggingExecutor executor = new LoggingExecutor(logger);
+
     static {
         HashMap<String, Class<? extends Document>> documentsMap = new HashMap<>();
     }
 
-    public Document parseRequest(Map<String, Object> input) {
-        String documentName = readDocumentName(input);
-        Class<? extends Document> documentType = readDocumentType(documentName);
-        String documentJson = readRequestBody(input);
+    private ObjectMapper om;
 
+    public RequestParser() {
+        om = new ObjectMapper();
+        om.registerModule(new JavaTimeModule());
+    }
+
+    public Document parseRequest(Map<String, Object> input) {
+        return executor.timed(() -> parse(input), EventType.CERT_REQUEST_PARSING);
+    }
+
+    private Document parse(Map<String, Object> input) {
         try {
-            ObjectMapper om = new ObjectMapper();
-            om.registerModule(new JavaTimeModule());
+            String documentName = readDocumentName(input);
+            Class<? extends Document> documentType = readDocumentType(documentName);
+            String documentJson = readRequestBody(input);
             Document document = om.readValue(documentJson, documentType);
             document.setDocumentName(documentName);
             return document;
@@ -45,6 +65,7 @@ public class RequestParser {
             throw new HttpException.BadRequestException("Required lambda parameter " + PATH_PARAMETERS + " not found");
         }
 
+        @SuppressWarnings("unchecked")
         Map<String, String> pathParameters = (Map<String, String>) input.get(PATH_PARAMETERS);
 
         if (!pathParameters.containsKey(DOCUMENT_NAME_PARAMETER)) {
