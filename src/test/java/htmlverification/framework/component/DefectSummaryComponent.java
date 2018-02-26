@@ -13,9 +13,6 @@ public class DefectSummaryComponent {
     public static final String  DANGEROUS_DEFECTS_HEADER_TEXT = "Do not drive until repaired (dangerous defects)";
     public static final String  ADVISORIES_HEADER_TEXT_WELSH = "Monitro a thrwsio os oes angen (cynghorol)";
     public static final String  MINOR_DEFECTS_HEADER_TEXT_WELSH = "Rhaid trwsio cyn gynted â phosibl (mân ddiffygion)";
-    public static final String  MAJOR_DEFECTS_HEADER_TEXT_WELSH = "Rhaid trwsio ar unwaith (diffygion pennaf)";
-    public static final String  DANGEROUS_DEFECTS_HEADER_PARTIAL_TEXT_WELSH = "Peidiwch â gyrru nes iddo gael ei drwsio (diffygion peryglus)";
-
 
     protected Element resultSummaryElement;
 
