@@ -43,7 +43,7 @@ public class VT20WTest {
     @Before
     public void setup() throws IOException {
         testCertificate = CertificateTestDataProvider.getVt20W();
-        String certHtml = htmlGenerator.generate(testCertificate).get(1);
+        String certHtml = htmlGenerator.generate(testCertificate).get(0);
         certificatePageObject = new CertificatePageObject(certHtml);
         expectedData = (MotCertificateDataWelsh) testCertificate.getData();
     }

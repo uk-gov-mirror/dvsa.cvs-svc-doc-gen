@@ -5,8 +5,8 @@ import uk.gov.dvsa.model.mot.certificateData.MotFailCertificateData;
 
 public abstract class MotFailCertificate extends MotCertificate {
 
-    @JsonProperty("DATA")
-    protected MotFailCertificateData data;
+     @JsonProperty("DATA")
+    private MotFailCertificateData data;
 
     public MotFailCertificateData getData() {
         return data;

@@ -9,6 +9,7 @@ import org.apache.logging.log4j.ThreadContext;
 import org.xhtmlrenderer.pdf.ITextRenderer;
 import uk.gov.dvsa.exception.HttpException;
 import uk.gov.dvsa.logging.EventLogger;
+import uk.gov.dvsa.logging.LogContextWrapper;
 import uk.gov.dvsa.logging.EventType;
 import uk.gov.dvsa.model.ApiGatewayResponse;
 import uk.gov.dvsa.model.Document;

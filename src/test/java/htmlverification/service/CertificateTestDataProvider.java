@@ -5,7 +5,6 @@ import uk.gov.dvsa.model.mot.*;
 import uk.gov.dvsa.model.mot.certificateData.MotCertificateData;
 import uk.gov.dvsa.model.mot.certificateData.MotCertificateDataWelsh;
 import uk.gov.dvsa.model.mot.certificateData.MotFailCertificateData;
-import uk.gov.dvsa.model.mot.certificateData.MotFailCertificateDataWelsh;
 import uk.gov.dvsa.model.mot.certificateData.OdometerReading;
 
 import java.time.LocalDate;
@@ -24,9 +23,6 @@ public class CertificateTestDataProvider {
     public static final String MINOR_RFR_TEXT = "Minor RFR";
     public static final String ADVISORY_RFR_WELSH_TEXT = "Advisory Welsh RFR";
     public static final String MINOR_RFR_WELSH_TEXT = "Minor Welsh RFR";
-    public static final String MAJOR_RFR_WELSH_TEXT = "Major Welsh RFR";
-    public static final String DANGEROUS_RFR_WELSH_TEXT = "Dangerous Welsh RFR";
-
     public static final String ODOMETER_VALUE = "22,341";
 
     public static VT20 getVt20() {
@@ -217,59 +213,6 @@ public class CertificateTestDataProvider {
         vt20W.setData(vt20WData);
 
         return vt20W;
-    }
-
-    public static VT30W getVt30W() {
-        VT30W vt30W = new VT30W();
-        vt30W.setDocumentName("MOT/VT30W");
-        MotFailCertificateDataWelsh vt30WData = new MotFailCertificateDataWelsh();
-        vt30WData
-            .setEuAdvisoryDefectsCy(generateRFRs(ADVISORY_RFR_WELSH_TEXT, 3))
-            .setEuDangerousDefectsCy(generateRFRs(DANGEROUS_RFR_WELSH_TEXT, 2))
-            .setEuMajorDefectsCy(generateRFRs(MAJOR_RFR_WELSH_TEXT, 4))
-            .setEuMinorDefectsCy(generateRFRs(MINOR_RFR_WELSH_TEXT, 5))
-
-            .setDangerousDefectsHeader(DefectSummaryComponent.DANGEROUS_DEFECTS_HEADER_TEXT)
-            .setEuDangerousDefects(generateRFRs(DANGEROUS_RFR_TEXT, 2))
-
-            .setMajorDefectsHeader(DefectSummaryComponent.MAJOR_DEFECTS_HEADER_TEXT)
-            .setEuMajorDefects(generateRFRs(MAJOR_RFR_TEXT, 4))
-
-            .setMinorDefectsHeader(DefectSummaryComponent.MINOR_DEFECTS_HEADER_TEXT)
-            .setEuMinorDefects(generateRFRs(MINOR_RFR_TEXT, 5))
-
-            .setAdvisoryDefectsHeader(DefectSummaryComponent.ADVISORIES_HEADER_TEXT)
-            .setEuAdvisoryDefects(generateRFRs(ADVISORY_RFR_TEXT, 3))
-
-            .setCountryOfRegistrationCode("GB")
-            .setRawVin(VIN)
-            .setIssuedDate("2017-10-12")
-            .setDateOfTheTest(LocalDate.of(2017, 10, 12))
-            .setExpiryDate("12.10.2018")
-            .setFirstUseDate("2010-10-12")
-            .setTestStationAddress("VTS004004 53, Call Road, Worthing BN12 6PB, United Kingdom")
-            .setMake("Aston Martin")
-            .setModel("DB11")
-            .setTestClass("4")
-            .setVehicleEuClassification("M1")
-            .setRawVrm("KA1SAPH")
-            .setOdometer(ODOMETER_VALUE + " " + MILES_ENGLISH)
-            .setOdometerHistory("1 2 2014 450 miles\n 30 1 2017 500 miles")
-            .setCurrentOdometer(
-                new OdometerReading("22341", "22341", "mi", LocalDate.now())
-            )
-            .setOdometerHistoryList(Arrays.asList(
-                new OdometerReading("300", "300","mi", LocalDate.of(2016, 02, 01)),
-                new OdometerReading("600", "600", "mi", LocalDate.of(2017, 01, 30))
-            ))
-            .setIssuersName("R.DREWNO")
-            .setInspectionAuthority("MILKE GROUP LIMITED R.DREWNO")
-            .setAuthorisedExaminer("MILKE GROUP LIMITED")
-            .setTestNumber("1806 8140 0628")
-            .setEarliestDateOfTheNextTest(LocalDate.of(2018, 10, 13));
-        vt30W.setData(vt30WData);
-
-        return vt30W;
     }
 
     public static Collection<Object[]> getCertificatesTestData() {
