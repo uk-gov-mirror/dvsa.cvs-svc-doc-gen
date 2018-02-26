@@ -5,6 +5,7 @@ import uk.gov.dvsa.model.Document;
 import uk.gov.dvsa.model.mot.VT20;
 import uk.gov.dvsa.model.mot.VT20W;
 import uk.gov.dvsa.model.mot.VT30;
+import uk.gov.dvsa.model.mot.VT30W;
 
 public enum DocumentsConfig {
 
@@ -13,7 +14,9 @@ public enum DocumentsConfig {
     VT_20(CertificateTemplates.VT20.getCertificateName(),VT20.class,
             new String[]{CertificateTemplates.VT20.getCertificateName()}),
     VT_20W(CertificateTemplates.VT20W.getCertificateName(), VT20W.class,
-            new String[]{CertificateTemplates.VT20W.getCertificateName(), CertificateTemplates.VT20.getCertificateName()});
+            new String[]{CertificateTemplates.VT20.getCertificateName(), CertificateTemplates.VT20W.getCertificateName()}),
+    VT_30W(CertificateTemplates.VT30W.getCertificateName(), VT30W.class,
+        new String[]{CertificateTemplates.VT30.getCertificateName(), CertificateTemplates.VT30W.getCertificateName()});
 
     private final String documentName;
     private final Class<? extends Document> baseClass;
