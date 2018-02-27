@@ -2,9 +2,11 @@ package uk.gov.dvsa.model.mot.certificateData;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import uk.gov.dvsa.model.mot.results.DefectsList;
+import uk.gov.dvsa.model.mot.results.ReasonForCancel;
 import uk.gov.dvsa.model.mot.results.Summary;
 
 import java.util.List;
+import java.util.Optional;
 
 public class MotFailCertificateData extends MotCertificateData {
 
@@ -22,8 +24,14 @@ public class MotFailCertificateData extends MotCertificateData {
     @JsonProperty("ReasonForCancel")
     private String reasonForCancel;
 
+    @JsonProperty("ReasonForCancelEn")
+    private String reasonForCancelEn;
+
     @JsonProperty("ReasonForCancelComment")
     private String reasonForCancelComment;
+
+    @JsonProperty("IsTestRefused")
+    private boolean testRefused;
 
     @JsonProperty("DangerousDefectsHeader")
     private String dangerousDefectsHeader;
@@ -70,12 +78,34 @@ public class MotFailCertificateData extends MotCertificateData {
         return this;
     }
 
+    public String getReasonForCancelEn() {
+        return reasonForCancelEn;
+    }
+
+    public ReasonForCancel getReasonForCancelResultItemEn() {
+        return new ReasonForCancel(reasonForCancelEn, reasonForCancelComment);
+    }
+
+    public MotFailCertificateData setReasonForCancelEn(String reasonForCancelEn) {
+        this.reasonForCancelEn = reasonForCancelEn;
+        return this;
+    }
+
     public String getReasonForCancelComment() {
         return reasonForCancelComment;
     }
 
     public MotFailCertificateData setReasonForCancelComment(String reasonForCancelComment) {
         this.reasonForCancelComment = reasonForCancelComment;
+        return this;
+    }
+
+    public boolean isTestRefused() {
+        return testRefused;
+    }
+
+    public MotFailCertificateData setTestRefused(boolean testRefused) {
+        this.testRefused = testRefused;
         return this;
     }
 
@@ -117,6 +147,8 @@ public class MotFailCertificateData extends MotCertificateData {
     }
 
     public Summary getSummary() {
-        return new Summary(FAILED_SUMMARY_HEADER);
+        String summaryTitle = isTestRefused() ? null : FAILED_SUMMARY_HEADER;
+        return new Summary(summaryTitle);
     }
+
 }

@@ -2,9 +2,11 @@ package uk.gov.dvsa.model.mot.certificateData;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import uk.gov.dvsa.model.mot.results.DefectsList;
+import uk.gov.dvsa.model.mot.results.ReasonForCancel;
 import uk.gov.dvsa.model.mot.results.Summary;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -28,6 +30,9 @@ public class MotFailCertificateDataWelsh extends MotFailCertificateData {
 
     @JsonProperty("EuMajorDefectsCy")
     private List<String> euMajorDefectsCy;
+
+    @JsonProperty("ReasonForCancelCy")
+    private String reasonForCancelCy;
 
     public MotFailCertificateDataWelsh setEuAdvisoryDefectsCy(List<String> euAdvisoryDefectsCy) {
         this.euAdvisoryDefectsCy = euAdvisoryDefectsCy;
@@ -55,6 +60,10 @@ public class MotFailCertificateDataWelsh extends MotFailCertificateData {
 
     public List<String> getEuMinorDefectsCy() {
         return euMinorDefectsCy;
+    }
+
+    public String getWelshFormattedTestNumber() {
+        return TEST_NUMBER_FORMATTER.formatWelsh(getTestNumber());
     }
 
     public DefectsList getMinorCy() {
@@ -94,7 +103,24 @@ public class MotFailCertificateDataWelsh extends MotFailCertificateData {
     }
 
     public Summary getSummaryCy() {
-        return new Summary(FAIL_SUMMARY_HEADER_WELSH);
+        String summaryTitle = isTestRefused() ? null : FAIL_SUMMARY_HEADER_WELSH;
+        return new Summary(summaryTitle);
     }
 
+    public String getReasonForCancelCy() {
+        return reasonForCancelCy;
+    }
+
+    public ReasonForCancel getReasonForCancelResultItemCy() {
+        String reasonText = Optional.ofNullable(reasonForCancelCy)
+            .filter(reason -> !reason.isEmpty())
+            .orElse(getReasonForCancelEn());
+
+        return new ReasonForCancel(reasonForCancelCy, getReasonForCancelComment());
+    }
+
+    public MotFailCertificateData setReasonForCancelCy(String reasonForCancelCy) {
+        this.reasonForCancelCy = reasonForCancelCy;
+        return this;
+    }
 }

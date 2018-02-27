@@ -55,9 +55,13 @@ public class DefectSummaryComponent {
         return getResultItemEntries(ADVISORIES_HEADER_TEXT_WELSH);
     }
 
+    public Elements getByTitle(String title) {
+        return getResultItemEntries(title);
+    }
+
     protected Elements getResultItemEntries(String resultItemHeader) {
         return getResultItems().stream()
-                .filter(i -> i.getElementsContainingOwnText(resultItemHeader).size() > 0)
+                .filter(i ->  i.getElementsContainingOwnText(resultItemHeader).size() > 0)
                 .findFirst()
                 .orElseThrow(() -> new RuntimeException(String.format("The result summary does not contain element with text: '%s'", resultItemHeader)))
                 .getElementsByTag("li");

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import uk.gov.dvsa.model.mot.results.DefectsList;
 import uk.gov.dvsa.model.mot.results.Summary;
 import uk.gov.dvsa.view.mot.CountryCodeFormatter;
+import uk.gov.dvsa.view.mot.MotTestNumberFormatter;
 import uk.gov.dvsa.view.mot.OdometerReadingFormatter;
 
 import java.time.LocalDate;
@@ -24,8 +25,7 @@ public class MotCertificateData {
     protected static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd.MM.yyyy");
     public static final OdometerReadingFormatter ODOMETER_FORMATTER =  new OdometerReadingFormatter();
     private static final CountryCodeFormatter COUNTRY_CODE_FORMATTER = new CountryCodeFormatter();
-    private static final String TEST_NUMBER_PATTERN = "\\B(?=(?:.{4})+$)";
-    private static final String TEST_NUMBER_SEPARATOR = " ";
+    protected static final MotTestNumberFormatter TEST_NUMBER_FORMATTER = new MotTestNumberFormatter();
 
     @JsonProperty("dup")
     private String duplicateMode;
@@ -149,9 +149,7 @@ public class MotCertificateData {
     }
 
     public String getFormattedTestNumber() {
-        return testNumber
-                .replace(TEST_NUMBER_SEPARATOR, "")
-                .replaceAll(TEST_NUMBER_PATTERN, TEST_NUMBER_SEPARATOR);
+        return TEST_NUMBER_FORMATTER.format(testNumber);
     }
 
     public MotCertificateData setTestNumber(String testNumber) {
