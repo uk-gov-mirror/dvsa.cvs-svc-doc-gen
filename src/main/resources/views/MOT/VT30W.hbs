@@ -392,17 +392,25 @@
         </div>
         <!-- /heading-info -->
 
-        <p class="test-information__message test-information__message--limit-width">
-          I wybod rhagor ynghylch ail brofi, neu os ydych yn anghytuno â chanlyniad y prawf, gweler y poster yn nodi’r ffioedd ac apeliadau yn yr orsaf lle profir cerbydau. Fel arall, ewch i <a class="test-information__message-link" href="www.gov.uk/getting-an-mot">www.gov.uk/getting-an-mot</a>
-        </p>
+      {{#if certificateIssuerInfoCy}}
+          <p class="test-information__message test-information__message--limit-width" id="issuer-info">
+              {{certificateIssuerInfoCy}}
+          </p>
+      {{/if}}
 
-        <p class="test-information__message test-information__message--limit-width">
-          Os oes unrhyw fanylion nad ydynt yn gywir dylech gysylltu â’r DVSA trwy <br/>e-bostio <a class="test-information__message-link" href="mailto:enquires@dvsa.gov.uk">enquires@dvsa.gov.uk</a> neu trwy ffonio 0300 1239000.
-        </p>
+        <div class="util-avoid-page-break-inside">
+            <p class="test-information__message test-information__message--limit-width">
+              I wybod rhagor ynghylch ail brofi, neu os ydych yn anghytuno â chanlyniad y prawf, gweler y poster yn nodi’r ffioedd ac apeliadau yn yr orsaf lle profir cerbydau. Fel arall, ewch i <a class="test-information__message-link" href="www.gov.uk/getting-an-mot">www.gov.uk/getting-an-mot</a>
+            </p>
 
-        <p class="test-information__message test-information__message--limit-width">
-          Medrwch ganfod mwy am hanes MOT y cerbyd trwy <br/>fynd i <a class="test-information__message-link" href="www.gov.uk/check-mot-history">www.gov.uk/check-mot-history</a>
-        </p>
+            <p class="test-information__message test-information__message--limit-width">
+              Os oes unrhyw fanylion nad ydynt yn gywir dylech gysylltu â’r DVSA trwy <br/>e-bostio <a class="test-information__message-link" href="mailto:enquiries@dvsa.gov.uk">enquiries@dvsa.gov.uk</a> neu trwy ffonio 0300 1239000.
+            </p>
+
+            <p class="test-information__message test-information__message--limit-width">
+              Medrwch ganfod mwy am hanes MOT y cerbyd trwy <br/>fynd i <a class="test-information__message-link" href="www.gov.uk/check-mot-history">www.gov.uk/check-mot-history</a>
+            </p>
+        </div>
 
       </div>
     </div>
