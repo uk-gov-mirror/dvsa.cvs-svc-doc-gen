@@ -417,6 +417,13 @@
           </span>
         </div>
         <!-- /heading-info -->
+
+          {{#if certificateIssuerInfoCy}}
+              <p class="test-information__message test-information__message--limit-width" id="issuer-info">
+                  {{certificateIssuerInfoCy}}
+              </p>
+          {{/if}}
+
             <div class="util-avoid-page-break-inside">
                 <p class="test-information__message test-information__message--limit-width">
                   Gwiriwch bod y ddogfen hon yn ddilys trwy fynd i <br/><a class="test-information__message-link" href="www.gov.uk/check-mot-history">www.gov.uk/check-mot-history</a>

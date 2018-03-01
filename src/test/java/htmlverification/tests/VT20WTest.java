@@ -33,8 +33,7 @@ public class VT20WTest {
     protected HtmlGenerator htmlGenerator;
     protected VT20W testCertificate;
     protected CertificatePageObject certificatePageObject;
-
-    private MotCertificateDataWelsh expectedData;
+    protected MotCertificateDataWelsh expectedData;
 
     public VT20WTest() {
         this.htmlGenerator = new HtmlGenerator(new Handlebars());
