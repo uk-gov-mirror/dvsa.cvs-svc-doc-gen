@@ -15,6 +15,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
+import java.util.List;
 
 import htmlverification.framework.component.MileageHistoryComponent;
 import htmlverification.framework.exception.HtmlElementNotFoundException;
@@ -38,7 +39,7 @@ public class VT30WTest {
     protected VT30W testCertificate;
     protected CertificatePageObject certificatePageObject;
 
-    private MotFailCertificateDataWelsh expectedData;
+    protected MotFailCertificateDataWelsh expectedData;
 
     public VT30WTest() {
         this.htmlGenerator = new HtmlGenerator(new Handlebars());
@@ -103,18 +104,18 @@ public class VT30WTest {
         assertEquals(ODOMETER_VALUE + " " + MILES_WELSH, mileage);
     }
 
-//    @Test()
-//    public void verifyAdvisories() {
-//        List<String> advisories = certificatePageObject.getDefectSummaryComponent().getAdvisoriesWelsh().eachText();
-//
-//        assertEquals(3, advisories.size());
-//        for (int i = 0; i < advisories.size(); i++) {
-//            assertEquals(expectedData.getEuAdvisoryDefectsCy().get(i), advisories.get(i));
-//        }
-//        for (int i = 0; i < advisories.size(); i++) {
-//            assertNotEquals(expectedData.getEuAdvisoryDefects().get(i), advisories.get(i));
-//        }
-//    }
+    @Test()
+    public void verifyAdvisories() {
+        List<String> advisories = certificatePageObject.getDefectSummaryComponent().getAdvisoriesWelsh().eachText();
+
+        assertEquals(3, advisories.size());
+        for (int i = 0; i < advisories.size(); i++) {
+            assertEquals(expectedData.getEuAdvisoryDefectsCy().get(i), advisories.get(i));
+        }
+        for (int i = 0; i < advisories.size(); i++) {
+            assertNotEquals(expectedData.getEuAdvisoryDefects().get(i), advisories.get(i));
+        }
+    }
 
     @Test
     public void verifyEnglishAdvisoriesNotPresent() {
@@ -122,19 +123,19 @@ public class VT30WTest {
                 certificatePageObject.getDefectSummaryComponent().isDefectsHeaderPresent(ADVISORIES_HEADER_TEXT));
     }
 
-//    @Test
-//    public void verifyMinorDefects() {
-//        List<String> minorDefects = certificatePageObject.getDefectSummaryComponent().getMinorDefectsWelsh().eachText();
-//
-//        assertEquals(5, minorDefects.size());
-//        for (int i = 0; i < minorDefects.size(); i++) {
-//            assertEquals(expectedData.getEuMinorDefectsCy().get(i), minorDefects.get(i));
-//        }
-//
-//        for (int i = 0; i < minorDefects.size(); i++) {
-//            assertNotEquals(expectedData.getEuMinorDefects().get(i), minorDefects.get(i));
-//        }
-//    }
+    @Test
+    public void verifyMinorDefects() {
+        List<String> minorDefects = certificatePageObject.getDefectSummaryComponent().getMinorDefectsWelsh().eachText();
+
+        assertEquals(5, minorDefects.size());
+        for (int i = 0; i < minorDefects.size(); i++) {
+            assertEquals(expectedData.getEuMinorDefectsCy().get(i), minorDefects.get(i));
+        }
+
+        for (int i = 0; i < minorDefects.size(); i++) {
+            assertNotEquals(expectedData.getEuMinorDefects().get(i), minorDefects.get(i));
+        }
+    }
 
     @Test
     public void verifyEnglishMinorDefectsNotPresent() {

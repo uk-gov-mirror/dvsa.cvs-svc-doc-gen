@@ -278,6 +278,12 @@ public class CertificateTestDataProvider {
         return vt20W;
     }
 
+    public static VT30W getVt30WDuplicate() {
+        VT30W vt30W = getVt30W();
+        vt30W.setCertificateIssuerInfoCy("Dyblyg wedi ei gyhoeddi gan B. T. Arctor Tester1 ar 22 Chwefror 2018");
+        return vt30W;
+    }
+
     public static Collection<Object[]> getCertificatesTestData() {
         return Arrays.asList(new Object[][] {
                 { getVt20() },

@@ -49,6 +49,14 @@ public class MotFailCertificateDataWelsh extends MotFailCertificateData {
         return this;
     }
 
+    public List<String> getEuAdvisoryDefectsCy() {
+        return euAdvisoryDefectsCy;
+    }
+
+    public List<String> getEuMinorDefectsCy() {
+        return euMinorDefectsCy;
+    }
+
     public DefectsList getMinorCy() {
         return new DefectsList(MINOR_DEFECTS_HEADER_WELSH, this.euMinorDefectsCy, EU_NUMBER_FOR_DEFECTS);
     }
