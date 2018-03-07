@@ -32,6 +32,10 @@ public abstract class BasePageObject {
         return handleElementNotFound(textElement, String.format("id containing text: '%s'", id));
     }
 
+    public boolean elementExists(String selector) {
+        return document.selectFirst(selector) != null;
+    }
+
     protected <T> T handleElementNotFound(T element, String message) {
         return Optional.ofNullable(element).orElseThrow(() -> new HtmlElementNotFoundException(message));
     }

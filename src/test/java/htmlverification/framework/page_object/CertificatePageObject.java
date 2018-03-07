@@ -71,4 +71,8 @@ public class CertificatePageObject extends BasePageObject {
     public String getEarliestDateOfTheNextTest() {
         return getElementById(EARLIEST_DATE_OF_THE_NEXT_TEST.getSelector()).text();
     }
+
+    public Element getWatermark() {
+        return getElement(WATERMARK_SELECTOR.getSelector());
+    }
 }

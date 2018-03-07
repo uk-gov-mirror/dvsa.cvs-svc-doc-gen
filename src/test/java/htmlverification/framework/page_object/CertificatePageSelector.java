@@ -17,7 +17,8 @@ public enum CertificatePageSelector {
     EXPIRY_DATE_ID("expiry-date"),
     ISSUER_INFO_ID("issuer-info"),
     DVSA_LOGO_WELSH_SELECTOR("img[src*=dvsa-crest-welsh-v2.png]"),
-    EARLIEST_DATE_OF_THE_NEXT_TEST("earliest-preserve-date");
+    EARLIEST_DATE_OF_THE_NEXT_TEST("earliest-preserve-date"),
+    WATERMARK_SELECTOR("span.running-header__text");
 
     private final String selector;
 
