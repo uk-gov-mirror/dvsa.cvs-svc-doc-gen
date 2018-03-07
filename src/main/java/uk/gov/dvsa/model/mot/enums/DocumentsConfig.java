@@ -2,6 +2,8 @@ package uk.gov.dvsa.model.mot.enums;
 
 import uk.gov.dvsa.exception.HttpException;
 import uk.gov.dvsa.model.Document;
+import uk.gov.dvsa.model.mot.PRS;
+import uk.gov.dvsa.model.mot.PRSW;
 import uk.gov.dvsa.model.mot.CT20;
 import uk.gov.dvsa.model.mot.CT30;
 import uk.gov.dvsa.model.mot.CT32;
@@ -11,26 +13,31 @@ import uk.gov.dvsa.model.mot.VT30;
 import uk.gov.dvsa.model.mot.VT30W;
 
 public enum DocumentsConfig {
-    EU_CT_20(CertificateTemplates.EU_CT20.getCertificateName(), CT20.class,
-            new String[]{CertificateTemplates.EU_CT20.getCertificateName()}),
-    EU_CT_30(CertificateTemplates.EU_CT30.getCertificateName(), CT30.class,
-            new String[]{CertificateTemplates.EU_CT30.getCertificateName()}),
+    EU_CT_20(CertificateTypes.EU_CONTINGENCY_PASS.getType(), CT20.class,
+            new String[]{CertificateTemplates.EU_CT20.getCertificateTemplateName()}),
+    EU_CT_30(CertificateTypes.EU_CONTINGENCY_FAIL.getType(), CT30.class,
+            new String[]{CertificateTemplates.EU_CT30.getCertificateTemplateName()}),
 
-    CT_20(CertificateTemplates.CT20.getCertificateName(), CT20.class,
-            new String[]{CertificateTemplates.CT20.getCertificateName()}),
-    CT_30(CertificateTemplates.CT30.getCertificateName(), CT30.class,
-            new String[]{CertificateTemplates.CT30.getCertificateName()}),
-    CT_32(CertificateTemplates.CT32.getCertificateName(), CT32.class,
-            new String[]{CertificateTemplates.CT32.getCertificateName()}),
+    CT_20(CertificateTypes.CONTINGENCY_PASS.getType(), CT20.class,
+            new String[]{CertificateTemplates.CT20.getCertificateTemplateName()}),
+    CT_30(CertificateTypes.CONTINGENCY_FAIL.getType(), CT30.class,
+            new String[]{CertificateTemplates.CT30.getCertificateTemplateName()}),
+    CT_32(CertificateTypes.CONTINGENCY_ADVISORY_NOTICE.getType(), CT32.class,
+            new String[]{CertificateTemplates.CT32.getCertificateTemplateName()}),
 
-    VT_30(CertificateTemplates.VT30.getCertificateName(), VT30.class,
-            new String[]{CertificateTemplates.VT30.getCertificateName()}),
-    VT_20(CertificateTemplates.VT20.getCertificateName(),VT20.class,
-            new String[]{CertificateTemplates.VT20.getCertificateName()}),
-    VT_20W(CertificateTemplates.VT20W.getCertificateName(), VT20W.class,
-            new String[]{CertificateTemplates.VT20.getCertificateName(), CertificateTemplates.VT20W.getCertificateName()}),
-    VT_30W(CertificateTemplates.VT30W.getCertificateName(), VT30W.class,
-        new String[]{CertificateTemplates.VT30.getCertificateName(), CertificateTemplates.VT30W.getCertificateName()});
+    VT_30(CertificateTypes.FAIL.getType(), VT30.class,
+            new String[]{CertificateTemplates.VT30.getCertificateTemplateName()}),
+    VT_20(CertificateTypes.PASS.getType(),VT20.class,
+            new String[]{CertificateTemplates.VT20.getCertificateTemplateName()}),
+    VT_20W(CertificateTypes.WELSH_PASS.getType(), VT20W.class,
+            new String[]{CertificateTemplates.VT20.getCertificateTemplateName(), CertificateTemplates.VT20W.getCertificateTemplateName()}),
+    VT_30W(CertificateTypes.WELSH_FAIL.getType(), VT30W.class,
+            new String[]{CertificateTemplates.VT30.getCertificateTemplateName(), CertificateTemplates.VT30W.getCertificateTemplateName()}),
+    PRS(CertificateTypes.PRS.getType(), PRS.class,
+            new String[]{CertificateTemplates.VT20.getCertificateTemplateName(), CertificateTemplates.VT30.getCertificateTemplateName()}),
+    PRSW(CertificateTypes.WELSH_PRS.getType(), PRSW.class,
+            new String[]{CertificateTemplates.VT20.getCertificateTemplateName(), CertificateTemplates.VT30.getCertificateTemplateName(),
+            CertificateTemplates.VT20W.getCertificateTemplateName(), CertificateTemplates.VT30W.getCertificateTemplateName()});
 
     private final String documentName;
     private final Class<? extends Document> baseClass;

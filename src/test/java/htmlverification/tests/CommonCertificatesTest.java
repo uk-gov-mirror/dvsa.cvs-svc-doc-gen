@@ -11,6 +11,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import uk.gov.dvsa.model.mot.MotCertificate;
+import uk.gov.dvsa.model.mot.certificateData.MotCertificateData;
 import uk.gov.dvsa.service.HtmlGenerator;
 
 import java.io.IOException;
@@ -32,11 +33,12 @@ public class CommonCertificatesTest {
 
     private HtmlGenerator htmlGenerator;
     private MotCertificate testCertificate;
+    private MotCertificateData expectedData;
     private CertificatePageObject certificatePageObject;
 
-    public CommonCertificatesTest(MotCertificate testCertificate) {
+    public CommonCertificatesTest(MotCertificate testCertificate, MotCertificateData expectedData) {
         this.testCertificate = testCertificate;
-
+        this.expectedData = expectedData;
         this.htmlGenerator = new HtmlGenerator(new Handlebars());
     }
 
@@ -73,23 +75,21 @@ public class CommonCertificatesTest {
     private Map<String, String> getExpectedValues() {
         Map<String, String> expectedValues = new HashMap<>();
 
-        expectedValues.put(CertificatePageSelector.VIN_ID.getSelector(), testCertificate.getData().getRawVin());
-        expectedValues.put(CertificatePageSelector.REGISTRATION_NUMBER_ID.getSelector(), testCertificate.getData().getRawVrm());
-        expectedValues.put(CertificatePageSelector.COUNTRY_ID.getSelector(), testCertificate.getData().getCountryOfRegistrationCode());
-        expectedValues.put(CertificatePageSelector.MAKE_AND_MODEL_ID.getSelector(), testCertificate.getData().getMake());
+        expectedValues.put(CertificatePageSelector.VIN_ID.getSelector(), expectedData.getRawVin());
+        expectedValues.put(CertificatePageSelector.REGISTRATION_NUMBER_ID.getSelector(), expectedData.getRawVrm());
+        expectedValues.put(CertificatePageSelector.COUNTRY_ID.getSelector(), expectedData.getCountryOfRegistrationCode());
+        expectedValues.put(CertificatePageSelector.MAKE_AND_MODEL_ID.getSelector(), expectedData.getMake());
         expectedValues.put(
             CertificatePageSelector.MAKE_AND_MODEL_ID.getSelector(),
-            String.format("%s %s", testCertificate.getData().getMake(), testCertificate.getData().getModel())
+            String.format("%s %s", expectedData.getMake(), expectedData.getModel())
         );
-        expectedValues.put(CertificatePageSelector.VEHICLE_CATEGORY_ID.getSelector(), testCertificate.getData().getVehicleEuClassification());
-        expectedValues.put(CertificatePageSelector.MILEAGE_ID.getSelector(), testCertificate.getData().getOdometer());
+        expectedValues.put(CertificatePageSelector.VEHICLE_CATEGORY_ID.getSelector(), expectedData.getVehicleEuClassification());
+        expectedValues.put(CertificatePageSelector.MILEAGE_ID.getSelector(), expectedData.getOdometer());
         expectedValues.put(CertificatePageSelector.DATE_OF_THE_TEST_ID.getSelector(), "12.10.2017");
-        expectedValues.put(CertificatePageSelector.LOCATION_OF_THE_TEST_ID.getSelector(), testCertificate.getData().getTestStationAddress());
-        expectedValues.put(CertificatePageSelector.TESTING_ORG_AND_INSP_NAME_ID.getSelector(), testCertificate.getData().getInspectionAuthority());
+        expectedValues.put(CertificatePageSelector.LOCATION_OF_THE_TEST_ID.getSelector(), expectedData.getTestStationAddress());
+        expectedValues.put(CertificatePageSelector.TESTING_ORG_AND_INSP_NAME_ID.getSelector(), expectedData.getInspectionAuthority());
         expectedValues.put(CertificatePageSelector.MOT_TEST_NUMBER_ID.getSelector(), "1806 8140 0628");
 
         return expectedValues;
     }
-
-
 }

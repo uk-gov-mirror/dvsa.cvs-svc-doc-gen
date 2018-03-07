@@ -7,7 +7,6 @@ import htmlverification.service.CertificateTestDataProvider;
 import org.jsoup.select.Elements;
 import org.junit.Before;
 import org.junit.Test;
-import uk.gov.dvsa.model.mot.MotCertificate;
 import uk.gov.dvsa.model.mot.MotFailCertificate;
 import uk.gov.dvsa.service.HtmlGenerator;
 
@@ -36,9 +35,9 @@ public class Vt30RefusalTest {
     @Test
     public void verifyReasonForCancel() {
         DefectSummaryComponent summary = certificatePageObject.getDefectSummaryComponent();
-        Elements reasonForCancelComponent = summary.getByTitle(testCertificate.getData().getReasonForCancelEn());
+        Elements reasonForCancelComponent = summary.getByTitle(testCertificate.getFailData().getReasonForCancelEn());
         List<String> texts = reasonForCancelComponent.eachText();
         assertEquals(1, texts.size());
-        assertEquals(testCertificate.getData().getReasonForCancelComment(), texts.get(0));
+        assertEquals(testCertificate.getFailData().getReasonForCancelComment(), texts.get(0));
     }
 }

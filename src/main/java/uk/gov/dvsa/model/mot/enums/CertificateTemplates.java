@@ -14,14 +14,13 @@ public enum CertificateTemplates {
     VT20W("MOT/VT20W"),
     VT30W("MOT/VT30W");
 
+    private final String certificateTemplateName;
 
-    private final String certificateName;
-
-    CertificateTemplates(String certificateName) {
-        this.certificateName = certificateName;
+    CertificateTemplates(String certificateTemplateName) {
+        this.certificateTemplateName = certificateTemplateName;
     }
 
-    public String getCertificateName() {
-        return certificateName;
+    public String getCertificateTemplateName() {
+        return certificateTemplateName;
     }
 }

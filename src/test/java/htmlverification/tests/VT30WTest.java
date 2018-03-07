@@ -50,7 +50,7 @@ public class VT30WTest {
         testCertificate = CertificateTestDataProvider.getVt30W();
         String certHtml = htmlGenerator.generate(testCertificate).get(1);
         certificatePageObject = new CertificatePageObject(certHtml);
-        expectedData = (MotFailCertificateDataWelsh) testCertificate.getData();
+        expectedData = testCertificate.getFailData();
     }
 
     @Test

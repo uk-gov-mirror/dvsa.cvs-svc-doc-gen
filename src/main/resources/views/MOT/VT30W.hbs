@@ -66,7 +66,7 @@
          <div class="footer__bottom">
              <div class="footer__bottom-one">
         <span class="footer__bottom-light-text footer__bottom-light-text--vin">
-          VIN: {{data.rawVin}}
+          VIN: {{failData.rawVin}}
         </span>
              </div>
 
@@ -127,7 +127,7 @@
             </span>
           </h2>
           <span class="heading-info__content" id="vin">
-            {{data.rawVin}}
+            {{failData.rawVin}}
           </span>
         </div>
         <!-- /heading-info -->
@@ -150,7 +150,7 @@
                 </span>
               </h2>
               <span class="heading-info__content" id="reg-number">
-                {{data.rawVrm}}
+                {{failData.rawVrm}}
               </span>
             </div>
             <!-- /heading-info -->
@@ -172,7 +172,7 @@
                 </span>
               </h2>
               <span class="heading-info__content" id="country">
-                {{data.countryOfRegistrationCodeFormatted}}
+                {{failData.countryOfRegistrationCodeFormatted}}
               </span>
             </div>
             <!-- /heading-info -->
@@ -188,7 +188,7 @@
             </span>
           </h2>
           <span class="heading-info__content" id="make-model">
-            {{data.make}} {{data.model}}
+            {{failData.make}} {{failData.model}}
           </span>
         </div>
         <!-- /heading-info -->        
@@ -218,7 +218,7 @@
               </span>
             </h2>
             <span class="heading-info__content" id="vehicle-category">
-                {{data.vehicleEuClassification}}
+                {{failData.vehicleEuClassification}}
             </span>
           </div>
           <!-- /heading-info -->
@@ -240,13 +240,13 @@
               </span>
             </h2>
             <span class="heading-info__content" id="mileage">
-                {{data.formattedCurrentOdometerCy}}
+                {{failData.formattedCurrentOdometerCy}}
             </span>
           </div>
           <!-- /heading-info -->
         </div>
 
-        {{#if data.odometerHistoryList}}
+        {{#if failData.odometerHistoryList}}
         <div class="header__three-columns-three">
           <!-- heading-info -->
           <div class="heading-info">
@@ -258,7 +258,7 @@
             <div class="heading-info__content" id="mileage-history">
               <!-- header__histories -->
               <ul class="header__histories">
-                {{#each data.mileageHistoryCy}}
+                {{#each failData.mileageHistoryCy}}
                 <li class="header__history">
                   <div class="header__history-left">
                     <span class="header__history-mileage">
@@ -287,23 +287,23 @@
       <!-- results -->
       <div class="results results--welsh">
           <div class="results__wrapper">
-              {{#if data.summaryCy.present}}
-                  {{~> views/MOT/reasonsForRejection data.summaryCy}}
+              {{#if failData.summaryCy.present}}
+                  {{~> views/MOT/reasonsForRejection failData.summaryCy}}
               {{/if}}
-              {{#if data.reasonForCancelResultItemCy.present}}
-                  {{~> views/MOT/reasonsForRejection data.reasonForCancelResultItemCy}}
+              {{#if failData.reasonForCancelResultItemCy.present}}
+                  {{~> views/MOT/reasonsForRejection failData.reasonForCancelResultItemCy}}
               {{/if}}
-              {{#if data.dangerousCy.present}}
-                  {{~> views/MOT/reasonsForRejection data.dangerousCy}}
+              {{#if failData.dangerousCy.present}}
+                  {{~> views/MOT/reasonsForRejection failData.dangerousCy}}
               {{/if}}
-              {{#if data.majorCy.present}}
-                  {{~> views/MOT/reasonsForRejection data.majorCy}}
+              {{#if failData.majorCy.present}}
+                  {{~> views/MOT/reasonsForRejection failData.majorCy}}
               {{/if}}
-              {{#if data.minorCy.present}}
-                  {{~> views/MOT/reasonsForRejection data.minorCy}}
+              {{#if failData.minorCy.present}}
+                  {{~> views/MOT/reasonsForRejection failData.minorCy}}
               {{/if}}
-              {{#if data.advisoryCy.present}}
-                  {{~> views/MOT/reasonsForRejection data.advisoryCy}}
+              {{#if failData.advisoryCy.present}}
+                  {{~> views/MOT/reasonsForRejection failData.advisoryCy}}
               {{/if}}
           </div>
       </div>
@@ -328,7 +328,7 @@
             </span>
           </h2>
           <span class="heading-info__content" id="date-of-test">
-              {{data.formattedDateOfTheTest}}
+              {{failData.formattedDateOfTheTest}}
           </span>
         </div>
         <!-- /heading-info -->
@@ -348,9 +348,9 @@
             </span>
           </h2>
           <span class="heading-info__content" id="location-of-test">
-              {{data.testStation}}
+              {{failData.testStation}}
               <br/>
-              {{data.testStationAddressLine}}
+              {{failData.testStationAddressLine}}
           </span>
         </div>
         <!-- /heading-info -->
@@ -370,9 +370,9 @@
             </span>
           </h2>
           <span class="heading-info__content" id="organisation-and-inspection-name">
-              {{data.authorisedExaminer}}
+              {{failData.authorisedExaminer}}
               <br/>
-              {{data.issuersName}}
+              {{failData.issuersName}}
           </span>
         </div>
         <!-- /heading-info -->
@@ -385,7 +385,7 @@
             </span>
           </h2>
           <span class="heading-info__content" id="mot-test-number">
-              {{data.welshFormattedTestNumber}}
+              {{failData.welshFormattedTestNumber}}
           </span>
         </div>
         <!-- /heading-info -->

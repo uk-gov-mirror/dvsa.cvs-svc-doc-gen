@@ -66,7 +66,7 @@
         <div class="footer__bottom">
             <div class="footer__bottom-one">
         <span class="footer__bottom-light-text footer__bottom-light-text--vin">
-          VIN: {{data.rawVin}}
+          VIN: {{failData.rawVin}}
         </span>
             </div>
 
@@ -127,7 +127,7 @@
             </span>
           </h2>
           <span class="heading-info__content" id="vin">
-            {{data.rawVin}}
+            {{failData.rawVin}}
           </span>
         </div>
         <!-- /heading-info -->
@@ -150,7 +150,7 @@
                 </span>
               </h2>
               <span class="heading-info__content" id="reg-number">
-                {{data.rawVrm}}
+                {{failData.rawVrm}}
               </span>
             </div>
             <!-- /heading-info -->
@@ -172,7 +172,7 @@
                 </span>
               </h2>
               <span class="heading-info__content" id="country">
-                {{data.countryOfRegistrationCodeFormatted}}
+                {{failData.countryOfRegistrationCodeFormatted}}
               </span>
             </div>
             <!-- /heading-info -->
@@ -188,7 +188,7 @@
             </span>
           </h2>
           <span class="heading-info__content" id="make-model">
-            {{data.make}} {{data.model}}
+            {{failData.make}} {{failData.model}}
           </span>
         </div>
         <!-- /heading-info -->
@@ -218,7 +218,7 @@
               </span>
             </h2>
             <span class="heading-info__content" id="vehicle-category">
-              {{data.vehicleEuClassification}}
+              {{failData.vehicleEuClassification}}
             </span>
           </div>
           <!-- /heading-info -->
@@ -240,13 +240,13 @@
               </span>
             </h2>
             <span class="heading-info__content" id="mileage">
-              {{data.formattedCurrentOdometer}}
+              {{failData.formattedCurrentOdometer}}
             </span>
           </div>
           <!-- /heading-info -->
         </div>
 
-        {{#if data.odometerHistory}}
+        {{#if failData.odometerHistory}}
         <div class="header__three-columns-three">
           <!-- heading-info -->
           <div class="heading-info">
@@ -258,16 +258,16 @@
             <div class="heading-info__content" id="mileage-history">
               <!-- header__histories -->
               <ul class="header__histories">
-                {{#each data.odometerHistory}}
+                {{#each failData.odometerHistory}}
                 <li class="header__history">
                   <div class="header__history-left">
                     <span class="header__history-mileage">
-                      {{#if data.odometer}}{{data.odometer}}{{/if}}
+                      {{#if failData.odometer}}{{failData.odometer}}{{/if}}
                     </span>
                   </div>
                   <div class="header__history-right">
                     <span class="header__history-date">
-                      {{#if data.odometer}}{{data.date}}{{/if}}
+                      {{#if failData.odometer}}{{failData.date}}{{/if}}
                     </span>
                   </div>
                 </li>
@@ -287,23 +287,23 @@
     <!-- results -->
     <div class="results">
       <div class="results__wrapper">
-          {{#if data.summary.present}}
-              {{~> views/MOT/reasonsForRejection data.summary}}
+          {{#if failData.summary.present}}
+              {{~> views/MOT/reasonsForRejection failData.summary}}
           {{/if}}
-          {{#if data.reasonForCancelResultItemEn.present}}
-              {{~> views/MOT/reasonsForRejection data.reasonForCancelResultItemEn}}
+          {{#if failData.reasonForCancelResultItemEn.present}}
+              {{~> views/MOT/reasonsForRejection failData.reasonForCancelResultItemEn}}
           {{/if}}
-          {{#if data.dangerous.present}}
-            {{~> views/MOT/reasonsForRejection data.dangerous}}
+          {{#if failData.dangerous.present}}
+            {{~> views/MOT/reasonsForRejection failData.dangerous}}
           {{/if}}
-          {{#if data.major.present}}
-            {{~> views/MOT/reasonsForRejection data.major}}
+          {{#if failData.major.present}}
+            {{~> views/MOT/reasonsForRejection failData.major}}
           {{/if}}
-          {{#if data.minor.present}}
-            {{~> views/MOT/reasonsForRejection data.minor}}
+          {{#if failData.minor.present}}
+            {{~> views/MOT/reasonsForRejection failData.minor}}
           {{/if}}
-          {{#if data.advisory.present}}
-            {{~> views/MOT/reasonsForRejection data.advisory}}
+          {{#if failData.advisory.present}}
+            {{~> views/MOT/reasonsForRejection failData.advisory}}
           {{/if}}
       </div>
     </div>
@@ -328,7 +328,7 @@
             </span>
           </h2>
           <span class="heading-info__content" id="date-of-test">
-            {{data.formattedDateOfTheTest}}
+            {{failData.formattedDateOfTheTest}}
           </span>
         </div>
         <!-- /heading-info -->
@@ -348,9 +348,9 @@
             </span>
           </h2>
           <span class="heading-info__content" id="location-of-test">
-            {{data.testStation}}
+            {{failData.testStation}}
             <br/>
-            {{data.testStationAddressLine}}
+            {{failData.testStationAddressLine}}
           </span>
         </div>
         <!-- /heading-info -->
@@ -370,9 +370,9 @@
             </span>
           </h2>
           <span class="heading-info__content" id="organisation-and-inspection-name">
-            {{data.authorisedExaminer}}
+            {{failData.authorisedExaminer}}
               <br/>
-            {{data.issuersName}}
+            {{failData.issuersName}}
           </span>
         </div>
         <!-- /heading-info -->
@@ -385,7 +385,7 @@
             </span>
           </h2>
           <span class="heading-info__content" id="mot-test-number">
-            {{data.formattedTestNumber}}
+            {{failData.formattedTestNumber}}
           </span>
         </div>
         <!-- /heading-info -->

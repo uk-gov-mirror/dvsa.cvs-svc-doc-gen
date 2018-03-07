@@ -5,15 +5,15 @@ import uk.gov.dvsa.model.mot.certificateData.MotFailCertificateData;
 
 public abstract class MotFailCertificate extends MotCertificate {
 
-    @JsonProperty("DATA")
-    protected MotFailCertificateData data;
+    @JsonProperty("FAIL_DATA")
+    protected MotFailCertificateData failData;
 
-    public MotFailCertificateData getData() {
-        return data;
+    public MotFailCertificateData getFailData() {
+        return failData;
     }
 
-    public MotFailCertificate setData(MotFailCertificateData data) {
-        this.data = data;
+    public MotFailCertificate setFailData(MotFailCertificateData data) {
+        this.failData = data;
         return this;
     }
 }
