@@ -24,7 +24,7 @@ public class HtmlGenerator {
     private final Handlebars handlebars;
 
     public HtmlGenerator(Handlebars handlebars) {
-        this.handlebars = registerNewlineHelper(handlebars);
+        this.handlebars = registerTabulatorHelper(handlebars);
     }
 
     public List<String> generate(Document context) throws IOException {
@@ -56,9 +56,9 @@ public class HtmlGenerator {
         }
     }
 
-    private Handlebars registerNewlineHelper(Handlebars handlebars) {
-        return handlebars.registerHelper("newline", (context, options) ->
-            context.toString().replace("\n", "<br/>")
+    private Handlebars registerTabulatorHelper(Handlebars handlebars) {
+        return handlebars.registerHelper("tabulator", (context, options) -> context.toString()
+                .replaceFirst("\t(.*)", "<span class='boxes__item-padded-text'>$1</span>")
         );
     }
 

@@ -7,6 +7,7 @@ import uk.gov.dvsa.model.mot.certificateData.MotCertificateDataWelsh;
 import uk.gov.dvsa.model.mot.certificateData.MotFailCertificateData;
 import uk.gov.dvsa.model.mot.certificateData.MotFailCertificateDataWelsh;
 import uk.gov.dvsa.model.mot.certificateData.OdometerReading;
+import uk.gov.dvsa.model.mot.enums.CertificateTemplates;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ import java.util.List;
 import static uk.gov.dvsa.view.mot.OdometerReadingFormatter.MILES_ENGLISH;
 
 public class CertificateTestDataProvider {
+    public static final String VTS_ID = "VTS12345";
     public static final String VIN = "QQIDAAAAAAA058568";
     public static final String ADVISORY_RFR_TEXT = "Advisory RFR";
     public static final String DANGEROUS_RFR_TEXT = "Dangerous RFR";
@@ -28,6 +30,15 @@ public class CertificateTestDataProvider {
     public static final String DANGEROUS_RFR_WELSH_TEXT = "Dangerous Welsh RFR";
 
     public static final String ODOMETER_VALUE = "22,341";
+
+    public static final List<String> INSPECTION_AUTHORITY = new ArrayList<>();
+
+    static {
+        INSPECTION_AUTHORITY.add("Welsh Garage");
+        INSPECTION_AUTHORITY.add("1 Welsh Road");
+        INSPECTION_AUTHORITY.add("Swansea");
+        INSPECTION_AUTHORITY.add("SW1 1NT\\t\\t+768-45-4433630");
+    }
 
     public static VT20 getVt20() {
         VT20 vt20 = new VT20();
@@ -270,6 +281,41 @@ public class CertificateTestDataProvider {
         vt30W.setData(vt30WData);
 
         return vt30W;
+    }
+
+    public static CT20 getCt20() {
+        CT20 ct20 = new CT20();
+        ct20.setDocumentName(CertificateTemplates.CT20.getCertificateName());
+        ct20.setVts(VTS_ID).setInspectionAuthority(INSPECTION_AUTHORITY);
+        return ct20;
+    }
+
+    public static CT30 getCt30() {
+        CT30 ct30 = new CT30();
+        ct30.setDocumentName(CertificateTemplates.CT30.getCertificateName());
+        ct30.setVts(VTS_ID).setInspectionAuthority(INSPECTION_AUTHORITY);
+        return ct30;
+    }
+
+    public static CT32 getCt32() {
+        CT32 ct32 = new CT32();
+        ct32.setDocumentName(CertificateTemplates.CT32.getCertificateName());
+        ct32.setVts(VTS_ID).setInspectionAuthority(INSPECTION_AUTHORITY);
+        return ct32;
+    }
+
+    public static CT20 getEuCt20() {
+        CT20 ct20 = new CT20();
+        ct20.setDocumentName(CertificateTemplates.EU_CT20.getCertificateName());
+        ct20.setVts(VTS_ID).setInspectionAuthority(INSPECTION_AUTHORITY);
+        return ct20;
+    }
+
+    public static CT30 getEuCt30() {
+        CT30 ct30 = new CT30();
+        ct30.setDocumentName(CertificateTemplates.EU_CT30.getCertificateName());
+        ct30.setVts(VTS_ID).setInspectionAuthority(INSPECTION_AUTHORITY);
+        return ct30;
     }
 
     public static VT20W getVt20WDuplicate() {

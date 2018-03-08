@@ -56,8 +56,16 @@ public class CertificatePageObject extends BasePageObject {
         return getElementById(LOCATION_OF_THE_TEST_ID.getSelector()).text();
     }
 
+    public String getInspectionAuthority() {
+        return getElementById(INSPECTION_AUTHORITY.getSelector()).text();
+    }
+
     public String getTestingOrganisationAndInspectorsName() {
         return getElementById(TESTING_ORG_AND_INSP_NAME_ID.getSelector()).text();
+    }
+
+    public String getTestStationId() {
+        return getElementById(TEST_STATION_ID.getSelector()).text();
     }
 
     public String getTestNumber() {

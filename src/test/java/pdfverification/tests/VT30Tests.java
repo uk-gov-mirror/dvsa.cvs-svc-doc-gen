@@ -17,7 +17,7 @@ import java.util.stream.IntStream;
 
 import static org.junit.Assert.*;
 
-public class BasicPDFCertificatesTests {
+public class VT30Tests {
 
     private HtmlGenerator htmlGenerator;
     private PDFGenerationService pdfGenerationService;
@@ -25,7 +25,7 @@ public class BasicPDFCertificatesTests {
     private PDFParser pdfParser;
     private byte[] pdfData;
 
-    public BasicPDFCertificatesTests() {
+    public VT30Tests() {
         this.testCertificate = CertificateTestDataProvider.getVt30WithOverflownRFRs();
 
         this.htmlGenerator = new HtmlGenerator(new Handlebars());

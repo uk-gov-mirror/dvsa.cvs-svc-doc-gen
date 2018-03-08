@@ -2,12 +2,26 @@ package uk.gov.dvsa.model.mot.enums;
 
 import uk.gov.dvsa.exception.HttpException;
 import uk.gov.dvsa.model.Document;
+import uk.gov.dvsa.model.mot.CT20;
+import uk.gov.dvsa.model.mot.CT30;
+import uk.gov.dvsa.model.mot.CT32;
 import uk.gov.dvsa.model.mot.VT20;
 import uk.gov.dvsa.model.mot.VT20W;
 import uk.gov.dvsa.model.mot.VT30;
 import uk.gov.dvsa.model.mot.VT30W;
 
 public enum DocumentsConfig {
+    EU_CT_20(CertificateTemplates.EU_CT20.getCertificateName(), CT20.class,
+            new String[]{CertificateTemplates.EU_CT20.getCertificateName()}),
+    EU_CT_30(CertificateTemplates.EU_CT30.getCertificateName(), CT30.class,
+            new String[]{CertificateTemplates.EU_CT30.getCertificateName()}),
+
+    CT_20(CertificateTemplates.CT20.getCertificateName(), CT20.class,
+            new String[]{CertificateTemplates.CT20.getCertificateName()}),
+    CT_30(CertificateTemplates.CT30.getCertificateName(), CT30.class,
+            new String[]{CertificateTemplates.CT30.getCertificateName()}),
+    CT_32(CertificateTemplates.CT32.getCertificateName(), CT32.class,
+            new String[]{CertificateTemplates.CT32.getCertificateName()}),
 
     VT_30(CertificateTemplates.VT30.getCertificateName(), VT30.class,
             new String[]{CertificateTemplates.VT30.getCertificateName()}),
