@@ -1,6 +1,6 @@
 package uk.gov.dvsa.model.mot.results;
 
-public class ResultsItem {
+public abstract class ResultsItem {
 
     /**
      *  Displayed together with the title, may contain letters, optional
@@ -32,4 +32,6 @@ public class ResultsItem {
         this.euCompliantNumber = euCompliantNumber;
         this.title = title;
     }
+
+    public abstract boolean isPresent();
 }

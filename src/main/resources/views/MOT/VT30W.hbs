@@ -287,7 +287,12 @@
       <!-- results -->
       <div class="results results--welsh">
           <div class="results__wrapper">
-              {{~> views/MOT/reasonsForRejection data.summaryCy}}
+              {{#if data.summaryCy.present}}
+                  {{~> views/MOT/reasonsForRejection data.summaryCy}}
+              {{/if}}
+              {{#if data.reasonForCancelResultItemCy.present}}
+                  {{~> views/MOT/reasonsForRejection data.reasonForCancelResultItemCy}}
+              {{/if}}
               {{#if data.dangerousCy.present}}
                   {{~> views/MOT/reasonsForRejection data.dangerousCy}}
               {{/if}}
@@ -380,7 +385,7 @@
             </span>
           </h2>
           <span class="heading-info__content" id="mot-test-number">
-              {{data.formattedTestNumber}}
+              {{data.welshFormattedTestNumber}}
           </span>
         </div>
         <!-- /heading-info -->

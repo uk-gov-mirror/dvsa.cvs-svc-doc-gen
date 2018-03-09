@@ -186,6 +186,37 @@ public class CertificateTestDataProvider {
         return vt30WithOverflownRFRs;
     }
 
+    public static VT30 getVt30Refusal() {
+        VT30 vt30 = new VT30();
+        vt30.setDocumentName("MOT/VT30");
+        MotFailCertificateData vt30Data = new MotFailCertificateData();
+        vt30Data
+            .setCountryOfRegistrationCode("GB")
+            .setRawVin(VIN)
+            .setDateOfTheTest(LocalDate.of(2017, 10, 12))
+            .setExpiryDate("12.10.2018")
+            .setFirstUseDate("2010-10-12")
+            .setTestStationAddress("VTS004004 53, Call Road, Worthing BN12 6PB, United Kingdom")
+            .setMake("Aston Martin")
+            .setModel("DB11")
+            .setTestClass("4")
+            .setVehicleEuClassification("M1")
+            .setRawVrm("KA1SAPH")
+            .setOdometer("Not Recorded")
+            .setCurrentOdometer(
+                new OdometerReading("Not Recorded", null, null)
+            )
+            .setIssuersName("R.DREWNO")
+            .setInspectionAuthority("MILKE GROUP LIMITED R.DREWNO")
+            .setAuthorisedExaminer("MILKE GROUP LIMITED");
+
+        vt30Data.setReasonForCancelEn("Classified reason for Cancel")
+            .setReasonForCancelComment("This is personal comment made by tester");
+        vt30.setData(vt30Data);
+
+        return vt30;
+    }
+
     public static VT20W getVt20W() {
         VT20W vt20W = new VT20W();
         vt20W.setDocumentName("MOT/VT20W");

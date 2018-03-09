@@ -287,7 +287,12 @@
     <!-- results -->
     <div class="results">
       <div class="results__wrapper">
-          {{~> views/MOT/reasonsForRejection data.summary}}
+          {{#if data.summary.present}}
+              {{~> views/MOT/reasonsForRejection data.summary}}
+          {{/if}}
+          {{#if data.reasonForCancelResultItemEn.present}}
+              {{~> views/MOT/reasonsForRejection data.reasonForCancelResultItemEn}}
+          {{/if}}
           {{#if data.dangerous.present}}
             {{~> views/MOT/reasonsForRejection data.dangerous}}
           {{/if}}
