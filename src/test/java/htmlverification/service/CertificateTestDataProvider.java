@@ -7,7 +7,7 @@ import uk.gov.dvsa.model.mot.certificateData.MotCertificateDataWelsh;
 import uk.gov.dvsa.model.mot.certificateData.MotFailCertificateData;
 import uk.gov.dvsa.model.mot.certificateData.MotFailCertificateDataWelsh;
 import uk.gov.dvsa.model.mot.certificateData.OdometerReading;
-import uk.gov.dvsa.model.mot.enums.CertificateTemplates;
+import uk.gov.dvsa.model.mot.enums.CertificateTypes;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -42,7 +42,7 @@ public class CertificateTestDataProvider {
 
     public static VT20 getVt20() {
         VT20 vt20 = new VT20();
-        vt20.setDocumentName("MOT/VT20");
+        vt20.setDocumentName(CertificateTypes.PASS.getType());
         MotCertificateData vt20Data = new MotCertificateData();
         vt20Data
             .setMinorDefectsHeader(DefectSummaryComponent.MINOR_DEFECTS_HEADER_TEXT)
@@ -91,7 +91,7 @@ public class CertificateTestDataProvider {
 
     public static VT30 getVt30() {
         VT30 vt30 = new VT30();
-        vt30.setDocumentName("MOT/VT30");
+        vt30.setDocumentName(CertificateTypes.FAIL.getType());
         MotFailCertificateData vt30Data = new MotFailCertificateData();
         vt30Data
             .setDangerousDefectsHeader(DefectSummaryComponent.DANGEROUS_DEFECTS_HEADER_TEXT)
@@ -132,7 +132,7 @@ public class CertificateTestDataProvider {
             .setAuthorisedExaminer("MILKE GROUP LIMITED")
             .setTestNumber("1806 8140 0628")
             .setEarliestDateOfTheNextTest(LocalDate.of(2018, 10, 13));
-        vt30.setData(vt30Data);
+        vt30.setFailData(vt30Data);
 
         return vt30;
     }
@@ -145,7 +145,7 @@ public class CertificateTestDataProvider {
 
     public static VT30 getVt30WithOverflownRFRs() {
         VT30 vt30WithOverflownRFRs = new VT30();
-        vt30WithOverflownRFRs.setDocumentName("MOT/VT30");
+        vt30WithOverflownRFRs.setDocumentName(CertificateTypes.FAIL.getType());
         MotFailCertificateData vt30WithOverflownRFRsData = new MotFailCertificateData();
         vt30WithOverflownRFRsData
             .setDangerousDefectsHeader(DefectSummaryComponent.DANGEROUS_DEFECTS_HEADER_TEXT)
@@ -182,7 +182,7 @@ public class CertificateTestDataProvider {
             .setTestNumber("180681400628")
             .setEarliestDateOfTheNextTest(LocalDate.of(2018, 10, 13));
 
-        vt30WithOverflownRFRs.setData(vt30WithOverflownRFRsData);
+        vt30WithOverflownRFRs.setFailData(vt30WithOverflownRFRsData);
         return vt30WithOverflownRFRs;
     }
 
@@ -212,14 +212,14 @@ public class CertificateTestDataProvider {
 
         vt30Data.setReasonForCancelEn("Classified reason for Cancel")
             .setReasonForCancelComment("This is personal comment made by tester");
-        vt30.setData(vt30Data);
+        vt30.setFailData(vt30Data);
 
         return vt30;
     }
 
     public static VT20W getVt20W() {
         VT20W vt20W = new VT20W();
-        vt20W.setDocumentName("MOT/VT20W");
+        vt20W.setDocumentName(CertificateTypes.WELSH_PASS.getType());
         MotCertificateDataWelsh vt20WData = new MotCertificateDataWelsh();
         vt20WData
                 .setEuMinorDefectsCy(generateRFRs(MINOR_RFR_WELSH_TEXT, 5))
@@ -263,7 +263,7 @@ public class CertificateTestDataProvider {
 
     public static VT30W getVt30W() {
         VT30W vt30W = new VT30W();
-        vt30W.setDocumentName("MOT/VT30W");
+        vt30W.setDocumentName(CertificateTypes.WELSH_FAIL.getType());
         MotFailCertificateDataWelsh vt30WData = new MotFailCertificateDataWelsh();
         vt30WData
             .setEuAdvisoryDefectsCy(generateRFRs(ADVISORY_RFR_WELSH_TEXT, 3))
@@ -309,42 +309,42 @@ public class CertificateTestDataProvider {
             .setAuthorisedExaminer("MILKE GROUP LIMITED")
             .setTestNumber("1806 8140 0628")
             .setEarliestDateOfTheNextTest(LocalDate.of(2018, 10, 13));
-        vt30W.setData(vt30WData);
+        vt30W.setFailData(vt30WData);
 
         return vt30W;
     }
 
     public static CT20 getCt20() {
         CT20 ct20 = new CT20();
-        ct20.setDocumentName(CertificateTemplates.CT20.getCertificateName());
+        ct20.setDocumentName(CertificateTypes.CONTINGENCY_PASS.getType());
         ct20.setVts(VTS_ID).setInspectionAuthority(INSPECTION_AUTHORITY);
         return ct20;
     }
 
     public static CT30 getCt30() {
         CT30 ct30 = new CT30();
-        ct30.setDocumentName(CertificateTemplates.CT30.getCertificateName());
+        ct30.setDocumentName(CertificateTypes.CONTINGENCY_FAIL.getType());
         ct30.setVts(VTS_ID).setInspectionAuthority(INSPECTION_AUTHORITY);
         return ct30;
     }
 
     public static CT32 getCt32() {
         CT32 ct32 = new CT32();
-        ct32.setDocumentName(CertificateTemplates.CT32.getCertificateName());
+        ct32.setDocumentName(CertificateTypes.CONTINGENCY_ADVISORY_NOTICE.getType());
         ct32.setVts(VTS_ID).setInspectionAuthority(INSPECTION_AUTHORITY);
         return ct32;
     }
 
     public static CT20 getEuCt20() {
         CT20 ct20 = new CT20();
-        ct20.setDocumentName(CertificateTemplates.EU_CT20.getCertificateName());
+        ct20.setDocumentName(CertificateTypes.EU_CONTINGENCY_PASS.getType());
         ct20.setVts(VTS_ID).setInspectionAuthority(INSPECTION_AUTHORITY);
         return ct20;
     }
 
     public static CT30 getEuCt30() {
         CT30 ct30 = new CT30();
-        ct30.setDocumentName(CertificateTemplates.EU_CT30.getCertificateName());
+        ct30.setDocumentName(CertificateTypes.EU_CONTINGENCY_FAIL.getType());
         ct30.setVts(VTS_ID).setInspectionAuthority(INSPECTION_AUTHORITY);
         return ct30;
     }
@@ -361,11 +361,27 @@ public class CertificateTestDataProvider {
         return vt30W;
     }
 
+    public static PRS getPRS() {
+        PRS prs = new PRS();
+        prs.setDocumentName(CertificateTypes.PRS.getType());
+        prs.setData(getVt20().getData());
+        prs.setFailData(getVt30().getFailData());
+        return prs;
+    }
+
+    public static PRSW getPRSW() {
+        PRSW prsw = new PRSW();
+        prsw.setDocumentName(CertificateTypes.WELSH_PRS.getType());
+        prsw.setData(getVt20W().getData());
+        prsw.setFailData(getVt30W().getFailData());
+        return prsw;
+    }
+
     public static Collection<Object[]> getCertificatesTestData() {
         return Arrays.asList(new Object[][] {
-                { getVt20() },
-                { getVt30() },
-                { getVt30WithOverflownRFRs() }
+                { getVt20(), getVt20().getData() },
+                { getVt30(), getVt30().getFailData() },
+                { getVt30WithOverflownRFRs(), getVt30WithOverflownRFRs().getFailData() }
         });
     }
 

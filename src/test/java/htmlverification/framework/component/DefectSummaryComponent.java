@@ -59,6 +59,14 @@ public class DefectSummaryComponent {
         return getResultItemEntries(title);
     }
 
+    public Elements getMajorDefectsWelsh() {
+        return getResultItemEntries(MAJOR_DEFECTS_HEADER_TEXT_WELSH);
+    }
+
+    public Elements getDangerousDefectsWelsh() {
+        return getResultItemEntries(DANGEROUS_DEFECTS_HEADER_PARTIAL_TEXT_WELSH);
+    }
+
     protected Elements getResultItemEntries(String resultItemHeader) {
         return getResultItems().stream()
                 .filter(i ->  i.getElementsContainingOwnText(resultItemHeader).size() > 0)
