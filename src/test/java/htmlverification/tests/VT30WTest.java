@@ -178,7 +178,7 @@ public class VT30WTest {
 
     @Test
     public void verifyDVSALogoIsLinked() {
-        Element dvsaLogoElement = certificatePageObject.getElement(CertificatePageSelector.DVSA_LOGO_WELSH_SELECTOR.getSelector());
+        Element dvsaLogoElement = certificatePageObject.getWelshLogo();
         assertNotNull(dvsaLogoElement);
     }
 

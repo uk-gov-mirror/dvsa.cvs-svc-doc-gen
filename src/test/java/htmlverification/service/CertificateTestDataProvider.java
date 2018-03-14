@@ -28,6 +28,7 @@ public class CertificateTestDataProvider {
     public static final String MINOR_RFR_WELSH_TEXT = "Minor Welsh RFR";
     public static final String MAJOR_RFR_WELSH_TEXT = "Major Welsh RFR";
     public static final String DANGEROUS_RFR_WELSH_TEXT = "Dangerous Welsh RFR";
+    public static final String INSP_AUTHORITY_DVSA = "Driver & Vehicle Standards Agency";
 
     public static final String ODOMETER_VALUE = "22,341";
 
@@ -377,11 +378,100 @@ public class CertificateTestDataProvider {
         return prsw;
     }
 
+    public static VT32VE getVt32VeW() {
+        VT32VE vt32vew = new VT32VE();
+        vt32vew.setDocumentName(CertificateTypes.WELSH_ADVISORY_NOTICE.getType());
+        MotFailCertificateDataWelsh vt32vewData = new MotFailCertificateDataWelsh();
+        vt32vewData
+                .setDangerousDefectsHeader(DefectSummaryComponent.DANGEROUS_DEFECTS_HEADER_TEXT)
+                .setEuDangerousDefects(generateRFRs(DANGEROUS_RFR_TEXT, 2))
+
+                .setMajorDefectsHeader(DefectSummaryComponent.MAJOR_DEFECTS_HEADER_TEXT)
+                .setEuMajorDefects(generateRFRs(MAJOR_RFR_TEXT, 4))
+
+                .setMinorDefectsHeader(DefectSummaryComponent.MINOR_DEFECTS_HEADER_TEXT)
+                .setEuMinorDefects(generateRFRs(MINOR_RFR_TEXT, 5))
+
+                .setAdvisoryDefectsHeader(DefectSummaryComponent.ADVISORIES_HEADER_TEXT)
+                .setEuAdvisoryDefects(generateRFRs(ADVISORY_RFR_TEXT, 3))
+
+                .setCountryOfRegistrationCode("GB")
+                .setRawVin(VIN)
+                .setIssuedDate("2017-10-12")
+                .setDateOfTheTest(LocalDate.of(2017, 10, 12))
+                .setExpiryDate("12.10.2018")
+                .setFirstUseDate("2010-10-12")
+                .setTestStation("VTS004004")
+                .setTestStationAddress("VTS004004 53, Call Road, Worthing BN12 6PB, United Kingdom")
+                .setMake("Aston Martin")
+                .setModel("DB11")
+                .setTestClass("4")
+                .setVehicleEuClassification("M1")
+                .setRawVrm("KA1SAPH")
+                .setOdometer("22341 km")
+                .setCurrentOdometer(
+                        new OdometerReading("22341", "km", LocalDate.now())
+                )
+                .setIssuersName("R.DREWNO")
+                .setInspectionAuthority("MILKE GROUP LIMITED R.DREWNO")
+                .setAuthorisedExaminer("MILKE GROUP LIMITED")
+                .setTestNumber("1806 8140 0628")
+                .setEarliestDateOfTheNextTest(LocalDate.of(2018, 10, 13))
+                .setInspectionAuthorityLines(Arrays.asList(
+                    INSP_AUTHORITY_DVSA,
+                    "Telephone number - 03001239000"
+                ));
+        vt32vew.setFailData(vt32vewData);
+        return vt32vew;
+    }
+
+    public static VT32VE getVt32Ve() {
+        VT32VE vt32ve = new VT32VE();
+        vt32ve.setDocumentName(CertificateTypes.ADVISORY_NOTICE.getType());
+        vt32ve.setFailData(getVt32VeW().getFailData());
+        return vt32ve;
+    }
+
+    public static VT32VE getEuVt32Ve() {
+        VT32VE euVt32ve = new VT32VE();
+        euVt32ve.setDocumentName(CertificateTypes.COMPLIANCE_ADVISORY_NOTICE.getType());
+        euVt32ve.setFailData(getVt32Ve().getFailData());
+        return euVt32ve;
+    }
+
+    public static VT32VE getEuVt32VeW() {
+        VT32VE euVt32veW = new VT32VE();
+        euVt32veW.setDocumentName(CertificateTypes.COMPLIANCE_WELSH_ADVISORY_NOTICE.getType());
+        euVt32veW.setFailData(getVt32VeW().getFailData());
+        return euVt32veW;
+    }
+
+    public static VT32VE getEuVt32VeWelshWithOverflow() {
+        VT32VE euVt32veWelshWithOverflow = new VT32VE();
+        euVt32veWelshWithOverflow.setDocumentName(CertificateTypes.COMPLIANCE_WELSH_ADVISORY_NOTICE.getType());
+        euVt32veWelshWithOverflow.setFailData(getVt32VeW().getFailData());
+        euVt32veWelshWithOverflow.getFailData()
+                .setEuDangerousDefects(generateRFRs(DANGEROUS_RFR_TEXT, 10))
+                .setEuMajorDefects(generateRFRs(MAJOR_RFR_TEXT, 10))
+                .setEuMinorDefects(generateRFRs(MINOR_RFR_TEXT, 15))
+                .setEuAdvisoryDefects(generateRFRs(ADVISORY_RFR_TEXT, 10));
+        return euVt32veWelshWithOverflow;
+    }
+
     public static Collection<Object[]> getCertificatesTestData() {
         return Arrays.asList(new Object[][] {
                 { getVt20(), getVt20().getData() },
                 { getVt30(), getVt30().getFailData() },
                 { getVt30WithOverflownRFRs(), getVt30WithOverflownRFRs().getFailData() }
+        });
+    }
+
+    public static Collection<Object[]> getVT32VECertificatesTestData() {
+        return Arrays.asList(new Object[][] {
+                { getVt32Ve()},
+                { getVt32VeW() },
+                { getEuVt32Ve() },
+                { getEuVt32VeW() }
         });
     }
 

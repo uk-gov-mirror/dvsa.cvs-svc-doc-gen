@@ -9,6 +9,7 @@ public class LogContextWrapper {
 
     public static final String CONTEXT_EVENT_KEY = "event";
     public static final String CONTEXT_DURATION_KEY = "duration";
+    public static final String PAGE_NUMBER_KEY = "pageNumber";
 
     private static final NumberFormat formatter = new DecimalFormat("#0.000000");
 
@@ -26,5 +27,13 @@ public class LogContextWrapper {
 
     public static void cleanupDuration() {
         ThreadContext.remove(CONTEXT_DURATION_KEY);
+    }
+
+    public static void setPageNumber(String pageNumber) {
+        ThreadContext.put(PAGE_NUMBER_KEY, pageNumber);
+    }
+
+    public static void cleanupPageNumber() {
+        ThreadContext.remove(PAGE_NUMBER_KEY);
     }
 }

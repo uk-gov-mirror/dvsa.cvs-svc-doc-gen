@@ -83,4 +83,32 @@ public class CertificatePageObject extends BasePageObject {
     public Element getWatermark() {
         return getElement(WATERMARK_SELECTOR.getSelector());
     }
+
+    public String getRegistrationNumber() {
+        return getElementById(REGISTRATION_NUMBER_ID.getSelector()).text();
+    }
+
+    public String getMake() {
+        return getElementById(MAKE_ID.getSelector()).text();
+    }
+
+    public String getModel() {
+        return getElementById(MODEL_ID.getSelector()).text();
+    }
+
+    public String getIssuedDate() {
+        return getElementById(ISSUED_DATE_ID.getSelector()).text();
+    }
+
+    public Element getLogo() {
+        return getElementById(DVSA_LOGO_ID.getSelector());
+    }
+
+    public Element getWelshLogo() {
+        return getElementById(DVSA_LOGO_WELSH_ID.getSelector());
+    }
+
+    public String getDefects() {
+        return getElementById(DEFECTS_ID.getSelector()).text();
+    }
 }

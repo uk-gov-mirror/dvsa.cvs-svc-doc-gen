@@ -6,7 +6,6 @@ import uk.gov.dvsa.model.mot.results.ReasonForCancel;
 import uk.gov.dvsa.model.mot.results.Summary;
 
 import java.util.List;
-import java.util.Optional;
 
 public class MotFailCertificateData extends MotCertificateData {
 
@@ -64,9 +63,17 @@ public class MotFailCertificateData extends MotCertificateData {
         return this;
     }
 
+    public List<String> getEuDangerousDefects() {
+        return this.euDangerousDefects;
+    }
+
     public MotFailCertificateData setEuMajorDefects(List<String> euMajorDefects) {
         this.euMajorDefects = euMajorDefects;
         return this;
+    }
+
+    public List<String> getEuMajorDefects() {
+        return this.euMajorDefects;
     }
 
     public String getReasonForCancel() {

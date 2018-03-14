@@ -1,6 +1,7 @@
 package uk.gov.dvsa.model.mot.certificateData;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.github.jknack.handlebars.Handlebars;
 import uk.gov.dvsa.model.mot.results.DefectsList;
 import uk.gov.dvsa.model.mot.results.Summary;
 import uk.gov.dvsa.view.mot.CountryCodeFormatter;
@@ -41,6 +42,9 @@ public class MotCertificateData {
 
     @JsonProperty("InspectionAuthority")
     private String inspectionAuthority;
+
+    @JsonProperty("InspectionAuthorityLines")
+    private List<String> inspectionAuthorityLines;
 
     @JsonProperty("AuthorisedExaminer")
     private String authorisedExaminer;
@@ -516,5 +520,15 @@ public class MotCertificateData {
 
     public boolean hasMinorDefects(List<String> minorDefects) {
         return minorDefects != null && !minorDefects.isEmpty();
+    }
+
+    public List<String> getInspectionAuthorityLines() {
+        return inspectionAuthorityLines.stream()
+                .map(inspAuthLine -> (String) Handlebars.Utils.escapeExpression(inspAuthLine))
+                .collect(Collectors.toList());
+    }
+
+    public void setInspectionAuthorityLines(List<String> inspectionAuthorityLines) {
+        this.inspectionAuthorityLines = inspectionAuthorityLines;
     }
 }
