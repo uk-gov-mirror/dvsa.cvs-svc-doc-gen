@@ -1,9 +1,11 @@
 package uk.gov.dvsa.model.mot;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.github.jknack.handlebars.Handlebars;
 import uk.gov.dvsa.model.Document;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public abstract class ContingencyCertificate extends Document {
 
@@ -23,7 +25,9 @@ public abstract class ContingencyCertificate extends Document {
     }
 
     public List<String> getInspectionAuthority() {
-        return inspectionAuthority;
+        return inspectionAuthority.stream()
+                .map(inspAuthLine -> (String) Handlebars.Utils.escapeExpression(inspAuthLine))
+                .collect(Collectors.toList());
     }
 
     public ContingencyCertificate setInspectionAuthority(List<String> inspectionAuthority) {
