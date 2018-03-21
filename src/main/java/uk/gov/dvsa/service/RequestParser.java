@@ -6,16 +6,17 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import uk.gov.dvsa.exception.HttpException;
 import uk.gov.dvsa.logging.EventType;
-import uk.gov.dvsa.logging.LogContextWrapper;
-import uk.gov.dvsa.logging.LoggingExecutor;
 import uk.gov.dvsa.logging.LoggingExecutor;
 import uk.gov.dvsa.model.Document;
 import uk.gov.dvsa.model.mot.enums.DocumentsConfig;
 
 import java.io.IOException;
-import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+
+import static java.util.Arrays.asList;
 
 public class RequestParser {
 
@@ -23,6 +24,10 @@ public class RequestParser {
     private static final String DOCUMENT_NAME_PARAMETER = "documentName";
     private static final String DOCUMENT_DIRECTORY_PARAMETER = "documentDirectory";
     private static final String REQUEST_BODY = "body";
+    private static final String REQUEST_HEADERS = "headers";
+    public static final String REQUEST_TRACE_ID_HEADER = "x-b3-traceid";
+    public static final String REQUEST_SPAN_ID_HEADER = "x-b3-spanid";
+    public static final String REQUEST_PARENT_SPAN_ID_HEADER = "x-b3-parentspanid";
 
     private static final Logger logger = LogManager.getLogger(RequestParser.class);
 
@@ -97,5 +102,16 @@ public class RequestParser {
             throw new HttpException.BadRequestException("Required lambda parameter " + REQUEST_BODY + " not found");
         }
         return (String) (input.get(REQUEST_BODY));
+    }
+
+    public Map<String, String> getTracingHeaders(Map<String, Object> input) {
+        @SuppressWarnings("unchecked")
+        Map<String, String> headersMap = (Map<String, String>) input.get(REQUEST_HEADERS);
+        List<String> headerKeys = asList(REQUEST_PARENT_SPAN_ID_HEADER, REQUEST_SPAN_ID_HEADER, REQUEST_TRACE_ID_HEADER);
+
+        return headersMap.entrySet()
+                .stream()
+                .filter(entry -> headerKeys.contains(entry.getKey().toLowerCase()))
+                .collect(Collectors.toMap(entry -> entry.getKey().toLowerCase(), entry -> entry.getValue()));
     }
 }
