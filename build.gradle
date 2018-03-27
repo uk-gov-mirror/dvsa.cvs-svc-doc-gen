@@ -1,6 +1,7 @@
 plugins {
     id 'com.adarshr.test-logger' version '1.1.2'
     id 'com.github.johnrengelman.shadow' version '2.0.2'
+    id 'org.ajoberstar.grgit' version '2.1.1'
 }
 
 apply plugin: 'java'
@@ -71,4 +72,17 @@ task buildZip(type: Zip) {
     }
 }
 
+task buildManifest(type: Copy) {
+    from 'src/main/filteredResources'
+    into 'build/resources/main'
+
+    def branchName =  project.findProperty('branchName') ?: grgit.branch.current().getName()
+    def commitId = project.findProperty('commitId') ?: grgit.head().getId()
+    println "Commit id: " + commitId
+    println "Branch name: " + branchName
+
+    expand(gitCommitId: commitId, gitBranch: branchName)
+}
+
+buildZip.dependsOn buildManifest
 build.dependsOn buildZip
