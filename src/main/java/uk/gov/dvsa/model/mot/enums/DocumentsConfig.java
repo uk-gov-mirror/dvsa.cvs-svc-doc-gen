@@ -2,8 +2,6 @@ package uk.gov.dvsa.model.mot.enums;
 
 import uk.gov.dvsa.exception.HttpException;
 import uk.gov.dvsa.model.Document;
-import uk.gov.dvsa.model.mot.PRS;
-import uk.gov.dvsa.model.mot.PRSW;
 import uk.gov.dvsa.model.mot.CT20;
 import uk.gov.dvsa.model.mot.CT30;
 import uk.gov.dvsa.model.mot.CT32;
@@ -11,6 +9,9 @@ import uk.gov.dvsa.model.mot.VT20;
 import uk.gov.dvsa.model.mot.VT20W;
 import uk.gov.dvsa.model.mot.VT30;
 import uk.gov.dvsa.model.mot.VT30W;
+import uk.gov.dvsa.model.mot.VT32VE;
+import uk.gov.dvsa.model.mot.PRS;
+import uk.gov.dvsa.model.mot.PRSW;
 
 public enum DocumentsConfig {
     EU_CT_20(CertificateTypes.EU_CONTINGENCY_PASS.getType(), CT20.class,
@@ -37,7 +38,15 @@ public enum DocumentsConfig {
             new String[]{CertificateTemplates.VT20.getCertificateTemplateName(), CertificateTemplates.VT30.getCertificateTemplateName()}),
     PRSW(CertificateTypes.WELSH_PRS.getType(), PRSW.class,
             new String[]{CertificateTemplates.VT20.getCertificateTemplateName(), CertificateTemplates.VT30.getCertificateTemplateName(),
-            CertificateTemplates.VT20W.getCertificateTemplateName(), CertificateTemplates.VT30W.getCertificateTemplateName()});
+            CertificateTemplates.VT20W.getCertificateTemplateName(), CertificateTemplates.VT30W.getCertificateTemplateName()}),
+    VT_32VE(CertificateTypes.ADVISORY_NOTICE.getType(), VT32VE.class,
+            new String[]{CertificateTemplates.VT32VE.getCertificateTemplateName()}),
+    VT_32VEW(CertificateTypes.WELSH_ADVISORY_NOTICE.getType(), VT32VE.class,
+            new String[]{CertificateTemplates.VT32VEW.getCertificateTemplateName()}),
+    EU_VT_32VE(CertificateTypes.COMPLIANCE_ADVISORY_NOTICE.getType(), VT32VE.class,
+            new String[]{CertificateTemplates.VT32VE.getCertificateTemplateName()}),
+    EU_VT_32VEW(CertificateTypes.COMPLIANCE_WELSH_ADVISORY_NOTICE.getType(), VT32VE.class,
+            new String[]{CertificateTemplates.VT32VEW.getCertificateTemplateName()});
 
     private final String documentName;
     private final Class<? extends Document> baseClass;

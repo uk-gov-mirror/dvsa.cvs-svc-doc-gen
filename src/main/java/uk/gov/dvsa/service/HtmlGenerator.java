@@ -2,6 +2,7 @@ package uk.gov.dvsa.service;
 
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Template;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import uk.gov.dvsa.exception.HtmlTemplateCompilationException;
@@ -32,7 +33,7 @@ public class HtmlGenerator {
         this.handlebars = registerTabulatorHelper(handlebars);
     }
 
-    public List<String> generate(Document context) throws IOException {
+    public List<String> generate(Document context) {
         List<Template> templates = executor.timed(
             () -> getTemplates(context.getDocumentName()),
             EventType.CERT_TEMPLATES_COMPILATION

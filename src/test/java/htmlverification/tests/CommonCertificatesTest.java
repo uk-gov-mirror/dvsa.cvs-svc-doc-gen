@@ -61,7 +61,7 @@ public class CommonCertificatesTest {
 
     @Test
     public void verifyDVSALogoIsLinked() {
-        Element dvsaLogoElement = certificatePageObject.getElement(CertificatePageSelector.DVSA_LOGO_SELECTOR.getSelector());
+        Element dvsaLogoElement = certificatePageObject.getLogo();
         assertNotNull(dvsaLogoElement);
     }
 

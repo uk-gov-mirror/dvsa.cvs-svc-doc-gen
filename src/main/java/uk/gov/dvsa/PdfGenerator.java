@@ -2,7 +2,6 @@ package uk.gov.dvsa;
 
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
-import com.github.jknack.handlebars.Handlebars;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.ThreadContext;
@@ -12,7 +11,7 @@ import uk.gov.dvsa.logging.EventLogger;
 import uk.gov.dvsa.logging.EventType;
 import uk.gov.dvsa.model.ApiGatewayResponse;
 import uk.gov.dvsa.model.Document;
-import uk.gov.dvsa.service.HtmlGenerator;
+import uk.gov.dvsa.service.HtmlGeneratorFactory;
 import uk.gov.dvsa.service.PDFGenerationService;
 import uk.gov.dvsa.service.RequestParser;
 
@@ -28,13 +27,13 @@ public class PdfGenerator implements RequestHandler<Map<String, Object>, ApiGate
     private final EventLogger eventLogger = new EventLogger(logger);
 
     private RequestParser requestParser;
-    private HtmlGenerator htmlGenerator;
+    private HtmlGeneratorFactory htmlGeneratorFactory;
 
     public PdfGenerator() {
         eventLogger.logEvent(EventType.CERT_LAMBDA_START);
 
         this.requestParser = new RequestParser();
-        this.htmlGenerator = new HtmlGenerator(new Handlebars());
+        this.htmlGeneratorFactory = new HtmlGeneratorFactory();
     }
 
     @Override
@@ -44,7 +43,8 @@ public class PdfGenerator implements RequestHandler<Map<String, Object>, ApiGate
 
         try {
             Document document = requestParser.parseRequest(input);
-            List<String> html = htmlGenerator.generate(document);
+            List<String> html = htmlGeneratorFactory.create(document.getDocumentName()).generate(document);
+
             byte [] binaryBody = new PDFGenerationService(new ITextRenderer()).generate(html);
 
             Map<String, String> headers = new HashMap<>();
