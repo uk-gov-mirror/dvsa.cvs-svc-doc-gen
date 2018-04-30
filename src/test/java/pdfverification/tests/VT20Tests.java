@@ -11,9 +11,6 @@ import uk.gov.dvsa.model.mot.MotCertificate;
 import uk.gov.dvsa.service.HtmlGenerator;
 import uk.gov.dvsa.service.PDFGenerationService;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
 public class VT20Tests {
 
     private HtmlGenerator htmlGenerator;
@@ -35,16 +32,10 @@ public class VT20Tests {
         pdfData = pdfGenerationService.generate(htmlGenerator.generate(testCertificate));
     }
 
-    @Test
-    public void verifyVinOnSecondPage() throws Exception {
+    @Test(expected = NullPointerException.class)
+    public void verifySinglePage() throws Exception {
         PdfReader reader = pdfParser.readPdf(pdfData);
 
-        String vinText = "VIN: " + CertificateTestDataProvider.VIN;
-
-        boolean isVinOnFirstPage = pdfParser.getRawText(reader, 1).contains(vinText);
-        boolean isVinOnSecondPage = pdfParser.getRawText(reader, 2).contains(vinText);
-
-        assertFalse(isVinOnFirstPage);
-        assertTrue(isVinOnSecondPage);
+        pdfParser.getRawText(reader, 2);
     }
 }

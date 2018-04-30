@@ -22,7 +22,7 @@ import static uk.gov.dvsa.model.mot.certificateData.MotFailCertificateData.FAILE
 
 public class PRSTests {
     private static final int FIRST_PASS_PAGE_NUMBER = 1;
-    private static final int FIRST_FAIL_PAGE_NUMBER = 3;
+    private static final int FIRST_FAIL_PAGE_NUMBER = 2;
 
     private HtmlGenerator htmlGenerator;
     private PDFGenerationService pdfGenerationService;
@@ -64,15 +64,15 @@ public class PRSTests {
     }
 
     @Test
-    public void verifyVinOnSecondAndForthPage() throws Exception {
+    public void verifyVinOnThirdPage() throws Exception {
         String vinText = "VIN: " + CertificateTestDataProvider.VIN;
 
         boolean isVinOnFirstPage = pdfParser.getRawText(pdfReader, 1).contains(vinText);
         boolean isVinOnSecondPage = pdfParser.getRawText(pdfReader, 2).contains(vinText);
-        boolean isVinOnForthPage = pdfParser.getRawText(pdfReader, 4).contains(vinText);
+        boolean isVinOnThirdPage = pdfParser.getRawText(pdfReader, 3).contains(vinText);
 
         assertFalse(isVinOnFirstPage);
-        assertTrue(isVinOnSecondPage);
-        assertTrue(isVinOnForthPage);
+        assertFalse(isVinOnSecondPage);
+        assertTrue(isVinOnThirdPage);
     }
 }

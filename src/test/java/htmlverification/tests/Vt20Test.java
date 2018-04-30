@@ -112,7 +112,7 @@ public class Vt20Test {
     @Test
     public void verifyTestingOrganisationAndInspectorsName() {
         String text = certificatePageObject.getTestingOrganisationAndInspectorsName();
-        assertEquals("MILKE GROUP LIMITED R.DREWNO", text);
+        assertEquals("POPULAR GARAGES R.DREWNO", text);
     }
 
     @Test

@@ -75,7 +75,8 @@ public class CertificateTestDataProvider {
                 new OdometerReading("330", "km", LocalDate.of(2017, 1, 30))
             ))
             .setIssuersName("R.DREWNO")
-            .setInspectionAuthority("MILKE GROUP LIMITED R.DREWNO")
+            .setTestStationName("POPULAR GARAGES")
+            .setInspectionAuthority("POPULAR GARAGES R.DREWNO")
             .setAuthorisedExaminer("MILKE GROUP LIMITED")
             .setTestNumber("1806 8140 0628")
             .setEarliestDateOfTheNextTest(LocalDate.of(2018, 10, 13));
@@ -129,7 +130,8 @@ public class CertificateTestDataProvider {
                 new OdometerReading("300", "mi", LocalDate.of(2017, 01, 30))
             ))
             .setIssuersName("R.DREWNO")
-            .setInspectionAuthority("MILKE GROUP LIMITED R.DREWNO")
+            .setTestStationName("POPULAR GARAGES")
+            .setInspectionAuthority("POPULAR GARAGES R.DREWNO")
             .setAuthorisedExaminer("MILKE GROUP LIMITED")
             .setTestNumber("1806 8140 0628")
             .setEarliestDateOfTheNextTest(LocalDate.of(2018, 10, 13));
@@ -178,7 +180,8 @@ public class CertificateTestDataProvider {
             ))
 
             .setIssuersName("R.DREWNO")
-            .setInspectionAuthority("MILKE GROUP LIMITED R.DREWNO")
+            .setTestStationName("POPULAR GARAGES")
+            .setInspectionAuthority("POPULAR GARAGES R.DREWNO")
             .setAuthorisedExaminer("MILKE GROUP LIMITED")
             .setTestNumber("180681400628")
             .setEarliestDateOfTheNextTest(LocalDate.of(2018, 10, 13));
@@ -208,7 +211,8 @@ public class CertificateTestDataProvider {
                 new OdometerReading("Not Recorded", null, null)
             )
             .setIssuersName("R.DREWNO")
-            .setInspectionAuthority("MILKE GROUP LIMITED R.DREWNO")
+            .setTestStationName("POPULAR GARAGES")
+            .setInspectionAuthority("POPULAR GARAGES R.DREWNO")
             .setAuthorisedExaminer("MILKE GROUP LIMITED");
 
         vt30Data.setReasonForCancelEn("Classified reason for Cancel")
@@ -252,7 +256,8 @@ public class CertificateTestDataProvider {
                         new OdometerReading("330", "330", "km", LocalDate.of(2017, 1, 30))
                 ))
                 .setIssuersName("R.DREWNO")
-                .setInspectionAuthority("MILKE GROUP LIMITED R.DREWNO")
+                .setTestStationName("POPULAR GARAGES")
+                .setInspectionAuthority("POPULAR GARAGES R.DREWNO")
                 .setAuthorisedExaminer("MILKE GROUP LIMITED")
                 .setTestNumber("1806 8140 0628")
                 .setEarliestDateOfTheNextTest(LocalDate.of(2018, 10, 13))
@@ -306,7 +311,8 @@ public class CertificateTestDataProvider {
                 new OdometerReading("600", "600", "mi", LocalDate.of(2017, 01, 30))
             ))
             .setIssuersName("R.DREWNO")
-            .setInspectionAuthority("MILKE GROUP LIMITED R.DREWNO")
+            .setTestStationName("POPULAR GARAGES")
+            .setInspectionAuthority("POPULAR GARAGES R.DREWNO")
             .setAuthorisedExaminer("MILKE GROUP LIMITED")
             .setTestNumber("1806 8140 0628")
             .setEarliestDateOfTheNextTest(LocalDate.of(2018, 10, 13));
@@ -413,7 +419,8 @@ public class CertificateTestDataProvider {
                         new OdometerReading("22341", "km", LocalDate.now())
                 )
                 .setIssuersName("R.DREWNO")
-                .setInspectionAuthority("MILKE GROUP LIMITED R.DREWNO")
+                .setTestStationName("POPULAR GARAGES")
+                .setInspectionAuthority("POPULAR GARAGES R.DREWNO")
                 .setAuthorisedExaminer("MILKE GROUP LIMITED")
                 .setTestNumber("1806 8140 0628")
                 .setEarliestDateOfTheNextTest(LocalDate.of(2018, 10, 13))
