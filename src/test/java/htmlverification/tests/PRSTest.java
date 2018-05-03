@@ -156,8 +156,8 @@ public class PRSTest {
         String text = certificatePageObjectPass.getTestingOrganisationAndInspectorsName();
         String text2 = certificatePageObjectFail.getTestingOrganisationAndInspectorsName();
 
-        assertEquals("MILKE GROUP LIMITED R.DREWNO", text);
-        assertEquals("MILKE GROUP LIMITED R.DREWNO", text2);
+        assertEquals("POPULAR GARAGES R.DREWNO", text);
+        assertEquals("POPULAR GARAGES R.DREWNO", text2);
     }
 
     @Test

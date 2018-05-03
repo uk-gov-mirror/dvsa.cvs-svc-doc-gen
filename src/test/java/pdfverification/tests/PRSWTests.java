@@ -21,9 +21,9 @@ import static uk.gov.dvsa.model.mot.certificateData.MotFailCertificateDataWelsh.
 
 public class PRSWTests {
     private static final int FIRST_PASS_PAGE_NUMBER = 1;
-    private static final int FIRST_FAIL_PAGE_NUMBER = 3;
-    private static final int FIRST_PASS_WELSH_PAGE_NUMBER = 5;
-    private static final int FIRST_FAIL_WELSH_PAGE_NUMBER = 7;
+    private static final int FIRST_FAIL_PAGE_NUMBER = 2;
+    private static final int FIRST_PASS_WELSH_PAGE_NUMBER = 4;
+    private static final int FIRST_FAIL_WELSH_PAGE_NUMBER = 6;
 
     private HtmlGenerator htmlGenerator;
     private PDFGenerationService pdfGenerationService;
@@ -73,7 +73,7 @@ public class PRSWTests {
     }
 
     @Test
-    public void verifyVinOnSecondAndForthPage() throws Exception {
+    public void verifyVinOnThirdFifthAndSeventhPage() throws Exception {
         String vinText = "VIN: " + CertificateTestDataProvider.VIN;
 
         boolean isVinOnFirstPage = pdfParser.getRawText(pdfReader, 1).contains(vinText);
@@ -85,12 +85,12 @@ public class PRSWTests {
         boolean isVinOnSeventhPage = pdfParser.getRawText(pdfReader, 7).contains(vinText);
 
         assertFalse(isVinOnFirstPage);
-        assertFalse(isVinOnThirdPage);
-        assertFalse(isVinOnFifthPage);
-        assertFalse(isVinOnSeventhPage);
+        assertFalse(isVinOnSecondPage);
+        assertFalse(isVinOnForthPage);
+        assertFalse(isVinOnSixthPage);
 
-        assertTrue(isVinOnSecondPage);
-        assertTrue(isVinOnForthPage);
-        assertTrue(isVinOnSixthPage);
+        assertTrue(isVinOnThirdPage);
+        assertTrue(isVinOnFifthPage);
+        assertTrue(isVinOnSeventhPage);
     }
 }

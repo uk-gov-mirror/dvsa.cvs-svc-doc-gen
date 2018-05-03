@@ -21,7 +21,7 @@ import static uk.gov.dvsa.model.mot.certificateData.MotCertificateData.PASS_WITH
 import static uk.gov.dvsa.model.mot.certificateData.MotCertificateDataWelsh.PASS_WITH_DEFECTS_HEADER_WELSH;
 
 public class VT20WTests {
-    private static final int FIRST_WELSH_PAGE_NUMBER = 3;
+    private static final int FIRST_WELSH_PAGE_NUMBER = 2;
     private static final int FIRST_ENGLISH_PAGE_NUMBER = 1;
 
     private HtmlGenerator htmlGenerator;
@@ -60,16 +60,16 @@ public class VT20WTests {
     }
 
     @Test
-    public void verifyVinOnSecondAndForthPage() throws Exception {
+    public void verifyVinOnThirdPage() throws Exception {
         String vinText = "VIN: " + CertificateTestDataProvider.VIN;
 
         boolean isVinOnFirstPage = pdfParser.getRawText(pdfReader, 1).contains(vinText);
         boolean isVinOnSecondPage = pdfParser.getRawText(pdfReader, 2).contains(vinText);
-        boolean isVinOnForthPage = pdfParser.getRawText(pdfReader, 4).contains(vinText);
+        boolean isVinOnThirdPage = pdfParser.getRawText(pdfReader, 3).contains(vinText);
 
         assertFalse(isVinOnFirstPage);
-        assertTrue(isVinOnSecondPage);
-        assertTrue(isVinOnForthPage);
+        assertFalse(isVinOnSecondPage);
+        assertTrue(isVinOnThirdPage);
     }
 
     @Test

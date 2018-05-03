@@ -37,6 +37,9 @@ public class MotCertificateData {
     @JsonProperty("TestStation")
     private String testStation;
 
+    @JsonProperty("TestStationName")
+    private String testStationName;
+
     @JsonProperty("TestStationAddress")
     private String testStationAddress;
 
@@ -158,6 +161,19 @@ public class MotCertificateData {
 
     public MotCertificateData setTestNumber(String testNumber) {
         this.testNumber = testNumber;
+        return this;
+    }
+
+    public String getTestStationName() {
+        if (testStationName == null || testStationName.isEmpty()) {
+            return getInspectionAuthority().split("\n")[0];
+        } else {
+            return testStationName;
+        }
+    }
+
+    public MotCertificateData setTestStationName(String testStationName) {
+        this.testStationName = testStationName;
         return this;
     }
 
