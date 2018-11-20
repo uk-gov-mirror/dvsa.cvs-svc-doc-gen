@@ -38,4 +38,15 @@ public class VT20Tests {
 
         pdfParser.getRawText(reader, 2);
     }
+
+    @Test
+    public void verifySinglePageWithInvalidXMLCharacter() throws Exception {
+
+        this.testCertificate = CertificateTestDataProvider.getVt20HavingInvalidXMLCharacter();
+        pdfData = pdfGenerationService.generate(htmlGenerator.generate(testCertificate));
+
+        PdfReader reader = pdfParser.readPdf(pdfData);
+
+        pdfParser.getRawText(reader, 1);
+    }
 }

@@ -20,6 +20,7 @@ import static uk.gov.dvsa.view.mot.OdometerReadingFormatter.MILES_ENGLISH;
 public class CertificateTestDataProvider {
     public static final String VTS_ID = "VTS12345";
     public static final String VIN = "QQIDAAAAAAA058568";
+    public static final String INVALID_XML_RFR_TEXT = "Invalid XML character\f RFR";
     public static final String ADVISORY_RFR_TEXT = "Advisory RFR";
     public static final String DANGEROUS_RFR_TEXT = "Dangerous RFR";
     public static final String MAJOR_RFR_TEXT = "Major RFR";
@@ -39,6 +40,15 @@ public class CertificateTestDataProvider {
         INSPECTION_AUTHORITY.add("1 Welsh Road");
         INSPECTION_AUTHORITY.add("Swansea");
         INSPECTION_AUTHORITY.add("SW1 1NT\\t\\t+768-45-4433630");
+    }
+
+    public static VT20 getVt20HavingInvalidXMLCharacter() {
+        VT20 document = getVt20();
+
+        MotCertificateData data = document.getData();
+        data.setEuAdvisoryDefects(generateRFRs(INVALID_XML_RFR_TEXT, 3));
+
+        return document;
     }
 
     public static VT20 getVt20() {

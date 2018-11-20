@@ -5,6 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.xhtmlrenderer.pdf.ITextRenderer;
 import uk.gov.dvsa.exception.PdfDocumentException;
+import uk.gov.dvsa.helper.XMLCleanerHelper;
 import uk.gov.dvsa.logging.EventType;
 import uk.gov.dvsa.logging.LoggingExecutor;
 
@@ -82,7 +83,9 @@ public class PDFGenerationService {
     }
 
     private void render(String content) {
-        renderer.setDocumentFromString(content);
+        renderer.setDocumentFromString(
+                XMLCleanerHelper.stripInvalidXMLCharacters(content)
+        );
         renderer.layout();
     }
 }
