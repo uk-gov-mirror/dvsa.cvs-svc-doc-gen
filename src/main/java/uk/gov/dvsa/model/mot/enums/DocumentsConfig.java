@@ -2,6 +2,7 @@ package uk.gov.dvsa.model.mot.enums;
 
 import uk.gov.dvsa.exception.HttpException;
 import uk.gov.dvsa.model.Document;
+import uk.gov.dvsa.model.cvs.CvsPsvPRS;
 import uk.gov.dvsa.model.mot.CT20;
 import uk.gov.dvsa.model.mot.CT30;
 import uk.gov.dvsa.model.mot.CT32;
@@ -46,7 +47,15 @@ public enum DocumentsConfig {
     EU_VT_32VE(CertificateTypes.COMPLIANCE_ADVISORY_NOTICE.getType(), VT32VE.class,
             new String[]{CertificateTemplates.VT32VE.getCertificateTemplateName()}),
     EU_VT_32VEW(CertificateTypes.COMPLIANCE_WELSH_ADVISORY_NOTICE.getType(), VT32VE.class,
-            new String[]{CertificateTemplates.VT32VEW.getCertificateTemplateName()});
+            new String[]{CertificateTemplates.VT32VEW.getCertificateTemplateName()}),
+
+    CVS_PSV_PRS(CertificateTypes.CVS_PSV_PRS.getType(), CvsPsvPRS.class,
+            new String[]{CertificateTemplates.VTP20.getCertificateTemplateName(), CertificateTemplates.VTP30.getCertificateTemplateName()}),
+    VTP20(CertificateTypes.CVS_PASS.getType(), uk.gov.dvsa.model.cvs.VTP20.class,
+            new String[]{CertificateTemplates.VTP20.getCertificateTemplateName()}),
+    VTP30(CertificateTypes.CVS_FAIL.getType(), uk.gov.dvsa.model.cvs.VTP30.class,
+            new String[]{CertificateTemplates.VTP30.getCertificateTemplateName()});
+
 
     private final String documentName;
     private final Class<? extends Document> baseClass;

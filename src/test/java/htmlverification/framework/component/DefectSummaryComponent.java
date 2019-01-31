@@ -16,6 +16,8 @@ public class DefectSummaryComponent {
     public static final String  MAJOR_DEFECTS_HEADER_TEXT_WELSH = "Rhaid trwsio ar unwaith (diffygion pennaf)";
     public static final String  DANGEROUS_DEFECTS_HEADER_PARTIAL_TEXT_WELSH = "Peidiwch â gyrru nes iddo gael ei drwsio (diffygion peryglus)";
 
+    //CVS only
+    public static final String  PRS_DEFECTS_HEADER_TEXT = "Monitor and repair if necessary (advisories)";
 
     protected Element resultSummaryElement;
 
@@ -65,6 +67,11 @@ public class DefectSummaryComponent {
 
     public Elements getDangerousDefectsWelsh() {
         return getResultItemEntries(DANGEROUS_DEFECTS_HEADER_PARTIAL_TEXT_WELSH);
+    }
+
+    //CVS only
+    public Elements getPrsDefects() {
+        return getResultItemEntries(PRS_DEFECTS_HEADER_TEXT);
     }
 
     protected Elements getResultItemEntries(String resultItemHeader) {

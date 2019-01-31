@@ -15,7 +15,10 @@ public enum CertificateTemplates {
     VT30W("MOT/VT30W"),
 
     VT32VEW("MOT/VT32VEW"),
-    VT32VE("MOT/VT32VE");
+    VT32VE("MOT/VT32VE"),
+
+    VTP20("CommercialVehicles/pass"),
+    VTP30("CommercialVehicles/fail");
 
     private final String certificateTemplateName;
 
