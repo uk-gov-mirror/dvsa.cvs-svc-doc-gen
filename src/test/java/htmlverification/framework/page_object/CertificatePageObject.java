@@ -111,4 +111,8 @@ public class CertificatePageObject extends BasePageObject {
     public String getDefects() {
         return getElementById(DEFECTS_ID.getSelector()).text();
     }
+
+    public String getSignatureImageSrc() {
+        return getElementById(CVS_SIGNATURE_FIRST_PAGE.getSelector()).attr("src");
+    }
 }

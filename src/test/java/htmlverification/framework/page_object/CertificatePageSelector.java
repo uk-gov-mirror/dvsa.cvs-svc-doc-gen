@@ -24,7 +24,10 @@ public enum CertificatePageSelector {
     DVSA_LOGO_WELSH_ID("logo-welsh"),
     EARLIEST_DATE_OF_THE_NEXT_TEST("earliest-preserve-date"),
     WATERMARK_SELECTOR("span.running-header__text"),
-    DEFECTS_ID("defects");
+    DEFECTS_ID("defects"),
+
+    CVS_SIGNATURE_FIRST_PAGE("signature-first-page"),
+    CVS_SIGNATURE_SECOND_PAGE("signature-second-page");
 
     private final String selector;
 
