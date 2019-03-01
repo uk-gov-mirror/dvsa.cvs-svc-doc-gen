@@ -3,16 +3,7 @@ package uk.gov.dvsa.model.mot.enums;
 import uk.gov.dvsa.exception.HttpException;
 import uk.gov.dvsa.model.Document;
 import uk.gov.dvsa.model.cvs.CvsPsvPRS;
-import uk.gov.dvsa.model.mot.CT20;
-import uk.gov.dvsa.model.mot.CT30;
-import uk.gov.dvsa.model.mot.CT32;
-import uk.gov.dvsa.model.mot.VT20;
-import uk.gov.dvsa.model.mot.VT20W;
-import uk.gov.dvsa.model.mot.VT30;
-import uk.gov.dvsa.model.mot.VT30W;
-import uk.gov.dvsa.model.mot.VT32VE;
-import uk.gov.dvsa.model.mot.PRS;
-import uk.gov.dvsa.model.mot.PRSW;
+import uk.gov.dvsa.model.mot.*;
 
 public enum DocumentsConfig {
     EU_CT_20(CertificateTypes.EU_CONTINGENCY_PASS.getType(), CT20.class,
@@ -49,12 +40,17 @@ public enum DocumentsConfig {
     EU_VT_32VEW(CertificateTypes.COMPLIANCE_WELSH_ADVISORY_NOTICE.getType(), VT32VE.class,
             new String[]{CertificateTemplates.VT32VEW.getCertificateTemplateName()}),
 
+    VT29(CertificateTypes.VT29.getType(), VT29.class, new String[]{CertificateTemplates.VT29.getCertificateTemplateName()}),
+
     CVS_PSV_PRS(CertificateTypes.CVS_PSV_PRS.getType(), CvsPsvPRS.class,
             new String[]{CertificateTemplates.VTP20.getCertificateTemplateName(), CertificateTemplates.VTP30.getCertificateTemplateName()}),
     VTP20(CertificateTypes.CVS_PASS.getType(), uk.gov.dvsa.model.cvs.VTP20.class,
             new String[]{CertificateTemplates.VTP20.getCertificateTemplateName()}),
     VTP30(CertificateTypes.CVS_FAIL.getType(), uk.gov.dvsa.model.cvs.VTP30.class,
-            new String[]{CertificateTemplates.VTP30.getCertificateTemplateName()});
+            new String[]{CertificateTemplates.VTP30.getCertificateTemplateName()}),
+
+    INSPECTION_CHECKLIST(CertificateTypes.INSPECTION_CHECKLIST.getType(), InspectionChecklist.class,
+            new String[]{CertificateTemplates.INSPECTION_CHECKLIST.getCertificateTemplateName()});
 
 
     private final String documentName;
