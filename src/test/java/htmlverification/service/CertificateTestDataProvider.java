@@ -176,6 +176,26 @@ public class CertificateTestDataProvider {
         return vt30;
     }
 
+    public static VT30 getMultiPageVt30WithHiddenIssuerInfo() {
+        VT30 vt30 = getVt30();
+        vt30.setData(vt30.getFailData().setEuAdvisoryDefects(generateRFRs(ADVISORY_RFR_TEXT, 20)));
+        vt30.setIssuerSignatureVisible(false);
+        return vt30;
+    }
+
+    public static VT30 getMultiPageVt30WithVisibleIssuerInfo() {
+        VT30 vt30 = getVt30();
+        vt30.setData(vt30.getFailData().setEuAdvisoryDefects(generateRFRs(ADVISORY_RFR_TEXT, 20)));
+        vt30.setIssuerSignatureVisible(true);
+        return vt30;
+    }
+
+    public static VT30 getMultiPageVt30WithUnspecifiedIssuerVisibilitySetting() {
+        VT30 vt30 = getVt30();
+        vt30.setData(vt30.getFailData().setEuAdvisoryDefects(generateRFRs(ADVISORY_RFR_TEXT, 20)));
+        return vt30;
+    }
+
     public static VT30 getVt30WithOverflownRFRs() {
         VT30 vt30WithOverflownRFRs = new VT30();
         vt30WithOverflownRFRs.setDocumentName(CertificateTypes.FAIL.getType());
