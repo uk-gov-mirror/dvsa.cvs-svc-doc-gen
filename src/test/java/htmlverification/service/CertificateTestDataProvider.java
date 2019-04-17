@@ -317,6 +317,26 @@ public class CertificateTestDataProvider {
         return vt20W;
     }
 
+    public static VT20W getMultiPageVt20WWithHiddenIssuerInfo() {
+        VT20W vt20w = getVt20W();
+        vt20w.setData(vt20w.getData().setEuAdvisoryDefects(generateRFRs(ADVISORY_RFR_WELSH_TEXT, 20)));
+        vt20w.setIssuerSignatureVisible(false);
+        return vt20w;
+    }
+
+    public static VT20W getMultiPageVt20WWithVisibleIssuerInfo() {
+        VT20W vt20w = getVt20W();
+        vt20w.setData(vt20w.getData().setEuAdvisoryDefects(generateRFRs(ADVISORY_RFR_WELSH_TEXT, 20)));
+        vt20w.setIssuerSignatureVisible(true);
+        return vt20w;
+    }
+
+    public static VT20W getMultiPageVt20WWithUnspecifiedIssuerVisibilitySetting() {
+        VT20W vt20w = getVt20W();
+        vt20w.setData(vt20w.getData().setEuAdvisoryDefects(generateRFRs(ADVISORY_RFR_WELSH_TEXT, 20)));
+        return vt20w;
+    }
+
     public static VT30W getVt30W() {
         VT30W vt30W = new VT30W();
         vt30W.setDocumentName(CertificateTypes.WELSH_FAIL.getType());

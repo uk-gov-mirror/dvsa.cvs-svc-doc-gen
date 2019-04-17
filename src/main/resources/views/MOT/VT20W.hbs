@@ -15,7 +15,9 @@
 <div class="footer footer--first-page">
     <div class="footer__wrapper">
         <div class="footer__top">
-            <div class="footer__top-signature-line"></div>
+            {{#if issuerSignatureVisible}}
+                <div class="footer__top-signature-line"></div>
+            {{/if}}
         </div>
 
         <div class="footer__bottom">
@@ -39,7 +41,11 @@
             <div class="footer__bottom-three">
                 <div class="footer__signature">
           <span class="footer__signature-text">
-            Llofnod y cyhoeddwr
+              {{#if issuerSignatureVisible}}
+                  Llofnod y cyhoeddwr
+              {{else}}
+                  Cyhoeddwyd gan ASGC
+              {{/if}}
           </span>
                 </div>
             </div>
@@ -58,7 +64,9 @@
 <div class="footer">
     <div class="footer__wrapper">
         <div class="footer__top">
-            <div class="footer__top-signature-line"></div>
+            {{#if issuerSignatureVisible}}
+                <div class="footer__top-signature-line"></div>
+            {{/if}}
         </div>
 
         <div class="footer__bottom">
@@ -84,7 +92,11 @@
             <div class="footer__bottom-three">
                 <div class="footer__signature">
           <span class="footer__signature-text">
-            Llofnod y cyhoeddwr
+              {{#if issuerSignatureVisible}}
+                  Llofnod y cyhoeddwr
+              {{else}}
+                  Cyhoeddwyd gan ASGC
+              {{/if}}
           </span>
                 </div>
             </div>
