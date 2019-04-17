@@ -21,6 +21,9 @@ public abstract class MotCertificate extends Document {
     @JsonProperty("CertificateIssuerInfoCy")
     private String certificateIssuerInfoCy;
 
+    @JsonProperty(value = "IsIssuerSignatureVisible", defaultValue = "true")
+    private Boolean isIssuerSignatureVisible = true;
+
     public String getId() {
         return id;
     }
@@ -63,6 +66,15 @@ public abstract class MotCertificate extends Document {
 
     public MotCertificate setCertificateIssuerInfoCy(String certificateIssuerInfoCy) {
         this.certificateIssuerInfoCy = certificateIssuerInfoCy;
+        return this;
+    }
+
+    public Boolean isIssuerSignatureVisible() {
+        return this.isIssuerSignatureVisible;
+    }
+
+    public MotCertificate setIssuerSignatureVisible(Boolean issuerVisible) {
+        this.isIssuerSignatureVisible = issuerVisible;
         return this;
     }
 }
