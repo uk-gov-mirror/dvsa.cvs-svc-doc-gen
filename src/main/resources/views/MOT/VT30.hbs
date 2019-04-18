@@ -17,7 +17,9 @@
 <div class="footer footer--first-page">
     <div class="footer__wrapper">
         <div class="footer__top">
-            <div class="footer__top-signature-line"></div>
+            {{#if issuerSignatureVisible}}
+                <div class="footer__top-signature-line"></div>
+            {{/if}}
         </div>
 
         <div class="footer__bottom">
@@ -41,7 +43,12 @@
             <div class="footer__bottom-three">
                 <div class="footer__signature">
           <span class="footer__signature-text">
-            Issuer signature
+
+            {{#if issuerSignatureVisible}}
+                Issuer signature
+            {{else}}
+                Issued by DVSA
+            {{/if}}
           </span>
                 </div>
             </div>
@@ -60,7 +67,9 @@
 <div class="footer">
     <div class="footer__wrapper">
         <div class="footer__top">
-            <div class="footer__top-signature-line"></div>
+            {{#if issuerSignatureVisible}}
+                <div class="footer__top-signature-line"></div>
+            {{/if}}
         </div>
 
         <div class="footer__bottom">
@@ -86,7 +95,11 @@
             <div class="footer__bottom-three">
                 <div class="footer__signature">
           <span class="footer__signature-text">
-            Issuer signature
+              {{#if issuerSignatureVisible}}
+                  Issuer signature
+              {{else}}
+                  Issued by DVSA
+              {{/if}}
           </span>
                 </div>
             </div>

@@ -11,6 +11,7 @@ import uk.gov.dvsa.model.mot.MotFailCertificate;
 import uk.gov.dvsa.service.HtmlGenerator;
 import uk.gov.dvsa.service.PDFGenerationService;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
@@ -24,6 +25,9 @@ public class VT30Tests {
     private MotFailCertificate testCertificate;
     private PDFParser pdfParser;
     private byte[] pdfData;
+
+    private static final String ISSUER_SIGNATURE = "Issuer signature";
+    private static final String ISSUED_BY_DVSA = "Issued by DVSA";
 
     public VT30Tests() {
         this.testCertificate = CertificateTestDataProvider.getVt30WithOverflownRFRs();
@@ -79,5 +83,54 @@ public class VT30Tests {
         expectedFirstPageRfrs.forEach(rfr -> assertFalse(rfr + " should not appear on the second page ", secondPageText.contains(rfr)));
         expectedSecondPageRfrs.forEach(rfr -> assertTrue(rfr + " should appear on the second page", secondPageText.contains(rfr)));
         expectedSecondPageRfrs.forEach(rfr -> assertFalse(rfr + " should not appear on the first page", firstPageText.contains(rfr)));
+    }
+
+
+    @Test
+    public void verifyIssuerSignatureIsReplacedByDvsaWhenRequested() throws IOException {
+        this.testCertificate = CertificateTestDataProvider.getMultiPageVt30WithHiddenIssuerInfo();
+        pdfData = pdfGenerationService.generate(htmlGenerator.generate(testCertificate));
+
+        PdfReader reader = pdfParser.readPdf(pdfData);
+
+        // 1st page is handled differently than the subsequent pages,
+        // the signature has to be verified on pages 1 & 2 to cover different cases
+        assertFalse(pdfParser.getRawText(reader, 1).contains(ISSUER_SIGNATURE));
+        assertFalse(pdfParser.getRawText(reader, 2).contains(ISSUER_SIGNATURE));
+
+        assertTrue(pdfParser.getRawText(reader, 1).contains(ISSUED_BY_DVSA));
+        assertTrue(pdfParser.getRawText(reader, 2).contains(ISSUED_BY_DVSA));
+    }
+
+    @Test
+    public void verifyIssuerSignatureIsVisibleWhenRequested() throws IOException {
+        this.testCertificate = CertificateTestDataProvider.getMultiPageVt30WithVisibleIssuerInfo();
+        pdfData = pdfGenerationService.generate(htmlGenerator.generate(testCertificate));
+
+        PdfReader reader = pdfParser.readPdf(pdfData);
+
+        // 1st page is handled differently than the subsequent pages,
+        // the signature has to be verified on pages 1 & 2 to cover different cases
+        assertTrue(pdfParser.getRawText(reader, 1).contains(ISSUER_SIGNATURE));
+        assertTrue(pdfParser.getRawText(reader, 2).contains(ISSUER_SIGNATURE));
+
+        assertFalse(pdfParser.getRawText(reader, 1).contains(ISSUED_BY_DVSA));
+        assertFalse(pdfParser.getRawText(reader, 2).contains(ISSUED_BY_DVSA));
+    }
+
+    @Test
+    public void verifyIssuerSignatureShowsUpByDefaultWhenItIsNotSpecified() throws IOException {
+        this.testCertificate = CertificateTestDataProvider.getMultiPageVt30WithUnspecifiedIssuerVisibilitySetting();
+        pdfData = pdfGenerationService.generate(htmlGenerator.generate(testCertificate));
+
+        PdfReader reader = pdfParser.readPdf(pdfData);
+
+        // 1st page is handled differently than the subsequent pages,
+        // the signature has to be verified on pages 1 & 2 to cover different cases
+        assertTrue(pdfParser.getRawText(reader, 1).contains(ISSUER_SIGNATURE));
+        assertTrue(pdfParser.getRawText(reader, 2).contains(ISSUER_SIGNATURE));
+
+        assertFalse(pdfParser.getRawText(reader, 1).contains(ISSUED_BY_DVSA));
+        assertFalse(pdfParser.getRawText(reader, 2).contains(ISSUED_BY_DVSA));
     }
 }
