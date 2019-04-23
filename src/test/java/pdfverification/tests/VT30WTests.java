@@ -9,6 +9,7 @@ import static htmlverification.framework.component.DefectSummaryComponent.MAJOR_
 import static htmlverification.framework.component.DefectSummaryComponent.MINOR_DEFECTS_HEADER_TEXT;
 import static htmlverification.framework.component.DefectSummaryComponent.MINOR_DEFECTS_HEADER_TEXT_WELSH;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
@@ -29,6 +30,10 @@ import com.itextpdf.text.pdf.PdfReader;
 public class VT30WTests {
     private static final int FIRST_WELSH_PAGE_NUMBER = 3;
     private static final int FIRST_ENGLISH_PAGE_NUMBER = 1;
+    private static final String ISSUER_SIGNATURE = "Issuer signature";
+    private static final String ISSUED_BY_DVSA = "Issued by DVSA";
+    private static final String ISSUER_SIGNATURE_WELSH = "Llofnod y cyhoeddwr";
+    private static final String ISSUED_BY_DVSA_WELSH = "Cyhoeddwyd gan ASGC";
 
     private PDFGenerationService pdfGenerationService;
     private HtmlGenerator htmlGenerator;
@@ -75,4 +80,67 @@ public class VT30WTests {
         assertTrue(pdfParser.getRawText(pdfReader, FIRST_WELSH_PAGE_NUMBER).contains(MAJOR_DEFECTS_HEADER_TEXT_WELSH));
         assertTrue(pdfParser.getRawText(pdfReader, FIRST_WELSH_PAGE_NUMBER).contains(DANGEROUS_DEFECTS_HEADER_PARTIAL_TEXT_WELSH));
     }
+    @Test
+    public void verifyIssuerSignatureIsReplacedByDvsaWhenRequested() throws IOException {
+        this.motFailCertificate = CertificateTestDataProvider.getMultiPageVt30WWithHiddenIssuerInfo();
+        byte[] pdfData = pdfGenerationService.generate(htmlGenerator.generate(motFailCertificate));
+
+        PdfReader reader = pdfParser.readPdf(pdfData);
+
+        // 1st page is handled differently than the subsequent pages,
+        // the signature has to be verified on pages 1 & 2 for english certificate
+        // and on pages 3 & 4 for welsh certificate to cover different cases
+        assertFalse(pdfParser.getRawText(reader, 1).contains(ISSUER_SIGNATURE));
+        assertFalse(pdfParser.getRawText(reader, 2).contains(ISSUER_SIGNATURE));
+        assertFalse(pdfParser.getRawText(reader, 3).contains(ISSUER_SIGNATURE_WELSH));
+        assertFalse(pdfParser.getRawText(reader, 4).contains(ISSUER_SIGNATURE_WELSH));
+
+        assertTrue(pdfParser.getRawText(reader, 1).contains(ISSUED_BY_DVSA));
+        assertTrue(pdfParser.getRawText(reader, 2).contains(ISSUED_BY_DVSA));
+        assertTrue(pdfParser.getRawText(reader, 3).contains(ISSUED_BY_DVSA_WELSH));
+        assertTrue(pdfParser.getRawText(reader, 4).contains(ISSUED_BY_DVSA_WELSH));
+    }
+
+    @Test
+    public void verifyIssuerSignatureIsVisibleWhenRequested() throws IOException {
+        this.motFailCertificate = CertificateTestDataProvider.getMultiPageVt30WWithVisibleIssuerInfo();
+        byte[] pdfData = pdfGenerationService.generate(htmlGenerator.generate(motFailCertificate));
+
+        PdfReader reader = pdfParser.readPdf(pdfData);
+
+        // 1st page is handled differently than the subsequent pages,
+        // the signature has to be verified on pages 1 & 2 for english certificate
+        // and on pages 3 & 4 for welsh certificate to cover different cases
+        assertTrue(pdfParser.getRawText(reader, 1).contains(ISSUER_SIGNATURE));
+        assertTrue(pdfParser.getRawText(reader, 2).contains(ISSUER_SIGNATURE));
+        assertTrue(pdfParser.getRawText(reader, 3).contains(ISSUER_SIGNATURE_WELSH));
+        assertTrue(pdfParser.getRawText(reader, 4).contains(ISSUER_SIGNATURE_WELSH));
+
+        assertFalse(pdfParser.getRawText(reader, 1).contains(ISSUED_BY_DVSA));
+        assertFalse(pdfParser.getRawText(reader, 2).contains(ISSUED_BY_DVSA));
+        assertFalse(pdfParser.getRawText(reader, 3).contains(ISSUED_BY_DVSA_WELSH));
+        assertFalse(pdfParser.getRawText(reader, 4).contains(ISSUED_BY_DVSA_WELSH));
+    }
+
+    @Test
+    public void verifyIssuerSignatureShowsUpByDefaultWhenItIsNotSpecified() throws IOException {
+        this.motFailCertificate = CertificateTestDataProvider.getMultiPageVt30WWithUnspecifiedIssuerVisibilitySetting();
+        byte[] pdfData = pdfGenerationService.generate(htmlGenerator.generate(motFailCertificate));
+
+        PdfReader reader = pdfParser.readPdf(pdfData);
+
+        // 1st page is handled differently than the subsequent pages,
+        // the signature has to be verified on pages 1 & 2 for english certificate
+        // and on pages 3 & 4 for welsh certificate to cover different cases
+        assertTrue(pdfParser.getRawText(reader, 1).contains(ISSUER_SIGNATURE));
+        assertTrue(pdfParser.getRawText(reader, 2).contains(ISSUER_SIGNATURE));
+        assertTrue(pdfParser.getRawText(reader, 3).contains(ISSUER_SIGNATURE_WELSH));
+        assertTrue(pdfParser.getRawText(reader, 4).contains(ISSUER_SIGNATURE_WELSH));
+
+        assertFalse(pdfParser.getRawText(reader, 1).contains(ISSUED_BY_DVSA));
+        assertFalse(pdfParser.getRawText(reader, 2).contains(ISSUED_BY_DVSA));
+        assertFalse(pdfParser.getRawText(reader, 3).contains(ISSUED_BY_DVSA_WELSH));
+        assertFalse(pdfParser.getRawText(reader, 4).contains(ISSUED_BY_DVSA_WELSH));
+    }
+
 }
