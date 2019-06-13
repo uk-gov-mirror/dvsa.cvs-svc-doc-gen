@@ -21,9 +21,14 @@ public enum CertificateTypes {
     COMPLIANCE_ADVISORY_NOTICE("MOT/EU_VT32VE"),
     COMPLIANCE_WELSH_ADVISORY_NOTICE("MOT/EU_VT32VEW"),
 
+    VT29("MOT/VT29"),
+
+
     CVS_PASS("CVS/VTP20"),
     CVS_FAIL("CVS/VTP30"),
-    CVS_PSV_PRS("CVS/PSV_PRS");
+    CVS_PSV_PRS("CVS/PSV_PRS"),
+
+    INSPECTION_CHECKLIST("MOT/InspectionChecklist");
 
     private final String type;
 
