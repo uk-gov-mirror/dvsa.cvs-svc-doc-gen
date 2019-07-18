@@ -25,7 +25,7 @@ sonarqube {
         property "sonar.host.url", "http://volted-monkey-sonarqube.ops:9000"
         property "sonar.jdbc.url", "jdbc:mysql://http://volted-monkey-sonarqube.ops:9000/sonar"
         property "sonar.jdbc.driverClassName", "com.mysql.jdbc.Driver"
-        property 'sonar.projectName', 'MOT Cert Gen'
+        property 'sonar.projectName', 'MOT PDF Generator'
     }
 }
 
