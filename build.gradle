@@ -2,36 +2,30 @@ buildscript {
     repositories {
       mavenCentral()
     }
+    dependencies {
+        classpath 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.6.1'
+    }
 }  
 
 plugins {
     id 'com.adarshr.test-logger' version '1.1.2'
     id 'com.github.johnrengelman.shadow' version '2.0.2'
     id 'org.ajoberstar.grgit' version '2.2.1'
+    id 'org.sonarqube' version '2.6.1'
 }
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'application'
 apply plugin: "jacoco"
 apply plugin: "com.github.johnrengelman.shadow"
-apply plugin: "sonar-runner"
 
-sonarRunner {
-    sonarProperties {
+
+sonarqube {
+    properties {
         property "sonar.host.url", "http://volted-monkey-sonarqube.ops:9000"
         property "sonar.jdbc.url", "jdbc:mysql://http://volted-monkey-sonarqube.ops:9000/sonar"
         property "sonar.jdbc.driverClassName", "com.mysql.jdbc.Driver"
-        property "sonar.projectKey=org.sonarqube:cvs-svc-mot-api"
-        property "sonar.projectName=MOT Certificate Generation"
-        property "sonar.projectVersion=1.0"
-    }
-}
-
-subprojects {
-    sonarRunner {
-        sonarProperties {
-            property "sonar.sourceEncoding", "UTF-8"
-        }
+        property 'sonar.projectName', 'MOT Cert Gen'
     }
 }
 
