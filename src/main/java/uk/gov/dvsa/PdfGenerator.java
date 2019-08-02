@@ -48,6 +48,7 @@ public class PdfGenerator implements RequestHandler<Map<String, Object>, ApiGate
         eventLogger.logEvent(EventType.CERT_REQUEST_RECEIVED);
 
         try {
+            /*
             Map<String, String> requestHeaders = requestParser.getTracingHeaders(input);
             requestTracingService.setCurrentTracingInformation(
                     requestHeaders.getOrDefault(REQUEST_TRACE_ID_HEADER, requestTracingService.generateUUID()),
@@ -56,6 +57,7 @@ public class PdfGenerator implements RequestHandler<Map<String, Object>, ApiGate
             );
 
             eventLogger.logEventWithTraceInfo(EventType.CERT_SERVER_RECEIVE, requestTracingService.getCurrentTracingInformation());
+             */
 
             Document document = requestParser.parseRequest(input);
             List<String> html = htmlGeneratorFactory.create(document.getDocumentName()).generate(document);
