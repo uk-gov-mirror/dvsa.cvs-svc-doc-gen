@@ -24,7 +24,7 @@ public class RequestParser {
     private static final String DOCUMENT_NAME_PARAMETER = "documentName";
     private static final String DOCUMENT_DIRECTORY_PARAMETER = "documentDirectory";
     private static final String REQUEST_BODY = "body";
-    private static final String REQUEST_HEADERS = "headers";
+    public static final String REQUEST_HEADERS = "headers";
     public static final String REQUEST_TRACE_ID_HEADER = "x-b3-traceid";
     public static final String REQUEST_SPAN_ID_HEADER = "x-b3-spanid";
     public static final String REQUEST_PARENT_SPAN_ID_HEADER = "x-b3-parentspanid";
