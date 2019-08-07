@@ -48,14 +48,17 @@ public class PdfGenerator implements RequestHandler<Map<String, Object>, ApiGate
         eventLogger.logEvent(EventType.CERT_REQUEST_RECEIVED);
 
         try {
-            Map<String, String> requestHeaders = requestParser.getTracingHeaders(input);
-            requestTracingService.setCurrentTracingInformation(
-                    requestHeaders.getOrDefault(REQUEST_TRACE_ID_HEADER, requestTracingService.generateUUID()),
-                    requestHeaders.getOrDefault(REQUEST_SPAN_ID_HEADER, requestTracingService.generateUUID()),
-                    requestHeaders.get(REQUEST_PARENT_SPAN_ID_HEADER)
-            );
+            if (input.containsKey(requestParser.REQUEST_HEADERS)) {
+            // Trace headers only they are provided in the input request, else ignore.
+                Map<String, String> requestHeaders = requestParser.getTracingHeaders(input);
+                requestTracingService.setCurrentTracingInformation(
+                        requestHeaders.getOrDefault(REQUEST_TRACE_ID_HEADER, requestTracingService.generateUUID()),
+                        requestHeaders.getOrDefault(REQUEST_SPAN_ID_HEADER, requestTracingService.generateUUID()),
+                        requestHeaders.get(REQUEST_PARENT_SPAN_ID_HEADER)
+                );
 
-            eventLogger.logEventWithTraceInfo(EventType.CERT_SERVER_RECEIVE, requestTracingService.getCurrentTracingInformation());
+                eventLogger.logEventWithTraceInfo(EventType.CERT_SERVER_RECEIVE, requestTracingService.getCurrentTracingInformation());
+            }
 
             Document document = requestParser.parseRequest(input);
             List<String> html = htmlGeneratorFactory.create(document.getDocumentName()).generate(document);
