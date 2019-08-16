@@ -49,6 +49,17 @@ public enum DocumentsConfig {
     VTP30(CertificateTypes.CVS_FAIL.getType(), uk.gov.dvsa.model.cvs.VTP30.class,
             new String[]{CertificateTemplates.VTP30.getCertificateTemplateName()}),
 
+    VTG5A(CertificateTypes.CVS_TRL_PASS.getType(), uk.gov.dvsa.model.cvs.VTG5A.class,
+            new String[]{CertificateTemplates.VTG5A.getCertificateTemplateName()}),
+    VTG5(CertificateTypes.CVS_HGV_PASS.getType(), uk.gov.dvsa.model.cvs.VTG5.class,
+            new String[]{CertificateTemplates.VTG5.getCertificateTemplateName()}),
+    VTG30(CertificateTypes.CVS_HGV_TRL_FAIL.getType(), uk.gov.dvsa.model.cvs.VTG30.class,
+            new String[]{CertificateTemplates.VTG30.getCertificateTemplateName()}),
+    CVS_HGV_PRS(CertificateTypes.CVS_HGV_PRS.getType(), uk.gov.dvsa.model.cvs.CvsHgvPRS.class,
+            new String[]{CertificateTemplates.VTG5.getCertificateTemplateName(), CertificateTemplates.VTG30.getCertificateTemplateName()}),
+    CVS_TRL_PRS(CertificateTypes.CVS_TRL_PRS.getType(), uk.gov.dvsa.model.cvs.CvsTrlPRS.class,
+            new String[]{CertificateTemplates.VTG5A.getCertificateTemplateName(), CertificateTemplates.VTG30.getCertificateTemplateName()}),
+
     INSPECTION_CHECKLIST(CertificateTypes.INSPECTION_CHECKLIST.getType(), InspectionChecklist.class,
             new String[]{CertificateTemplates.INSPECTION_CHECKLIST.getCertificateTemplateName()});
 
