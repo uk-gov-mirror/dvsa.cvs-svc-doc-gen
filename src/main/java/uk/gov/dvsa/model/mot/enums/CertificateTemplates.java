@@ -22,10 +22,6 @@ public enum CertificateTemplates {
     VTP20("CommercialVehicles/pass"),
     VTP30("CommercialVehicles/fail"),
 
-    VTG5("CommercialVehicles/pass"),
-    VTG5A("CommercialVehicles/pass"),
-    VTG30("CommercialVehicles/fail"),
-
     INSPECTION_CHECKLIST("MOT/Inspection_Checklist");
 
     private final String certificateTemplateName;
