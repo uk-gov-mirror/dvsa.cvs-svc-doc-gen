@@ -21,4 +21,6 @@ public class VTG5A extends CvsMotCertificate {
     public String getVersionNumberPass() {
         return "1.0";
     }
+
+    public String getRegOrIdHeading() { return "Identification number";  }
 }

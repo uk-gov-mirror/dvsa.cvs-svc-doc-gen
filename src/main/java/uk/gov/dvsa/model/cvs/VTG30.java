@@ -13,4 +13,6 @@ public class VTG30 extends CvsMotFailCertificate {
     public String getVersionNumberFail() {
         return "1.0";
     }
+
+    public String getRegOrIdHeading() { return "Identification number";  }
 }
