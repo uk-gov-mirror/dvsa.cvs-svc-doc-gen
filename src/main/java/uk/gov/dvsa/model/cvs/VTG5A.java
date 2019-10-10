@@ -2,10 +2,8 @@ package uk.gov.dvsa.model.cvs;
 
 import uk.gov.dvsa.model.Document;
 import uk.gov.dvsa.model.cvs.certificateData.CvsMotCertificateData;
-import uk.gov.dvsa.model.mot.MotCertificate;
-import uk.gov.dvsa.model.mot.certificateData.MotCertificateData;
 
-public class VTP20 extends CvsMotCertificate {
+public class VTG5A extends CvsMotCertificate {
 
     public Document setData(CvsMotCertificateData data) {
         this.data = data;
@@ -13,16 +11,16 @@ public class VTP20 extends CvsMotCertificate {
     }
 
     public String getTestType() {
-        return "PSV";
+        return "Trailer";
     }
 
     public String getPresentedDocumentNamePass() {
-        return "VTP20";
+        return "VTG5A";
     }
 
     public String getVersionNumberPass() {
         return "1.0";
     }
 
-    public String getRegOrIdHeading() { return "Registration number";  }
+    public String getRegOrIdHeading() { return "Identification number";  }
 }

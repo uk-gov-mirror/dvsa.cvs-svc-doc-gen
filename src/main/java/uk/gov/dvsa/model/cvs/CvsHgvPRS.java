@@ -1,17 +1,21 @@
 package uk.gov.dvsa.model.cvs;
 
-import uk.gov.dvsa.model.Document;
-import uk.gov.dvsa.model.cvs.certificateData.CvsMotCertificateData;
-import uk.gov.dvsa.model.cvs.certificateData.CvsMotFailCertificateData;
-
-public class VTP30 extends CvsMotFailCertificate {
+public class CvsHgvPRS extends CvsMotFailCertificate {
 
     public String getTestType() {
-        return "PSV";
+        return "HGV";
+    }
+
+    public String getPresentedDocumentNamePass() {
+        return "VTG5";
     }
 
     public String getPresentedDocumentNameFail() {
-        return "VTP30";
+        return "VTG30";
+    }
+
+    public String getVersionNumberPass() {
+        return "1.0";
     }
 
     public String getVersionNumberFail() {

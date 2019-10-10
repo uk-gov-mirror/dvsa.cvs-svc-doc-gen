@@ -1,17 +1,17 @@
 package uk.gov.dvsa.model.cvs;
 
-public class CvsPsvPRS extends CvsMotFailCertificate {
+public class CvsTrlPRS extends CvsMotFailCertificate {
 
     public String getTestType() {
-        return "PSV";
+        return "TRL";
     }
 
     public String getPresentedDocumentNamePass() {
-        return "VTP20";
+        return "VTG5A";
     }
 
     public String getPresentedDocumentNameFail() {
-        return "VTP30";
+        return "VTG30";
     }
 
     public String getVersionNumberPass() {
@@ -22,5 +22,5 @@ public class CvsPsvPRS extends CvsMotFailCertificate {
         return "1.0";
     }
 
-    public String getRegOrIdHeading() { return "Registration number";  }
+    public String getRegOrIdHeading() { return "Identification number";  }
 }
