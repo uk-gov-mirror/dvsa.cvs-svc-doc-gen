@@ -1,4 +1,4 @@
-### How to run on local env
+### How to run document generator on local env
 (official doc: https://github.com/awslabs/aws-sam-local)
 
 Installation:
