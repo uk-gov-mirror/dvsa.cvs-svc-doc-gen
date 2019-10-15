@@ -56,7 +56,7 @@ public class VTP30Test {
     public void verifyMakeAndModel() {
         String makeAndModel = certificatePageObject.getMakeAndModel();
         assertEquals(
-            String.format("%s %s", testCertificate.getFailData().getMake(), testCertificate.getFailData().getModel()),
+            String.format("%s, %s", testCertificate.getFailData().getMake(), testCertificate.getFailData().getModel()),
             makeAndModel
         );
     }
