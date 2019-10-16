@@ -22,9 +22,9 @@ public enum CertificateTemplates {
     VTP20("CommercialVehicles/pass"),
     VTP30("CommercialVehicles/fail"),
 
-    VTG5("CommercialVehicles/pass"),
-    VTG5A("CommercialVehicles/pass"),
-    VTG30("CommercialVehicles/fail"),
+    VTG5("CommercialVehicles/passNoSeatbeltFields"),
+    VTG5A("CommercialVehicles/passNoSeatbeltFields"),
+    VTG30("CommercialVehicles/VTG30"),
 
     INSPECTION_CHECKLIST("MOT/Inspection_Checklist");
 
