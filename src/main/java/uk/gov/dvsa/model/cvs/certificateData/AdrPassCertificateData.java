@@ -3,6 +3,9 @@ package uk.gov.dvsa.model.cvs.certificateData;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class AdrPassCertificateData {
+    private final String TANK_STATEMENT_OPTION_1 = "Substances permitted under the tank code and any special provisions specified in 9 may be carried";
+    private final String PERMITTED_DANGEROUS_GOODS_EXPLOSIVES_2 = "Explosives (type 2)";
+    private final String PERMITTED_DANGEROUS_GOODS_EXPLOSIVES_3 = "Explosives (type 3)";
 
     @JsonProperty("ChasisNumber")
     private String chasisNumber;
@@ -229,7 +232,7 @@ public class AdrPassCertificateData {
     }
 
     public boolean getFormattedSubstancesPermitted() { // returns true for the first value that tankStatement can have and false for the other one so it can be processed in view
-        if(this.tankStatement.getStatement().equals("Substances permitted under the tank code and any special provisions specified in 9 may be carried")){
+        if(this.tankStatement.getStatement().equals(TANK_STATEMENT_OPTION_1)){
             return true;
         } else {
             return false;
@@ -238,7 +241,7 @@ public class AdrPassCertificateData {
 
     public boolean getIsExplosivesType2() {
         for (String permittedDangerousGood : this.permittedDangerousGoods) {
-            if(permittedDangerousGood.equals("Explosives (type 2)")){
+            if(permittedDangerousGood.equals(PERMITTED_DANGEROUS_GOODS_EXPLOSIVES_2)){
                 return true;
             }
         }
@@ -247,7 +250,7 @@ public class AdrPassCertificateData {
 
     public boolean getIsExplosivesType3() {
         for (String permittedDangerousGood : this.permittedDangerousGoods) {
-            if(permittedDangerousGood.equals("Explosives (type 3)")){
+            if(permittedDangerousGood.equals(PERMITTED_DANGEROUS_GOODS_EXPLOSIVES_3)){
                 return true;
             }
 
