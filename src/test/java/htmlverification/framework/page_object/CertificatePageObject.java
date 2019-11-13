@@ -116,6 +116,38 @@ public class CertificatePageObject extends BasePageObject {
         return getElementById(CVS_SIGNATURE_FIRST_PAGE.getSelector()).attr("src");
     }
 
+    public String getChassisNumber() {
+        return getElementById(CHASSISNUMBER_ID.getSelector()).text();
+    }
+
+    public String getApplicantDetailsName() {
+        return getElementById(APPLICANT_DETAILS_NAME_ID.getSelector()).text();
+    }
+
+    public String getApplicantDetailsStreet() { return getElementById(APPLICANT_DETAILS_STREET_ID.getSelector()).text(); }
+
+    public String getVehicleType() { return getElementById(VEHICLE_TYPE_ID.getSelector()).text(); }
+
+    public String getFormattedPermittedDangerousGoods() { return getElementById(FORMATTED_PERMITTED_DANGEROUS_GOODS_ID.getSelector()).text(); }
+
+    public String getWeight() { return getElementById(WEIGHT_ID.getSelector()).text(); }
+
+    public String getTankManufacturer() { return getElementById(TANK_MANUFACTURER_ID.getSelector()).text(); }
+
+    public String getTc2InitApprovalNo() { return getElementById(TC2_INIT_APPROVAL_NO_ID.getSelector()).text(); }
+
+    public String getTankManufactureSerialNo() { return getElementById(TANK_MANUFACTURE_SERIAL_NO_ID.getSelector()).text(); }
+
+    public String getYearOfManufacture() { return getElementById(YEAR_OF_MANUFACTURE_ID.getSelector()).text(); }
+
+    public String getSpecialProvisions() { return getElementById(SPECIAL_PROVISIONS_ID.getSelector()).text(); }
+
+    public String getTankCode() { return getElementById(TANK_CODE_ID.getSelector()).text(); }
+
+    public String getStatement() { return getElementById(STATEMENT_ID.getSelector()).text(); }
+
+    public String getProductList() { return getElementById(PRODUCT_LIST_ID.getSelector()).text(); }
+
     public String getCertTitle() {return getElementById(CERT_TITLE.getSelector()).text();}
     public String getDgvw() {return getElementById(DGVW.getSelector()).text();}
     public String getWeight2() {return getElementById(WEIGHT2.getSelector()).text();}
