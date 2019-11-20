@@ -117,7 +117,7 @@ public class CertificatePageObject extends BasePageObject {
     }
 
     public String getChassisNumber() {
-        return getElementById(CHASSISNUMBER_ID.getSelector()).text();
+        return getElementById(CHASSIS_NUMBER_ID.getSelector()).text();
     }
 
     public String getApplicantDetailsName() {
@@ -147,4 +147,16 @@ public class CertificatePageObject extends BasePageObject {
     public String getStatement() { return getElementById(STATEMENT_ID.getSelector()).text(); }
 
     public String getProductList() { return getElementById(PRODUCT_LIST_ID.getSelector()).text(); }
+
+    public String getSerialNumber() {return getElementById(SERIAL_NUMBER_ID.getSelector()).text(); }
+
+    public String getVrm() {return getElementById(VRM_ID.getSelector()).text(); }
+
+    public String getTrapOrMod() {return getElementById(TRAP_OR_MOD_ID.getSelector()).text(); }
+
+    public String getTickedModificationType() {return getElementById(TICKED_MODIFICATION_TYPE.getSelector()).text(); }
+
+    public String getSmokeTestLimit() {return getElementById(SMOKE_TEST_LIMIT_ID.getSelector()).text(); }
+
+    public String getAdditionalNotes() {return getElementById(ADDITIONAL_NOTES_ID.getSelector()).text(); }
 }

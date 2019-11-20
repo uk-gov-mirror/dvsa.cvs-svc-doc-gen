@@ -7,8 +7,8 @@ public class AdrPassCertificateData {
     private final String PERMITTED_DANGEROUS_GOODS_EXPLOSIVES_2 = "Explosives (type 2)";
     private final String PERMITTED_DANGEROUS_GOODS_EXPLOSIVES_3 = "Explosives (type 3)";
 
-    @JsonProperty("ChasisNumber")
-    private String chasisNumber;
+    @JsonProperty("ChassisNumber")
+    private String chassisNumber;
 
     @JsonProperty("Make")
     private String make;
@@ -61,12 +61,12 @@ public class AdrPassCertificateData {
     @JsonProperty("AtfNameAtfPNumber")
     private String atfNameAtfPNumber;
 
-    public String getChasisNumber() {
-        return chasisNumber;
+    public String getChassisNumber() {
+        return chassisNumber;
     }
 
-    public AdrPassCertificateData setChasisNumber(String chasisNumber) {
-        this.chasisNumber = chasisNumber;
+    public AdrPassCertificateData setChassisNumber(String chassisNumber) {
+        this.chassisNumber = chassisNumber;
         return this;
     }
 

@@ -32,7 +32,7 @@ public class AdrPassTest {
     @Test
     public void verifyChassisNumber() {
         String chassisNumber = certificatePageObject.getChassisNumber();
-        assertEquals(testCertificate.getAdrData().getChasisNumber(), chassisNumber);
+        assertEquals(testCertificate.getAdrData().getChassisNumber(), chassisNumber);
     }
 
     @Test

@@ -2,8 +2,10 @@ package htmlverification.service;
 
 import htmlverification.framework.component.DefectSummaryComponent;
 import uk.gov.dvsa.model.cvs.AdrPassCertificate;
+import uk.gov.dvsa.model.cvs.LecCertificate;
 import uk.gov.dvsa.model.cvs.certificateData.AdrPassCertificateData;
 import uk.gov.dvsa.model.cvs.certificateData.ApplicantDetails;
+import uk.gov.dvsa.model.cvs.certificateData.LecCertificateData;
 import uk.gov.dvsa.model.cvs.certificateData.TankStatement;
 import uk.gov.dvsa.model.mot.*;
 import uk.gov.dvsa.model.mot.certificateData.MotCertificateData;
@@ -111,13 +113,56 @@ public class CertificateTestDataProvider {
         AdrPassCertificateData adrPassCertificateData = new AdrPassCertificateData();
 
         adrPassCertificateData.setApplicantDetails( new ApplicantDetails("applicantDetailsName", "applicantDetailsStreet", "applicantDetailsTown", "applicantDetailsCity", "applicantDetailsPostCode"))
-                .setMake("demoMake").setModel("demoModel").setAtfNameAtfPNumber("demoAtfNameAtfPnumber").setBrakeEndurance(true).setChasisNumber("demoChassisNumber")
+                .setMake("demoMake").setModel("demoModel").setAtfNameAtfPNumber("demoAtfNameAtfPnumber").setBrakeEndurance(true).setChassisNumber("demoChassisNumber")
                 .setExpiryDate("10-12-2011").setPermittedDangerousGoods(new String[]{"\"FP <61 (FL)\"", "Explosives (type 2)", "Explosives (type 3)"})
                 .setRegistrationNumber("demoRegistrationNumber").setSpecialProvisions("demoSpecialProvisions").setTankCode("demoTankCode").setTankManufacturer("demoTankManufacturer")
                 .setTankManufactureSerialNo("demoTankManufacturerSerialNo").setTankStatement(new TankStatement("Substances permitted under the tank code and any special provisions specified in 9 may be carried", "demoStatement", null))
                 .setTc2InitApprovalNo("demoTc2InitApprovalNo").setVehicleType("demoVehicleType").setWeight("demoWeight").setYearOfManufacture("1950");
         adrPassCertificate.setAdrData(adrPassCertificateData);
         return adrPassCertificate;
+    }
+
+    public static LecCertificate getLecPass() {
+        LecCertificate cert = new LecCertificate();
+        cert.setDocumentName(CertificateTypes.LEC_PASS.getType());
+
+        LecCertificateData certData = new LecCertificateData();
+        certData.setMake("DragonMobile");
+        certData.setModel("Hoard");
+        certData.setSerialNumber("#SerialNum");
+        certData.setExpiryDate("01-01-2020");
+        certData.setVrm("MM01MMM");
+        certData.setVin("123456789");
+        certData.setPrescribedEmissionStandard("Low");
+        certData.setParticulateTrapFitted("DragonTrap");
+        certData.setParticulateTrapSerialNumber("DG12345");
+        certData.setModificationTypeUsed("DragonMod");
+        certData.setModificationType("G");
+        certData.setSmokeTestLimit("5");
+        certData.setTestDate("04/04/2020");
+        certData.setTestStationName("MyTest Station");
+        certData.setTestStationPNumber("11223344");
+        cert.setLecData(certData);
+        return cert;
+    }
+
+    public static LecCertificate getLecFail() {
+        LecCertificate cert = new LecCertificate();
+        cert.setDocumentName(CertificateTypes.LEC_FAIL.getType());
+
+        LecCertificateData certData = new LecCertificateData();
+        certData.setMake("DragonMobile");
+        certData.setModel("Hoard");
+        certData.setSerialNumber("#SerialNum");
+        certData.setExpiryDate("01-01-2020");
+        certData.setVrm("MM01MMM");
+        certData.setVin("123456789");
+        certData.setTestDate("04/04/2020");
+        certData.setTestStationName("MyTest Station");
+        certData.setTestStationPNumber("11223344");
+        certData.setAdditionalNotes("Look, something broke!");
+        cert.setLecData(certData);
+        return cert;
     }
 
     public static VT20 getMultiPageVt20WithHiddenIssuerInfo() {
