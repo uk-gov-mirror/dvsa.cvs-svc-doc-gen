@@ -23,8 +23,8 @@ apply plugin: "com.github.johnrengelman.shadow"
 sonarqube {
     properties {
         property "sonar.host.url", "http://volted-monkey-sonarqube.ops:9000"
-        property "sonar.projectKey", "org.sonarqube:cvs-svc-mot-api"
-        property "sonar.projectName", "MOT PDF Generator"
+        property "sonar.projectKey", "org.sonarqube:cvs-svc-doc-gen"
+        property "sonar.projectName", "Doc Generator Microservice"
         property "sonar.projectVersion", "1.0"
         property "sonar.sourceEncoding", "UTF-8"
     }
