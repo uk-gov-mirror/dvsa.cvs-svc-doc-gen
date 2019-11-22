@@ -53,6 +53,7 @@ public class RequestParser {
             String documentName = readDocumentName(input);
             Class<? extends Document> documentType = readDocumentType(documentName);
             String documentJson = readRequestBody(input);
+            System.out.println("CHECK DOCUMENT JSON -> " + documentJson);
             Document document = om.readValue(documentJson, documentType);
             document.setDocumentName(documentName);
             return document;
@@ -101,6 +102,7 @@ public class RequestParser {
         if (!input.containsKey(REQUEST_BODY)) {
             throw new HttpException.BadRequestException("Required lambda parameter " + REQUEST_BODY + " not found");
         }
+        System.out.println((String) (input.get(REQUEST_BODY)));
         return (String) (input.get(REQUEST_BODY));
     }
 

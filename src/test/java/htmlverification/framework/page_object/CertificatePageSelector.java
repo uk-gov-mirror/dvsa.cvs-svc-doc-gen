@@ -40,6 +40,9 @@ public enum CertificatePageSelector {
     TANK_CODE_ID("tankCode"),
     STATEMENT_ID("statement"),
     PRODUCT_LIST_ID("productList"),
+//    NOTES_ID("notes"),
+    TEST_TYPE_DATE_ID("testTypeDate"),
+    ATF_NAME_ATF_P_NUMBER_ID("atfNameAtfPNumber"),
 
     CVS_SIGNATURE_FIRST_PAGE("signature-first-page"),
     CVS_SIGNATURE_SECOND_PAGE("signature-second-page");

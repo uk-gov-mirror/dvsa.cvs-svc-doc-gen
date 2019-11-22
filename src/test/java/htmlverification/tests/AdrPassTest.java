@@ -109,4 +109,22 @@ public class AdrPassTest {
         }
         assertEquals(testCertificate.getAdrData().getTankStatement().getProductList(), productList);
     }
+
+//    @Test
+//    public void verifyNotes() {
+//        String notes = certificatePageObject.getNotes();
+//        assertEquals(testCertificate.getAdrData().getNotes(), notes);
+//    }
+
+    @Test
+    public void verifyTestTypeDate() {
+        String testTypeDate = certificatePageObject.getTestTypeDate();
+        assertEquals(testCertificate.getAdrData().getTestTypeDate(), testTypeDate);
+    }
+
+    @Test
+    public void verifyAtfNameAtfPNumber() {
+        String atfNameAtfPNumber = certificatePageObject.getAtfNameAtfPNumber();
+        assertEquals(testCertificate.getAdrData().getAtfNameAtfPNumber(), atfNameAtfPNumber);
+    }
 }
