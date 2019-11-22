@@ -61,6 +61,12 @@ public class AdrPassCertificateData {
     @JsonProperty("AtfNameAtfPNumber")
     private String atfNameAtfPNumber;
 
+//    @JsonProperty("Notes")
+//    private String notes;
+
+    @JsonProperty("TestTypeDate")
+    private String testTypeDate;
+
     public String getChasisNumber() {
         return chasisNumber;
     }
@@ -220,6 +226,24 @@ public class AdrPassCertificateData {
 
     public AdrPassCertificateData setAtfNameAtfPNumber(String atfNameAtfPNumber) {
         this.atfNameAtfPNumber = atfNameAtfPNumber;
+        return this;
+    }
+
+//    public String getNotes() {
+//        return notes;
+//    }
+//
+//    public AdrPassCertificateData setNotes(String notes) {
+//        this.notes = notes;
+//        return this;
+//    }
+
+    public String getTestTypeDate() {
+        return testTypeDate;
+    }
+
+    public AdrPassCertificateData setTestTypeDate(String testTypeDate) {
+        this.testTypeDate = testTypeDate;
         return this;
     }
 
