@@ -136,7 +136,7 @@ public class LecCertificateData {
     }
 
     public void setModificationType(String modificationType) {
-        this.modificationType = modificationType;
+        this.modificationType = modificationType.toUpperCase();
     }
     public boolean getModificationTypeP() {
         return this.modificationType.equals("P");
@@ -144,7 +144,6 @@ public class LecCertificateData {
     public boolean getModificationTypeM() {
         return this.modificationType.equals("M");
     }
-
     public boolean getModificationTypeG() {
         return this.modificationType.equals("G");
     }
