@@ -61,8 +61,8 @@ public class AdrPassCertificateData {
     @JsonProperty("AtfNameAtfPNumber")
     private String atfNameAtfPNumber;
 
-//    @JsonProperty("Notes")
-//    private String notes;
+    @JsonProperty("Notes")
+    private String notes;
 
     @JsonProperty("TestTypeDate")
     private String testTypeDate;
@@ -229,14 +229,14 @@ public class AdrPassCertificateData {
         return this;
     }
 
-//    public String getNotes() {
-//        return notes;
-//    }
-//
-//    public AdrPassCertificateData setNotes(String notes) {
-//        this.notes = notes;
-//        return this;
-//    }
+    public String getNotes() {
+        return notes;
+    }
+
+    public AdrPassCertificateData setNotes(String notes) {
+        this.notes = notes;
+        return this;
+    }
 
     public String getTestTypeDate() {
         return testTypeDate;
@@ -249,6 +249,8 @@ public class AdrPassCertificateData {
 
     public String getFormattedPermittedDangerousGoods() {
         String formattedPermittedDangerousGoods = "";
+        if(this.permittedDangerousGoods == null)
+            return "";
         for (String permittedDangerousGood : this.permittedDangerousGoods) {
             formattedPermittedDangerousGoods = permittedDangerousGood + "     ";
         }
@@ -256,14 +258,21 @@ public class AdrPassCertificateData {
     }
 
     public boolean getFormattedSubstancesPermitted() { // returns true for the first value that tankStatement can have and false for the other one so it can be processed in view
-        if(this.tankStatement.getStatement().equals(TANK_STATEMENT_OPTION_1)){
+        if(this.tankStatement != null && this.tankStatement.getStatement().equals(TANK_STATEMENT_OPTION_1)){
             return true;
         } else {
             return false;
         }
     }
 
+    public boolean getIsTankStatementNull() {
+        return this.tankStatement == null;
+    }
+
     public boolean getIsExplosivesType2() {
+        if(this.permittedDangerousGoods == null){
+            return false;
+        }
         for (String permittedDangerousGood : this.permittedDangerousGoods) {
             if(permittedDangerousGood.equals(PERMITTED_DANGEROUS_GOODS_EXPLOSIVES_2)){
                 return true;
@@ -273,6 +282,9 @@ public class AdrPassCertificateData {
     }
 
     public boolean getIsExplosivesType3() {
+        if(this.permittedDangerousGoods == null){
+            return false;
+        }
         for (String permittedDangerousGood : this.permittedDangerousGoods) {
             if(permittedDangerousGood.equals(PERMITTED_DANGEROUS_GOODS_EXPLOSIVES_3)){
                 return true;

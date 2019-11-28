@@ -148,6 +148,8 @@ public class CertificatePageObject extends BasePageObject {
 
     public String getProductList() { return getElementById(PRODUCT_LIST_ID.getSelector()).text(); }
 
+    public String getNotes() { return getElementById(NOTES_ID.getSelector()).text(); }
+
     public String getTestTypeDate() { return getElementById(TEST_TYPE_DATE_ID.getSelector()).text(); }
 
     public String getAtfNameAtfPNumber() { return getElementById(ATF_NAME_ATF_P_NUMBER_ID.getSelector()).text(); }
