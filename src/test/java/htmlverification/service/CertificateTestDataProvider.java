@@ -115,7 +115,7 @@ public class CertificateTestDataProvider {
                 .setExpiryDate("10-12-2011").setPermittedDangerousGoods(new String[]{"\"FP <61 (FL)\"", "Explosives (type 2)", "Explosives (type 3)"})
                 .setRegistrationNumber("demoRegistrationNumber").setSpecialProvisions("demoSpecialProvisions").setTankCode("demoTankCode").setTankManufacturer("demoTankManufacturer")
                 .setTankManufactureSerialNo("demoTankManufacturerSerialNo").setTankStatement(new TankStatement("Substances permitted under the tank code and any special provisions specified in 9 may be carried", "demoStatement", null))
-                .setTc2InitApprovalNo("demoTc2InitApprovalNo").setVehicleType("demoVehicleType").setWeight("demoWeight").setYearOfManufacture("1950").setAtfNameAtfPNumber("demoAtf demoAtfPNumber").setTestTypeDate("10-12-2019");
+                .setTc2InitApprovalNo("demoTc2InitApprovalNo").setVehicleType("demoVehicleType").setWeight("demoWeight").setYearOfManufacture("1950").setAtfNameAtfPNumber("demoAtf demoAtfPNumber").setTestTypeDate("12019-11-06T15:37:32.917Z").setNotes("demoNotes");
         adrPassCertificate.setAdrData(adrPassCertificateData);
         return adrPassCertificate;
     }

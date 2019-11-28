@@ -110,11 +110,11 @@ public class AdrPassTest {
         assertEquals(testCertificate.getAdrData().getTankStatement().getProductList(), productList);
     }
 
-//    @Test
-//    public void verifyNotes() {
-//        String notes = certificatePageObject.getNotes();
-//        assertEquals(testCertificate.getAdrData().getNotes(), notes);
-//    }
+    @Test
+    public void verifyNotes() {
+        String notes = certificatePageObject.getNotes();
+        assertEquals(testCertificate.getAdrData().getNotes(), notes);
+    }
 
     @Test
     public void verifyTestTypeDate() {

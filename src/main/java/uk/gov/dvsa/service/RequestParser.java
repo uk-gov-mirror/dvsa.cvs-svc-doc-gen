@@ -45,11 +45,13 @@ public class RequestParser {
     }
 
     public Document parseRequest(Map<String, Object> input) {
+        System.out.println("CHECK INPUT IN PARSEREQUEST " + input.toString());
         return executor.timed(() -> parse(input), EventType.CERT_REQUEST_PARSING);
     }
 
     private Document parse(Map<String, Object> input) {
         try {
+            System.out.println("CHECK INPUT IN PARSE -> " + input.toString());
             String documentName = readDocumentName(input);
             Class<? extends Document> documentType = readDocumentType(documentName);
             String documentJson = readRequestBody(input);
@@ -102,7 +104,7 @@ public class RequestParser {
         if (!input.containsKey(REQUEST_BODY)) {
             throw new HttpException.BadRequestException("Required lambda parameter " + REQUEST_BODY + " not found");
         }
-        System.out.println((String) (input.get(REQUEST_BODY)));
+        System.out.println((String) ("CHECK INPUT IN READREQUESTBODY " + input.get(REQUEST_BODY)));
         return (String) (input.get(REQUEST_BODY));
     }
 

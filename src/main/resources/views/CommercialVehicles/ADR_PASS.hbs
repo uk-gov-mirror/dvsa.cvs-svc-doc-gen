@@ -80,20 +80,29 @@
                 <p>( ) goods of Class 1 excluding compatibility group J</p>
             {{/if}}
 
-            {{#if adrData.formattedSubstancesPermitted}}
-                <p>(<img src="{{root}}/assets/images/tick.png" alt="tick" class="tick" id="tick"/>)only the substances permitted under the tank code and</p>
+            {{#if adrData.isTankStatementNull}}
+                <p>( )only the substances permitted under the tank code and</p>
                 <p>any special provisions in no.9 may be carried</p>
                 <p>or</p>
                 <p>( )only the following substances (Class, UN number and if</p>
                 <p>necessary packing group and proper shipping name) may</p>
                 <p>be carried</p>
             {{else}}
-                <p>( )only the substances permitted under the tank code and</p><br/>
-                <p>any special provisions in no.9 may be carried</p><br/>
-                <p>or</p><br/>
-                <p>(<img src="{{root}}/assets/images/tick.png" alt="tick" class="tick" id="tick"/>) only the following substances (Class, UN number and if</p><br/>
-                <p>necessary packing group and proper shipping name) may</p><br/>
-                <p>be carried</p>
+                {{#if adrData.formattedSubstancesPermitted}}
+                    <p>(<img src="{{root}}/assets/images/tick.png" alt="tick" class="tick" id="tick"/>)only the substances permitted under the tank code and</p>
+                    <p>any special provisions in no.9 may be carried</p>
+                    <p>or</p>
+                    <p>( )only the following substances (Class, UN number and if</p>
+                    <p>necessary packing group and proper shipping name) may</p>
+                    <p>be carried</p>
+                {{else}}
+                    <p>( )only the substances permitted under the tank code and</p>
+                    <p>any special provisions in no.9 may be carried</p>
+                    <p>or</p>
+                    <p>(<img src="{{root}}/assets/images/tick.png" alt="tick" class="tick" id="tick"/>) only the following substances (Class, UN number and if</p>
+                    <p>necessary packing group and proper shipping name) may</p>
+                    <p>be carried</p>
+                {{/if}}
             {{/if}}
         </div>
     </div>
@@ -104,7 +113,7 @@
 </div>
 <div class="secondPage">
     <div class="remarks">
-<!--        <p id="notes">{{adrData.notes}}</p>-->
+        <p id="notes">{{adrData.notes}}</p>
     </div>
     <div class="validUntil">
         <p id="expiryDate">{{adrData.expiryDate}}</p>
