@@ -35,29 +35,29 @@ public class AdrPassTest {
         assertEquals(testCertificate.getAdrData().getChasisNumber(), chassisNumber);
     }
 
-    @Test
-    public void verifyApplicantDetailsName() {
-        String applicantDetailsName = certificatePageObject.getApplicantDetailsName();
-        assertEquals(testCertificate.getAdrData().getApplicantDetails().getName(), applicantDetailsName);
-    }
+//    @Test
+//    public void verifyApplicantDetailsName() {
+//        String applicantDetailsName = certificatePageObject.getApplicantDetailsName();
+//        assertEquals(testCertificate.getAdrData().getApplicantDetails().getName(), applicantDetailsName);
+//    }
 
-    @Test
-    public void verifyApplicantDetailsStreet() {
-        String applicantDetailsStreet = certificatePageObject.getApplicantDetailsStreet();
-        assertEquals(testCertificate.getAdrData().getApplicantDetails().getStreet(), applicantDetailsStreet);
-    }
+//    @Test
+//    public void verifyApplicantDetailsStreet() {
+//        String applicantDetailsStreet = certificatePageObject.getApplicantDetailsStreet();
+//        assertEquals(testCertificate.getAdrData().getApplicantDetails().getStreet(), applicantDetailsStreet);
+//    }
 
-    @Test
-    public void verifyVehicleType() {
-        String vehicleType = certificatePageObject.getVehicleType();
-        assertEquals(testCertificate.getAdrData().getVehicleType(), vehicleType);
-    }
+//    @Test
+//    public void verifyVehicleType() {
+//        String vehicleType = certificatePageObject.getVehicleType();
+//        assertEquals(testCertificate.getAdrData().getVehicleType(), vehicleType);
+//    }
 
-    @Test
-    public void verifyFormattedPermittedDangerousGoods() {
-        String formattedPermittedDangerousGoods = certificatePageObject.getFormattedPermittedDangerousGoods();
-        assertEquals(testCertificate.getAdrData().getFormattedPermittedDangerousGoods().trim(), formattedPermittedDangerousGoods.trim());
-    }
+//    @Test
+//    public void verifyFormattedPermittedDangerousGoods() {
+//        String formattedPermittedDangerousGoods = certificatePageObject.getFormattedPermittedDangerousGoods();
+//        assertEquals(testCertificate.getAdrData().getFormattedPermittedDangerousGoods().trim(), formattedPermittedDangerousGoods.trim());
+//    }
 
     @Test
     public void verifyWeight() {
