@@ -12,26 +12,26 @@
 </div>
 <div class = "applicantDetails">
     <h3>5 Name and business address of carrier, owner or operator</h3>
-    {{#if adrData.isTankStatementNull}}
-        <p><span id="applicantDetailsName">{{adrData.applicantDetails.name}}</span> <span id="applicantDetailsStreet">{{adrData.applicantDetails.street}}</span> <span id="applicantDetailsTown">{{adrData.applicantDetails.town}}</span> <span id="applicantDetailsCity">{{adrData.applicantDetails.city}}</span> <span id="applicantDetailsPostCode">{{adrData.applicantDetails.postcode}}</span></p>
-    {{else}}
+    {{#if adrData.isApplicantDetailsNull}}
         <br/>
+    {{else}}
+        <p><span id="applicantDetailsName">{{adrData.applicantDetails.name}}</span> <span id="applicantDetailsStreet">{{adrData.applicantDetails.street}}</span> <span id="applicantDetailsTown">{{adrData.applicantDetails.town}}</span> <span id="applicantDetailsCity">{{adrData.applicantDetails.city}}</span> <span id="applicantDetailsPostCode">{{adrData.applicantDetails.postcode}}</span></p>
     {{/if}}
 </div>
 <div class="vehicleType">
     <h3>6 Description of vehicle</h3>
-    {{#if adrData.isTankStatementNull}}
-        <p><span id="vehicleType">{{adrData.vehicleType}}</span></p>
-    {{else}}
+    {{#if adrData.isVehicleTypeNull}}
         <br/>
+    {{else}}
+        <p><span id="vehicleType">{{adrData.vehicleType}}</span></p>
     {{/if}}
 </div>
 <div class="permittedDangerousGoods">
     <h3>7 Vehicle designation(s) according to 9.1.1.2 of ADR</h3>
     {{#if adrData.isTankStatementNull}}
-        <p><span id="formattedPermittedDangerousGoods">{{adrData.formattedPermittedDangerousGoods}}</span></p>
-    {{else}}
         <br/>
+    {{else}}
+        <p><span id="formattedPermittedDangerousGoods">{{adrData.formattedPermittedDangerousGoods}}</span></p>
     {{/if}}
 </div>
 <div class = "brakeEndurance">

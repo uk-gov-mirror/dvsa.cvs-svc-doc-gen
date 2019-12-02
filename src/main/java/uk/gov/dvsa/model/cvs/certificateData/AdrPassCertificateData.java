@@ -269,6 +269,14 @@ public class AdrPassCertificateData {
         return this.tankStatement == null;
     }
 
+    public boolean getIsApplicantDetailsNull() {
+        return this.applicantDetails == null;
+    }
+
+    public boolean getIsVehicleTypeNull() {
+        return this.vehicleType == null;
+    }
+
     public boolean getIsExplosivesType2() {
         if(this.permittedDangerousGoods == null){
             return false;
