@@ -1,12 +1,10 @@
 package htmlverification.service;
 
 import htmlverification.framework.component.DefectSummaryComponent;
+import uk.gov.dvsa.model.cvs.RwtCertificate;
+import uk.gov.dvsa.model.cvs.certificateData.*;
 import uk.gov.dvsa.model.mot.*;
-import uk.gov.dvsa.model.mot.certificateData.MotCertificateData;
-import uk.gov.dvsa.model.mot.certificateData.MotCertificateDataWelsh;
-import uk.gov.dvsa.model.mot.certificateData.MotFailCertificateData;
-import uk.gov.dvsa.model.mot.certificateData.MotFailCertificateDataWelsh;
-import uk.gov.dvsa.model.mot.certificateData.OdometerReading;
+import uk.gov.dvsa.model.mot.certificateData.*;
 import uk.gov.dvsa.model.mot.enums.CertificateTypes;
 
 import java.time.LocalDate;
@@ -100,6 +98,53 @@ public class CertificateTestDataProvider {
         vt20.setCertificateIssuerInfo("Duplicate certificate issued by B. T. Arctor Tester1 on 13 February 2018");
         return vt20;
     }
+
+    public static RwtCertificate getRwtData() {
+        RwtCertificate rwtCertificate = new RwtCertificate();
+        rwtCertificate.setDocumentName(CertificateTypes.RWT_DATA.getType());
+        RwtCertificateData rwtCertificateData = new RwtCertificateData();
+
+        rwtCertificateData.setDgvw(98204)
+                .setWeight2(40568)
+                .setVehicleNumber("NKPILNCN")
+                .setVin("GYFC26269R240355")
+                .setIssuersName("CVS Dev1")
+                .setDateOfInspection("26.02.2019")
+                .setTestStationPNumber("09-4129632")
+                .setDocumentNumber("123")
+                .setDate("26.02.2019")
+                .setMonth("February")
+                .setYear(2019)
+                .setIsTrailer(false)
+                .setDefects(null);
+        rwtCertificate.setRwtData(rwtCertificateData);
+        return rwtCertificate;
+    }
+
+    public static RwtCertificate getRwtDataFail() {
+        RwtCertificate rwtCertificate = new RwtCertificate();
+        rwtCertificate.setDocumentName(CertificateTypes.RWT_DATA.getType());
+        RwtCertificateData rwtCertificateData = new RwtCertificateData();
+        String[] defectsList =new String[3];
+            defectsList[0] = "54.1.a.ii Power steering: not working correctly and obviously affects steering control. Axles: 7. Inner Offside. Asdasd";
+            defectsList[1] = "54.1.d.i Power steering: reservoir is below minimum level. Axles: 7. Outer Nearside.";
+            defectsList[2] = "5.1 Compression Ignition Engines Statutory Smoke Meter Test: null Dasdasdccc";
+        rwtCertificateData.setDgvw(98204)
+                .setWeight2(40568)
+                .setVehicleNumber("NKPILNCN")
+                .setVin("GYFC26269R240355")
+                .setIssuersName("CVS Dev1")
+                .setDateOfInspection("26.02.2019")
+                .setTestStationPNumber("09-4129632")
+                .setDate("26.02.2019")
+                .setMonth("February")
+                .setYear(2019)
+                .setDefects(defectsList)
+                .setIsTrailer(false);
+        rwtCertificate.setRwtData(rwtCertificateData);
+        return rwtCertificate;
+    }
+
 
     public static VT20 getMultiPageVt20WithHiddenIssuerInfo() {
         VT20 vt20 = getVt20();

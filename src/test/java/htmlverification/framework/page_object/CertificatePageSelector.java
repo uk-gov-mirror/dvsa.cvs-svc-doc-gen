@@ -25,9 +25,26 @@ public enum CertificatePageSelector {
     EARLIEST_DATE_OF_THE_NEXT_TEST("earliest-preserve-date"),
     WATERMARK_SELECTOR("span.running-header__text"),
     DEFECTS_ID("defects"),
-
+    // Roadworthiness Test Selectors
+    DGVW("dgvw"),
+    WEIGHT2("weight2"),
+    VEHICLE_NUMBER("vehicle-number"),
+    ISSUERS_NAME("issuers-name"),
+    DATE_OF_INSPECTION("date-of-inspection"),
+    TEST_STATION_PNUMBER("test-station-pnumber"),
+    DOCUMENT_NUMBER("document-number"),
+    RWT_DATE("date"),
+    RWT_MONTH("month"),
+    RWT_YEAR("year"),
+    DOCUMENT_NUMBER_FOOTER("document-number-footer"),
+    RWT_DEFECTS_FIRST("defects-0"),
+    RWT_DEFECTS_SECOND("defects-1"),
+    RWT_DEFECTS_THIRD("defects-2"),
+    // end of Roadworthisness test selectors
     CVS_SIGNATURE_FIRST_PAGE("signature-first-page"),
     CVS_SIGNATURE_SECOND_PAGE("signature-second-page");
+
+
 
     private final String selector;
 
