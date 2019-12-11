@@ -4,7 +4,7 @@
   },
   "scripts": {
     "security-checks": "git secrets --scan && git log -p | scanrepo",
-    "echo 'Nothing to do'"
+    "zip-files": "echo 'Nothing to do'"
   },
   "husky": {
     "hooks": {
