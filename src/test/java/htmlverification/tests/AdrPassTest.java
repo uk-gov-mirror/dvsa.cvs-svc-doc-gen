@@ -102,15 +102,6 @@ public class AdrPassTest {
     }
 
     @Test
-    public void verifyProductList() {
-        String productList = certificatePageObject.getProductList();
-        if(productList.equals("")) {
-            productList = null;
-        }
-        assertEquals(testCertificate.getAdrData().getTankStatement().getProductList(), productList);
-    }
-
-    @Test
     public void verifyNotes() {
         String notes = certificatePageObject.getNotes();
         assertEquals(testCertificate.getAdrData().getNotes(), notes);
