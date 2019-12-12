@@ -3,7 +3,7 @@ package uk.gov.dvsa.model.cvs.certificateData;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class AdrPassCertificateData {
-    private final String TANK_STATEMENT_OPTION_1 = "Substances permitted under the tank code and any special provisions specified in 9 may be carried";
+    private final String SUBSTANCES_PERMITTED_OPTION_1 = "Substances permitted under the tank code and any special provisions specified in 9 may be carried";
     private final String PERMITTED_DANGEROUS_GOODS_EXPLOSIVES_2 = "Explosives (type 2)";
     private final String PERMITTED_DANGEROUS_GOODS_EXPLOSIVES_3 = "Explosives (type 3)";
 
@@ -122,10 +122,13 @@ public class AdrPassCertificateData {
     }
 
     public String[] getPermittedDangerousGoods() {
+
+        System.out.println("CHECK PERMITTED DANGEROUS GOODS FROM GET HERE -> " + permittedDangerousGoods);
         return permittedDangerousGoods;
     }
 
     public AdrPassCertificateData setPermittedDangerousGoods(String[] permittedDangerousGoods) {
+        System.out.println("CHECK PERMITTED DANGEROUS GOODS FROM SET HERE -> " + permittedDangerousGoods);
         this.permittedDangerousGoods = permittedDangerousGoods;
         return this;
     }
@@ -248,17 +251,18 @@ public class AdrPassCertificateData {
     }
 
     public String getFormattedPermittedDangerousGoods() {
-        String formattedPermittedDangerousGoods = "";
+        StringBuilder formattedPermittedDangerousGoods =  new StringBuilder("");
         if(this.permittedDangerousGoods == null)
             return "";
         for (String permittedDangerousGood : this.permittedDangerousGoods) {
-            formattedPermittedDangerousGoods = permittedDangerousGood + "     ";
+            formattedPermittedDangerousGoods.append(permittedDangerousGood + " ");
         }
-        return formattedPermittedDangerousGoods;
+        System.out.println("CHECK FORMATTED PERMITTED DANGEROUS GOODS FROM GET HERE -> " + formattedPermittedDangerousGoods);
+        return formattedPermittedDangerousGoods.toString();
     }
 
     public boolean getFormattedSubstancesPermitted() { // returns true for the first value that tankStatement can have and false for the other one so it can be processed in view
-        if(this.tankStatement != null && this.tankStatement.getStatement().equals(TANK_STATEMENT_OPTION_1)){
+        if(this.tankStatement != null && this.tankStatement.getSubstancesPermitted().equals(SUBSTANCES_PERMITTED_OPTION_1)){
             return true;
         } else {
             return false;
