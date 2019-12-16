@@ -112,4 +112,9 @@ public class RwtDataFailTest {
         assertEquals(testCertificate.getRwtData().getDefects()[2], defect2);
     }
 
+    @Test
+    public void verifyDocumentNumberFooter() {
+        String documentNumberFooter = certificatePageObject.getDocumentNumberFooter();
+        assertEquals(testCertificate.getRwtData().getDocumentNumber(), documentNumberFooter);
+    }
 }

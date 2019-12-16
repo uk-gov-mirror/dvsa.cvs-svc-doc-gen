@@ -135,6 +135,7 @@ public class CertificateTestDataProvider {
                 .setVin("GYFC26269R240355")
                 .setIssuersName("CVS Dev1")
                 .setDateOfInspection("26.02.2019")
+                .setDocumentNumber("ABC123")
                 .setTestStationPNumber("09-4129632")
                 .setDate("26.02.2019")
                 .setMonth("February")
