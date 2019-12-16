@@ -33,6 +33,13 @@ public class RwtDataFailTest {
     }
 
     @Test
+    public void verifyCertTitle() {
+        String dgvw = certificatePageObject.getCertTitle();
+        String expectedTitle = "REFUSAL OF A ROADWORTHINESS INSPECTION CERTIFICATE";
+        assertEquals(expectedTitle, dgvw);
+    }
+
+    @Test
     public void verifyDgvw() {
         String dgvw = certificatePageObject.getDgvw();
         String actualDgvw = testCertificate.getRwtData().getDgvw() + " kg";

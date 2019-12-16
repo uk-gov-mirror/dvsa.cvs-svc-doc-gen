@@ -116,7 +116,8 @@ public class CertificatePageObject extends BasePageObject {
         return getElementById(CVS_SIGNATURE_FIRST_PAGE.getSelector()).attr("src");
     }
 
-    public String getDgvw() {return  getElementById(DGVW.getSelector()).text();}
+    public String getCertTitle() {return getElementById(CERT_TITLE.getSelector()).text();}
+    public String getDgvw() {return getElementById(DGVW.getSelector()).text();}
     public String getWeight2() {return getElementById(WEIGHT2.getSelector()).text();}
     public String getVehicleNumber() {return getElementById(VEHICLE_NUMBER.getSelector()).text();}
     public String getIssuersName() {return getElementById(ISSUERS_NAME.getSelector()).text();}

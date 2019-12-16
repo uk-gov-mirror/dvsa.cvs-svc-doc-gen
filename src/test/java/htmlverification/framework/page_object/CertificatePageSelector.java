@@ -26,6 +26,7 @@ public enum CertificatePageSelector {
     WATERMARK_SELECTOR("span.running-header__text"),
     DEFECTS_ID("defects"),
     // Roadworthiness Test Selectors
+    CERT_TITLE("certTitle"),
     DGVW("dgvw"),
     WEIGHT2("weight2"),
     VEHICLE_NUMBER("vehicle-number"),
