@@ -241,6 +241,13 @@ public class AdrPassCertificateData {
         return this;
     }
 
+    public boolean getHasNotes(){
+        if(this.notes != null){
+            return !this.notes.equals("");
+        }
+        return false;
+    }
+
     public String getTestTypeDate() {
         return testTypeDate;
     }

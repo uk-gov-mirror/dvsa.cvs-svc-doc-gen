@@ -132,7 +132,11 @@
 </div>
 <div class="secondPage">
     <div class="remarks">
-        <p id="notes">{{adrData.notes}}</p>
+        {{#if adrData.hasNotes}}
+            <p id="notes">{{adrData.notes}}</p>
+        {{else}}
+            <br/>
+        {{/if}}
     </div>
     <div class="validUntil">
         <p id="expiryDate">{{adrData.expiryDate}}</p>
