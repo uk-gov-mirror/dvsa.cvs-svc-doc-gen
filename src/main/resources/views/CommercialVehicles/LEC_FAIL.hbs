@@ -34,7 +34,9 @@
             of the London Low Emissions Zone emissions standards and has been found not to
             comply with the appropriate technical standard and a Low Emissions Certificate
             has not been issued for the following reasons:</strong></p>
-        <p id="additionalNotes" class="additional-notes">{{lecData.additionalNotes}}</p>
+        <p id="additionalNotes" class="additional-notes">{{#each lecData.additionalNotesLines}}
+            <span class="underline note-line">{{line}}</span>
+        {{/each}}</p>
 
         <p>Signature of tester: <img class="signature-image" src="{{signature.formattedImageData}}" alt="signature"/></p>
 

@@ -166,6 +166,10 @@ public class LecCertificateData {
         return additionalNotes;
     }
 
+    public notesLines[] getAdditionalNotesLines() {
+        return splitLines(this.additionalNotes, 4, 90);
+    }
+
     public void setAdditionalNotes(String additionalNotes) {
         this.additionalNotes = additionalNotes;
     }
@@ -208,10 +212,39 @@ public class LecCertificateData {
         }
         return boxCharArray;
     }
+
+    private notesLines[] splitLines(String string, int numLines, int lineLength) {
+        notesLines[] notesLinesArray = new  notesLines[numLines];
+        for(int i = 0; i < notesLinesArray.length; i++) {
+            notesLinesArray[i] = new notesLines();
+            if (string.length() < lineLength) {
+                notesLinesArray[i].line = string;
+                string = "";
+            } else {
+                int splitIndex = 0;
+                int spaceIndex = string.indexOf(" ");
+                while (spaceIndex >= 0 && splitIndex < lineLength) {
+                    splitIndex = spaceIndex;
+                    spaceIndex = string.indexOf(" ", spaceIndex + 1);
+                }
+                notesLinesArray[i].line = string.substring(0, splitIndex);
+                string = string.substring(splitIndex + 1);
+            }
+        }
+        return notesLinesArray;
+    }
 }
 
 class boxChar {
     public char letter = Character.MIN_VALUE;
 
     public char getLetter() { return this.letter; }
+}
+
+class notesLines {
+    public String line = "";
+
+    public String getLine() {
+        return line;
+    }
 }

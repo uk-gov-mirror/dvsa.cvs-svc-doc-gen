@@ -158,7 +158,7 @@ public class CertificateTestDataProvider {
         certData.setTestDate("04/04/2020");
         certData.setTestStationName("MyTest Station");
         certData.setTestStationPNumber("11223344");
-        certData.setAdditionalNotes("Look, something broke!");
+        certData.setAdditionalNotes("Look, something broke! here's a really long line to show how it splits things over multiple lines when it gets too long!!! I really hope this is long enough or I'll have to keep making stuff up.");
         cert.setSignature(getSignature());
         cert.setLecData(certData);
         return cert;
