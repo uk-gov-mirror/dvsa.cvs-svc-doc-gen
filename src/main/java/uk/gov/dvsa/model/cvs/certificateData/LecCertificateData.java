@@ -80,11 +80,14 @@ public class LecCertificateData {
     }
 
     public void setExpiryDate(String expiryDate) {
-        this.expiryDate = expiryDate;
+        this.expiryDate = expiryDate.replace("-", "/");
     }
 
     public String getVrm() {
         return vrm;
+    }
+    public boxChar[] getVrmArray() {
+        return boxify(this.vrm,7);
     }
 
     public void setVrm(String vrm) {
@@ -93,6 +96,9 @@ public class LecCertificateData {
 
     public String getVin() {
         return vin;
+    }
+    public boxChar[] getVinArray() {
+        return boxify(this.vin,17);
     }
 
     public void setVin(String vin) {
@@ -169,7 +175,7 @@ public class LecCertificateData {
     }
 
     public void setTestDate(String testDate) {
-        this.testDate = testDate;
+        this.testDate = testDate.replace("-", "/");
     }
 
     public String getTestStationName() {
@@ -192,4 +198,20 @@ public class LecCertificateData {
         return "P".equals(this.modificationType) ? this.particulateTrapFitted : this.modificationTypeUsed;
     }
 
+    private boxChar[] boxify(String string, int length) {
+        boxChar[] boxCharArray = new boxChar[length];
+        for(int i = 0; i < boxCharArray.length; i++) {
+            boxCharArray[i] = new boxChar();
+            if (i < string.length()) {
+                boxCharArray[i].letter = string.charAt(i);
+            }
+        }
+        return boxCharArray;
+    }
+}
+
+class boxChar {
+    public char letter = Character.MIN_VALUE;
+
+    public char getLetter() { return this.letter; }
 }

@@ -9,23 +9,27 @@
 <body>
     <div class="header-block">
         <div class="header-left">
-            <h2>Transport for London</h2>
-            <h3 class="serial-number">Serial number: <span id="serialNumber">{{lecData.serialNumber}}</span></h3>
+            <h2 class="tfl-title">Transport for London</h2>
+            <h3 class="serial-number">Serial number LF: <span id="serialNumber">{{lecData.serialNumber}}</span></h3>
         </div>
         <div class="header-right">
-            <div> LOGO </div>
-            <p> DATE?? </p>
+            <div class="tfl-logo-container"><img class="tfl-logo" src="src/main/resources/assets/images/TFL_roundel.png"/></div>
+            <p class="header-date"><strong>LEC1 OCTOBER 2019</strong></p>
         </div>
     </div>
 
-    <div class="title-block-fail">
-        <h2>London Low Emission Zone</h2>
-        <p>Notification of refusal to issue a Low Emissions Certificate</p>
+    <div class="title-block title-block-fail">
+        <h2 class="no-margin">London Low Emission Zone</h2>
+        <p class="no-margin">Notification of refusal to issue a Low Emissions Certificate</p>
     </div>
 
     <div class="cert-details">
-        <p>Vehicle Registration Mark: <span id="vrm">{{lecData.vrm}}</span></p>
-        <p>Chassis number/VIN: <span id="vin">{{lecData.vin}}</span></p>
+        <p>Vehicle Registration Mark: &nbsp;<span id="vrm"> {{#each lecData.vrmArray}}
+            <span class="box">{{letter}}</span>
+        {{/each}}</span></p>
+        <p>Chassis number/VIN: &nbsp; {{#each lecData.vinArray}}
+            <span class="box">{{letter}}</span>
+        {{/each}} </p>
         <p><strong>The above vehicle has been tested today in accordance with the requirements
             of the London Low Emissions Zone emissions standards and has been found not to
             comply with the appropriate technical standard and a Low Emissions Certificate
@@ -34,13 +38,18 @@
 
         <p>Signature of tester: <img class="signature-image" src="{{signature.formattedImageData}}" alt="signature"/></p>
 
-        <p>Date of issue: <span id="testDate">{{lecData.testDate}}</span></p>
-        <p>Vehicle testing station name and number: <span id="testStation">{{lecData.testStationName}} - {{lecData.testStationPNumber}}</span></p>
+        <p>Date of issue: <span class="underline tight">{{lecData.testDate}}</span></p>
+        <p>Vehicle testing station number or manufacturer reference number: <span class="underline">{{lecData.testStationPNumber}}</span></p>
 
         <p><strong>Note: please read the notes on the back of this Notification of refusal as soon as you receive it.</strong></p>
     </div>
 
+    <div class="footer-page1 fail-footer">
+        <div class="header-left"><img class="mol-logo" src="src/main/resources/assets/images/mayor-of-london-logo.png"/></div>
+        <div class="header-right"><img class="dvsa-logo" src="src/main/resources/assets/images/dvsa_crest.png"/></div>
+    </div>
 
+    <div class="page-break"></div>
     <div id="notes" class="notes">
         <h2>Notes</h2>
         <h3>1. Notification of refusal to issue a Low Emissions Certificate</h3>

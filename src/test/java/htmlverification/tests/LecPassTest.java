@@ -45,7 +45,7 @@ public class LecPassTest {
     @Test
     public void verifyVrm() {
         String vrm = certificatePageObject.getVrm();
-        assertEquals(testCertificate.getLecData().getVrm(),vrm);
+        assertEquals(String.join(" ",testCertificate.getLecData().getVrm().split("")),vrm);
     }
 
     @Test
