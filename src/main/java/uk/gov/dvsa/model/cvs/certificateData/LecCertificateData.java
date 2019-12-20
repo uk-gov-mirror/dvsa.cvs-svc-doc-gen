@@ -80,7 +80,7 @@ public class LecCertificateData {
     }
 
     public void setExpiryDate(String expiryDate) {
-        this.expiryDate = expiryDate.replace("-", "/");
+        this.expiryDate = expiryDate.replace("-", "/").replace(".", "/");
     }
 
     public String getVrm() {
