@@ -66,7 +66,7 @@ public class LecPassTest {
     @Test
     public void verifyMakeAndModel() {
         String makeAndModel = certificatePageObject.getMakeAndModel();
-        assertEquals(testCertificate.getLecData().getMake()+"/"+testCertificate.getLecData().getModel(), makeAndModel);
+        assertEquals(testCertificate.getLecData().getMake()+" / "+testCertificate.getLecData().getModel(), makeAndModel);
     }
 
     @Test
