@@ -91,15 +91,9 @@ public class RwtDataFailTest {
     }
 
     @Test
-    public void verifyMonth() {
-        String rwtMonth = certificatePageObject.getRwtMonth();
-        assertEquals(testCertificate.getRwtData().getMonth(), rwtMonth);
-    }
-
-    @Test
-    public void verifyYear() {
-        String rwtYear = certificatePageObject.getRwtYear();
-        assertEquals(Integer.toString(testCertificate.getRwtData().getYear()), rwtYear);
+    public void verifyDocNumber() {
+        String rwtDocNumber = certificatePageObject.getRwtDocNumber();
+        assertEquals("DVSA0480", rwtDocNumber);
     }
 
     @Test
@@ -110,11 +104,5 @@ public class RwtDataFailTest {
         assertEquals(testCertificate.getRwtData().getDefects()[0], defect0);
         assertEquals(testCertificate.getRwtData().getDefects()[1], defect1);
         assertEquals(testCertificate.getRwtData().getDefects()[2], defect2);
-    }
-
-    @Test
-    public void verifyDocumentNumberFooter() {
-        String documentNumberFooter = certificatePageObject.getDocumentNumberFooter();
-        assertEquals(testCertificate.getRwtData().getDocumentNumber(), documentNumberFooter);
     }
 }

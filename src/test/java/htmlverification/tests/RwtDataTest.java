@@ -96,20 +96,14 @@ public class RwtDataTest {
     }
 
     @Test
-    public void verifyMonth() {
-        String rwtMonth = certificatePageObject.getRwtMonth();
-        assertEquals(testCertificate.getRwtData().getMonth(), rwtMonth);
+    public void verifyDocNumber() {
+        String rwtDocNumber = certificatePageObject.getRwtDocNumber();
+        assertEquals("DVSA0479", rwtDocNumber);
     }
 
     @Test
-    public void verifyYear() {
-        String rwtYear = certificatePageObject.getRwtYear();
-        assertEquals(Integer.toString(testCertificate.getRwtData().getYear()), rwtYear);
-    }
-
-    @Test
-    public void verifyDocumentNumberFooter() {
-        String documentNumberFooter = certificatePageObject.getDocumentNumberFooter();
-        assertEquals(testCertificate.getRwtData().getDocumentNumber(), documentNumberFooter);
+    public void verifyDocVersion() {
+        String rwtDocVersion = certificatePageObject.getRwtDocVersion();
+        assertEquals("v 1.1 Dec 2019", rwtDocVersion);
     }
 }

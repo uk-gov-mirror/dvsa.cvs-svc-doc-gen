@@ -32,12 +32,6 @@ public class RwtCertificateData {
     @JsonProperty("Date")
     private String date;
 
-    @JsonProperty("Month")
-    private String month;
-
-    @JsonProperty("Year")
-    private int year;
-
     @JsonProperty("Defects")
     private String[] defects;
 
@@ -116,18 +110,6 @@ public class RwtCertificateData {
     public String getDate() {return date;}
     public RwtCertificateData setDate(String date) {
         this.date = date;
-        return this;
-    }
-
-    public String  getMonth() {return month;}
-    public RwtCertificateData setMonth(String month) {
-        this.month = month;
-        return this;
-    }
-
-    public int getYear() {return year;}
-    public RwtCertificateData setYear(int year) {
-        this.year = year;
         return this;
     }
 

@@ -113,8 +113,6 @@ public class CertificateTestDataProvider {
                 .setTestStationPNumber("09-4129632")
                 .setDocumentNumber("123")
                 .setDate("26.02.2019")
-                .setMonth("February")
-                .setYear(2019)
                 .setIsTrailer(false)
                 .setDefects(null);
         rwtCertificate.setRwtData(rwtCertificateData);
@@ -138,8 +136,6 @@ public class CertificateTestDataProvider {
                 .setDocumentNumber("ABC123")
                 .setTestStationPNumber("09-4129632")
                 .setDate("26.02.2019")
-                .setMonth("February")
-                .setYear(2019)
                 .setDefects(defectsList)
                 .setIsTrailer(false);
         rwtCertificate.setRwtData(rwtCertificateData);

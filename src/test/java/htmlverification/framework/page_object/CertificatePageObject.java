@@ -125,8 +125,8 @@ public class CertificatePageObject extends BasePageObject {
     public String getTestStationPNumber() {return getElementById(TEST_STATION_PNUMBER.getSelector()).text();}
     public String getDocumentNumber() {return getElementById(DOCUMENT_NUMBER.getSelector()).text();}
     public String getRwtDate() {return getElementById(RWT_DATE.getSelector()).text();}
-    public String getRwtMonth() {return getElementById(RWT_MONTH.getSelector()).text();}
-    public String getRwtYear() {return getElementById(RWT_YEAR.getSelector()).text();}
+    public String getRwtDocNumber() {return getElementById(RWT_DOC_NUMBER.getSelector()).text();}
+    public String getRwtDocVersion() {return getElementById(RWT_DOC_VERSION.getSelector()).text();}
     public String getRwtDefect(int id){
         switch (id){
             case 0:
@@ -139,5 +139,4 @@ public class CertificatePageObject extends BasePageObject {
                 throw new IllegalStateException("Unexpected value: " + id);
         }
     }
-    public String getDocumentNumberFooter() {return getElementById(DOCUMENT_NUMBER_FOOTER.getSelector()).text();}
 }
