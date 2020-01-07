@@ -133,8 +133,25 @@
 <div class="secondPage">
     <div class="remarks">
         {{#if adrData.hasNotes}}
-            <p id="notes">{{adrData.notes}}</p>
+            {{#if adrData.hasNotes1Lines}}
+                <p id="notes">{{adrData.hasNotes2Lines}}</p>
+                <br/>
+                <br/>
+                <br/>
+            {{else if adrData.hasNotes2Lines}}
+                <p id="notes">{{adrData.hasNotes2Lines}}</p>
+                <br/>
+                <br/>
+            {{else if adrData.hasNotes3Lines}}
+                <p id="notes">{{adrData.hasNotes2Lines}}</p>
+                <br/>
+            {{else if adrData.hasNotes4Lines}}
+                <p id="notes">{{adrData.hasNotes2Lines}}</p>
+            {{/if}}
         {{else}}
+            <br/>
+            <br/>
+            <br/>
             <br/>
         {{/if}}
     </div>
