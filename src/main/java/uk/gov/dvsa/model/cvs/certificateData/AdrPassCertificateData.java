@@ -248,6 +248,22 @@ public class AdrPassCertificateData {
         return false;
     }
 
+    public boolean getHasNotes1Lines(){
+        return this.notes.length() <= 168;
+    }
+
+    public boolean getHasNotes2Lines(){
+        return this.notes.length() >= 168 && this.notes.length() <= 336;
+    }
+
+    public boolean getHasNotes3Lines(){
+        return this.notes.length() >= 336 && this.notes.length() <= 504;
+    }
+
+    public boolean getHasNotes4Lines(){
+        return this.notes.length() >= 504 && this.notes.length() <= 672;
+    }
+
     public String getTestTypeDate() {
         return testTypeDate;
     }
