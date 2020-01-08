@@ -10,8 +10,6 @@ import uk.gov.dvsa.logging.EventType;
 import uk.gov.dvsa.logging.LoggingExecutor;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
 import java.lang.reflect.Field;
 import java.util.List;
 
@@ -36,22 +34,21 @@ public class PDFGenerationService {
 
     private byte[] runGeneration(List<String> htmlContents) {
         ByteArrayOutputStream outputPdf = new ByteArrayOutputStream();
+
         // render the first HTML document
         render(htmlContents.get(0));
+
         try {
             renderer.createPDF(outputPdf, false);
             clearBookmarks();
         } catch (DocumentException e) {
             throw new PdfDocumentException(e);
         }
+
         // render the remaining HTML documents
         htmlContents.stream().skip(1).forEach(this::renderHtmlDocument);
+
         renderer.finishPDF();
-        try(OutputStream outputStream = new FileOutputStream("RwtPdfOutput.pdf")) {
-            outputPdf.writeTo(outputStream);
-        } catch (Exception e) {
-            System.out.println("BAD THINGS. DEFINITELY DON'T COMMIT THIS CHANGE");
-        }
         return outputPdf.toByteArray();
     }
 

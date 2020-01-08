@@ -22,14 +22,14 @@
         </div>
     </li>
     <li> {{#if rwtData.hasDefects}}
-        <p>Within the parameters laid out in paragraph 2 and 3, above, I certify that for the reason(s) shown below the motor vehicle or trailer was not shown to meet the inspection requirements.</p>
-        <p id="defects">
-            <ul class="border-defects">
+        <p style="margin-bottom:5px">Within the parameters laid out in paragraph 2 and 3, above, I certify that for the reason(s) shown below the motor vehicle or trailer was not shown to meet the inspection requirements.</p>
+        <div id="defects" class="border-defects">
+            <ul class="defects-list">
             {{#each rwtData.defects}}
                 <li id="defects-{{@index}}">{{this}} </li>
              {{/each}}
             </ul>
-        </p>
+        </div>
         {{else}}
         <p>Within the parameters laid out in paragraph 2 and 3 above, the following vehicle has been found to meet the inspection requirements.</p>
     {{/if}}
@@ -61,7 +61,7 @@
 <div>
     <p class="text-center">Find out more about vehicle testing at <a href="https://www.gov.uk/dvsa" class="link">www.gov.uk/dvsa</a></p>
     <div class="footer">
-        <p id="document-number-footer" class="align-left">
+        <p id="document-number-footer" class="align-left margin-set">
          <span id="doc-number">
          {{#if rwtData.hasDefects}}
             DVSA0480
@@ -70,7 +70,7 @@
         {{/if}}
          </span>
         </p>
-        <p class="align-right"><span id="doc-version">v 1.1 Dec 2019</span></p>
+        <p class="align-right margin-set"><span id="doc-version">v 1.1 Dec 2019</span></p>
         <div style="clear: both;"></div>
     </div>
 </div>
