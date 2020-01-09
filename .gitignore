@@ -3,3 +3,4 @@ out/
 .idea/
 .gradle/
 gradlew.bat
+node_modules/
