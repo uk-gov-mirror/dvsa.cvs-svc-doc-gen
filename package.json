@@ -6,7 +6,8 @@
     "security-checks": "git secrets --scan && git log -p | scanrepo",
     "tools-setup": "echo 'Nothing to do'",
     "package": "echo 'Nothing to do'",
-    "test-i": "echo 'Nothing to do'"
+    "test-i": "echo 'Nothing to do'",
+    "sonar-scanner": "echo 'Not implemented'"
   },
   "husky": {
     "hooks": {
