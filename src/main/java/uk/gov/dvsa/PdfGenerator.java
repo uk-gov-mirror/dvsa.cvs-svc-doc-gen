@@ -59,7 +59,6 @@ public class PdfGenerator implements RequestHandler<Map<String, Object>, ApiGate
 
                 eventLogger.logEventWithTraceInfo(EventType.CERT_SERVER_RECEIVE, requestTracingService.getCurrentTracingInformation());
             }
-            System.out.println("CHECK INPUT IN HANDLEREQUEST -> " + input.toString());
             Document document = requestParser.parseRequest(input);
             List<String> html = htmlGeneratorFactory.create(document.getDocumentName()).generate(document);
 

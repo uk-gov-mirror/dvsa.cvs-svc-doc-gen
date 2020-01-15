@@ -122,13 +122,10 @@ public class AdrPassCertificateData {
     }
 
     public String[] getPermittedDangerousGoods() {
-
-        System.out.println("CHECK PERMITTED DANGEROUS GOODS FROM GET HERE -> " + permittedDangerousGoods);
         return permittedDangerousGoods;
     }
 
     public AdrPassCertificateData setPermittedDangerousGoods(String[] permittedDangerousGoods) {
-        System.out.println("CHECK PERMITTED DANGEROUS GOODS FROM SET HERE -> " + permittedDangerousGoods);
         this.permittedDangerousGoods = permittedDangerousGoods;
         return this;
     }
@@ -280,7 +277,6 @@ public class AdrPassCertificateData {
         for (String permittedDangerousGood : this.permittedDangerousGoods) {
             formattedPermittedDangerousGoods.append(permittedDangerousGood + " ");
         }
-        System.out.println("CHECK FORMATTED PERMITTED DANGEROUS GOODS FROM GET HERE -> " + formattedPermittedDangerousGoods);
         return formattedPermittedDangerousGoods.toString();
     }
 
