@@ -115,4 +115,28 @@ public class CertificatePageObject extends BasePageObject {
     public String getSignatureImageSrc() {
         return getElementById(CVS_SIGNATURE_FIRST_PAGE.getSelector()).attr("src");
     }
+
+    public String getCertTitle() {return getElementById(CERT_TITLE.getSelector()).text();}
+    public String getDgvw() {return getElementById(DGVW.getSelector()).text();}
+    public String getWeight2() {return getElementById(WEIGHT2.getSelector()).text();}
+    public String getVehicleNumber() {return getElementById(VEHICLE_NUMBER.getSelector()).text();}
+    public String getIssuersName() {return getElementById(ISSUERS_NAME.getSelector()).text();}
+    public String getDateOfInspection() {return getElementById(DATE_OF_INSPECTION.getSelector()).text();}
+    public String getTestStationPNumber() {return getElementById(TEST_STATION_PNUMBER.getSelector()).text();}
+    public String getDocumentNumber() {return getElementById(DOCUMENT_NUMBER.getSelector()).text();}
+    public String getRwtDate() {return getElementById(RWT_DATE.getSelector()).text();}
+    public String getRwtDocNumber() {return getElementById(RWT_DOC_NUMBER.getSelector()).text();}
+    public String getRwtDocVersion() {return getElementById(RWT_DOC_VERSION.getSelector()).text();}
+    public String getRwtDefect(int id){
+        switch (id){
+            case 0:
+                return getElementById(RWT_DEFECTS_FIRST.getSelector()).text();
+            case 1:
+                 return getElementById(RWT_DEFECTS_SECOND.getSelector()).text();
+            case 2:
+                return getElementById(RWT_DEFECTS_THIRD.getSelector()).text();
+            default:
+                throw new IllegalStateException("Unexpected value: " + id);
+        }
+    }
 }
