@@ -1,5 +1,6 @@
 package uk.gov.dvsa.model.cvs.certificateData;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class AdrPassCertificateData {
@@ -10,60 +11,79 @@ public class AdrPassCertificateData {
     @JsonProperty("ChasisNumber")
     private String chasisNumber;
 
+    @JsonIgnore
     @JsonProperty("Make")
     private String make;
 
+    @JsonIgnore
     @JsonProperty("Model")
     private String model;
 
+    @JsonIgnore
     @JsonProperty("RegistrationNumber")
     private String registrationNumber;
 
+    @JsonIgnore
     @JsonProperty("ApplicantDetails")
     private ApplicantDetails applicantDetails;
 
+    @JsonIgnore
     @JsonProperty("VehicleType")
     private String vehicleType;
 
+    @JsonIgnore
     @JsonProperty("PermittedDangerousGoods")
     private String[] permittedDangerousGoods;
 
+    @JsonIgnore
     @JsonProperty("BrakeEndurance")
     private boolean brakeEndurance;
 
+    @JsonIgnore
     @JsonProperty("Weight")
     private String weight;
 
+    @JsonIgnore
     @JsonProperty("TankManufacturer")
     private String tankManufacturer;
 
+    @JsonIgnore
     @JsonProperty("Tc2InitApprovalNo")
     private String tc2InitApprovalNo;
 
+    @JsonIgnore
     @JsonProperty("TankManufactureSerialNo")
     private String tankManufactureSerialNo;
 
+    @JsonIgnore
     @JsonProperty("YearOfManufacture")
     private String yearOfManufacture;
 
+    @JsonIgnore
     @JsonProperty("TankCode")
     private String tankCode;
 
+    @JsonIgnore
     @JsonProperty("SpecialProvisions")
     private String specialProvisions;
 
+    @JsonIgnore
     @JsonProperty("TankStatement")
     private TankStatement tankStatement;
 
+    @JsonIgnore
     @JsonProperty("ExpiryDate")
     private String expiryDate;
 
+    @JsonIgnore
     @JsonProperty("AtfNameAtfPNumber")
     private String atfNameAtfPNumber;
 
+    @JsonIgnore
     @JsonProperty("Notes")
     private String notes;
 
+    @JsonIgnore
     @JsonProperty("TestTypeDate")
     private String testTypeDate;
 
