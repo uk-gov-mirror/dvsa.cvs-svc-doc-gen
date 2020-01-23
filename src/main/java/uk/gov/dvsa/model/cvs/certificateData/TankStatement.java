@@ -1,14 +1,20 @@
 package uk.gov.dvsa.model.cvs.certificateData;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties
 public class TankStatement {
+
+    @JsonProperty
     private String substancesPermitted;
 
+    @JsonProperty
     private String statement;
 
+    @JsonProperty
     private String town;
 
+    @JsonProperty
     private String productList;
 
 
