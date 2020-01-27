@@ -302,7 +302,7 @@ public class AdrPassCertificateData {
     }
 
     public boolean getFormattedSubstancesPermitted() { // returns true for the first value that tankStatement can have and false for the other one so it can be processed in view
-        if(this.tankStatement != null && this.tankStatement.getSubstancesPermitted().equals(SUBSTANCES_PERMITTED_OPTION_1)){
+        if(this.tankStatement != null && tankStatement.getSubstancesPermitted() != null && this.tankStatement.getSubstancesPermitted().equals(SUBSTANCES_PERMITTED_OPTION_1)){
             return true;
         } else {
             return false;
