@@ -3,7 +3,7 @@ package uk.gov.dvsa.model.cvs.certificateData;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonIgnoreProperties
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class AdrPassCertificateData {
     private final String SUBSTANCES_PERMITTED_OPTION_1 = "Substances permitted under the tank code and any special provisions specified in 9 may be carried";
     private final String PERMITTED_DANGEROUS_GOODS_EXPLOSIVES_2 = "Explosives (type 2)";
