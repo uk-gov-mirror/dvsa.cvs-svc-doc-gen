@@ -25,6 +25,25 @@ public enum CertificatePageSelector {
     EARLIEST_DATE_OF_THE_NEXT_TEST("earliest-preserve-date"),
     WATERMARK_SELECTOR("span.running-header__text"),
     DEFECTS_ID("defects"),
+
+    CHASSISNUMBER_ID("chasisNumber"),
+    APPLICANT_DETAILS_NAME_ID("applicantDetailsName"),
+    APPLICANT_DETAILS_STREET_ID("applicantDetailsStreet"),
+    VEHICLE_TYPE_ID("vehicleType"),
+    FORMATTED_PERMITTED_DANGEROUS_GOODS_ID("formattedPermittedDangerousGoods"),
+    WEIGHT_ID("weight"),
+    TANK_MANUFACTURER_ID("tankManufacturer"),
+    TC2_INIT_APPROVAL_NO_ID("tc2IntermediateApprovalNo"),
+    TANK_MANUFACTURE_SERIAL_NO_ID("tankManufactureSerialNo"),
+    YEAR_OF_MANUFACTURE_ID("yearOfManufacture"),
+    SPECIAL_PROVISIONS_ID("specialProvisions"),
+    TANK_CODE_ID("tankCode"),
+    STATEMENT_ID("statement"),
+    PRODUCT_LIST_ID("productList"),
+    NOTES_ID("notes"),
+    TEST_TYPE_DATE_ID("testTypeDate"),
+    ATF_NAME_ATF_P_NUMBER_ID("atfNameAtfPNumber"),
+
     // Roadworthiness Test Selectors
     CERT_TITLE("certTitle"),
     DGVW("dgvw"),
@@ -43,8 +62,6 @@ public enum CertificatePageSelector {
     // end of Roadworthisness test selectors
     CVS_SIGNATURE_FIRST_PAGE("signature-first-page"),
     CVS_SIGNATURE_SECOND_PAGE("signature-second-page");
-
-
 
     private final String selector;
 

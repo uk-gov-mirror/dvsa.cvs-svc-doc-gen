@@ -1,6 +1,10 @@
 package htmlverification.service;
 
 import htmlverification.framework.component.DefectSummaryComponent;
+import uk.gov.dvsa.model.cvs.AdrPassCertificate;
+import uk.gov.dvsa.model.cvs.certificateData.AdrPassCertificateData;
+import uk.gov.dvsa.model.cvs.certificateData.ApplicantDetails;
+import uk.gov.dvsa.model.cvs.certificateData.TankStatement;
 import uk.gov.dvsa.model.cvs.RwtCertificate;
 import uk.gov.dvsa.model.cvs.certificateData.*;
 import uk.gov.dvsa.model.mot.*;
@@ -142,6 +146,21 @@ public class CertificateTestDataProvider {
         return rwtCertificate;
     }
 
+
+    public static AdrPassCertificate getAdrPass() {
+        AdrPassCertificate adrPassCertificate = new AdrPassCertificate();
+        adrPassCertificate.setDocumentName(CertificateTypes.ADR_PASS.getType());
+        AdrPassCertificateData adrPassCertificateData = new AdrPassCertificateData();
+
+        adrPassCertificateData.setApplicantDetails( new ApplicantDetails("applicantDetailsName", "applicantDetailsStreet", "applicantDetailsTown", "applicantDetailsCity", "applicantDetailsPostCode"))
+                .setMake("demoMake").setModel("demoModel").setAtfNameAtfPNumber("demoAtfNameAtfPnumber").setBrakeEndurance(true).setChasisNumber("demoChassisNumber")
+                .setExpiryDate("10-12-2011").setPermittedDangerousGoods(new String[]{"\"FP <61 (FL)\"", "Explosives (type 2)", "Explosives (type 3)"})
+                .setRegistrationNumber("demoRegistrationNumber").setSpecialProvisions("demoSpecialProvisions").setTankCode("demoTankCode").setTankManufacturer("demoTankManufacturer")
+                .setTankManufactureSerialNo("demoTankManufacturerSerialNo").setTankStatement(new TankStatement("Substances permitted under the tank code and any special provisions specified in 9 may be carried", "demoStatement", null))
+                .setTc2InitApprovalNo("demoTc2InitApprovalNo").setVehicleType("demoVehicleType").setWeight("demoWeight").setYearOfManufacture("1950").setAtfNameAtfPNumber("demoAtf demoAtfPNumber").setTestTypeDate("12019-11-06T15:37:32.917Z").setNotes("demoNotes");
+        adrPassCertificate.setAdrData(adrPassCertificateData);
+        return adrPassCertificate;
+    }
 
     public static VT20 getMultiPageVt20WithHiddenIssuerInfo() {
         VT20 vt20 = getVt20();

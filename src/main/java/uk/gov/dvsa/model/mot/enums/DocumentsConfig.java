@@ -2,6 +2,7 @@ package uk.gov.dvsa.model.mot.enums;
 
 import uk.gov.dvsa.exception.HttpException;
 import uk.gov.dvsa.model.Document;
+import uk.gov.dvsa.model.cvs.AdrPassCertificate;
 import uk.gov.dvsa.model.cvs.CvsPsvPRS;
 import uk.gov.dvsa.model.cvs.RwtCertificate;
 import uk.gov.dvsa.model.mot.*;
@@ -56,6 +57,8 @@ public enum DocumentsConfig {
             new String[]{CertificateTemplates.VTG5.getCertificateTemplateName()}),
     VTG30(CertificateTypes.CVS_HGV_TRL_FAIL.getType(), uk.gov.dvsa.model.cvs.VTG30.class,
             new String[]{CertificateTemplates.VTG30.getCertificateTemplateName()}),
+    ADR_PASS(CertificateTypes.ADR_PASS.getType(), AdrPassCertificate.class,
+            new String[]{CertificateTemplates.ADR_PASS.getCertificateTemplateName()}),
     RWT_DATA(CertificateTypes.RWT_DATA.getType(), RwtCertificate.class,
             new String[]{CertificateTemplates.RWT_DATA.getCertificateTemplateName()}),
     CVS_HGV_PRS(CertificateTypes.CVS_HGV_PRS.getType(), uk.gov.dvsa.model.cvs.CvsHgvPRS.class,
