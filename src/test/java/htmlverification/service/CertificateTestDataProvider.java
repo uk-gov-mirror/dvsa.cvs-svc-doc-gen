@@ -169,7 +169,7 @@ public class CertificateTestDataProvider {
                 .setTestTypeDate("2019-11-06T15:37:32.917Z")
 
                 .setAdrCertificateNotes("Medium length string.")
-                .setTankStatement(new TankStatement("Substances permitted under the tank code and any special provisions specified in 9 may be carried", "demoStatement", null, new String[]{ "UN7269", "UN26289" }))
+                .setTankStatement(new TankStatement("Substances permitted under the tank code and any special provisions specified in 9 may be carried", "demoStatement", "Test product list", new String[]{ "UN7269", "UN26289" }))
                 .setBatteryListNumber("1")
                 .setPermittedDangerousGoods(new String[]{"\"FP <61 (FL)\"", "Explosives (type 2)", "Explosives (type 3)"})
                 .setNotes("demoNotes");
