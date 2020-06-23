@@ -13,7 +13,8 @@ class Weight {
     @JsonProperty("EecWeight")
     private int eecWeight;
 
-    public Weight() {}
+    public Weight() {
+    }
 
     public Weight(int gbWeight, int designWeight, int eecWeight) {
         this.gbWeight = gbWeight;
@@ -57,7 +58,8 @@ class Tyre {
     @JsonProperty("FitmentCode")
     private String fitmentCode;
 
-    public Tyre() {}
+    public Tyre() {
+    }
 
     public Tyre(String tyreSize, String plyRating, String fitmentCode) {
         this.tyreSize = tyreSize;
@@ -82,7 +84,11 @@ class Tyre {
     }
 
     public String getFitmentCode() {
-        return fitmentCode;
+        if (this.fitmentCode.equals("double")) {
+            return "D";
+        } else {
+            return "S";
+        }
     }
 
     public void setFitmentCode(String fitmentCode) {
@@ -98,7 +104,8 @@ class Axle {
     @JsonProperty("Tyres")
     private Tyre tyres;
 
-    public Axle() {}
+    public Axle() {
+    }
 
     public Axle(Weight weights, Tyre tyres) {
         this.weights = weights;
@@ -136,7 +143,8 @@ public class Axles {
     @JsonProperty("Axle4")
     private Axle axle4;
 
-    public Axles() {}
+    public Axles() {
+    }
 
     public Axles(Axle axle1, Axle axle2, Axle axle3, Axle axle4) {
         this.axle1 = axle1;

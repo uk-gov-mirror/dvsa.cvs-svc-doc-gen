@@ -168,8 +168,12 @@ public class MinistryPlateData {
         return this;
     }
 
-    public boolean isSpeedLimiterMrk() {
-        return speedLimiterMrk;
+    public String getSpeedLimiterMrk() {
+        if (this.speedLimiterMrk) {
+            return "Yes";
+        } else {
+            return "No";
+        }
     }
 
     public MinistryPlateData setSpeedLimiterMrk(boolean speedLimiterMrk) {
