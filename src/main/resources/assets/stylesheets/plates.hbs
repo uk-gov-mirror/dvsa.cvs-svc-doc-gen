@@ -1,0 +1,32 @@
+@media print {
+    @page {
+        size: A5;
+    }
+}
+
+p {
+margin: 0;
+padding: 0;
+font-family: "Calibri", sans-serif;
+}
+
+div, span {
+font-family: "Calibri", sans-serif;
+}
+
+body,
+html {
+line-height: 1;
+margin: 0;
+-fs-page-sequence: start;
+page-break-after: always;
+page-break-before: always;
+page-break-inside: avoid;
+}
+
+*,
+:after,
+:before {
+box-sizing: border-box;
+line-height: 1
+}
