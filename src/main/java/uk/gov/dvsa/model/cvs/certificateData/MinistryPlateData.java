@@ -40,46 +40,46 @@ public class MinistryPlateData {
     private String regnDate;
 
     @JsonProperty("ManufactureYear")
-    private int manufactureYear;
+    private String manufactureYear;
 
     @JsonProperty("GrossGbWeight")
-    private int grossGbWeight;
+    private String grossGbWeight;
 
     @JsonProperty("GrossEecWeight")
-    private int grossEecWeight;
+    private String grossEecWeight;
 
     @JsonProperty("GrossDesignWeight")
-    private int grossDesignWeight;
+    private String grossDesignWeight;
 
     @JsonProperty("TrainGbWeight")
-    private int trainGbWeight;
+    private String trainGbWeight;
 
     @JsonProperty("TrainEecWeight")
-    private int trainEecWeight;
+    private String trainEecWeight;
 
     @JsonProperty("TrainDesignWeight")
-    private int trainDesignWeight;
+    private String trainDesignWeight;
 
     @JsonProperty("MaxTrainGbWeight")
-    private int maxTrainGbWeight;
+    private String maxTrainGbWeight;
 
     @JsonProperty("MaxTrainEecWeight")
-    private int maxTrainEecWeight;
+    private String maxTrainEecWeight;
 
     @JsonProperty("MaxLoadOnCoupling")
-    private int maxLoadOnCoupling;
+    private String maxLoadOnCoupling;
 
     @JsonProperty("FrontAxleTo5thWheelCouplingMin")
-    private int frontAxleTo5thWheelCouplingMin;
+    private String frontAxleTo5thWheelCouplingMin;
 
     @JsonProperty("FrontAxleTo5thWheelCouplingMax")
-    private int frontAxleTo5thWheelCouplingMax;
+    private String frontAxleTo5thWheelCouplingMax;
 
     @JsonProperty("CouplingCenterToRearTrlMax")
-    private int couplingCenterToRearTrlMax;
+    private String couplingCenterToRearTrlMax;
 
     @JsonProperty("CouplingCenterToRearTrlMin")
-    private int couplingCenterToRearTrlMin;
+    private String couplingCenterToRearTrlMin;
 
     @JsonProperty("PlateIssueDate")
     private String plateIssueDate;
@@ -88,10 +88,10 @@ public class MinistryPlateData {
     private String tyreUseCode;
 
     @JsonProperty("DimensionLength")
-    private int dimensionLength;
+    private String dimensionLength;
 
     @JsonProperty("DimensionWidth")
-    private int dimensionWidth;
+    private String dimensionWidth;
 
     @JsonProperty("Axles")
     private Axles axles;
@@ -199,128 +199,128 @@ public class MinistryPlateData {
         return this;
     }
 
-    public int getManufactureYear() {
+    public String getManufactureYear() {
         return manufactureYear;
     }
 
-    public MinistryPlateData setManufactureYear(int manufactureYear) {
+    public MinistryPlateData setManufactureYear(String manufactureYear) {
         this.manufactureYear = manufactureYear;
         return this;
     }
 
-    public int getGrossGbWeight() {
+    public String getGrossGbWeight() {
         return grossGbWeight;
     }
 
-    public MinistryPlateData setGrossGbWeight(int grossGbWeight) {
+    public MinistryPlateData setGrossGbWeight(String grossGbWeight) {
         this.grossGbWeight = grossGbWeight;
         return this;
     }
 
-    public int getGrossEecWeight() {
+    public String getGrossEecWeight() {
         return grossEecWeight;
     }
 
-    public MinistryPlateData setGrossEecWeight(int grossEecWeight) {
+    public MinistryPlateData setGrossEecWeight(String grossEecWeight) {
         this.grossEecWeight = grossEecWeight;
         return this;
     }
 
-    public int getGrossDesignWeight() {
+    public String getGrossDesignWeight() {
         return grossDesignWeight;
     }
 
-    public MinistryPlateData setGrossDesignWeight(int grossDesignWeight) {
+    public MinistryPlateData setGrossDesignWeight(String grossDesignWeight) {
         this.grossDesignWeight = grossDesignWeight;
         return this;
     }
 
-    public int getTrainGbWeight() {
+    public String getTrainGbWeight() {
         return trainGbWeight;
     }
 
-    public MinistryPlateData setTrainGbWeight(int trainGbWeight) {
+    public MinistryPlateData setTrainGbWeight(String trainGbWeight) {
         this.trainGbWeight = trainGbWeight;
         return this;
     }
 
-    public int getTrainEecWeight() {
+    public String getTrainEecWeight() {
         return trainEecWeight;
     }
 
-    public MinistryPlateData setTrainEecWeight(int trainEecWeight) {
+    public MinistryPlateData setTrainEecWeight(String trainEecWeight) {
         this.trainEecWeight = trainEecWeight;
         return this;
     }
 
-    public int getTrainDesignWeight() {
+    public String getTrainDesignWeight() {
         return trainDesignWeight;
     }
 
-    public MinistryPlateData setTrainDesignWeight(int trainDesignWeight) {
+    public MinistryPlateData setTrainDesignWeight(String trainDesignWeight) {
         this.trainDesignWeight = trainDesignWeight;
         return this;
     }
 
-    public int getMaxTrainGbWeight() {
+    public String getMaxTrainGbWeight() {
         return maxTrainGbWeight;
     }
 
-    public MinistryPlateData setMaxTrainGbWeight(int maxTrainGbWeight) {
+    public MinistryPlateData setMaxTrainGbWeight(String maxTrainGbWeight) {
         this.maxTrainGbWeight = maxTrainGbWeight;
         return this;
     }
 
-    public int getMaxTrainEecWeight() {
+    public String getMaxTrainEecWeight() {
         return maxTrainEecWeight;
     }
 
-    public MinistryPlateData setMaxTrainEecWeight(int maxTrainEecWeight) {
+    public MinistryPlateData setMaxTrainEecWeight(String maxTrainEecWeight) {
         this.maxTrainEecWeight = maxTrainEecWeight;
         return this;
     }
 
-    public int getMaxLoadOnCoupling() {
+    public String getMaxLoadOnCoupling() {
         return maxLoadOnCoupling;
     }
 
-    public MinistryPlateData setMaxLoadOnCoupling(int maxLoadOnCoupling) {
+    public MinistryPlateData setMaxLoadOnCoupling(String maxLoadOnCoupling) {
         this.maxLoadOnCoupling = maxLoadOnCoupling;
         return this;
     }
 
-    public int getFrontAxleTo5thWheelCouplingMin() {
+    public String getFrontAxleTo5thWheelCouplingMin() {
         return frontAxleTo5thWheelCouplingMin;
     }
 
-    public MinistryPlateData setFrontAxleTo5thWheelCouplingMin(int frontAxleTo5thWheelCouplingMin) {
+    public MinistryPlateData setFrontAxleTo5thWheelCouplingMin(String frontAxleTo5thWheelCouplingMin) {
         this.frontAxleTo5thWheelCouplingMin = frontAxleTo5thWheelCouplingMin;
         return this;
     }
 
-    public int getFrontAxleTo5thWheelCouplingMax() {
+    public String getFrontAxleTo5thWheelCouplingMax() {
         return frontAxleTo5thWheelCouplingMax;
     }
 
-    public MinistryPlateData setFrontAxleTo5thWheelCouplingMax(int frontAxleTo5thWheelCouplingMax) {
+    public MinistryPlateData setFrontAxleTo5thWheelCouplingMax(String frontAxleTo5thWheelCouplingMax) {
         this.frontAxleTo5thWheelCouplingMax = frontAxleTo5thWheelCouplingMax;
         return this;
     }
 
-    public int getCouplingCenterToRearTrlMax() {
+    public String getCouplingCenterToRearTrlMax() {
         return couplingCenterToRearTrlMax;
     }
 
-    public MinistryPlateData setCouplingCenterToRearTrlMax(int couplingCenterToRearTrlMax) {
+    public MinistryPlateData setCouplingCenterToRearTrlMax(String couplingCenterToRearTrlMax) {
         this.couplingCenterToRearTrlMax = couplingCenterToRearTrlMax;
         return this;
     }
 
-    public int getCouplingCenterToRearTrlMin() {
+    public String getCouplingCenterToRearTrlMin() {
         return couplingCenterToRearTrlMin;
     }
 
-    public MinistryPlateData setCouplingCenterToRearTrlMin(int couplingCenterToRearTrlMin) {
+    public MinistryPlateData setCouplingCenterToRearTrlMin(String couplingCenterToRearTrlMin) {
         this.couplingCenterToRearTrlMin = couplingCenterToRearTrlMin;
         return this;
     }
@@ -343,20 +343,20 @@ public class MinistryPlateData {
         return this;
     }
 
-    public int getDimensionLength() {
+    public String getDimensionLength() {
         return dimensionLength;
     }
 
-    public MinistryPlateData setDimensionLength(int dimensionLength) {
+    public MinistryPlateData setDimensionLength(String dimensionLength) {
         this.dimensionLength = dimensionLength;
         return this;
     }
 
-    public int getDimensionWidth() {
+    public String getDimensionWidth() {
         return dimensionWidth;
     }
 
-    public MinistryPlateData setDimensionWidth(int dimensionWidth) {
+    public MinistryPlateData setDimensionWidth(String dimensionWidth) {
         this.dimensionWidth = dimensionWidth;
         return this;
     }

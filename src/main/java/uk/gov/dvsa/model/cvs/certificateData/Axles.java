@@ -5,44 +5,44 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 class Weight {
 
     @JsonProperty("GbWeight")
-    private int gbWeight;
+    private String gbWeight;
 
     @JsonProperty("DesignWeight")
-    private int designWeight;
+    private String designWeight;
 
     @JsonProperty("EecWeight")
-    private int eecWeight;
+    private String eecWeight;
 
     public Weight() {
     }
 
-    public Weight(int gbWeight, int designWeight, int eecWeight) {
+    public Weight(String gbWeight, String designWeight, String eecWeight) {
         this.gbWeight = gbWeight;
         this.designWeight = designWeight;
         this.eecWeight = eecWeight;
     }
 
-    public int getGbWeight() {
+    public String getGbWeight() {
         return gbWeight;
     }
 
-    public void setGbWeight(int gbWeight) {
+    public void setGbWeight(String gbWeight) {
         this.gbWeight = gbWeight;
     }
 
-    public int getDesignWeight() {
+    public String getDesignWeight() {
         return designWeight;
     }
 
-    public void setDesignWeight(int designWeight) {
+    public void setDesignWeight(String designWeight) {
         this.designWeight = designWeight;
     }
 
-    public int getEecWeight() {
+    public String getEecWeight() {
         return eecWeight;
     }
 
-    public void setEecWeight(int eecWeight) {
+    public void setEecWeight(String eecWeight) {
         this.eecWeight = eecWeight;
     }
 }
@@ -86,8 +86,10 @@ class Tyre {
     public String getFitmentCode() {
         if (this.fitmentCode.equals("double")) {
             return "D";
-        } else {
+        } else if (this.fitmentCode.equals("single")) {
             return "S";
+        } else {
+            return "";
         }
     }
 

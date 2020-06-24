@@ -15,7 +15,7 @@
          font-family: "Calibri", sans-serif;
       }
 
-      span {
+      div, strong, span {
          font-family: "Calibri", sans-serif;
       }
 
@@ -23,7 +23,8 @@
          width: 793.7px;
          height: 559.3px;
       }
-   </style>
+
+    </style>
 </head>
 
 <body>
@@ -32,9 +33,9 @@
         <tbody>
         <tr>
             <td colspan="4" rowspan="2" style="border: 1px solid black;vertical-align: top;">
-                <img style="width: 60%;" src="{{root}}/assets/images/dvsa-crest-1.1.png" alt="DVSA" />
+                <img src="{{root}}/assets/images/dvsa-crest-1.1.png" alt="DVSA" width="130"/>
             </td>
-            <td colspan="3" rowspan="2"
+            <td colspan="4" rowspan="2"
                 style="padding: 3px; border-top: 1px solid black;border-right: 1px solid black;border-bottom: 1px solid black;border-image: initial;border-left: none;vertical-align: top;">
                 <p style="font-size:15px;">
                     <strong>Department For Transport</strong></p>
@@ -44,11 +45,13 @@
                 <p style="font-size: 8px; font-weight: bold; padding-top: 3px;">
                     This is issued as proof of compliance with the weights and dimensions directive 85/3/EEC
                 </p>
-                <div style="display: flex;">
-                    <p style="font-size:16px; font-weight: bold; padding-top: 3px;">
-                        Plating Certificate
-                    </p>
-                    <div style="margin: auto; font-size: 9px; font-weight: bold">
+                <div style="display: table; width: 100%;">
+                    <div style="display: table-cell;">
+                        <p style="font-size:16px; font-weight: bold; padding-top: 3px;">
+                            Plating Certificate
+                        </p>
+                    </div>
+                    <div style="display: table-cell; margin: auto; font-size: 9px; font-weight: bold">
                         <p>
                             VTG7A
                         </p>
@@ -58,42 +61,41 @@
                     </div>
                 </div>
             </td>
-            <td colspan="6"
+            <td colspan="5"
                 style="padding: 3px; border-top: 1px solid black;border-right: 1px solid black;border-bottom: 1px solid black;border-image: initial;border-left: none;vertical-align: top;">
-                <p>
-                    Serial No.&nbsp;</p>
-                <p style='font-size:15px;text-align:center;'>{{plateData.plateSerialNumber}}</p>
+                <p style="font-size: 13px;"> Serial No.&nbsp;</p>
+                <p style='font-size:15px;text-align:center; font-weight: bold;'>{{plateData.plateSerialNumber}}</p>
             </td>
         </tr>
         <tr>
             <td colspan="6"
                 style="padding: 3px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p> DTp Ref. No.&nbsp;</p>
-                <br />
-                <p style='font-size:15px;text-align:center;'>{{plateData.dtpNumber}}</p>
+                <p style="font-size: 13px;"> DTp Ref. No.&nbsp;</p>
+                <p style='font-size:15px;text-align:center; font-weight: bold;'>{{plateData.dtpNumber}}</p>
             </td>
         </tr>
         <tr>
             <td colspan="3"
                 style="border-right: 1px solid black;border-bottom: 1px solid black;border-left: 1px solid black;border-image: initial;border-top: none;vertical-align: top;">
-                <p style="font-size:12px; padding: 3px">Reg./ Ident Mark</p>
-                <p style='font-size:15px;text-align:center;'>{{plateData.primaryVrm}}</p>
+                <p style="font-size:12px;">Reg./ Ident Mark</p>
+                <p style='font-size:15px;text-align:center;padding: 3px; font-weight: bold;'>{{plateData.primaryVrm}}</p>
             </td>
-            <td colspan="3"
+            <td colspan="5"
                 style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style="font-size:12px;padding: 3px">Vehicle Identification No.</p>
-                <p style='font-size:15px;text-align:center;'>{{plateData.vin}}</p>
+                <p style="font-size:12px;">Vehicle Identification No.</p>
+                <p style='font-size:15px;text-align:center;padding: 3px; font-weight: bold;'>{{plateData.vin}}</p>
             </td>
-            <td colspan="7"
+            <td colspan="5"
                 style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style="font-size:12px; padding: 3px">Variant</p>
-                <p style='font-size:15px;text-align:center;'>{{plateData.variantNumber}}</p>
+                <p style="font-size:12px;">Variant</p>
+                <p style='font-size:15px;text-align:center; padding: 3px; font-weight: bold;'>{{plateData.variantNumber}}</p>
             </td>
         </tr>
         <tr>
             <td colspan="13"
                 style="border-right: 1px solid black;border-bottom: 1px solid black;border-left: 1px solid black;border-image: initial;border-top: none;vertical-align: top;">
-                <p style="font-size:12px; padding: 3px 3px 10px 3px">Tyre Approval No. &nbsp; {{plateData.approvalTypeNumber}}</p>
+                <p style="font-size:12px; padding: 3px 3px 10px 3px">Tyre Approval No.
+                    &nbsp; {{plateData.approvalTypeNumber}}</p>
             </td>
         </tr>
         <tr>
@@ -102,7 +104,7 @@
                 <p style="font-size:12px;">Manufacturer/</p>
                 <p>
                     <span style="font-size:12px;">Model</span>
-                    <span style="margin-left: 200px;">{{plateData.make}}/{{plateData.model}}</span>
+                    <span style="margin-left: 200px; font-weight: bold;">{{plateData.make}}/{{plateData.model}}</span>
                 </p>
             </td>
             <td colspan="5"
@@ -112,7 +114,7 @@
                 </p>
                 <p>
                     <span style="font-size:12px;">Limiter</span>
-                    <span style="margin-left: 50px;">{{plateData.speedLimiterMrk}}</span>
+                    <span style="margin-left: 50px; font-weight: bold;">{{plateData.speedLimiterMrk}}</span>
                 </p>
                 <p>
                     <span style="font-size:12px;">Exempt</span>
@@ -122,30 +124,45 @@
         <tr>
             <td colspan="4"
                 style="padding-left: 5px; border-right: 1px solid black;border-bottom: 1px solid black;border-left: 1px solid black;border-image: initial;border-top: none;vertical-align: top;">
-                <p>
-                    <span style="font-size:12px;">Function</span></p>
-                <p>
-                    <span style="font-size:12px;">(See note 3)</span>
-                    <span style="margin-left:50px">{{plateData.functionCode}}</span>
-                </p>
+                <div style="display: table-cell;">
+                    <p>
+                        <span style="font-size:12px;">Function</span>
+                    </p>
+                    <p>
+                        <span style="font-size:12px;">(See note 3)</span>
+                    </p>
+                </div>
+                <div style="display: table-cell; vertical-align: middle;">
+                    <span style="margin-left:50px; font-weight: bold;">{{plateData.functionCode}}</span>
+                </div>
             </td>
             <td colspan="3"
                 style="padding-left: 5px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p>
-                    <span style="font-size:12px;">Year of Original&nbsp;</span></p>
-                <p>
-                    <span style="font-size:12px;">Registration</span>
-                    <span style="margin-left:50px;">{{plateData.regnDate}}</span>
-                </p>
+                <div style="display: table-cell; font-align: center; ">
+                    <p>
+                        <span style="font-size:12px;">Year of Original&nbsp;</span>
+                    </p>
+                    <p>
+                        <span style="font-size:12px;">Registration</span>
+                    </p>
+                </div>
+                <div style="display: table-cell; vertical-align: middle;">
+                    <span style="margin-left:10px; font-weight: bold;">{{plateData.regnDate}}</span>
+                </div>
             </td>
             <td colspan="6"
                 style="padding-left: 5px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p>
-                    <span style="font-size:12px;">Year of</span></p>
-                <p>
-                    <span style="font-size:12px;">Manufacture</span>
-                    <span style="margin-left:50px;">{{plateData.manufactureYear}}</span>
-                </p>
+                <div style="display: table-cell;">
+                    <p>
+                        <span style="font-size:12px;">Year of</span>
+                    </p>
+                    <p>
+                        <span style="font-size:12px;">Manufacture</span>
+                    </p>
+                </div>
+                <div style="display: table-cell; vertical-align: middle;">
+                    <span style="margin-left:50px; font-weight: bold;">{{plateData.manufactureYear}}</span>
+                </div>
             </td>
         </tr>
         <tr>
@@ -153,16 +170,14 @@
                 style="width: 25%;border-right: 1px solid black;border-bottom: 1px solid black;border-left: 1px solid black;border-top: none;vertical-align: top;">
                 <div style='display: table;font-size:12px;'>
                     <span style="display: table-cell; font-weight: bold; width: 25%; text-align: center;"> (1) </span>
-                    <span style="font-weight: bold; display: table-cell;">Description of Weights Applicable to
-                        vehicle</span>
+                    <span style="font-weight: bold; display: table-cell;">Description of Weights Applicable to vehicle</span>
                 </div>
             </td>
             <td colspan="2" rowspan="2"
                 style="width: 25%;border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
                 <div style='display: flex;font-size:12px;'>
                     <span style="display: table-cell; font-weight: bold; width: 25%; text-align: center;"> (2) </span>
-                    <span style="font-weight: bold; display: table-cell;">Weights not to be exceeded in Gt.
-                        Britain</span>
+                    <span style="font-weight: bold; display: table-cell;">Weights not to be exceeded in Gt. Britain</span>
                 </div>
             </td>
             <td rowspan="2"
@@ -171,8 +186,7 @@
                     <span style="display: table-cell; font-weight: bold; width: 25%; text-align: center;"> (3) </span>
                     <span style="font-weight: bold; display: table-cell;">EEC Maximum permitted weights</span>
                 </div>
-                <p style='margin: auto;text-align:center;font-size:11px;'>(See note 8)
-                </p>
+                <p style='margin: auto;text-align:center;font-size:11px;'>(See note 8)</p>
             </td>
             <td colspan="2" rowspan="2"
                 style="width: 25%;border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
@@ -184,53 +198,53 @@
                     than shown in column 2)</p>
             </td>
             <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size:15px;text-align:center;'><strong>Length</strong></p>
+                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+                <p style='font-size:14px;text-align:center;'><strong>Length</strong></p>
             </td>
             <td colspan="4"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size:15px;text-align:center;'><strong>Width</strong></p>
+                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+                <p style='font-size:14px;text-align:center;'><strong>Width</strong></p>
             </td>
         </tr>
         <tr>
             <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
+                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
                 <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.dimensionLength}}</span></strong>
+                    <strong>{{plateData.dimensionLength}}</strong>
                 </p>
             </td>
             <td colspan="4"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
+                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
                 <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.dimensionWidth}}</span></strong>
+                    <strong>{{plateData.dimensionWidth}}</strong>
                 </p>
             </td>
         </tr>
         <tr>
             <td colspan="2"
-                style="border-right: 1px solid black;border-bottom: 1px solid black;border-left: 1px solid black;border-image: initial;border-top: none;vertical-align: top;">
+                style="border-right: 1px solid black;border-bottom: 1px solid black;border-left: 1px solid black;border-image: initial;border-top: none;vertical-align: middle;">
                 <p style='font-size:15px;text-align:center;'>
-                    <strong><span style="font-size:12px;">Gross Weight</span></strong></p>
+                    <strong style="font-size:12px;">Gross Weight</strong></p>
                 <p style='font-size:15px;text-align:center;'>
                     <span style="font-size:11px;">(See notes 1 &amp; 4)</span></p>
             </td>
             <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
+                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
                 <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.grossGbWeight}}</span></strong></p>
+                    <strong>{{plateData.grossGbWeight}}</strong></p>
             </td>
             <td
-                    style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
+                    style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
                 <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.grossEecWeight}}</span></strong></p>
+                    <strong>{{plateData.grossEecWeight}}</strong></p>
             </td>
             <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
+                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
                 <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.grossDesignWeight}}</span></strong></p>
+                    <strong>{{plateData.grossDesignWeight}}</strong></p>
             </td>
             <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
+                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
                 <div style='text-align: center; width:120px;font-size:15px;'>
                     <span style="font-size:11px;">a. Coupling centre to vehicle foremost part (See note 6)</span>
                 </div>
@@ -239,46 +253,46 @@
                 style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
                 <div style="width: 57px;">
                     <p style='font-size:15px;text-align:center;'>
-                        <strong><span style="font-size:8px;">Max</span></strong></p>
+                        <strong style="font-size:8px;">Max</strong></p>
                     <p style='font-size:15px;text-align:center;'>
-                        <strong><span>{{plateData.frontAxleTo5thWheelCouplingMax}}</span></strong></p>
+                        <strong>{{plateData.frontAxleTo5thWheelCouplingMax}}</strong></p>
                 </div>
             </td>
             <td colspan="2"
                 style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
                 <div style="width: 57px;">
                     <p style='font-size:15px;text-align:center;'>
-                        <strong><span style="font-size:8px;">Min</span></strong></p>
+                        <strong style="font-size:8px;">Min</strong></p>
                     <p style='font-size:15px;text-align:center;'>
-                        <strong><span>{{plateData.frontAxleTo5thWheelCouplingMin}}</span></strong></p>
+                        <strong>{{plateData.frontAxleTo5thWheelCouplingMin}}</strong></p>
                 </div>
             </td>
         </tr>
         <tr>
             <td colspan="2"
-                style="border-right: 1px solid black;border-bottom: 1px solid black;border-left: 1px solid black;border-image: initial;border-top: none;vertical-align: top;">
+                style="border-right: 1px solid black;border-bottom: 1px solid black;border-left: 1px solid black;border-image: initial;border-top: none;vertical-align: middle;">
                 <p style='font-size:15px;text-align:center;'>
-                    <strong><span style="font-size:12px;">Train Weight</span></strong></p>
+                    <strong style="font-size:12px;">Train Weight</strong></p>
                 <p style='font-size:15px;text-align:center;'>
                     <span style="font-size:11px;">(See note 2)</span></p>
             </td>
             <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
+                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
                 <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.trainGbWeight}}</span></strong></p>
+                    <strong>{{plateData.trainGbWeight}}</strong></p>
             </td>
             <td
-                    style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
+                    style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
                 <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.trainEecWeight}}</span></strong></p>
+                    <strong>{{plateData.trainEecWeight}}</strong></p>
             </td>
             <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
+                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
                 <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.trainDesignWeight}}</span></strong></p>
+                    <strong>{{plateData.trainDesignWeight}}</strong></p>
             </td>
             <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
+                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
                 <div style='text-align: center; font-size:15px;'>
                     <span style="font-size:11px;">b. Coupling centre to vehicle rearmost part (See note 7)</span>
                 </div>
@@ -286,74 +300,68 @@
             <td colspan="2"
                 style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
                 <p style='font-size:15px;text-align:center;'>
-                    <strong><span style="font-size:8px;">Max</span></strong></p>
+                    <strong style="font-size:8px;">Max</strong></p>
                 <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.couplingCenterToRearTrlMax}}</span></strong></p>
+                    <strong>{{plateData.couplingCenterToRearTrlMax}}</strong></p>
             </td>
             <td colspan="2"
                 style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
                 <p style='font-size:15px;text-align:center;'>
-                    <strong><span style="font-size:8px;">Min</span></strong></p>
+                    <strong style="font-size:8px;">Min</strong></p>
                 <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.couplingCenterToRearTrlMin}}</span></strong></p>
+                    <strong>{{plateData.couplingCenterToRearTrlMin}}</strong></p>
             </td>
         </tr>
         <tr>
             <td colspan="2"
-                style="border-right: 1px solid black;border-bottom: 1px solid black;border-left: 1px solid black;border-image: initial;border-top: none;vertical-align: top;">
+                style="border-right: 1px solid black;border-bottom: 1px solid black;border-left: 1px solid black;border-image: initial;border-top: none;vertical-align: middle;">
                 <p style='font-size:15px;text-align:center;'>
-                    <strong><span style="font-size:12px;">Max. Train Weight</span></strong></p>
+                    <strong style="font-size:12px;">Max. Train Weight</strong></p>
                 <p style='font-size:15px;text-align:center;'>
                     <span style="font-size:11px;">(See note 5)</span></p>
             </td>
             <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
+                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
                 <p style='font-size:15px;text-align:center;'>
-                    <strong><span>&nbsp;</span></strong></p>
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.maxTrainGbWeight}}</span></strong></p>
+                    <strong>{{plateData.maxTrainGbWeight}}</strong></p>
             </td>
-            <td
-                    style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
+            <td style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
                 <p style='font-size:15px;text-align:center;'>
-                    <strong><span>&nbsp;</span></strong></p>
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.maxTrainEecWeight}}</span></strong></p>
+                    <strong>{{plateData.maxTrainEecWeight}}</strong></p>
             </td>
             <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;background: rgb(165, 165, 165);vertical-align: top;">
+                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;background: rgb(165, 165, 165);">
             </td>
-            <td colspan="3"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
+            <td colspan="2"
+                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
                 <div>
                     <p style='font-size:15px;text-align:center;'>
-                        <strong><span style="font-size:11px;">Tyre size</span></strong></p>
+                        <strong style="font-size:11px;">Tyre size</strong></p>
                     <p style='font-size:15px;text-align:center;'>
                         <span style="font-size:11px;">(Fitted at time of issue of certificate)</span></p>
                 </div>
             </td>
-            <td colspan="2"
+            <td colspan="3"
                 style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='padding-left: 5px; font-size:15px;'>
-                    <span style="font-size:11px;">Ply rating or load index</span></p>
+                <div>
+                    <p style='padding-left: 5px; font-size:11px;'> Ply rating or load index</p>
+                </div>
             </td>
-            <td
-                    style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='padding-left: 5px;font-size:15px;'>
-                    <span style="font-size:11px;">*S&nbsp;</span></p>
-                <p style='padding-left: 5px;font-size:15px;'>
-                    <span style="font-size:11px;">or&nbsp;</span></p>
-                <p style='padding-left: 5px;font-size:15px;'>
-                    <span style="font-size:11px;">D</span></p>
+            <td style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
+                <div>
+                    <p style='padding-left: 5px;font-size:11px;'>*S</p>
+                    <p style='padding-left: 5px;font-size:11px;'>or</p>
+                    <p style='padding-left: 5px;font-size:11px;'>D</p>
+                </div>
             </td>
         </tr>
         <tr>
             <td rowspan="4"
                 style="border-right: 1px solid black;border-bottom: 1px solid black;border-left: 1px solid black;border-image: initial;border-top: none;vertical-align: top;">
                 <p style='font-size:15px;text-align:center;'>
-                    <strong><span style="font-size:12px;">Axle&nbsp;</span></strong></p>
+                    <strong style="font-size:12px;">Axle&nbsp;</strong></p>
                 <p style='font-size:15px;text-align:center;'>
-                    <strong><span style="font-size:12px;">Weights</span></strong></p>
+                    <strong style="font-size:12px;">Weights</strong></p>
                 <p style='font-size:15px;text-align:center;'>
                     <span style="font-size:11px;">(Axle&nbsp;</span></p>
                 <p style='font-size:15px;text-align:center;'>
@@ -365,180 +373,262 @@
                 <p style='font-size:15px;text-align:center;'>
                     <span style="font-size:11px;">(See note 1)</span></p>
             </td>
-            <td
-                    style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size:15px;text-align:center;'>
-                    <span style="font-size:12px;">Axle 1</span></p>
+            <td style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+                <p style='font-size:12px;text-align:center;'>Axle 1</p>
             </td>
             <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>&nbsp;</span></strong></p>
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.axles.axle1.weights.gbWeight}}</span></strong></p>
+                style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+                {{#if plateData.axles.axle1.weights.gbWeight}}
+                    <p style='font-size:15px;text-align:center;'>
+                        <strong>{{plateData.axles.axle1.weights.gbWeight}}</strong>
+                    </p>
+                {{else}}
+                    <br/>
+                {{/if}}
             </td>
-            <td
-                    style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>&nbsp;</span></strong></p>
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.axles.axle1.weights.eecWeight}}</span></strong></p>
+            <td style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+                {{#if plateData.axles.axle1.weights.eecWeight}}
+                    <p style='font-size:15px;text-align:center;'>
+                        <strong>{{plateData.axles.axle1.weights.eecWeight}}</strong>
+                    </p>
+                {{else}}
+                    <br/>
+                {{/if}}
             </td>
             <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>&nbsp;</span></strong></p>
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.axles.axle1.weights.designWeight}}</span></strong></p>
+                style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+                {{#if plateData.axles.axle1.weights.designWeight}}
+                    <p style='font-size:15px;text-align:center;'>
+                        <strong>{{plateData.axles.axle1.weights.designWeight}}</strong>
+                    </p>
+                {{else}}
+                    <br/>
+                {{/if}}
+            </td>
+            <td colspan="2"
+                style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+                {{#if plateData.axles.axle1.tyres.tyreSize}}
+                    <p style='font-size:15px;text-align:center;'>
+                        <strong>{{plateData.axles.axle1.tyres.tyreSize}}</strong>
+                    </p>
+                {{else}}
+                    <br/>
+                {{/if}}
             </td>
             <td colspan="3"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.axles.axle1.tyres.tyreSize}}</span></strong></p>
+                style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+                {{#if plateData.axles.axle1.tyres.plyRating}}
+                    <div style='font-size:14px;text-align:center; white-space: nowrap;'>
+                        <strong>{{plateData.axles.axle1.tyres.plyRating}}</strong>
+                    </div>
+                {{else}}
+                    <br/>
+                {{/if}}
             </td>
-            <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.axles.axle1.tyres.plyRating}}</span></strong></p>
-            </td>
-            <td
-                    style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.axles.axle1.tyres.fitmentCode}}</span></strong></p>
+            <td style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+                {{#if plateData.axles.axle1.tyres.fitmentCode}}
+                    <p style='font-size:15px;text-align:center;'>
+                        <strong>{{plateData.axles.axle1.tyres.fitmentCode}}</strong>
+                    </p>
+                {{else}}
+                    <br/>
+                {{/if}}
             </td>
         </tr>
         <tr>
-            <td
-                    style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size:15px;text-align:center;'>
-                    <span style="font-size:12px;">Axle 2</span></p>
+            <td style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+                <p style='font-size:12px;text-align:center;'>Axle 2</p>
             </td>
             <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>&nbsp;</span></strong></p>
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.axles.axle2.weights.gbWeight}}</span></strong></p>
+                style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+                {{#if plateData.axles.axle2.weights.gbWeight}}
+                    <p style='font-size:15px;text-align:center;'>
+                        <strong>{{plateData.axles.axle2.weights.gbWeight}}</strong>
+                    </p>
+                {{else}}
+                    <br/>
+                {{/if}}
             </td>
-            <td
-                    style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>&nbsp;</span></strong></p>
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.axles.axle2.weights.eecWeight}}</span></strong></p>
+            <td style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+                {{#if plateData.axles.axle2.weights.eecWeight}}
+                    <p style='font-size:15px;text-align:center;'>
+                        <strong>{{plateData.axles.axle2.weights.eecWeight}}</strong>
+                    </p>
+                {{else}}
+                    <br/>
+                {{/if}}
             </td>
             <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>&nbsp;</span></strong></p>
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.axles.axle2.weights.designWeight}}</span></strong></p>
+                style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+                {{#if plateData.axles.axle2.weights.designWeight}}
+                    <p style='font-size:15px;text-align:center;'>
+                        <strong>{{plateData.axles.axle2.weights.designWeight}}</strong>
+                    </p>
+                {{else}}
+                    <br/>
+                {{/if}}
+            </td>
+            <td colspan="2"
+                style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+                {{#if plateData.axles.axle2.tyres.tyreSize}}
+                    <p style='font-size:15px;text-align:center;'>
+                        <strong>{{plateData.axles.axle2.tyres.tyreSize}}</strong>
+                    </p>
+                {{else}}
+                    <br/>
+                {{/if}}
             </td>
             <td colspan="3"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.axles.axle2.tyres.tyreSize}}</span></strong></p>
+                style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+                {{#if plateData.axles.axle2.tyres.plyRating}}
+                    <div style='font-size:14px;text-align:center; white-space: nowrap;'>
+                        <strong>{{plateData.axles.axle2.tyres.plyRating}}</strong>
+                    </div>
+                {{else}}
+                    <br/>
+                {{/if}}
             </td>
-            <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.axles.axle2.tyres.plyRating}}</span></strong></p>
-            </td>
-            <td
-                    style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.axles.axle2.tyres.fitmentCode}}</span></strong></p>
+            <td style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+                {{#if plateData.axles.axle2.tyres.fitmentCode}}
+                    <p style='font-size:15px;text-align:center;'>
+                        <strong>{{plateData.axles.axle2.tyres.fitmentCode}}</strong>
+                    </p>
+                {{else}}
+                    <br/>
+                {{/if}}
             </td>
         </tr>
         <tr>
-            <td
-                    style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size:15px;text-align:center;'>
-                    <span style="font-size:12px;">Axle 3</span></p>
+            <td style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+                <p style='font-size:12px;text-align:center;'>Axle 3</p>
             </td>
             <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>&nbsp;</span></strong></p>
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.axles.axle3.weights.gbWeight}}</span></strong></p>
+                style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+                {{#if plateData.axles.axle3.weights.gbWeight}}
+                    <p style='font-size:15px;text-align:center;'>
+                        <strong>{{plateData.axles.axle3.weights.gbWeight}}</strong>
+                    </p>
+                {{else}}
+                    <br/>
+                {{/if}}
             </td>
-            <td
-                    style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>&nbsp;</span></strong></p>
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.axles.axle3.weights.eecWeight}}</span></strong></p>
+            <td style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+                {{#if plateData.axles.axle3.weights.eecWeight}}
+                    <p style='font-size:15px;text-align:center;'>
+                        <strong>{{plateData.axles.axle3.weights.eecWeight}}</strong>
+                    </p>
+                {{else}}
+                    <br/>
+                {{/if}}
             </td>
             <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>&nbsp;</span></strong></p>
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.axles.axle3.weights.designWeight}}</span></strong></p>
+                style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+                {{#if plateData.axles.axle3.weights.designWeight}}
+                    <p style='font-size:15px;text-align:center;'>
+                        <strong>{{plateData.axles.axle3.weights.designWeight}}</strong>
+                    </p>
+                {{else}}
+                    <br/>
+                {{/if}}
+            </td>
+            <td colspan="2"
+                style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+                {{#if plateData.axles.axle3.tyres.tyreSize}}
+                    <p style='font-size:15px;text-align:center;'>
+                        <strong>{{plateData.axles.axle3.tyres.tyreSize}}</strong>
+                    </p>
+                {{else}}
+                    <br/>
+                {{/if}}
             </td>
             <td colspan="3"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.axles.axle3.tyres.tyreSize}}</span></strong></p>
+                style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+                {{#if plateData.axles.axle3.tyres.plyRating}}
+                    <div style='font-size:14px;text-align:center; white-space: nowrap;'>
+                        <strong>{{plateData.axles.axle3.tyres.plyRating}}</strong>
+                    </div>
+                {{else}}
+                    <br/>
+                {{/if}}
             </td>
-            <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.axles.axle3.tyres.plyRating}}</span></strong></p>
-            </td>
-            <td
-                    style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.axles.axle3.tyres.fitmentCode}}</span></strong></p>
+            <td style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+                {{#if plateData.axles.axle3.tyres.fitmentCode}}
+                    <p style='font-size:15px;text-align:center;'>
+                        <strong>{{plateData.axles.axle3.tyres.fitmentCode}}</strong>
+                    </p>
+                {{else}}
+                    <br/>
+                {{/if}}
             </td>
         </tr>
         <tr>
-            <td style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size:15px;text-align:center;'>
-                    <span style="font-size:12px;">Axle 4</span></p>
+            <td style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+                <p style='font-size:12px;text-align:center;'>Axle 4</p>
             </td>
             <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>&nbsp;</span></strong></p>
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.axles.axle4.weights.gbWeight}}</span></strong></p>
+                style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+                {{#if plateData.axles.axle4.weights.gbWeight}}
+                    <p style='font-size:15px;text-align:center;'>
+                        <strong>{{plateData.axles.axle4.weights.gbWeight}}</strong>
+                    </p>
+                {{else}}
+                    <br/>
+                {{/if}}
             </td>
-            <td style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>&nbsp;</span></strong></p>
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.axles.axle4.weights.eecWeight}}</span></strong></p>
+            <td style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+                {{#if plateData.axles.axle4.weights.eecWeight}}
+                    <p style='font-size:15px;text-align:center;'>
+                        <strong>{{plateData.axles.axle4.weights.eecWeight}}</strong>
+                    </p>
+                {{else}}
+                    <br/>
+                {{/if}}
             </td>
             <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>&nbsp;</span></strong></p>
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.axles.axle4.weights.designWeight}}</span></strong></p>
+                style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+                {{#if plateData.axles.axle4.weights.designWeight}}
+                    <p style='font-size:15px;text-align:center;'>
+                        <strong>{{plateData.axles.axle4.weights.designWeight}}</strong>
+                    </p>
+                {{else}}
+                    <br/>
+                {{/if}}
+            </td>
+            <td colspan="2"
+                style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+                {{#if plateData.axles.axle4.tyres.tyreSize}}
+                    <p style='font-size:15px;text-align:center;'>
+                        <strong>{{plateData.axles.axle4.tyres.tyreSize}}</strong>
+                    </p>
+                {{else}}
+                    <br/>
+                {{/if}}
             </td>
             <td colspan="3"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.axles.axle4.tyres.tyreSize}}</span></strong></p>
+                style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+                {{#if plateData.axles.axle4.tyres.plyRating}}
+                    <div style='font-size:14px;text-align:center; white-space: nowrap;'>
+                        <strong>{{plateData.axles.axle4.tyres.plyRating}}</strong>
+                    </div>
+                {{else}}
+                    <br/>
+                {{/if}}
             </td>
-            <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.axles.axle4.tyres.plyRating}}</span></strong></p>
-            </td>
-            <td
-                    style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.axles.axle4.tyres.fitmentCode}}</span></strong></p>
+            <td style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+                {{#if plateData.axles.axle4.tyres.fitmentCode}}
+                    <p style='font-size:15px;text-align:center;'>
+                        <strong>{{plateData.axles.axle4.tyres.fitmentCode}}</strong>
+                    </p>
+                {{else}}
+                    <br/>
+                {{/if}}
             </td>
         </tr>
         <tr>
             <td colspan="2"
                 style="border-right: 1px solid black;border-bottom: 1px solid black;border-left: 1px solid black;border-image: initial;border-top: none;vertical-align: top;">
                 <p style='font-size:15px;text-align:center;'>
-                    <strong><span style="font-size:12px;">Maximum Kingpin Load</span></strong></p>
+                    <strong style="font-size:12px;">Maximum Kingpin Load</strong></p>
                 <p style='font-size:15px;text-align:center;'>
                     <span style="font-size:11px;">(Semi-Trailers Only)</span></p>
             </td>
@@ -548,14 +638,17 @@
             <td colspan="2"
                 style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
                 <p style='font-size:15px;text-align:center;'>
-                    <strong><span>{{plateData.maxLoadOnCoupling}}</span></strong></p>
+                    <strong>{{plateData.maxLoadOnCoupling}}</strong>
+                </p>
             </td>
             <td colspan="6"
                 style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
                 <p style='font-size:15px;text-align:center;'>
-                    <span style="font-size:12px;">*&rsquo;S&rsquo; indicates single wheels</span></p>
+                    <span style="font-size:12px;">*&rsquo;S&rsquo; indicates single wheels</span>
+                </p>
                 <p style='font-size:15px;text-align:center;'>
-                    <span style="font-size:12px;">&lsquo;D&rsquo; indicates dual wheels</span></p>
+                    <span style="font-size:12px;">&lsquo;D&rsquo; indicates dual wheels</span>
+                </p>
             </td>
         </tr>
         <tr>
@@ -570,7 +663,7 @@
                                 </p>
                             </div>
                             <div style="width: 25%; display: inline; text-align: center;">
-                                <p style="padding-top: 10px">
+                                <p style="padding-top: 10px; font-weight: bold;">
                                     {{plateData.axles.axle1.tyres.tyreUseCode}}
                                 </p>
                             </div>
@@ -601,10 +694,11 @@
                                 </div>
                                 <div style="display: table-cell;"></div>
                                 <div style="vertical-align: middle; display: table-cell; background-color: white; border: 1px solid black; width:25%; font-size: 12px;">
-                                    <p style="padding: 2px; text-align: center; width: 45%; margin-left: 25%;">Date of Issue</p>
+                                    <p style="padding: 2px; text-align: center; width: 45%; margin-left: 25%;">Date of
+                                        Issue</p>
                                 </div>
                                 <div style="vertical-align: middle; display: table-cell; background-color: white; border: 1px solid black; width:25%; font-size: 13px;">
-                                    <p style="text-align: center;">{{plateData.plateIssueDate}}</p>
+                                    <p style="text-align: center; font-weight: bold;">{{plateData.plateIssueDate}}</p>
                                 </div>
                             </div>
                             <div style="display: table; width: 100%; border: 1px solid black; background-color: white; margin-top: 5px; height: 50%; ">
@@ -615,7 +709,7 @@
                                     <p style="font-size: 13px; text-align: center;">Signature</p>
                                 </div>
                                 <div style="display: table-cell; vertical-align: middle; width: 50%; ">
-                                    <img style="height: 40%; margin-left: 10%; padding-top: 2%;" src="./semnatura.png" />
+                                    <img style="height: 40%; margin-left: 10%; padding-top: 2%;" src="./semnatura.png"/>
                                 </div>
                             </div>
                         </div>
