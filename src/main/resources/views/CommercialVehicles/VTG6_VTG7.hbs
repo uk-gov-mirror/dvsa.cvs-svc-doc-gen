@@ -10,29 +10,28 @@
 
 <body>
 <div class="firstPage">
-    <table style="width: 693px;border-collapse:collapse;border:none;margin-left:10px;margin-right: 10px;">
+    <table class="vtg7">
         <tbody>
         <tr>
-            <td colspan="4" rowspan="2" style="border: 1px solid black;vertical-align: top;">
+            <td colspan="4" rowspan="2" class="logo">
                 <img src="{{root}}/assets/images/dvsa-crest-1.1.png" alt="DVSA" width="125"/>
             </td>
-            <td colspan="4" rowspan="2"
-                style="padding: 3px; border-top: 1px solid black;border-right: 1px solid black;border-bottom: 1px solid black;border-image: initial;border-left: none;vertical-align: top;">
-                <p style="font-size: 11px;">
+            <td colspan="4" rowspan="2" class="plating_certificate">
+                <p class="department_for_transport">
                     <strong>Department For Transport</strong></p>
-                <p style="font-size: 9px; font-style: italic; padding-top: 3px;">
+                <p class="road_traffic">
                     ROAD TRAFFIC ACT 1988 SECTIONS 41, 49, 57 &amp; 58 EXAMINATION OF GOODS VEHICLE
                 </p>
-                <p style="font-size: 9px; font-weight: bold; padding-top: 3px;">
+                <p class="proof_of_compliance">
                     This is issued as proof of compliance with the weights and dimensions directive 85/3/EEC
                 </p>
-                <div style="display: table; width: 100%;">
-                    <div style="display: table-cell;">
-                        <p style="font-size:14px; font-weight: bold; padding-top: 3px;">
+                <div class="inline_elem">
+                    <div class="inline_elem_child">
+                        <p class="plating_cert">
                             Plating Certificate
                         </p>
                     </div>
-                    <div style="display: table-cell; margin: auto; font-size: 9px; font-weight: bold; vertical-align: middle;">
+                    <div class="inline_elem_child vtg7a">
                         <p>
                             VTG7A
                         </p>
@@ -42,372 +41,358 @@
                     </div>
                 </div>
             </td>
-            <td colspan="5"
-                style="padding: 3px; border-top: 1px solid black;border-right: 1px solid black;border-bottom: 1px solid black;border-image: initial;border-left: none;vertical-align: top;">
-                <p style="font-size: 10px;"> Serial No.&nbsp;</p>
-                <p style='font-size: 12px;text-align:center; font-weight: bold;'>{{plateData.plateSerialNumber}}</p>
+            <td colspan="5" class="plating_certificate">
+                <p class="serial_dtp"> Serial No.&nbsp;</p>
+                <p class="serial_dtp_value">{{plateData.plateSerialNumber}}</p>
             </td>
         </tr>
         <tr>
-            <td colspan="6"
-                style="padding: 3px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style="font-size: 10px;"> DTp Ref. No.&nbsp;</p>
-                <p style='font-size: 12px;text-align:center; font-weight: bold;'>{{plateData.dtpNumber}}</p>
+            <td colspan="6" class="dtp_data">
+                <p class="serial_dtp"> DTp Ref. No.&nbsp;</p>
+                <p class="serial_dtp_value">{{plateData.dtpNumber}}</p>
             </td>
         </tr>
         <tr>
-            <td colspan="3"
-                style="border-right: 1px solid black;border-bottom: 1px solid black;border-left: 1px solid black;border-image: initial;border-top: none;vertical-align: top;">
-                <p style="font-size:10px;">Reg./ Ident Mark</p>
-                <p style='font-size: 12px;text-align:center;padding: 3px; font-weight: bold;'>{{plateData.primaryVrm}}</p>
+            <td colspan="3" class="no_border_top align_top">
+                <p class="vehicle_identifier">Reg./ Ident Mark</p>
+                <p class="vehicle_identifier_data">{{plateData.primaryVrm}}</p>
             </td>
-            <td colspan="5"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style="font-size:10px;">Vehicle Identification No.</p>
-                <p style='font-size: 12px;text-align:center;padding: 3px; font-weight: bold;'>{{plateData.vin}}</p>
+            <td colspan="5" class="no_border_left_top align_top">
+                <p class="vehicle_identifier">Vehicle Identification No.</p>
+                <p class="vehicle_identifier_data">{{plateData.vin}}</p>
             </td>
-            <td colspan="5"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style="font-size:10px;">Variant</p>
-                <p style='font-size: 12px;text-align:center; padding: 3px; font-weight: bold;'>{{plateData.variantNumber}}</p>
+            <td colspan="5" class="no_border_left_top align_top">
+                <p class="vehicle_identifier">Variant</p>
+                <p class="vehicle_identifier_data">{{plateData.variantNumber}}</p>
             </td>
         </tr>
         <tr>
-            <td colspan="13"
-                style="border-right: 1px solid black;border-bottom: 1px solid black;border-left: 1px solid black;border-image: initial;border-top: none;vertical-align: top;">
-                <p style="font-size:12px; padding: 3px 3px 10px 3px">Tyre Approval No. &nbsp; <strong>{{plateData.approvalTypeNumber}}</strong></p>
+            <td colspan="13" class="no_border_top align_top">
+                <p class="tyre_approval">Tyre Approval No. &nbsp; <strong>{{plateData.approvalTypeNumber}}</strong></p>
             </td>
         </tr>
         <tr>
-            <td colspan="8"
-                style="padding: 3px; border-right: 1px solid black;border-bottom: 1px solid black;border-left: 1px solid black;border-image: initial;border-top: none;vertical-align: top;">
-                <p style="font-size:12px;">Manufacturer/</p>
+            <td colspan="8" class="no_border_top align_top manufacturer">
                 <p>
-                    <span style="font-size:12px;">Model</span>
-                    <span style="margin-left: 200px; font-weight: bold;">{{plateData.make}}/{{plateData.model}}</span>
-                </p>
-            </td>
-            <td colspan="5"
-                style="padding-left: 5px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p>
-                    <span style="font-size:12px;">Speed</span>
+                    <span>Manufacturer/</span>
                 </p>
                 <p>
-                    <span style="font-size:12px;">Limiter</span>
-                    <span style="margin-left: 50px; font-weight: bold;">{{plateData.speedLimiterMrk}}</span>
+                    <span>Model</span>
+                    <span class="manufacturer_data">{{plateData.make}}/{{plateData.model}}</span>
+                </p>
+            </td>
+            <td colspan="5" class="no_border_left_top align_top speed_limiter">
+                <p>
+                    <span>Speed</span>
                 </p>
                 <p>
-                    <span style="font-size:12px;">Exempt</span>
+                    <span>Limiter</span>
+                    <span class="speed_limiter_data">{{plateData.speedLimiterMrk}}</span>
+                </p>
+                <p>
+                    <span>Exempt</span>
                 </p>
             </td>
         </tr>
         <tr>
-            <td colspan="4"
-                style="padding-left: 3px; padding-bottom: 3px; border-right: 1px solid black;border-bottom: 1px solid black;border-left: 1px solid black;border-image: initial;border-top: none;">
-                <div style="display: table-cell;">
+            <td colspan="4" class="no_border_top function_code">
+                <div class="inline_elem_child">
                     <p>
-                        <span style="font-size:12px;">Function</span>
+                        <span>Function</span>
                     </p>
                     <p>
-                        <span style="font-size:12px;">(See note 3)</span>
-                    </p>
-                </div>
-                <div style="display: table-cell; vertical-align: middle;">
-                    <span style="margin-left:50px; font-weight: bold;">{{plateData.functionCode}}</span>
-                </div>
-            </td>
-            <td colspan="3"
-                style="padding-left: 3px; padding-bottom: 3px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;">
-                <div style="display: table-cell; font-align: center; ">
-                    <p>
-                        <span style="font-size:12px;">Year of Original&nbsp;</span>
-                    </p>
-                    <p>
-                        <span style="font-size:12px;">Registration</span>
+                        <span>(See note 3)</span>
                     </p>
                 </div>
-                <div style="display: table-cell; vertical-align: middle;">
-                    <span style="margin-left:10px; font-weight: bold;">{{plateData.regnDate}}</span>
+                <div class="inline_elem_child align_middle">
+                    <span class="function_code_data">{{plateData.functionCode}}</span>
                 </div>
             </td>
-            <td colspan="6"
-                style="padding-left: 3px; padding-bottom: 3px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;">
-                <div style="display: table-cell;">
+            <td colspan="3" class="no_border_left_top regn_date">
+                <div class="inline_elem_child">
                     <p>
-                        <span style="font-size:12px;">Year of</span>
+                        <span>Year of Original</span>
+                    </p>
+                    <p> Registration </p>
+                </div>
+                <div class="inline_elem_child align_middle">
+                    <span class="regn_date_data">{{plateData.regnDate}}</span>
+                </div>
+            </td>
+            <td colspan="6" class="no_border_left_top manufacture_year">
+                <div class="inline_elem_child">
+                    <p>
+                        <span>Year of</span>
                     </p>
                     <p>
-                        <span style="font-size:12px;">Manufacture</span>
+                        <span>Manufacture</span>
                     </p>
                 </div>
-                <div style="display: table-cell; vertical-align: middle;">
-                    <span style="margin-left:50px; font-weight: bold;">{{plateData.manufactureYear}}</span>
+                <div class="inline_elem_child align_middle">
+                    <span class="manufacture_year_data">{{plateData.manufactureYear}}</span>
                 </div>
             </td>
         </tr>
         <tr>
-            <td colspan="2" rowspan="2"
-                style="width: 25%;border-right: 1px solid black;border-bottom: 1px solid black;border-left: 1px solid black;border-top: none;vertical-align: top;">
-                <div style='display: table;font-size:12px;'>
-                    <span style="display: table-cell; font-weight: bold; width: 25%; text-align: center;"> (1) </span>
-                    <span style="font-weight: bold; display: table-cell;">Description of Weights Applicable to vehicle</span>
+            <td colspan="2" rowspan="2" class="weights_description width_25">
+                <div class="inline_elem">
+                    <span class="inline_elem_child weight_numbering"> (1) </span>
+                    <span class="inline_elem_child weight_title">Description of Weights Applicable to vehicle</span>
                 </div>
             </td>
-            <td colspan="2" rowspan="2"
-                style="width: 25%;border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <div style='display: flex;font-size:12px;'>
-                    <span style="display: table-cell; font-weight: bold; width: 25%; text-align: center;"> (2) </span>
-                    <span style="font-weight: bold; display: table-cell;">Weights not to be exceeded in Gt. Britain</span>
+            <td colspan="2" rowspan="2" class="no_border_left_top align_top width_25">
+                <div class="inline_elem">
+                    <span class="inline_elem_child weight_numbering"> (2) </span>
+                    <span class="inline_elem_child weight_title">Weights not to be exceeded in Gt. Britain</span>
                 </div>
             </td>
-            <td rowspan="2"
-                style="width: 25%;border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <div style='display: flex;font-size:12px;'>
-                    <span style="display: table-cell; font-weight: bold; width: 25%; text-align: center;"> (3) </span>
-                    <span style="font-weight: bold; display: table-cell;">EEC Maximum permitted weights</span>
+            <td rowspan="2" class="no_border_left_top align_top width_25">
+                <div class="inline_elem">
+                    <span class="inline_elem_child weight_numbering"> (3) </span>
+                    <span class="inline_elem_child weight_title">EEC Maximum permitted weights</span>
                 </div>
-                <p style='margin: auto;text-align:center;font-size:11px;'>(See note 8)</p>
+                <p class="weight_notes">(See note 8)</p>
             </td>
-            <td colspan="2" rowspan="2"
-                style="width: 25%;border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <div style='display: flex;font-size:12px;'>
-                    <span style="display: table-cell; font-weight: bold; width: 35%; text-align: center;"> (4) </span>
-                    <span style="font-weight: bold; display: table-cell;">Design Weights</span>
+            <td colspan="2" rowspan="2" class="no_border_left_top align_top width_25">
+                <div class="inline_elem">
+                    <span class="inline_elem_child weight_numbering"> (4) </span>
+                    <span class="inline_elem_child weight_title">Design Weights</span>
                 </div>
-                <p style='margin: auto;text-align:center;font-size:11px;'>(if higher
-                    than shown in column 2)</p>
+                <p class="weight_notes">(if higher than shown in column 2)</p>
             </td>
-            <td colspan="2"
-                style="padding: 5px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
-                <p style='font-size: 12px;text-align:center;'><strong>Length</strong></p>
+            <td colspan="2" class="no_border_left_top length_width">
+                <p class="centered_data"><strong>Length</strong></p>
             </td>
-            <td colspan="4"
-                style="padding: 5px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
-                <p style='font-size: 12px;text-align:center;'><strong>Width</strong></p>
+            <td colspan="4" class="no_border_left_top length_width">
+                <p class="centered_data"><strong>Width</strong></p>
             </td>
         </tr>
         <tr>
-            <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
-                <p style='font-size: 12px;text-align:center;'>
+            <td colspan="2" class="no_border_left_top align_middle">
+                <p class="centered_data">
                     <strong>{{plateData.dimensionLength}}</strong>
                 </p>
             </td>
-            <td colspan="4"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
-                <p style='font-size: 12px;text-align:center;'>
+            <td colspan="4" class="no_border_left_top align_middle">
+                <p class="centered_data">
                     <strong>{{plateData.dimensionWidth}}</strong>
                 </p>
             </td>
         </tr>
         <tr>
-            <td colspan="2"
-                style="border-right: 1px solid black;border-bottom: 1px solid black;border-left: 1px solid black;border-image: initial;border-top: none;vertical-align: middle;">
-                <p style='font-size: 10px;text-align:center;'>
-                    <strong style="font-size:12px;">Gross Weight</strong></p>
-                <p style='font-size: 10px;text-align:center;'>
-                    <span style="font-size:11px;">(See notes 1 &amp; 4)</span></p>
+            <td colspan="2" class="no_border_top align_middle">
+                <p class="centered_title">
+                    <strong class="weight_titles">Gross Weight</strong>
+                </p>
+                <p class="centered_title">
+                    <span class="weight_notes">(See notes 1 &amp; 4)</span>
+                </p>
             </td>
-            <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
-                <p style='font-size: 12px;text-align:center;'>
-                    <strong>{{plateData.grossGbWeight}}</strong></p>
+            <td colspan="2" class="no_border_left_top align_middle">
+                <p class="centered_data">
+                    <strong>{{plateData.grossGbWeight}}</strong>
+                </p>
             </td>
-            <td
-                    style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
-                <p style='font-size: 12px;text-align:center;'>
-                    <strong>{{plateData.grossEecWeight}}</strong></p>
+            <td class="no_border_left_top align_middle">
+                <p class="centered_data">
+                    <strong>{{plateData.grossEecWeight}}</strong>
+                </p>
             </td>
-            <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
-                <p style='font-size: 12px;text-align:center;'>
-                    <strong>{{plateData.grossDesignWeight}}</strong></p>
+            <td colspan="2" class="no_border_left_top align_middle">
+                <p class="centered_data">
+                    <strong>{{plateData.grossDesignWeight}}</strong>
+                </p>
             </td>
-            <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
-                <div style='text-align: center; width:120px;font-size: 10px;'>
-                    <span style="font-size:11px;">a. Coupling centre to vehicle foremost part (See note 6)</span>
+            <td colspan="2" class="no_border_left_top align_middle">
+                <div class="coupling_foremost">
+                    <span>a. Coupling centre to vehicle foremost part (See note 6)</span>
                 </div>
             </td>
-            <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <div style="width: 57px;">
-                    <p style='font-size: 10px;text-align:center;'>
-                        <strong style="font-size:8px;">Max</strong></p>
-                    <p style='font-size: 12px;text-align:center;'>
-                        <strong>{{plateData.frontAxleTo5thWheelCouplingMax}}</strong></p>
+            <td colspan="2" class="no_border_left_top align_top">
+                <div class="coupling_max_min">
+                    <p class="centered_title">
+                        <strong>Max</strong>
+                    </p>
+                    <p class="centered_data">
+                        <strong>{{plateData.frontAxleTo5thWheelCouplingMax}}</strong>
+                    </p>
                 </div>
             </td>
-            <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <div style="width: 57px;">
-                    <p style='font-size: 10px;text-align:center;'>
-                        <strong style="font-size:8px;">Min</strong></p>
-                    <p style='font-size: 12px;text-align:center;'>
-                        <strong>{{plateData.frontAxleTo5thWheelCouplingMin}}</strong></p>
+            <td colspan="2" class="no_border_left_top align_top">
+                <div class="coupling_max_min">
+                    <p class="centered_title">
+                        <strong>Min</strong></p>
+                    <p class="centered_data">
+                        <strong>{{plateData.frontAxleTo5thWheelCouplingMin}}</strong>
+                    </p>
                 </div>
             </td>
         </tr>
         <tr>
-            <td colspan="2"
-                style="border-right: 1px solid black;border-bottom: 1px solid black;border-left: 1px solid black;border-image: initial;border-top: none;vertical-align: middle;">
-                <p style='font-size: 10px;text-align:center;'>
-                    <strong style="font-size:12px;">Train Weight</strong></p>
-                <p style='font-size: 10px;text-align:center;'>
-                    <span style="font-size:11px;">(See note 2)</span></p>
+            <td colspan="2" class="no_border_top align_middle">
+                <p class="centered_title">
+                    <strong class="weight_titles">Train Weight</strong>
+                </p>
+                <p class="centered_title">
+                    <span class="weight_notes">(See note 2)</span>
+                </p>
             </td>
-            <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
-                <p style='font-size: 12px;text-align:center;'>
-                    <strong>{{plateData.trainGbWeight}}</strong></p>
+            <td colspan="2" class="no_border_left_top align_middle">
+                <p class="centered_data">
+                    <strong>{{plateData.trainGbWeight}}</strong>
+                </p>
             </td>
-            <td
-                    style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
-                <p style='font-size: 12px;text-align:center;'>
-                    <strong>{{plateData.trainEecWeight}}</strong></p>
+            <td class="no_border_left_top align_middle">
+                <p class="centered_data">
+                    <strong>{{plateData.trainEecWeight}}</strong>
+                </p>
             </td>
-            <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
-                <p style='font-size: 12px;text-align:center;'>
-                    <strong>{{plateData.trainDesignWeight}}</strong></p>
+            <td colspan="2" class="no_border_left_top align_middle">
+                <p class="centered_data">
+                    <strong>{{plateData.trainDesignWeight}}</strong>
+                </p>
             </td>
-            <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
-                <div style='text-align: center; font-size: 10px;'>
-                    <span style="font-size:11px;">b. Coupling centre to vehicle rearmost part (See note 7)</span>
+            <td colspan="2" class="no_border_left_top align_middle">
+                <div class="coupling_rearmost">
+                    <span>b. Coupling centre to vehicle rearmost part (See note 7)</span>
                 </div>
             </td>
-            <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size: 10px;text-align:center;'>
-                    <strong style="font-size:8px;">Max</strong></p>
-                <p style='font-size: 12px;text-align:center;'>
-                    <strong>{{plateData.couplingCenterToRearTrlMax}}</strong></p>
+            <td colspan="2" class="no_border_left_top align_top">
+                <p class="centered_title">
+                    <strong style="font-size:8px;">Max</strong>
+                </p>
+                <p class="centered_data">
+                    <strong>{{plateData.couplingCenterToRearTrlMax}}</strong>
+                </p>
             </td>
-            <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size: 10px;text-align:center;'>
-                    <strong style="font-size:8px;">Min</strong></p>
-                <p style='font-size: 12px;text-align:center;'>
-                    <strong>{{plateData.couplingCenterToRearTrlMin}}</strong></p>
+            <td colspan="2" class="no_border_left_top align_top">
+                <p class="centered_title">
+                    <strong style="font-size:8px;">Min</strong>
+                </p>
+                <p class="centered_data">
+                    <strong>{{plateData.couplingCenterToRearTrlMin}}</strong>
+                </p>
             </td>
         </tr>
         <tr>
-            <td colspan="2"
-                style="border-right: 1px solid black;border-bottom: 1px solid black;border-left: 1px solid black;border-image: initial;border-top: none;vertical-align: middle;">
-                <p style='font-size: 10px;text-align:center;'>
-                    <strong style="font-size:12px;">Max. Train Weight</strong></p>
-                <p style='font-size: 10px;text-align:center;'>
-                    <span style="font-size:11px;">(See note 5)</span></p>
+            <td colspan="2" class="no_border_top align_middle">
+                <p class="centered_title">
+                    <strong class="weight_titles">Max. Train Weight</strong>
+                </p>
+                <p class="centered_title">
+                    <span class="weight_notes">(See note 5)</span>
+                </p>
             </td>
-            <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
-                <p style='font-size: 12px;text-align:center;'>
-                    <strong>{{plateData.maxTrainGbWeight}}</strong></p>
+            <td colspan="2" class="no_border_left_top align_middle">
+                <p class="centered_data">
+                    <strong>{{plateData.maxTrainGbWeight}}</strong>
+                </p>
             </td>
-            <td style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
-                <p style='font-size: 12px;text-align:center;'>
-                    <strong>{{plateData.maxTrainEecWeight}}</strong></p>
+            <td class="no_border_left_top align_middle">
+                <p class="centered_data">
+                    <strong>{{plateData.maxTrainEecWeight}}</strong>
+                </p>
             </td>
-            <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;background: rgb(165, 165, 165);">
+            <td colspan="2" class="no_border_left_top gray_box">
             </td>
-            <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+            <td colspan="2" class="no_border_left_top align_middle">
                 <div>
-                    <p style='font-size: 10px;text-align:center;'>
-                        <strong style="font-size:11px;">Tyre size</strong></p>
-                    <p style='font-size: 10px;text-align:center;'>
-                        <span style="font-size:11px;">(Fitted at time of issue of certificate)</span></p>
+                    <p class="centered_title tyres">
+                        <strong class="weight_notes">Tyre size</strong>
+                    </p>
+                    <p class="centered_title tyres">
+                        <span class="weight_notes">(Fitted at time of issue of certificate)</span>
+                    </p>
                 </div>
             </td>
-            <td colspan="3"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
+            <td colspan="3" class="no_border_left_top align_top">
                 <div>
-                    <p style='padding-left: 5px; font-size:11px;'> Ply rating or load index</p>
+                    <p class="ply_load_index"> Ply rating or load index</p>
                 </div>
             </td>
-            <td style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <div style="text-align: center;">
-                    <p style='font-size:11px;'>*S</p>
-                    <p style='font-size:11px;'>or</p>
-                    <p style='font-size:11px;'>D</p>
+            <td class="no_border_left_top align_top">
+                <div class="centered_title">
+                    <p class="fitment_code">*S</p>
+                    <p class="fitment_code">or</p>
+                    <p class="fitment_code">D</p>
                 </div>
             </td>
         </tr>
         <tr>
-            <td rowspan="4"
-                style="border-right: 1px solid black;border-bottom: 1px solid black;border-left: 1px solid black;border-image: initial;border-top: none;vertical-align: top;">
-                <p style='font-size: 10px;text-align:center;'>
-                    <strong style="font-size:10px;">Axle&nbsp;</strong></p>
-                <p style='font-size: 10px;text-align:center;'>
-                    <strong style="font-size:10px;">Weights</strong></p>
-                <p style='font-size: 10px;text-align:center;'>
-                    <span style="font-size:9px;">(Axle&nbsp;</span></p>
-                <p style='font-size: 10px;text-align:center;'>
-                    <span style="font-size:9px;">numbered&nbsp;</span></p>
-                <p style='font-size: 10px;text-align:center;'>
-                    <span style="font-size:9px;">from front&nbsp;</span></p>
-                <p style='font-size: 10px;text-align:center;'>
-                    <span style="font-size:9px;">to rear)&nbsp;</span></p>
-                <p style='font-size: 10px;text-align:center;'>
-                    <span style="font-size:9px;">(See note 1)</span></p>
+            <td rowspan="4" class="no_border_top align_top">
+                <p class="centered_title">
+                    <strong class="axle_weights">Axle</strong>
+                </p>
+                <p class="centered_title">
+                    <strong class="axle_weights">Weights</strong>
+                </p>
+                <p class="centered_title">
+                    <span class="axle_weights_notes">(Axle</span>
+                </p>
+                <p class="centered_title">
+                    <span class="axle_weights_notes">numbered</span>
+                </p>
+                <p class="centered_title">
+                    <span class="axle_weights_notes">from front</span>
+                </p>
+                <p class="centered_title">
+                    <span class="axle_weights_notes">to rear)</span>
+                </p>
+                <p class="centered_title">
+                    <span class="axle_weights_notes">(See note 1)</span>
+                </p>
             </td>
-            <td style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
-                <p style='font-size:10px;text-align:center;'>Axle 1</p>
+            <td class="no_border_left_top axle1">
+                <p class="axle_number"> Axle 1 </p>
             </td>
-            <td colspan="2"
-                style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+            <td colspan="2" class="no_border_left_top axle_data">
                 {{#if plateData.axles.axle1.weights.gbWeight}}
-                    <p style='font-size: 12px;text-align:center;'>
+                    <p class="centered_data">
                         <strong>{{plateData.axles.axle1.weights.gbWeight}}</strong>
                     </p>
                 {{else}}
                     <br/>
                 {{/if}}
             </td>
-            <td style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+            <td class="no_border_left_top axle_data">
                 {{#if plateData.axles.axle1.weights.eecWeight}}
-                    <p style='font-size: 12px;text-align:center;'>
+                    <p class="centered_data">
                         <strong>{{plateData.axles.axle1.weights.eecWeight}}</strong>
                     </p>
                 {{else}}
                     <br/>
                 {{/if}}
             </td>
-            <td colspan="2"
-                style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+            <td colspan="2" class="no_border_left_top axle_data">
                 {{#if plateData.axles.axle1.weights.designWeight}}
-                    <p style='font-size: 12px;text-align:center;'>
+                    <p class="centered_data">
                         <strong>{{plateData.axles.axle1.weights.designWeight}}</strong>
                     </p>
                 {{else}}
                     <br/>
                 {{/if}}
             </td>
-            <td colspan="2"
-                style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+            <td colspan="2" class="no_border_left_top axle_data">
                 {{#if plateData.axles.axle1.tyres.tyreSize}}
-                    <p style='font-size: 12px;text-align:center;'>
+                    <p class="centered_data">
                         <strong>{{plateData.axles.axle1.tyres.tyreSize}}</strong>
                     </p>
                 {{else}}
                     <br/>
                 {{/if}}
             </td>
-            <td colspan="3"
-                style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+            <td colspan="3" class="no_border_left_top axle_data">
                 {{#if plateData.axles.axle1.tyres.plyRating}}
-                    <div style='font-size: 12px;text-align:center; white-space: nowrap;'>
+                    <div class="ply_rating">
                         <strong>{{plateData.axles.axle1.tyres.plyRating}}</strong>
                     </div>
                 {{else}}
                     <br/>
                 {{/if}}
             </td>
-            <td style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+            <td class="no_border_left_top axle_data">
                 {{#if plateData.axles.axle1.tyres.fitmentCode}}
-                    <p style='font-size: 12px;text-align:center;'>
+                    <p class="centered_data">
                         <strong>{{plateData.axles.axle1.tyres.fitmentCode}}</strong>
                     </p>
                 {{else}}
@@ -416,61 +401,57 @@
             </td>
         </tr>
         <tr>
-            <td style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
-                <p style='font-size:10px;text-align:center;'>Axle 2</p>
+            <td class="no_border_left_top axle_data">
+                <p class="axle_number"> Axle 2 </p>
             </td>
-            <td colspan="2"
-                style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+            <td colspan="2" class="no_border_left_top axle_data">
                 {{#if plateData.axles.axle2.weights.gbWeight}}
-                    <p style='font-size: 12px;text-align:center;'>
+                    <p class="centered_data">
                         <strong>{{plateData.axles.axle2.weights.gbWeight}}</strong>
                     </p>
                 {{else}}
                     <br/>
                 {{/if}}
             </td>
-            <td style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+            <td class="no_border_left_top axle_data">
                 {{#if plateData.axles.axle2.weights.eecWeight}}
-                    <p style='font-size: 12px;text-align:center;'>
+                    <p class="centered_data">
                         <strong>{{plateData.axles.axle2.weights.eecWeight}}</strong>
                     </p>
                 {{else}}
                     <br/>
                 {{/if}}
             </td>
-            <td colspan="2"
-                style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+            <td colspan="2" class="no_border_left_top axle_data">
                 {{#if plateData.axles.axle2.weights.designWeight}}
-                    <p style='font-size: 12px;text-align:center;'>
+                    <p class="centered_data">
                         <strong>{{plateData.axles.axle2.weights.designWeight}}</strong>
                     </p>
                 {{else}}
                     <br/>
                 {{/if}}
             </td>
-            <td colspan="2"
-                style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+            <td colspan="2" class="no_border_left_top axle_data">
                 {{#if plateData.axles.axle2.tyres.tyreSize}}
-                    <p style='font-size: 12px;text-align:center;'>
+                    <p class="centered_data">
                         <strong>{{plateData.axles.axle2.tyres.tyreSize}}</strong>
                     </p>
                 {{else}}
                     <br/>
                 {{/if}}
             </td>
-            <td colspan="3"
-                style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+            <td colspan="3" class="no_border_left_top axle_data">
                 {{#if plateData.axles.axle2.tyres.plyRating}}
-                    <div style='font-size: 12px;text-align:center; white-space: nowrap;'>
+                    <div class="ply_rating">
                         <strong>{{plateData.axles.axle2.tyres.plyRating}}</strong>
                     </div>
                 {{else}}
                     <br/>
                 {{/if}}
             </td>
-            <td style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+            <td class="no_border_left_top axle_data">
                 {{#if plateData.axles.axle2.tyres.fitmentCode}}
-                    <p style='font-size: 12px;text-align:center;'>
+                    <p class="centered_data">
                         <strong>{{plateData.axles.axle2.tyres.fitmentCode}}</strong>
                     </p>
                 {{else}}
@@ -479,61 +460,57 @@
             </td>
         </tr>
         <tr>
-            <td style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
-                <p style='font-size:10px;text-align:center;'>Axle 3</p>
+            <td class="no_border_left_top align_middle">
+                <p class="axle_number"> Axle 3 </p>
             </td>
-            <td colspan="2"
-                style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+            <td colspan="2" class="no_border_left_top axle_data">
                 {{#if plateData.axles.axle3.weights.gbWeight}}
-                    <p style='font-size: 12px;text-align:center;'>
+                    <p class="centered_data">
                         <strong>{{plateData.axles.axle3.weights.gbWeight}}</strong>
                     </p>
                 {{else}}
                     <br/>
                 {{/if}}
             </td>
-            <td style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+            <td class="no_border_left_top axle_data">
                 {{#if plateData.axles.axle3.weights.eecWeight}}
-                    <p style='font-size: 12px;text-align:center;'>
+                    <p class="centered_data">
                         <strong>{{plateData.axles.axle3.weights.eecWeight}}</strong>
                     </p>
                 {{else}}
                     <br/>
                 {{/if}}
             </td>
-            <td colspan="2"
-                style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+            <td colspan="2" class="no_border_left_top axle_data">
                 {{#if plateData.axles.axle3.weights.designWeight}}
-                    <p style='font-size: 12px;text-align:center;'>
+                    <p class="centered_data">
                         <strong>{{plateData.axles.axle3.weights.designWeight}}</strong>
                     </p>
                 {{else}}
                     <br/>
                 {{/if}}
             </td>
-            <td colspan="2"
-                style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+            <td colspan="2" class="no_border_left_top axle_data">
                 {{#if plateData.axles.axle3.tyres.tyreSize}}
-                    <p style='font-size: 12px;text-align:center;'>
+                    <p class="centered_data">
                         <strong>{{plateData.axles.axle3.tyres.tyreSize}}</strong>
                     </p>
                 {{else}}
                     <br/>
                 {{/if}}
             </td>
-            <td colspan="3"
-                style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+            <td colspan="3" class="no_border_left_top axle_data">
                 {{#if plateData.axles.axle3.tyres.plyRating}}
-                    <div style='font-size: 12px;text-align:center; white-space: nowrap;'>
+                    <div class="ply_rating">
                         <strong>{{plateData.axles.axle3.tyres.plyRating}}</strong>
                     </div>
                 {{else}}
                     <br/>
                 {{/if}}
             </td>
-            <td style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+            <td class="no_border_left_top axle_data">
                 {{#if plateData.axles.axle3.tyres.fitmentCode}}
-                    <p style='font-size: 12px;text-align:center;'>
+                    <p class="centered_data">
                         <strong>{{plateData.axles.axle3.tyres.fitmentCode}}</strong>
                     </p>
                 {{else}}
@@ -542,61 +519,57 @@
             </td>
         </tr>
         <tr>
-            <td style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
-                <p style='font-size:10px;text-align:center;'>Axle 4</p>
+            <td class="no_border_left_top axle_data">
+                <p class="axle_number">Axle 4</p>
             </td>
-            <td colspan="2"
-                style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+            <td colspan="2" class="no_border_left_top axle_data">
                 {{#if plateData.axles.axle4.weights.gbWeight}}
-                    <p style='font-size: 12px;text-align:center;'>
+                    <p class="centered_data">
                         <strong>{{plateData.axles.axle4.weights.gbWeight}}</strong>
                     </p>
                 {{else}}
                     <br/>
                 {{/if}}
             </td>
-            <td style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+            <td class="no_border_left_top axle_data">
                 {{#if plateData.axles.axle4.weights.eecWeight}}
-                    <p style='font-size: 12px;text-align:center;'>
+                    <p class="centered_data">
                         <strong>{{plateData.axles.axle4.weights.eecWeight}}</strong>
                     </p>
                 {{else}}
                     <br/>
                 {{/if}}
             </td>
-            <td colspan="2"
-                style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+            <td colspan="2" class="no_border_left_top axle_data">
                 {{#if plateData.axles.axle4.weights.designWeight}}
-                    <p style='font-size: 12px;text-align:center;'>
+                    <p class="centered_data">
                         <strong>{{plateData.axles.axle4.weights.designWeight}}</strong>
                     </p>
                 {{else}}
                     <br/>
                 {{/if}}
             </td>
-            <td colspan="2"
-                style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+            <td colspan="2" class="no_border_left_top axle_data">
                 {{#if plateData.axles.axle4.tyres.tyreSize}}
-                    <p style='font-size: 12px;text-align:center;'>
+                    <p class="centered_data">
                         <strong>{{plateData.axles.axle4.tyres.tyreSize}}</strong>
                     </p>
                 {{else}}
                     <br/>
                 {{/if}}
             </td>
-            <td colspan="3"
-                style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+            <td colspan="3" class="no_border_left_top axle_data">
                 {{#if plateData.axles.axle4.tyres.plyRating}}
-                    <div style='font-size: 12px;text-align:center; white-space: nowrap;'>
+                    <div class="ply_rating">
                         <strong>{{plateData.axles.axle4.tyres.plyRating}}</strong>
                     </div>
                 {{else}}
                     <br/>
                 {{/if}}
             </td>
-            <td style="padding: 10px; border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
+            <td class="no_border_left_top axle_data">
                 {{#if plateData.axles.axle4.tyres.fitmentCode}}
-                    <p style='font-size: 12px;text-align:center;'>
+                    <p class="centered_data">
                         <strong>{{plateData.axles.axle4.tyres.fitmentCode}}</strong>
                     </p>
                 {{else}}
@@ -605,58 +578,55 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2"
-                style="border-right: 1px solid black;border-bottom: 1px solid black;border-left: 1px solid black;border-image: initial;border-top: none;padding-bottom: 2px;">
-                <p style='font-size: 10px;text-align:center;'>
+            <td colspan="2" class="no_border_top max_kingpin">
+                <p class="max_kingpin_title">
                     <strong>Maximum Kingpin</strong>
                 </p>
-                <p style="font-size: 10px;text-align:center;">
+                <p class="max_kingpin_title">
                     <strong>Load</strong>
                 </p>
-                <p style='font-size: 9px;text-align:center;'>
+                <p class="max_kingpin_note">
                     <span>(Semi-Trailers Only)</span>
                 </p>
             </td>
-            <td colspan="3"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;background: rgb(165, 165, 165);vertical-align: top;">
+            <td colspan="3" class="no_border_left_top align_top gray_box">
             </td>
-            <td colspan="2"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: middle;">
-                <p style='font-size: 10px;text-align:center;'>
+            <td colspan="2" class="no_border_left_top align_middle">
+                <p class="max_load">
                     <strong>{{plateData.maxLoadOnCoupling}}</strong>
                 </p>
             </td>
-            <td colspan="6"
-                style="border-top: none;border-left: none;border-bottom: 1px solid black;border-right: 1px solid black;vertical-align: top;">
-                <p style='font-size: 10px;text-align:center;'>
+            <td colspan="6" class="no_border_left_top align_top">
+                <p class="max_kingpin_title">
                     *&rsquo;S&rsquo; indicates single wheels
                 </p>
-                <p style='font-size: 10px;text-align:center;'>
+                <p class="max_kingpin_title">
                     &lsquo;D&rsquo; indicates dual wheels
                 </p>
             </td>
         </tr>
         <tr>
-            <td colspan="13"
-                style="background: rgb(165, 165, 165); border-right: 1px solid black;border-bottom: 1px solid black;border-left: 1px solid black;border-image: initial;border-top: none;vertical-align: top;">
-                <div style="height: 100%;">
-                    <div style="display: table; width: 100%;">
-                        <div style="display: table-cell; width: 62%;"></div>
-                        <div style="display: table-cell; width: 28%; vertical-align: middle;">
-                            <p style="font-size: 10px; padding-top: 10px">
+            <td colspan="13" class="no_border_top align_top gray_box">
+                <div class="bottom_gray_div">
+                    <div class="inline_elem">
+                        <div class="inline_elem_child empty_div_before_tyre_use"></div>
+                        <div class="inline_elem_child tyre_use">
+                            <p>
                                 Tyre use conditions applicable to vehicle (See note 12)
                             </p>
                         </div>
-                        <div style="display: table-cell; text-align: center; width: 10%; vertical-align: middle;">
-                            <p style="padding-top: 10px; font-weight: bold; font-size: 12px;">
+                        <div class="inline_elem_child tyre_use_data">
+                            <p>
                                 {{plateData.tyreUseCode}}
                             </p>
                         </div>
                     </div>
-                    <div style="border: 0.5px solid black; height: 46%; margin: 10px 10px 5px 10px; font-size: 10px; padding: 5px; background-color: white">
+                    <div class="notifiable_alt">
                         <p>NOTIFIABLE ALTERATIONS (Section 51 (1) (d) of the Road Traffic Act 1988)</p>
-                        <p style="padding-bottom: 10px;">The following alterations in the vehicle or the equipment must
-                            be notified to the Secretary of State. (See notes 9 to 11)</p>
+                        <p class="notifiable_alt_following">
+                            The following alterations in the vehicle or the equipment must
+                            be notified to the Secretary of State. (See notes 9 to 11)
+                        </p>
                         <p>(a) &nbsp; An alteration made in the structure or fixed equipment of the vehicle which
                             carries the carrying capacity or towing capacity of the vehicle;</p>
                         <p>(b) &nbsp; An alteration, affecting any part of a braking system or the steering system with
@@ -665,38 +635,37 @@
                             renders or is likely to render the vehicle unsafe to travel on roads at any weight equal to
                             any weight shown in column (2) of the plating certificate.</p>
                     </div>
-                    <div style="display: table; height: 35%; margin: 0px 10px 5px 10px; padding: 5px;">
-                        <div style="width: 60%; display: table-cell;">
-                            <div style="display: table; width: 100%;">
-                                <div style="display: table-cell; background-color: white; border: 1px solid black; width:25%; font-size: 10px;">
-                                    <p style="padding-top: 7px; padding-bottom: 7px; padding-left: 2px;">Vehicle Testing Station No.</p>
+                    <div class="inline_elem bottom_details">
+                        <div class="inline_elem_child bottom_left_details">
+                            <div class="inline_elem">
+                                <div class="inline_elem_child test_station">
+                                    <p>Vehicle Testing Station No.</p>
                                 </div>
-                                <div style="vertical-align: middle; display: table-cell; background-color: white;border: 1px solid black; width:25%;">
-                                    <p style="text-align: center; font-weight: bold; ">H999</p>
+                                <div class="inline_elem_child h999">
+                                    <p>H999</p>
                                 </div>
-                                <div style="display: table-cell;"></div>
-                                <div style="vertical-align: middle; display: table-cell; background-color: white; border: 1px solid black; width:25%; font-size: 10px;">
-                                    <p style="padding: 2px; text-align: center; width: 45%; margin-left: 25%;">Date of
-                                        Issue</p>
+                                <div class="inline_elem_child"></div>
+                                <div class="inline_elem_child date_of_issue">
+                                    <p>Date of Issue</p>
                                 </div>
-                                <div style="vertical-align: middle; display: table-cell; background-color: white; border: 1px solid black; width:25%; font-size: 12px;">
-                                    <p style="text-align: center; font-weight: bold;">{{plateData.plateIssueDate}}</p>
+                                <div class="inline_elem_child issue_date">
+                                    <p>{{plateData.plateIssueDate}}</p>
                                 </div>
                             </div>
-                            <div style="display: table; width: 100%; border: 1px solid black; background-color: white; margin-top: 5px; height: 50%; ">
-                                <div style="display: table-cell; vertical-align: middle;">
-                                    <div style="background-color: black; width: 20px; height: 20px; margin-left: 20px;"></div>
+                            <div class="inline_elem black_square_container">
+                                <div class="inline_elem_child align_middle black_square_padding">
+                                    <div class="black_square"></div>
                                 </div>
-                                <div style="display: table-cell; vertical-align: middle; width: 35%; ">
-                                    <p style="font-size: 12px; text-align: center;">Signature</p>
+                                <div class="inline_elem_child signature">
+                                    <p>Signature</p>
                                 </div>
-                                <div style="display: table-cell; vertical-align: middle; width: 50%; ">
-                                    <img style="margin-left: 10%; padding-top: 2%;" src="{{signature.formattedImageData}}" alt="signature" height="40"/>
+                                <div class="inline_elem_child signature_container">
+                                    <img class="signature_data" src="{{signature.formattedImageData}}" alt="signature" height="40"/>
                                 </div>
                             </div>
                         </div>
-                        <div style="width: 40%; display: table-cell;">
-                            <div style="font-size: 10px; width: 85%; margin: auto;">
+                        <div class="inline_elem_child bottom_right_container">
+                            <div class="bottom_right_text_container">
                                 <p>
                                     The plated weights and other plated particulars specified in this plating
                                     certificate
