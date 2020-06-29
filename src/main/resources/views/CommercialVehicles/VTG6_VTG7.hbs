@@ -6,6 +6,7 @@
     <style type="text/css" media="print, screen">
             {{~> assets/stylesheets/plates this}}
 
+
     </style>
 </head>
 
@@ -15,7 +16,7 @@
         <tbody>
         <tr>
             <td colspan="4" rowspan="2" class="logo">
-                <img src="{{root}}/assets/images/dvsa-crest-1.1.png" alt="DVSA" width="125"/>
+                <img src="{{root}}/assets/images/dvsa-crest-1.1.png" alt="DVSA" width="110"/>
             </td>
             <td colspan="4" rowspan="2" class="plating_certificate">
                 <p class="department_for_transport">
@@ -109,7 +110,7 @@
                     <span class="function_code_data">{{plateData.functionCode}}</span>
                 </div>
             </td>
-            <td colspan="3" class="no_border_left_top regn_date">
+            <td colspan="4" class="no_border_left_top regn_date">
                 <div class="inline_elem_child">
                     <p>
                         <span>Year of Original</span>
@@ -120,7 +121,7 @@
                     <span class="regn_date_data">{{plateData.regnDate}}</span>
                 </div>
             </td>
-            <td colspan="6" class="no_border_left_top manufacture_year">
+            <td colspan="5" class="no_border_left_top manufacture_year">
                 <div class="inline_elem_child">
                     <p>
                         <span>Year of</span>
@@ -136,7 +137,7 @@
         </tr>
         <tr>
             <td colspan="2" rowspan="2" class="weights_description width_25">
-                <div class="inline_elem">
+                <div class="inline_elem description_of_weights">
                     <span class="inline_elem_child weight_numbering"> (1) </span>
                     <span class="inline_elem_child weight_title">Description of Weights Applicable to vehicle</span>
                 </div>
@@ -186,7 +187,7 @@
                     <strong class="weight_titles">Gross Weight</strong>
                 </p>
                 <p class="centered_title">
-                    <span class="weight_notes">(See notes 1 &amp; 4)</span>
+                    <span class="axle_weight_notes">(See notes 1 &amp; 4)</span>
                 </p>
             </td>
             <td colspan="2" class="no_border_left_top align_middle">
@@ -210,19 +211,16 @@
                 </div>
             </td>
             <td colspan="2" class="no_border_left_top align_top">
-                <div class="coupling_max_min">
-                    <p class="centered_title">
-                        <strong>Max</strong>
-                    </p>
+                <div class="centered_title coupling_max_min">
+                    <strong>Max</strong>
                     <p class="centered_data">
                         <strong>{{plateData.frontAxleTo5thWheelCouplingMax}}</strong>
                     </p>
                 </div>
             </td>
             <td colspan="2" class="no_border_left_top align_top">
-                <div class="coupling_max_min">
-                    <p class="centered_title">
-                        <strong>Min</strong></p>
+                <div class="centered_title coupling_max_min">
+                    <strong>Min</strong>
                     <p class="centered_data">
                         <strong>{{plateData.frontAxleTo5thWheelCouplingMin}}</strong>
                     </p>
@@ -235,7 +233,7 @@
                     <strong class="weight_titles">Train Weight</strong>
                 </p>
                 <p class="centered_title">
-                    <span class="weight_notes">(See note 2)</span>
+                    <span class="axle_weight_notes">(See note 2)</span>
                 </p>
             </td>
             <td colspan="2" class="no_border_left_top align_middle">
@@ -259,20 +257,20 @@
                 </div>
             </td>
             <td colspan="2" class="no_border_left_top align_top">
-                <p class="centered_title">
-                    <strong style="font-size:8px;">Max</strong>
-                </p>
-                <p class="centered_data">
-                    <strong>{{plateData.couplingCenterToRearTrlMax}}</strong>
-                </p>
+                <div class="centered_title coupling_max_min">
+                    <strong>Max</strong>
+                    <p class="centered_data">
+                        <strong>{{plateData.couplingCenterToRearTrlMax}}</strong>
+                    </p>
+                </div>
             </td>
             <td colspan="2" class="no_border_left_top align_top">
-                <p class="centered_title">
-                    <strong style="font-size:8px;">Min</strong>
-                </p>
-                <p class="centered_data">
-                    <strong>{{plateData.couplingCenterToRearTrlMin}}</strong>
-                </p>
+                <div class="centered_title coupling_max_min">
+                    <strong>Min</strong>
+                    <p class="centered_data">
+                        <strong>{{plateData.couplingCenterToRearTrlMin}}</strong>
+                    </p>
+                </div>
             </td>
         </tr>
         <tr>
@@ -281,7 +279,7 @@
                     <strong class="weight_titles">Max. Train Weight</strong>
                 </p>
                 <p class="centered_title">
-                    <span class="weight_notes">(See note 5)</span>
+                    <span class="axle_weight_notes">(See note 5)</span>
                 </p>
             </td>
             <td colspan="2" class="no_border_left_top align_middle">
@@ -299,10 +297,10 @@
             <td colspan="2" class="no_border_left_top align_middle">
                 <div>
                     <p class="centered_title tyres">
-                        <strong class="weight_notes">Tyre size</strong>
+                        <strong class="axle_weight_notes">Tyre size</strong>
                     </p>
                     <p class="centered_title tyres">
-                        <span class="weight_notes">(Fitted at time of issue of certificate)</span>
+                        <span class="axle_weight_notes">(Fitted at time of issue of certificate)</span>
                     </p>
                 </div>
             </td>
@@ -343,7 +341,7 @@
                     <span class="axle_weights_notes">(See note 1)</span>
                 </p>
             </td>
-            <td class="no_border_left_top axle1">
+            <td class="no_border_left_top">
                 <p class="axle_number"> Axle 1 </p>
             </td>
             <td colspan="2" class="no_border_left_top axle_data">
