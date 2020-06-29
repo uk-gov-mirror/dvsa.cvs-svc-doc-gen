@@ -177,4 +177,108 @@ public class CertificatePageObject extends BasePageObject {
                 throw new IllegalStateException("Unexpected value: " + id);
         }
     }
+
+    public String getPlateSerialNumber() {
+        return getElementById(PLATE_SERIAL_NUMBER.getSelector()).text();
+    }
+
+    public String getDtpNumber() {
+        return getElementById(DTP_NUM.getSelector()).text();
+    }
+
+    public String getPrimaryVrm() {
+        return getElementById(PRIMARY_VRM.getSelector()).text();
+    }
+
+    public String getVariantNumber() {
+        return getElementById(VARIANT_NUM.getSelector()).text();
+    }
+
+    public String getApprovalTypeNumber() {
+        return getElementById(APPROVAL_TYPE_NUM.getSelector()).text();
+    }
+
+    public String getSpeedLimiterMrk() {
+        return getElementById(SPEED_LIMITER_MRK.getSelector()).text();
+    }
+
+    public String getFunctionCode() {
+        return getElementById(FUNCTION_CODE.getSelector()).text();
+    }
+
+    public String getRegnDate() {
+        return getElementById(REGN_DATE.getSelector()).text();
+    }
+
+    public String getManufactureYear() {
+        return getElementById(MANUFACTURE_YEAR.getSelector()).text();
+    }
+
+    public String getGrossGbWeight() {
+        return getElementById(GROSS_GB_WEIGHT.getSelector()).text();
+    }
+
+    public String getGrossEecWeight() {
+        return getElementById(GROSS_EEC_WEIGHT.getSelector()).text();
+    }
+
+    public String getGrossDesignWeight() {
+        return getElementById(GROSS_DESIGN_WEIGHT.getSelector()).text();
+    }
+
+    public String getTrainGbWeight() {
+        return getElementById(TRAIN_GB_WEIGHT.getSelector()).text();
+    }
+
+    public String getTrainEecWeight() {
+        return getElementById(TRAIN_EEC_WEIGHT.getSelector()).text();
+    }
+
+    public String getTrainDesignWeight() {
+        return getElementById(TRAIN_DESIGN_WEIGHT.getSelector()).text();
+    }
+
+    public String getMaxTrainGbWeight() {
+        return getElementById(MAX_TRAIN_GB_WEIGHT.getSelector()).text();
+    }
+
+    public String getMaxTrainEecWeight() {
+        return getElementById(MAX_TRAIN_EEC_WEIGHT.getSelector()).text();
+    }
+
+    public String getMaxLoadOnCoupling() {
+        return getElementById(MAX_LOAD_ON_COUPLING.getSelector()).text();
+    }
+
+    public String getDimensionLength() {
+        return getElementById(DIMENSION_LENGTH.getSelector()).text();
+    }
+
+    public String getDimensionWidth() {
+        return getElementById(DIMENSION_WIDTH.getSelector()).text();
+    }
+
+    public String getFrontAxleTo5thWheelCouplingMin() {
+        return getElementById(FRONT_AXLE_TO_5TH_COUPLING_MIN.getSelector()).text();
+    }
+
+    public String getFrontAxleTo5thWheelCouplingMax() {
+        return getElementById(FRONT_AXLE_TO_5TH_COUPLING_MAX.getSelector()).text();
+    }
+
+    public String getCouplingCenterToRearTrlMax() {
+        return getElementById(COUPLING_CENTER_TO_REAR_TRL_MAX.getSelector()).text();
+    }
+
+    public String getCouplingCenterToRearTrlMin() {
+        return getElementById(COUPLING_CENTER_TO_REAR_TRL_MIN.getSelector()).text();
+    }
+
+    public String getPlateIssueDate() {
+        return getElementById(PLATE_ISSUE_DATE.getSelector()).text();
+    }
+
+    public String getTyreUseCode() {
+        return getElementById(TYRE_USE_CODE.getSelector()).text();
+    }
 }

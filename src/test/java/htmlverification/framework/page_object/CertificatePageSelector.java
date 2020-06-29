@@ -61,7 +61,35 @@ public enum CertificatePageSelector {
     RWT_DOC_VERSION("doc-version"),
     // end of Roadworthisness test selectors
     CVS_SIGNATURE_FIRST_PAGE("signature-first-page"),
-    CVS_SIGNATURE_SECOND_PAGE("signature-second-page");
+    CVS_SIGNATURE_SECOND_PAGE("signature-second-page"),
+
+    // VTG6_VTG7 Test Selectors
+    PLATE_SERIAL_NUMBER("plateSerialNumber"),
+    DTP_NUM("dtpNumber"),
+    PRIMARY_VRM("primaryVrm"),
+    VARIANT_NUM("variantNumber"),
+    APPROVAL_TYPE_NUM("approvalTypeNumber"),
+    SPEED_LIMITER_MRK("speedLimiterMrk"),
+    FUNCTION_CODE("functionCode"),
+    REGN_DATE("regnDate"),
+    MANUFACTURE_YEAR("manufactureYear"),
+    GROSS_GB_WEIGHT("grossGbWeight"),
+    GROSS_EEC_WEIGHT("grossEecWeight"),
+    GROSS_DESIGN_WEIGHT("grossDesignWeight"),
+    TRAIN_GB_WEIGHT("trainGbWeight"),
+    TRAIN_EEC_WEIGHT("trainEecWeight"),
+    TRAIN_DESIGN_WEIGHT("trainDesignWeight"),
+    MAX_TRAIN_GB_WEIGHT("maxTrainGbWeight"),
+    MAX_TRAIN_EEC_WEIGHT("maxTrainEecWeight"),
+    MAX_LOAD_ON_COUPLING("maxLoadOnCoupling"),
+    DIMENSION_LENGTH("dimensionLength"),
+    DIMENSION_WIDTH("dimensionWidth"),
+    FRONT_AXLE_TO_5TH_COUPLING_MIN("frontAxleTo5thWheelCouplingMin"),
+    FRONT_AXLE_TO_5TH_COUPLING_MAX("frontAxleTo5thWheelCouplingMax"),
+    COUPLING_CENTER_TO_REAR_TRL_MAX("couplingCenterToRearTrlMax"),
+    COUPLING_CENTER_TO_REAR_TRL_MIN("couplingCenterToRearTrlMin"),
+    PLATE_ISSUE_DATE("plateIssueDate"),
+    TYRE_USE_CODE("tyreUseCode");
 
     private final String selector;
 

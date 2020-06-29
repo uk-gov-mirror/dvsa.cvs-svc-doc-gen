@@ -45,32 +45,32 @@
             </td>
             <td colspan="5" class="plating_certificate">
                 <p class="serial_dtp"> Serial No.&nbsp;</p>
-                <p class="serial_dtp_value">{{plateData.plateSerialNumber}}</p>
+                <p class="serial_dtp_value" id="plateSerialNumber">{{plateData.plateSerialNumber}}</p>
             </td>
         </tr>
         <tr>
             <td colspan="6" class="dtp_data">
                 <p class="serial_dtp"> DTp Ref. No.&nbsp;</p>
-                <p class="serial_dtp_value">{{plateData.dtpNumber}}</p>
+                <p class="serial_dtp_value" id="dtpNumber">{{plateData.dtpNumber}}</p>
             </td>
         </tr>
         <tr>
             <td colspan="3" class="no_border_top align_top">
                 <p class="vehicle_identifier">Reg./ Ident Mark</p>
-                <p class="vehicle_identifier_data">{{plateData.primaryVrm}}</p>
+                <p class="vehicle_identifier_data" id="primaryVrm">{{plateData.primaryVrm}}</p>
             </td>
             <td colspan="5" class="no_border_left_top align_top">
                 <p class="vehicle_identifier">Vehicle Identification No.</p>
-                <p class="vehicle_identifier_data">{{plateData.vin}}</p>
+                <p class="vehicle_identifier_data" id="vin">{{plateData.vin}}</p>
             </td>
             <td colspan="5" class="no_border_left_top align_top">
                 <p class="vehicle_identifier">Variant</p>
-                <p class="vehicle_identifier_data">{{plateData.variantNumber}}</p>
+                <p class="vehicle_identifier_data" id="variantNumber">{{plateData.variantNumber}}</p>
             </td>
         </tr>
         <tr>
             <td colspan="13" class="no_border_top align_top">
-                <p class="tyre_approval">Tyre Approval No. &nbsp; <strong>{{plateData.approvalTypeNumber}}</strong></p>
+                <p class="tyre_approval">Tyre Approval No. &nbsp; <strong id="approvalTypeNumber">{{plateData.approvalTypeNumber}}</strong></p>
             </td>
         </tr>
         <tr>
@@ -80,7 +80,7 @@
                 </p>
                 <p>
                     <span>Model</span>
-                    <span class="manufacturer_data">{{plateData.make}}/{{plateData.model}}</span>
+                    <span class="manufacturer_data" id="make-model">{{plateData.make}}/{{plateData.model}}</span>
                 </p>
             </td>
             <td colspan="5" class="no_border_left_top align_top speed_limiter">
@@ -89,7 +89,7 @@
                 </p>
                 <p>
                     <span>Limiter</span>
-                    <span class="speed_limiter_data">{{plateData.speedLimiterMrk}}</span>
+                    <span class="speed_limiter_data" id="speedLimiterMrk">{{plateData.speedLimiterMrk}}</span>
                 </p>
                 <p>
                     <span>Exempt</span>
@@ -107,7 +107,7 @@
                     </p>
                 </div>
                 <div class="inline_elem_child align_middle">
-                    <span class="function_code_data">{{plateData.functionCode}}</span>
+                    <span class="function_code_data" id="functionCode">{{plateData.functionCode}}</span>
                 </div>
             </td>
             <td colspan="4" class="no_border_left_top regn_date">
@@ -118,7 +118,7 @@
                     <p> Registration </p>
                 </div>
                 <div class="inline_elem_child align_middle">
-                    <span class="regn_date_data">{{plateData.regnDate}}</span>
+                    <span class="regn_date_data" id="regnDate">{{plateData.regnDate}}</span>
                 </div>
             </td>
             <td colspan="5" class="no_border_left_top manufacture_year">
@@ -131,7 +131,7 @@
                     </p>
                 </div>
                 <div class="inline_elem_child align_middle">
-                    <span class="manufacture_year_data">{{plateData.manufactureYear}}</span>
+                    <span class="manufacture_year_data" id="manufactureYear">{{plateData.manufactureYear}}</span>
                 </div>
             </td>
         </tr>
@@ -172,12 +172,12 @@
         <tr>
             <td colspan="2" class="no_border_left_top align_middle">
                 <p class="centered_data">
-                    <strong>{{plateData.dimensionLength}}</strong>
+                    <strong id="dimensionLength">{{plateData.dimensionLength}}</strong>
                 </p>
             </td>
             <td colspan="4" class="no_border_left_top align_middle">
                 <p class="centered_data">
-                    <strong>{{plateData.dimensionWidth}}</strong>
+                    <strong id="dimensionWidth">{{plateData.dimensionWidth}}</strong>
                 </p>
             </td>
         </tr>
@@ -192,17 +192,17 @@
             </td>
             <td colspan="2" class="no_border_left_top align_middle">
                 <p class="centered_data">
-                    <strong>{{plateData.grossGbWeight}}</strong>
+                    <strong id="grossGbWeight">{{plateData.grossGbWeight}}</strong>
                 </p>
             </td>
             <td class="no_border_left_top align_middle">
                 <p class="centered_data">
-                    <strong>{{plateData.grossEecWeight}}</strong>
+                    <strong id="grossEecWeight">{{plateData.grossEecWeight}}</strong>
                 </p>
             </td>
             <td colspan="2" class="no_border_left_top align_middle">
                 <p class="centered_data">
-                    <strong>{{plateData.grossDesignWeight}}</strong>
+                    <strong id="grossDesignWeight">{{plateData.grossDesignWeight}}</strong>
                 </p>
             </td>
             <td colspan="2" class="no_border_left_top align_middle">
@@ -214,7 +214,7 @@
                 <div class="centered_title coupling_max_min">
                     <strong>Max</strong>
                     <p class="centered_data">
-                        <strong>{{plateData.frontAxleTo5thWheelCouplingMax}}</strong>
+                        <strong id="frontAxleTo5thWheelCouplingMax">{{plateData.frontAxleTo5thWheelCouplingMax}}</strong>
                     </p>
                 </div>
             </td>
@@ -222,7 +222,7 @@
                 <div class="centered_title coupling_max_min">
                     <strong>Min</strong>
                     <p class="centered_data">
-                        <strong>{{plateData.frontAxleTo5thWheelCouplingMin}}</strong>
+                        <strong id="frontAxleTo5thWheelCouplingMin">{{plateData.frontAxleTo5thWheelCouplingMin}}</strong>
                     </p>
                 </div>
             </td>
@@ -238,17 +238,17 @@
             </td>
             <td colspan="2" class="no_border_left_top align_middle">
                 <p class="centered_data">
-                    <strong>{{plateData.trainGbWeight}}</strong>
+                    <strong id="trainGbWeight">{{plateData.trainGbWeight}}</strong>
                 </p>
             </td>
             <td class="no_border_left_top align_middle">
                 <p class="centered_data">
-                    <strong>{{plateData.trainEecWeight}}</strong>
+                    <strong id="trainEecWeight">{{plateData.trainEecWeight}}</strong>
                 </p>
             </td>
             <td colspan="2" class="no_border_left_top align_middle">
                 <p class="centered_data">
-                    <strong>{{plateData.trainDesignWeight}}</strong>
+                    <strong id="trainDesignWeight">{{plateData.trainDesignWeight}}</strong>
                 </p>
             </td>
             <td colspan="2" class="no_border_left_top align_middle">
@@ -260,7 +260,7 @@
                 <div class="centered_title coupling_max_min">
                     <strong>Max</strong>
                     <p class="centered_data">
-                        <strong>{{plateData.couplingCenterToRearTrlMax}}</strong>
+                        <strong id="couplingCenterToRearTrlMax">{{plateData.couplingCenterToRearTrlMax}}</strong>
                     </p>
                 </div>
             </td>
@@ -268,7 +268,7 @@
                 <div class="centered_title coupling_max_min">
                     <strong>Min</strong>
                     <p class="centered_data">
-                        <strong>{{plateData.couplingCenterToRearTrlMin}}</strong>
+                        <strong id="couplingCenterToRearTrlMin">{{plateData.couplingCenterToRearTrlMin}}</strong>
                     </p>
                 </div>
             </td>
@@ -284,12 +284,12 @@
             </td>
             <td colspan="2" class="no_border_left_top align_middle">
                 <p class="centered_data">
-                    <strong>{{plateData.maxTrainGbWeight}}</strong>
+                    <strong id="maxTrainGbWeight">{{plateData.maxTrainGbWeight}}</strong>
                 </p>
             </td>
             <td class="no_border_left_top align_middle">
                 <p class="centered_data">
-                    <strong>{{plateData.maxTrainEecWeight}}</strong>
+                    <strong id="maxTrainEecWeight">{{plateData.maxTrainEecWeight}}</strong>
                 </p>
             </td>
             <td colspan="2" class="no_border_left_top gray_box">
@@ -592,7 +592,7 @@
             </td>
             <td colspan="2" class="no_border_left_top align_middle">
                 <p class="max_load">
-                    <strong>{{plateData.maxLoadOnCoupling}}</strong>
+                    <strong id="maxLoadOnCoupling">{{plateData.maxLoadOnCoupling}}</strong>
                 </p>
             </td>
             <td colspan="6" class="no_border_left_top align_top">
@@ -615,7 +615,7 @@
                             </p>
                         </div>
                         <div class="inline_elem_child tyre_use_data">
-                            <p>
+                            <p id="tyreUseCode">
                                 {{plateData.tyreUseCode}}
                             </p>
                         </div>
@@ -648,7 +648,7 @@
                                     <p>Date of Issue</p>
                                 </div>
                                 <div class="inline_elem_child issue_date">
-                                    <p>{{plateData.plateIssueDate}}</p>
+                                    <p id="plateIssueDate">{{plateData.plateIssueDate}}</p>
                                 </div>
                             </div>
                             <div class="inline_elem black_square_container">
