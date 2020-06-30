@@ -89,7 +89,31 @@ public enum CertificatePageSelector {
     COUPLING_CENTER_TO_REAR_TRL_MAX("couplingCenterToRearTrlMax"),
     COUPLING_CENTER_TO_REAR_TRL_MIN("couplingCenterToRearTrlMin"),
     PLATE_ISSUE_DATE("plateIssueDate"),
-    TYRE_USE_CODE("tyreUseCode");
+    TYRE_USE_CODE("tyreUseCode"),
+    AXLE1_GB_WEIGHT("axle1_gbWeight"),
+    AXLE2_GB_WEIGHT("axle2_gbWeight"),
+    AXLE3_GB_WEIGHT("axle3_gbWeight"),
+    AXLE4_GB_WEIGHT("axle4_gbWeight"),
+    AXLE1_EEC_WEIGHT("axle1_eecWeight"),
+    AXLE2_EEC_WEIGHT("axle2_eecWeight"),
+    AXLE3_EEC_WEIGHT("axle3_eecWeight"),
+    AXLE4_EEC_WEIGHT("axle4_eecWeight"),
+    AXLE1_DESIGN_WEIGHT("axle1_designWeight"),
+    AXLE2_DESIGN_WEIGHT("axle2_designWeight"),
+    AXLE3_DESIGN_WEIGHT("axle3_designWeight"),
+    AXLE4_DESIGN_WEIGHT("axle4_designWeight"),
+    AXLE1_TYRE_SIZE("axle1_tyreSize"),
+    AXLE2_TYRE_SIZE("axle2_tyreSize"),
+    AXLE3_TYRE_SIZE("axle3_tyreSize"),
+    AXLE4_TYRE_SIZE("axle4_tyreSize"),
+    AXLE1_PLY_RATING("axle1_plyRating"),
+    AXLE2_PLY_RATING("axle2_plyRating"),
+    AXLE3_PLY_RATING("axle3_plyRating"),
+    AXLE4_PLY_RATING("axle4_plyRating"),
+    AXLE1_FITMENT_CODE("axle1_fitmentCode"),
+    AXLE2_FITMENT_CODE("axle2_fitmentCode"),
+    AXLE3_FITMENT_CODE("axle3_fitmentCode"),
+    AXLE4_FITMENT_CODE("axle4_fitmentCode");
 
     private final String selector;
 

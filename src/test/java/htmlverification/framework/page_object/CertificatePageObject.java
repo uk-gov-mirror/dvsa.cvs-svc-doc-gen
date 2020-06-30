@@ -281,4 +281,100 @@ public class CertificatePageObject extends BasePageObject {
     public String getTyreUseCode() {
         return getElementById(TYRE_USE_CODE.getSelector()).text();
     }
+
+    public String getAxle1GbWeight() {
+        return getElementById(AXLE1_GB_WEIGHT.getSelector()).text();
+    }
+
+    public String getAxle2GbWeight() {
+        return getElementById(AXLE2_GB_WEIGHT.getSelector()).text();
+    }
+
+    public String getAxle3GbWeight() {
+        return getElementById(AXLE2_GB_WEIGHT.getSelector()).text();
+    }
+
+    public String getAxle4GbWeight() {
+        return getElementById(AXLE2_GB_WEIGHT.getSelector()).text();
+    }
+
+    public String getAxle1EecWeight() {
+        return getElementById(AXLE1_EEC_WEIGHT.getSelector()).text();
+    }
+
+    public String getAxle2EecWeight() {
+        return getElementById(AXLE2_EEC_WEIGHT.getSelector()).text();
+    }
+
+    public String getAxle3EecWeight() {
+        return getElementById(AXLE2_EEC_WEIGHT.getSelector()).text();
+    }
+
+    public String getAxle4EecWeight() {
+        return getElementById(AXLE2_EEC_WEIGHT.getSelector()).text();
+    }
+
+    public String getAxle1DesignWeight() {
+        return getElementById(AXLE1_DESIGN_WEIGHT.getSelector()).text();
+    }
+
+    public String getAxle2DesignWeight() {
+        return getElementById(AXLE2_DESIGN_WEIGHT.getSelector()).text();
+    }
+
+    public String getAxle3DesignWeight() {
+        return getElementById(AXLE3_DESIGN_WEIGHT.getSelector()).text();
+    }
+
+    public String getAxle4DesignWeight() {
+        return getElementById(AXLE4_DESIGN_WEIGHT.getSelector()).text();
+    }
+
+    public String getAxle1TyreSize() {
+        return getElementById(AXLE1_TYRE_SIZE.getSelector()).text();
+    }
+
+    public String getAxle2TyreSize() {
+        return getElementById(AXLE2_TYRE_SIZE.getSelector()).text();
+    }
+
+    public String getAxle3TyreSize() {
+        return getElementById(AXLE3_TYRE_SIZE.getSelector()).text();
+    }
+
+    public String getAxle4TyreSize() {
+        return getElementById(AXLE4_TYRE_SIZE.getSelector()).text();
+    }
+
+    public String getAxle1PlyRating() {
+        return getElementById(AXLE1_PLY_RATING.getSelector()).text();
+    }
+
+    public String getAxle2PlyRating() {
+        return getElementById(AXLE2_PLY_RATING.getSelector()).text();
+    }
+
+    public String getAxle3PlyRating() {
+        return getElementById(AXLE3_PLY_RATING.getSelector()).text();
+    }
+
+    public String getAxle4PlyRating() {
+        return getElementById(AXLE4_PLY_RATING.getSelector()).text();
+    }
+
+    public String getAxle1FitmentCode() {
+        return getElementById(AXLE1_FITMENT_CODE.getSelector()).text();
+    }
+
+    public String getAxle2FitmentCode() {
+        return getElementById(AXLE2_FITMENT_CODE.getSelector()).text();
+    }
+
+    public String getAxle3FitmentCode() {
+        return getElementById(AXLE2_FITMENT_CODE.getSelector()).text();
+    }
+
+    public String getAxle4FitmentCode() {
+        return getElementById(AXLE2_FITMENT_CODE.getSelector()).text();
+    }
 }
