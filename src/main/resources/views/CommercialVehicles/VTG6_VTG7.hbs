@@ -6,6 +6,7 @@
     <style type="text/css" media="print, screen">
             {{~> assets/stylesheets/plates this}}
 
+
     </style>
 </head>
 
@@ -75,13 +76,21 @@
         </tr>
         <tr>
             <td colspan="8" class="no_border_top align_top manufacturer">
-                <p>
-                    <span>Manufacturer/</span>
-                </p>
-                <p>
-                    <span>Model</span>
-                    <span class="manufacturer_data" id="make-model">{{plateData.make}}/{{plateData.model}}</span>
-                </p>
+                <div class="inline_elem">
+                    <div class="inline_elem_child manufacturer_model_container">
+                        <p>
+                            <span>Manufacturer/</span>
+                        </p>
+                        <p>
+                            <span>Model</span>
+                        </p>
+                    </div>
+                    <div class="inline_elem_child">
+                        <p class="make_model_container">
+                            <span class="manufacturer_data" id="make-model">{{plateData.make}}/{{plateData.model}}</span>
+                        </p>
+                    </div>
+                </div>
             </td>
             <td colspan="5" class="no_border_left_top align_top speed_limiter">
                 <p>
@@ -659,7 +668,8 @@
                                     <p>Signature</p>
                                 </div>
                                 <div class="inline_elem_child signature_container">
-                                    <img class="signature_data" src="{{root}}/assets/images/plate-signature.png" alt="signature"
+                                    <img class="signature_data" src="{{root}}/assets/images/plate-signature.png"
+                                         alt="signature"
                                          height="28"/>
                                 </div>
                             </div>
@@ -865,13 +875,21 @@
         </tr>
         <tr>
             <td colspan="8" class="no_border_top align_top manufacturer">
-                <p>
-                    <span>Manufacturer/</span>
-                </p>
-                <p>
-                    <span>Model</span>
-                    <span class="manufacturer_data" id="make-model">{{plateData.make}}/{{plateData.model}}</span>
-                </p>
+                <div class="inline_elem">
+                    <div class="inline_elem_child manufacturer_model_container">
+                        <p>
+                            <span>Manufacturer/</span>
+                        </p>
+                        <p>
+                            <span>Model</span>
+                        </p>
+                    </div>
+                    <div class="inline_elem_child">
+                        <p class="make_model_container">
+                            <span class="manufacturer_data" id="make-model">{{plateData.make}}/{{plateData.model}}</span>
+                        </p>
+                    </div>
+                </div>
             </td>
             <td colspan="5" class="no_border_left_top align_top speed_limiter">
                 <p>
