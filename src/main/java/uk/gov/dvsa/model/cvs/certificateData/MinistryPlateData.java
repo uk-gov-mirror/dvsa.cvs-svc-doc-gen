@@ -31,7 +31,7 @@ public class MinistryPlateData {
     private String model;
 
     @JsonProperty("SpeedLimiterMrk")
-    private boolean speedLimiterMrk;
+    private String speedLimiterMrk;
 
     @JsonProperty("FunctionCode")
     private String functionCode;
@@ -169,14 +169,10 @@ public class MinistryPlateData {
     }
 
     public String getSpeedLimiterMrk() {
-        if (this.speedLimiterMrk) {
-            return "Yes";
-        } else {
-            return "No";
-        }
+        return speedLimiterMrk;
     }
 
-    public MinistryPlateData setSpeedLimiterMrk(boolean speedLimiterMrk) {
+    public MinistryPlateData setSpeedLimiterMrk(String speedLimiterMrk) {
         this.speedLimiterMrk = speedLimiterMrk;
         return this;
     }
