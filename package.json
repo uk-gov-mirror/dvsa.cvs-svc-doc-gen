@@ -3,11 +3,11 @@
     "husky": "^3.0.9"
   },
   "scripts": {
-    "security-checks": "git secrets --scan && git log -p | scanrepo",
-    "tools-setup": "echo 'Nothing to do'",
     "package": "echo 'Nothing to do'",
     "sonar-scanner": "echo 'Not yet implemented'",
-    "test-i": "echo 'Not yet implemented'"
+    "test-i": "echo 'Not yet implemented'",
+    "security-checks": "npm audit --audit-level=critical && git secrets --register-aws && git secrets --scan && git log -p | scanrepo",
+    "tools-setup": "echo 'nothing to do'"
   },
   "husky": {
     "hooks": {
