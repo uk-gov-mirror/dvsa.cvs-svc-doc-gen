@@ -4,3 +4,5 @@ out/
 .gradle/
 gradlew.bat
 node_modules/
+output.html
+certificate.pdf
