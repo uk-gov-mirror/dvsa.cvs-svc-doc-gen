@@ -13,6 +13,7 @@ plugins {
     id 'org.ajoberstar.grgit' version '2.2.1'
     id 'org.sonarqube' version '3.0'
 }
+
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'application'
@@ -22,9 +23,9 @@ apply plugin: "com.github.johnrengelman.shadow"
 
 sonarqube {
     properties {
-        property "sonar.host.url", "http://volted-monkey-sonarqube.ops:9000"
+        property "sonar.host.url", "http://localhost:9000"
         property "sonar.projectKey", "org.sonarqube:cvs-svc-doc-gen"
-        property "sonar.projectName", "Doc Generator Microservice"
+        property "sonar.projectName", "cvs-svc-doc-gen"
         property "sonar.projectVersion", "1.0"
         property "sonar.sourceEncoding", "UTF-8"
     }
@@ -40,9 +41,10 @@ sourceCompatibility = 11
 jacocoTestReport {
     group = "Reporting"
     reports {
-        xml.enabled false
+        xml.enabled true
         csv.enabled false
         html.destination file("${buildDir}/reports/coverage")
+        // html.destination file("./reports/coverage")
     }
 }
 

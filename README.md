@@ -28,3 +28,7 @@ Debugging Applications:
 2. Start local API Gateway in debug mode on port 5858: sam local start-api -d 5858
 3. Hit endpoint: http://127.0.0.1:3000/<function logical id>
 4. Run debugger
+
+### Architeture
+
+Documentation for this service can be found [here](https://wiki.dvsacloud.uk/display/MP/Document+Generation+Service+Contract).
