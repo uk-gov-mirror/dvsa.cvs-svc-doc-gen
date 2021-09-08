@@ -95,6 +95,9 @@ public class CvsMotCertificateData  {
     @JsonProperty("Trn")
     private  String trn;
 
+    @JsonProperty("IsTrailer")
+    private boolean isTrailer;
+
     public String getSeatBeltTested() {
         return seatBeltTested;
     }
@@ -365,5 +368,14 @@ public class CvsMotCertificateData  {
     public CvsMotCertificateData setTrn(String trnValue) {
         this.trn = trnValue;
         return  this;
+    }
+
+    public boolean getIsTrailer(){
+        return this.isTrailer;
+    }
+
+    public CvsMotCertificateData setIsTrailer(boolean isTrailerValue) {
+        this.isTrailer = isTrailerValue;
+        return this;
     }
 }

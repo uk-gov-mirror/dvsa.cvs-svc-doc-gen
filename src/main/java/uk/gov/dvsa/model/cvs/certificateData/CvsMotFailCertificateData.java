@@ -1,9 +1,7 @@
 package uk.gov.dvsa.model.cvs.certificateData;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import uk.gov.dvsa.model.mot.certificateData.MotCertificateData;
 import uk.gov.dvsa.model.mot.results.DefectsList;
-import uk.gov.dvsa.model.mot.results.ReasonForCancel;
 import uk.gov.dvsa.model.mot.results.Summary;
 
 import java.util.List;
@@ -29,9 +27,6 @@ public class CvsMotFailCertificateData extends CvsMotCertificateData {
 
     @JsonProperty("PRSDefects")
     private List<String> prsDefects;
-
-    @JsonProperty("IsTrailer")
-    private boolean isTrailer;
 
     public CvsMotFailCertificateData setDangerousDefects(List<String> dangerousDefects) {
         this.dangerousDefects = dangerousDefects;
@@ -89,14 +84,5 @@ public class CvsMotFailCertificateData extends CvsMotCertificateData {
 
     public Summary getSummary() {
         return new Summary(FAILED_SUMMARY_HEADER);
-    }
-
-    public boolean getIsTrailer(){
-        return this.isTrailer;
-    }
-
-    public CvsMotFailCertificateData setIsTrailer(boolean isTrailerValue) {
-        this.isTrailer = isTrailerValue;
-        return this;
     }
 }

@@ -215,7 +215,8 @@ public class CvsCertificateTestDataProvider {
                 .setTestStationName("POPULAR GARAGES")
                 .setTestNumber("1806 8140 0628")
                 .setEarliestDateOfTheNextTest("13.10.2018")
-                .setTrn("ABC1234");
+                .setTrn("ABC1234")
+                .setIsTrailer(true);
 
         vtg5a.setData(vtg5aData);
 
