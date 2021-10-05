@@ -36,6 +36,15 @@ public class CvsCertificateTestDataProvider {
         return document;
     }
 
+    public static VTP20 getVtp20WithNoOdometerHistory() {
+        VTP20 document = getVtp20();
+
+        CvsMotCertificateData data = document.getData();
+        data.setOdometerHistoryList(null);
+
+        return document;
+    }
+
     public static VTP20 getVtp20() {
         VTP20 vtp20 = new VTP20();
         vtp20.setDocumentName(CertificateTypes.CVS_PASS.getType());
