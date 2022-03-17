@@ -184,7 +184,8 @@ vertical-align: top
 }
 
 .header__three-columns {
-display: table
+display: table;
+width: 100%;
 }
 
 .header__three-columns--welsh:before {
@@ -200,7 +201,8 @@ vertical-align: top
 }
 
 .header__three-columns-two {
-width: 120.3333pt;
+min-width: 120.3333pt;
+max-width: 300pt;
 display: table-cell;
 vertical-align: top
 }
@@ -256,7 +258,8 @@ width: 90pt
 
 .header__history-left-wide {
 float: left;
-width: 113pt
+min-width: 150pt;
+max-width: 300pt
 }
 
 .header__three-columns--welsh .header__history-left {
