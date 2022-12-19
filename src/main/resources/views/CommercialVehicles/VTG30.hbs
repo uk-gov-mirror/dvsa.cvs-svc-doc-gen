@@ -98,6 +98,9 @@
                         Vehicle identification number
                         </span>
                         </span>
+                        {{#if reissue}}
+                        <span class="heading-info__title-message margin-left-50">{{reissue.reason}}</span>
+                        {{/if}}
                     </h2>
                      <span class="heading-info__content" id="vin">
                          {{failData.rawVin}}
@@ -361,6 +364,9 @@
                         Find out about the vehicle’s MOT history at <a class="test-information__message-link"
                                                                             href="www.gov.uk/check-mot-history">www.gov.uk/check-mot-history</a>
                     </p>
+                    {{#if reissue}}
+                        <p class="test-information__message">Replacement certificate issued by {{reissue.issuer}} on {{reissue.date}}</p>
+                    {{/if}}
                 </div>
             </div>
         </div>

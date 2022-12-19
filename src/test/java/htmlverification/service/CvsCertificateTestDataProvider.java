@@ -6,14 +6,12 @@ import uk.gov.dvsa.model.cvs.VTP20;
 import uk.gov.dvsa.model.cvs.VTP30;
 import uk.gov.dvsa.model.cvs.VTG5;
 import uk.gov.dvsa.model.cvs.VTG5A;
-import uk.gov.dvsa.model.cvs.certificateData.CvsMotCertificateData;
-import uk.gov.dvsa.model.cvs.certificateData.CvsMotFailCertificateData;
-import uk.gov.dvsa.model.cvs.certificateData.CvsOdometerReading;
-import uk.gov.dvsa.model.cvs.certificateData.Signature;
+import uk.gov.dvsa.model.cvs.certificateData.*;
 import uk.gov.dvsa.model.mot.enums.CertificateTypes;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 public class CvsCertificateTestDataProvider {
@@ -90,8 +88,18 @@ public class CvsCertificateTestDataProvider {
                 .setImageType("png");
 
         vtp20.setSignature(signature);
+        vtp20.setReissue(generateReissuer());
+
 
         return vtp20;
+    }
+
+    private static Reissue generateReissuer() {
+        Reissue reissue = new Reissue();
+        reissue.setIssuer("Joe");
+        reissue.setReason("REPLACEMENT");
+        reissue.setDate("12.1.2022");
+        return reissue;
     }
 
     public static VTP30 getVtp30() {
@@ -149,6 +157,7 @@ public class CvsCertificateTestDataProvider {
                 .setImageType("png");
 
         vtp30.setSignature(signature);
+        vtp30.setReissue(generateReissuer());
 
         return vtp30;
     }
@@ -198,6 +207,7 @@ public class CvsCertificateTestDataProvider {
                 .setImageType("png");
 
         vtg5.setSignature(signature);
+        vtg5.setReissue(generateReissuer());
 
         return vtg5;
     }
@@ -235,6 +245,7 @@ public class CvsCertificateTestDataProvider {
                 .setImageType("png");
 
         vtg5a.setSignature(signature);
+        vtg5a.setReissue(generateReissuer());
 
         return vtg5a;
     }
@@ -306,6 +317,7 @@ public class CvsCertificateTestDataProvider {
                 .setImageType("png");
 
         vtg30.setSignature(signature);
+        vtg30.setReissue(generateReissuer());
 
         return vtg30;
     }
