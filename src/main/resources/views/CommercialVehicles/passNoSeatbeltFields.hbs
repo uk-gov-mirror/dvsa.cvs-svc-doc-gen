@@ -83,6 +83,9 @@
         <div class="header">
             <div class="header__left">
                 <h1 class="header__title">
+                    {{#if reissue}}
+                    <p class="heading-info--no-margin">{{reissue.reason}}</p>
+                    {{/if}}
                     MOT test certificate ({{testType}})
                 </h1>
                 <!-- heading-info -->
@@ -98,9 +101,6 @@
                         Vehicle identification number
                         </span>
                         </span>
-                        {{#if reissue}}
-                        <span class="heading-info__title-message margin-left-50">{{reissue.reason}}</span>
-                        {{/if}}
                     </h2>
                      <span class="heading-info__content" id="vin">
                          {{data.rawVin}}
@@ -398,6 +398,13 @@
                          {{data.testNumber}}
                      </span>
                 </div>
+                {{#if reissue}}
+                <div class="util-avoid-page-break-inside" id="reissueInfo">
+                    <p class="test-information__message">
+                        {{reissue.reason}} certificate issued by {{reissue.issuer}} on {{reissue.date}}
+                    </p>
+                </div>
+                {{/if}}
                 <!-- /heading-info -->
                 <div class="util-avoid-page-break-inside">
                     <p class="test-information__message">
@@ -414,9 +421,6 @@
                                                                                      href="www.gov.uk/mot-reminder">www.gov.uk/mot-reminder</a>
                         or by telephone on 0300 1239000.
                     </p>
-                    {{#if reissue}}
-                        <p class="test-information__message">Replacement certificate issued by {{reissue.issuer}} on {{reissue.date}}</p>
-                    {{/if}}
                 </div>
             </div>
         </div>

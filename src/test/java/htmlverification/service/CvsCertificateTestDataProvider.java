@@ -11,7 +11,6 @@ import uk.gov.dvsa.model.mot.enums.CertificateTypes;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 public class CvsCertificateTestDataProvider {
@@ -39,6 +38,14 @@ public class CvsCertificateTestDataProvider {
 
         CvsMotCertificateData data = document.getData();
         data.setOdometerHistoryList(null);
+
+        return document;
+    }
+
+    public static VTP20 getReplacementVtp20() {
+        VTP20 document = getVtp20();
+
+        document.setReissue(generateReissuer());
 
         return document;
     }
@@ -88,8 +95,6 @@ public class CvsCertificateTestDataProvider {
                 .setImageType("png");
 
         vtp20.setSignature(signature);
-        vtp20.setReissue(generateReissuer());
-
 
         return vtp20;
     }
@@ -97,9 +102,17 @@ public class CvsCertificateTestDataProvider {
     private static Reissue generateReissuer() {
         Reissue reissue = new Reissue();
         reissue.setIssuer("Joe");
-        reissue.setReason("REPLACEMENT");
+        reissue.setReason("Replacement");
         reissue.setDate("12.1.2022");
         return reissue;
+    }
+
+    public static VTP30 getReplacementVtp30() {
+        VTP30 document = getVtp30();
+
+        document.setReissue(generateReissuer());
+
+        return document;
     }
 
     public static VTP30 getVtp30() {
@@ -157,7 +170,6 @@ public class CvsCertificateTestDataProvider {
                 .setImageType("png");
 
         vtp30.setSignature(signature);
-        vtp30.setReissue(generateReissuer());
 
         return vtp30;
     }

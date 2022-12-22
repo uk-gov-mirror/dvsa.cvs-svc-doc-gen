@@ -83,6 +83,9 @@
         <div class="header">
             <div class="header__left">
                 <h1 class="header__title">
+                    {{#if reissue}}
+                    <p class="heading-info--no-margin">{{reissue.reason}}</p>
+                    {{/if}}
                     Refusal of MOT test certificate
                 </h1>
                 <!-- heading-info -->
@@ -98,9 +101,6 @@
                         Vehicle identification number
                         </span>
                         </span>
-                        {{#if reissue}}
-                        <span class="heading-info__title-message margin-left-50">{{reissue.reason}}</span>
-                        {{/if}}
                     </h2>
                      <span class="heading-info__content" id="vin">
                          {{failData.rawVin}}
@@ -341,6 +341,14 @@
                      </span>
                 </div>
 
+                {{#if reissue}}
+                <div class="util-avoid-page-break-inside" id="reissueInfo">
+                    <p class="test-information__message">
+                        {{reissue.reason}} certificate issued by {{reissue.issuer}} on {{reissue.date}}
+                    </p>
+                </div>
+                {{/if}}
+
                 <div class="util-avoid-page-break-inside">
                     <p class="test-information__message">
                         For a retest, you must get the defects fixed and arrange to take the
@@ -364,9 +372,6 @@
                         Find out about the vehicle’s MOT history at <a class="test-information__message-link"
                                                                             href="www.gov.uk/check-mot-history">www.gov.uk/check-mot-history</a>
                     </p>
-                    {{#if reissue}}
-                        <p class="test-information__message">Replacement certificate issued by {{reissue.issuer}} on {{reissue.date}}</p>
-                    {{/if}}
                 </div>
             </div>
         </div>
