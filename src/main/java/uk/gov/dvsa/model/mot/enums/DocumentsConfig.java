@@ -2,9 +2,7 @@ package uk.gov.dvsa.model.mot.enums;
 
 import uk.gov.dvsa.exception.HttpException;
 import uk.gov.dvsa.model.Document;
-import uk.gov.dvsa.model.cvs.AdrPassCertificate;
-import uk.gov.dvsa.model.cvs.CvsPsvPRS;
-import uk.gov.dvsa.model.cvs.RwtCertificate;
+import uk.gov.dvsa.model.cvs.*;
 import uk.gov.dvsa.model.mot.*;
 
 public enum DocumentsConfig {
@@ -59,6 +57,14 @@ public enum DocumentsConfig {
             new String[]{CertificateTemplates.VTG30.getCertificateTemplateName()}),
     ADR_PASS(CertificateTypes.ADR_PASS.getType(), AdrPassCertificate.class,
             new String[]{CertificateTemplates.ADR_PASS.getCertificateTemplateName()}),
+    VTG6_VTG7(CertificateTypes.VTG6_VTG7.getType(), MinistryPlate.class,
+            new String[]{CertificateTemplates.VTG6_VTG7.getCertificateTemplateName()}),
+
+    VTG6_VTG7_TRL(CertificateTypes.VTG6_VTG7_TRL.getType(), MinistryPlate.class,
+            new String[]{CertificateTemplates.VTG6_VTG7_TRL.getCertificateTemplateName()}),
+
+    TRL_INTO_SERVICE(CertificateTypes.TRL_INTO_SERVICE.getType(), TrlIntoService.class,
+            new String[]{CertificateTemplates.TRL_INTO_SERVICE.getCertificateTemplateName()}),
     RWT_DATA(CertificateTypes.RWT_DATA.getType(), RwtCertificate.class,
             new String[]{CertificateTemplates.RWT_DATA.getCertificateTemplateName()}),
     CVS_HGV_PRS(CertificateTypes.CVS_HGV_PRS.getType(), uk.gov.dvsa.model.cvs.CvsHgvPRS.class,

@@ -14,6 +14,11 @@ import uk.gov.dvsa.model.Document;
 import uk.gov.dvsa.model.mot.enums.DocumentsConfig;
 
 import java.io.IOException;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -30,7 +35,10 @@ public class HtmlGenerator {
     private final Handlebars handlebars;
 
     public HtmlGenerator(Handlebars handlebars) {
-        this.handlebars = registerTabulatorHelper(handlebars);
+        Handlebars handlebarsWithHelpers;
+        handlebarsWithHelpers = registerTabulatorHelper(handlebars);
+        handlebarsWithHelpers = registerIsoDateFormatHelper(handlebars);
+        this.handlebars = handlebarsWithHelpers;
     }
 
     public List<String> generate(Document context) {
@@ -77,6 +85,30 @@ public class HtmlGenerator {
         return handlebars.registerHelper("tabulator", (context, options) -> context.toString()
                 .replaceFirst("\t(.*)", "<span class='boxes__item-padded-text'>$1</span>")
         );
+    }
+
+    private Handlebars registerIsoDateFormatHelper(Handlebars handlebars) {
+        return handlebars.registerHelper("formatIsoDate", (context, options) -> {
+            String input = context.toString();
+            DateTimeFormatter ukFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            LocalDate ukDate;
+
+            try {
+                if (input.length() == 10) {
+                    // likely yyyy-mm-dd
+                    DateTimeFormatter f = DateTimeFormatter.ISO_LOCAL_DATE;
+                    ukDate = LocalDate.from(f.parse(input));
+                } else {
+                    // try a full UTC DateTime...
+                    DateTimeFormatter f = DateTimeFormatter.ISO_INSTANT;
+                    ukDate = LocalDate.ofInstant(Instant.from(f.parse(input)), ZoneId.of("Europe/London"));
+                }
+
+                return ukFormat.format(ukDate);
+            } catch(Exception e) {
+                return context;
+            }
+        });
     }
 
     private List<String> processTemplates(Document context, List<Template> templates) {

@@ -56,8 +56,8 @@ public class RequestParser {
             Document document = om.readValue(documentJson, documentType);
             document.setDocumentName(documentName);
             return document;
-        } catch (IOException e) {
-            throw new HttpException.BadRequestException("Error parsing parameters", e);
+        } catch (Exception e) {
+            throw new HttpException.BadRequestException("Error parsing parameters: " + e.getMessage(), e);
         }
     }
 
