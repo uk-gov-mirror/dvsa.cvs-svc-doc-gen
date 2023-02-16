@@ -39,6 +39,10 @@ public class Tyre {
     }
 
     public String getFitmentCode() {
+        if (this.fitmentCode == null) {
+            return "";
+        }
+
         if (this.fitmentCode.equals("double")) {
             return "D";
         } else if (this.fitmentCode.equals("single")) {

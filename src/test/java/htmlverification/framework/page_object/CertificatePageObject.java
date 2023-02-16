@@ -372,10 +372,8 @@ public class CertificatePageObject extends BasePageObject {
     }
 
     public String getAxle3FitmentCode() {
-        return getElementById(AXLE2_FITMENT_CODE.getSelector()).text();
+        return getElementById(AXLE3_FITMENT_CODE.getSelector()).text();
     }
 
-    public String getAxle4FitmentCode() {
-        return getElementById(AXLE2_FITMENT_CODE.getSelector()).text();
-    }
+    public String getAxle4FitmentCode() { return getElementById(AXLE4_FITMENT_CODE.getSelector()).text(); }
 }
