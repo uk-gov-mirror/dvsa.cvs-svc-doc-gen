@@ -2,6 +2,8 @@ package uk.gov.dvsa.service;
 
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Template;
+import com.github.jknack.handlebars.helper.ConditionalHelpers;
+
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -38,6 +40,9 @@ public class HtmlGenerator {
         Handlebars handlebarsWithHelpers;
         handlebarsWithHelpers = registerTabulatorHelper(handlebars);
         handlebarsWithHelpers = registerIsoDateFormatHelper(handlebars);
+        handlebarsWithHelpers = registerEqualsHelper(handlebars);
+        handlebarsWithHelpers = registerNotEqualsHelper(handlebars);
+        handlebarsWithHelpers = registerOrHelper(handlebars);
         this.handlebars = handlebarsWithHelpers;
     }
 
@@ -109,6 +114,18 @@ public class HtmlGenerator {
                 return context;
             }
         });
+    }
+
+    private Handlebars registerEqualsHelper(Handlebars handlebars) {
+        return handlebars.registerHelper("eq", ConditionalHelpers.eq);
+    }
+
+    private Handlebars registerNotEqualsHelper(Handlebars handlebars) {
+        return handlebars.registerHelper("neq", ConditionalHelpers.neq);
+    }
+
+    private Handlebars registerOrHelper(Handlebars handlebars) {
+        return handlebars.registerHelper("or", ConditionalHelpers.or);
     }
 
     private List<String> processTemplates(Document context, List<Template> templates) {

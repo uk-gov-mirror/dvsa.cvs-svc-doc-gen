@@ -546,9 +546,9 @@
                 <div class="bottom_gray_div">
                     <div class="inline_elem">
                         <div class="inline_elem_child empty_div_before_tyre_use">
-                        {{#if reissue.reason}}
+                        {{#if (or (eq reissue.reason "Free replacement") (eq reissue.reason "Replacement"))}}
                             <p>
-                                {{reissue.reason}}
+                                Replacement
                             </p>
                          {{/if}}
                         </div>
@@ -889,11 +889,11 @@
                                     GREAT BRITAIN
                                 </p>
                             </div>
-                            {{#if reissue.reason}}
-                            <div class="centered_title reissue_department_box ">
-                                <p>{{reissue.reason}}</p>
-                            </div>
-                             {{/if}}
+                            {{#if (or (eq reissue.reason "Free replacement") (eq reissue.reason "Replacement"))}}
+                                <div class="centered_title reissue_department_box ">
+                                    Replacement
+                                </div>
+                            {{/if}}
                         </div>
                     </td>
                 </tr>
