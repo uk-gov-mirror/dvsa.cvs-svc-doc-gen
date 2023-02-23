@@ -2,20 +2,15 @@ package htmlverification.tests;
 
 import com.github.jknack.handlebars.Handlebars;
 import htmlverification.framework.page_object.CertificatePageObject;
-import htmlverification.service.CertificateTestDataProvider;
 import org.junit.Before;
 import org.junit.Test;
-import uk.gov.dvsa.model.mot.MotCertificate;
 import uk.gov.dvsa.model.mot.VT29;
-import uk.gov.dvsa.model.mot.enums.CertificateTypes;
+import uk.gov.dvsa.enums.CertificateTypes;
 import uk.gov.dvsa.service.HtmlGenerator;
 
 import java.io.IOException;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static uk.gov.dvsa.model.mot.certificateData.MotCertificateData.PASS_WITH_DEFECTS_HEADER;
-import static uk.gov.dvsa.model.mot.results.Summary.EU_NUMBER_SUMMARY_HEADER;
 
 public class Vt29Test {
 
@@ -113,7 +108,7 @@ public class Vt29Test {
                 .setVin("VIN123456789VIN12")
                 .setVrm("VRM 123");
 
-        vt29.setDocumentName(CertificateTypes.VT29.getType());
+        vt29.setDocumentName(CertificateTypes.VT29.getCertificateType());
 
         return vt29;
     }

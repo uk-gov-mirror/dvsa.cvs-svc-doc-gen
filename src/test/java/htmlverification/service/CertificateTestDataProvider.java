@@ -3,6 +3,7 @@ package htmlverification.service;
 import htmlverification.framework.component.DefectSummaryComponent;
 import uk.gov.dvsa.model.cvs.AdrPassCertificate;
 import uk.gov.dvsa.model.cvs.MinistryPlate;
+import uk.gov.dvsa.model.cvs.TrailerIntoService;
 import uk.gov.dvsa.model.cvs.certificateData.AdrPassCertificateData;
 import uk.gov.dvsa.model.cvs.certificateData.ApplicantDetails;
 import uk.gov.dvsa.model.cvs.certificateData.TankStatement;
@@ -10,7 +11,7 @@ import uk.gov.dvsa.model.cvs.RwtCertificate;
 import uk.gov.dvsa.model.cvs.certificateData.*;
 import uk.gov.dvsa.model.mot.*;
 import uk.gov.dvsa.model.mot.certificateData.*;
-import uk.gov.dvsa.model.mot.enums.CertificateTypes;
+import uk.gov.dvsa.enums.CertificateTypes;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -56,7 +57,7 @@ public class CertificateTestDataProvider {
 
     public static VT20 getVt20() {
         VT20 vt20 = new VT20();
-        vt20.setDocumentName(CertificateTypes.PASS.getType());
+        vt20.setDocumentName(CertificateTypes.PASS.getCertificateType());
         MotCertificateData vt20Data = new MotCertificateData();
         vt20Data
             .setMinorDefectsHeader(DefectSummaryComponent.MINOR_DEFECTS_HEADER_TEXT)
@@ -106,7 +107,7 @@ public class CertificateTestDataProvider {
 
     public static RwtCertificate getRwtData() {
         RwtCertificate rwtCertificate = new RwtCertificate();
-        rwtCertificate.setDocumentName(CertificateTypes.RWT_DATA.getType());
+        rwtCertificate.setDocumentName(CertificateTypes.RWT_DATA.getCertificateType());
         RwtCertificateData rwtCertificateData = new RwtCertificateData();
 
         rwtCertificateData.setDgvw(98204)
@@ -126,7 +127,7 @@ public class CertificateTestDataProvider {
 
     public static RwtCertificate getRwtDataFail() {
         RwtCertificate rwtCertificate = new RwtCertificate();
-        rwtCertificate.setDocumentName(CertificateTypes.RWT_DATA.getType());
+        rwtCertificate.setDocumentName(CertificateTypes.RWT_DATA.getCertificateType());
         RwtCertificateData rwtCertificateData = new RwtCertificateData();
         String[] defectsList =new String[3];
             defectsList[0] = "54.1.a.ii Power steering: not working correctly and obviously affects steering control. Axles: 7. Inner Offside. Asdasd";
@@ -150,10 +151,10 @@ public class CertificateTestDataProvider {
 
     public static AdrPassCertificate getAdrPass() {
         AdrPassCertificate adrPassCertificate = new AdrPassCertificate();
-        adrPassCertificate.setDocumentName(CertificateTypes.ADR_PASS.getType());
+        adrPassCertificate.setDocumentName(CertificateTypes.ADR_PASS.getCertificateType());
         AdrPassCertificateData adrPassCertificateData = new AdrPassCertificateData();
 
-        adrPassCertificateData.setApplicantDetails( new ApplicantDetails("applicantDetailsName", "applicantDetailsStreet", "applicantDetailsTown", "applicantDetailsCity", "applicantDetailsPostCode"))
+        adrPassCertificateData.setApplicantDetails( new ApplicantDetails("applicantDetailsName", "applicantDetailsAddress1", "applicantDetailsAddress2", "applicantDetailsPostTown", "applicantAddress3", "applicantDetailsPostCode", "applicantTelephoneNumber", "applicantEmailAddress"))
                 .setMake("demoMake").setModel("demoModel").setAtfNameAtfPNumber("demoAtfNameAtfPnumber").setBrakeEndurance(true).setChasisNumber("demoChassisNumber")
                 .setExpiryDate("10-12-2011").setPermittedDangerousGoods(new String[]{"\"FP <61 (FL)\"", "Explosives (type 2)", "Explosives (type 3)"})
                 .setRegistrationNumber("demoRegistrationNumber").setSpecialProvisions("demoSpecialProvisions").setTankCode("demoTankCode").setTankManufacturer("demoTankManufacturer")
@@ -167,7 +168,7 @@ public class CertificateTestDataProvider {
         MinistryPlate ministryPlateCertificate = new MinistryPlate();
         Reissue reissue = new Reissue();
         reissue.setReason("REPLACEMENT");
-        ministryPlateCertificate.setDocumentName(CertificateTypes.VTG6_VTG7.getType());
+        ministryPlateCertificate.setDocumentName(CertificateTypes.VTG6_VTG7.getCertificateType());
         ministryPlateCertificate.setReissue(reissue);
         MinistryPlateData ministryPlateCertificateData = new MinistryPlateData();
 
@@ -193,7 +194,7 @@ public class CertificateTestDataProvider {
         MinistryPlate ministryPlateCertificate = new MinistryPlate();
         Reissue reissue = new Reissue();
         reissue.setReason("REPLACEMENT");
-        ministryPlateCertificate.setDocumentName(CertificateTypes.VTG6_VTG7_TRL.getType());
+        ministryPlateCertificate.setDocumentName(CertificateTypes.VTG6_VTG7_TRL.getCertificateType());
         ministryPlateCertificate.setReissue(reissue);
         MinistryPlateData ministryPlateCertificateData = new MinistryPlateData();
 
@@ -203,7 +204,7 @@ public class CertificateTestDataProvider {
                 .setGrossGbWeight("2556").setGrossEecWeight("1245").setGrossDesignWeight("2345").setTrainGbWeight("3500").setTrainEecWeight("2466")
                 .setTrainDesignWeight("4452").setMaxTrainGbWeight("2233").setMaxTrainEecWeight("1234").setMaxLoadOnCoupling("2500")
                 .setDimensionLength("5600").setDimensionWidth("8700").setFrontAxleTo5thWheelCouplingMax("9845").setFrontAxleTo5thWheelCouplingMin("4567")
-                .setCouplingCenterToRearTrlMax("1234").setCouplingCenterToRearTrlMin("1111").setPlateIssueDate("2020-06-12").setTyreUseCode("2B")
+                .setCouplingCenterToRearTrlMax("1234").setCouplingCenterToRearTrlMin("1111").setPlateIssueDate("2020-06-12T16:46:09.060Z").setTyreUseCode("2B")
                 .setAxles(
                         new Axles(
                                 new Axle(new Weight("1230", "5522", "1245"), new Tyre("205/45/R17", "152/148", "single")),
@@ -213,6 +214,20 @@ public class CertificateTestDataProvider {
                 );
         ministryPlateCertificate.setPlateData(ministryPlateCertificateData);
         return ministryPlateCertificate;
+    }
+
+    public static TrailerIntoService getTrailerIntoService(int paragraphId) {
+        TrailerIntoService model = new TrailerIntoService();
+        model.setDocumentName(CertificateTypes.TRAILER_INTO_SERVICE.getCertificateType());
+
+        model.setVin("ABCDEFGH444444")
+                .setTrailerId("1234567Z")
+                .setApprovalTypeNumber("a00*AB00/0000*000")
+                .setLetterDateRequested("2023-02-17T15:16:09.060Z")
+                .setApplicantDetails(new ApplicantDetails("applicant name", "applicant address 1", "applicant address 2", "applicant post town", "applicant address 3", "applicant post code", "applicantTelephoneNumber", "applicantEmailAddress"))
+                .setParagraphId(paragraphId > 0 ? paragraphId : 3);
+
+        return model;
     }
 
     public static VT20 getMultiPageVt20WithHiddenIssuerInfo() {
@@ -237,7 +252,7 @@ public class CertificateTestDataProvider {
 
     public static VT30 getVt30() {
         VT30 vt30 = new VT30();
-        vt30.setDocumentName(CertificateTypes.FAIL.getType());
+        vt30.setDocumentName(CertificateTypes.FAIL.getCertificateType());
         MotFailCertificateData vt30Data = new MotFailCertificateData();
         vt30Data
             .setDangerousDefectsHeader(DefectSummaryComponent.DANGEROUS_DEFECTS_HEADER_TEXT)
@@ -312,7 +327,7 @@ public class CertificateTestDataProvider {
 
     public static VT30 getVt30WithOverflownRFRs() {
         VT30 vt30WithOverflownRFRs = new VT30();
-        vt30WithOverflownRFRs.setDocumentName(CertificateTypes.FAIL.getType());
+        vt30WithOverflownRFRs.setDocumentName(CertificateTypes.FAIL.getCertificateType());
         MotFailCertificateData vt30WithOverflownRFRsData = new MotFailCertificateData();
         vt30WithOverflownRFRsData
             .setDangerousDefectsHeader(DefectSummaryComponent.DANGEROUS_DEFECTS_HEADER_TEXT)
@@ -388,7 +403,7 @@ public class CertificateTestDataProvider {
 
     public static VT20W getVt20W() {
         VT20W vt20W = new VT20W();
-        vt20W.setDocumentName(CertificateTypes.WELSH_PASS.getType());
+        vt20W.setDocumentName(CertificateTypes.WELSH_PASS.getCertificateType());
         MotCertificateDataWelsh vt20WData = new MotCertificateDataWelsh();
         vt20WData
                 .setEuMinorDefectsCy(generateRFRs(MINOR_RFR_WELSH_TEXT, 5))
@@ -453,7 +468,7 @@ public class CertificateTestDataProvider {
 
     public static VT30W getVt30W() {
         VT30W vt30W = new VT30W();
-        vt30W.setDocumentName(CertificateTypes.WELSH_FAIL.getType());
+        vt30W.setDocumentName(CertificateTypes.WELSH_FAIL.getCertificateType());
         MotFailCertificateDataWelsh vt30WData = new MotFailCertificateDataWelsh();
         vt30WData
             .setEuAdvisoryDefectsCy(generateRFRs(ADVISORY_RFR_WELSH_TEXT, 3))
@@ -527,35 +542,35 @@ public class CertificateTestDataProvider {
 
     public static CT20 getCt20() {
         CT20 ct20 = new CT20();
-        ct20.setDocumentName(CertificateTypes.CONTINGENCY_PASS.getType());
+        ct20.setDocumentName(CertificateTypes.CONTINGENCY_PASS.getCertificateType());
         ct20.setVts(VTS_ID).setInspectionAuthority(INSPECTION_AUTHORITY);
         return ct20;
     }
 
     public static CT30 getCt30() {
         CT30 ct30 = new CT30();
-        ct30.setDocumentName(CertificateTypes.CONTINGENCY_FAIL.getType());
+        ct30.setDocumentName(CertificateTypes.CONTINGENCY_FAIL.getCertificateType());
         ct30.setVts(VTS_ID).setInspectionAuthority(INSPECTION_AUTHORITY);
         return ct30;
     }
 
     public static CT32 getCt32() {
         CT32 ct32 = new CT32();
-        ct32.setDocumentName(CertificateTypes.CONTINGENCY_ADVISORY_NOTICE.getType());
+        ct32.setDocumentName(CertificateTypes.CONTINGENCY_ADVISORY_NOTICE.getCertificateType());
         ct32.setVts(VTS_ID).setInspectionAuthority(INSPECTION_AUTHORITY);
         return ct32;
     }
 
     public static CT20 getEuCt20() {
         CT20 ct20 = new CT20();
-        ct20.setDocumentName(CertificateTypes.EU_CONTINGENCY_PASS.getType());
+        ct20.setDocumentName(CertificateTypes.EU_CONTINGENCY_PASS.getCertificateType());
         ct20.setVts(VTS_ID).setInspectionAuthority(INSPECTION_AUTHORITY);
         return ct20;
     }
 
     public static CT30 getEuCt30() {
         CT30 ct30 = new CT30();
-        ct30.setDocumentName(CertificateTypes.EU_CONTINGENCY_FAIL.getType());
+        ct30.setDocumentName(CertificateTypes.EU_CONTINGENCY_FAIL.getCertificateType());
         ct30.setVts(VTS_ID).setInspectionAuthority(INSPECTION_AUTHORITY);
         return ct30;
     }
@@ -574,7 +589,7 @@ public class CertificateTestDataProvider {
 
     public static PRS getPRS() {
         PRS prs = new PRS();
-        prs.setDocumentName(CertificateTypes.PRS.getType());
+        prs.setDocumentName(CertificateTypes.PRS.getCertificateType());
         prs.setData(getVt20().getData());
         prs.setFailData(getVt30().getFailData());
         return prs;
@@ -582,7 +597,7 @@ public class CertificateTestDataProvider {
 
     public static PRSW getPRSW() {
         PRSW prsw = new PRSW();
-        prsw.setDocumentName(CertificateTypes.WELSH_PRS.getType());
+        prsw.setDocumentName(CertificateTypes.WELSH_PRS.getCertificateType());
         prsw.setData(getVt20W().getData());
         prsw.setFailData(getVt30W().getFailData());
         return prsw;
@@ -590,7 +605,7 @@ public class CertificateTestDataProvider {
 
     public static VT32VE getVt32VeW() {
         VT32VE vt32vew = new VT32VE();
-        vt32vew.setDocumentName(CertificateTypes.WELSH_ADVISORY_NOTICE.getType());
+        vt32vew.setDocumentName(CertificateTypes.WELSH_ADVISORY_NOTICE.getCertificateType());
         MotFailCertificateDataWelsh vt32vewData = new MotFailCertificateDataWelsh();
         vt32vewData
                 .setDangerousDefectsHeader(DefectSummaryComponent.DANGEROUS_DEFECTS_HEADER_TEXT)
@@ -638,28 +653,28 @@ public class CertificateTestDataProvider {
 
     public static VT32VE getVt32Ve() {
         VT32VE vt32ve = new VT32VE();
-        vt32ve.setDocumentName(CertificateTypes.ADVISORY_NOTICE.getType());
+        vt32ve.setDocumentName(CertificateTypes.ADVISORY_NOTICE.getCertificateType());
         vt32ve.setFailData(getVt32VeW().getFailData());
         return vt32ve;
     }
 
     public static VT32VE getEuVt32Ve() {
         VT32VE euVt32ve = new VT32VE();
-        euVt32ve.setDocumentName(CertificateTypes.COMPLIANCE_ADVISORY_NOTICE.getType());
+        euVt32ve.setDocumentName(CertificateTypes.COMPLIANCE_ADVISORY_NOTICE.getCertificateType());
         euVt32ve.setFailData(getVt32Ve().getFailData());
         return euVt32ve;
     }
 
     public static VT32VE getEuVt32VeW() {
         VT32VE euVt32veW = new VT32VE();
-        euVt32veW.setDocumentName(CertificateTypes.COMPLIANCE_WELSH_ADVISORY_NOTICE.getType());
+        euVt32veW.setDocumentName(CertificateTypes.COMPLIANCE_WELSH_ADVISORY_NOTICE.getCertificateType());
         euVt32veW.setFailData(getVt32VeW().getFailData());
         return euVt32veW;
     }
 
     public static VT32VE getEuVt32VeWelshWithOverflow() {
         VT32VE euVt32veWelshWithOverflow = new VT32VE();
-        euVt32veWelshWithOverflow.setDocumentName(CertificateTypes.COMPLIANCE_WELSH_ADVISORY_NOTICE.getType());
+        euVt32veWelshWithOverflow.setDocumentName(CertificateTypes.COMPLIANCE_WELSH_ADVISORY_NOTICE.getCertificateType());
         euVt32veWelshWithOverflow.setFailData(getVt32VeW().getFailData());
         euVt32veWelshWithOverflow.getFailData()
                 .setEuDangerousDefects(generateRFRs(DANGEROUS_RFR_TEXT, 10))

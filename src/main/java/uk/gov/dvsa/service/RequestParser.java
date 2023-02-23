@@ -8,9 +8,8 @@ import uk.gov.dvsa.exception.HttpException;
 import uk.gov.dvsa.logging.EventType;
 import uk.gov.dvsa.logging.LoggingExecutor;
 import uk.gov.dvsa.model.Document;
-import uk.gov.dvsa.model.mot.enums.DocumentsConfig;
+import uk.gov.dvsa.enums.DocumentsConfig;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

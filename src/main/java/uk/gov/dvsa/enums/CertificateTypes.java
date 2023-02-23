@@ -1,4 +1,4 @@
-package uk.gov.dvsa.model.mot.enums;
+package uk.gov.dvsa.enums;
 
 public enum CertificateTypes {
 
@@ -37,17 +37,18 @@ public enum CertificateTypes {
     ADR_PASS("CVS/ADR_PASS"),
     VTG6_VTG7("CVS/VTG6_VTG7"),
     VTG6_VTG7_TRL("CVS/VTG6_VTG7_TRL"),
-    TRL_INTO_SERVICE("CVS/TRL_INTO_SERVICE"),
+
+    TRAILER_INTO_SERVICE("CVS/TrailerIntoService"),
 
     INSPECTION_CHECKLIST("MOT/InspectionChecklist");
 
-    private final String type;
+    private final String certificateType;
 
-    CertificateTypes(String type) {
-        this.type = type;
+    CertificateTypes(String certificateType) {
+        this.certificateType = certificateType;
     }
 
-    public String getType() {
-        return type;
+    public String getCertificateType() {
+        return certificateType;
     }
 }

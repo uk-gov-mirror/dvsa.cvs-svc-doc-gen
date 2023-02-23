@@ -7,7 +7,7 @@ import uk.gov.dvsa.model.cvs.VTP30;
 import uk.gov.dvsa.model.cvs.VTG5;
 import uk.gov.dvsa.model.cvs.VTG5A;
 import uk.gov.dvsa.model.cvs.certificateData.*;
-import uk.gov.dvsa.model.mot.enums.CertificateTypes;
+import uk.gov.dvsa.enums.CertificateTypes;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,7 +52,7 @@ public class CvsCertificateTestDataProvider {
 
     public static VTP20 getVtp20() {
         VTP20 vtp20 = new VTP20();
-        vtp20.setDocumentName(CertificateTypes.CVS_PASS.getType());
+        vtp20.setDocumentName(CertificateTypes.CVS_PASS.getCertificateType());
         CvsMotCertificateData vtp20Data = new CvsMotCertificateData();
         vtp20Data
                 .setMinorDefectsHeader(DefectSummaryComponent.MINOR_DEFECTS_HEADER_TEXT)
@@ -117,7 +117,7 @@ public class CvsCertificateTestDataProvider {
 
     public static VTP30 getVtp30() {
         VTP30 vtp30 = new VTP30();
-        vtp30.setDocumentName(CertificateTypes.CVS_FAIL.getType());
+        vtp30.setDocumentName(CertificateTypes.CVS_FAIL.getCertificateType());
         CvsMotFailCertificateData vtp30Data = new CvsMotFailCertificateData();
 
         vtp30Data
@@ -176,7 +176,7 @@ public class CvsCertificateTestDataProvider {
 
     public static VTG5 getVtg5() {
         VTG5 vtg5 = new VTG5();
-        vtg5.setDocumentName(CertificateTypes.CVS_HGV_PASS.getType());
+        vtg5.setDocumentName(CertificateTypes.CVS_HGV_PASS.getCertificateType());
         CvsMotCertificateData vtg5Data = new CvsMotCertificateData();
         vtg5Data
                 .setMinorDefectsHeader(DefectSummaryComponent.MINOR_DEFECTS_HEADER_TEXT)
@@ -226,7 +226,7 @@ public class CvsCertificateTestDataProvider {
 
     public static VTG5A getVtg5a() {
         VTG5A vtg5a = new VTG5A();
-        vtg5a.setDocumentName(CertificateTypes.CVS_TRL_PASS.getType());
+        vtg5a.setDocumentName(CertificateTypes.CVS_TRL_PASS.getCertificateType());
         CvsMotCertificateData vtg5aData = new CvsMotCertificateData();
         vtg5aData
                 .setMinorDefectsHeader(DefectSummaryComponent.MINOR_DEFECTS_HEADER_TEXT)
@@ -274,7 +274,7 @@ public class CvsCertificateTestDataProvider {
 
     public static VTG30 getVtg30() {
         VTG30 vtg30 = new VTG30();
-        vtg30.setDocumentName(CertificateTypes.CVS_HGV_TRL_FAIL.getType());
+        vtg30.setDocumentName(CertificateTypes.CVS_HGV_TRL_FAIL.getCertificateType());
         CvsMotFailCertificateData vtg30Data = new CvsMotFailCertificateData();
 
         vtg30Data

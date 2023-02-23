@@ -2,19 +2,15 @@ package htmlverification.tests;
 
 import com.github.jknack.handlebars.Handlebars;
 import htmlverification.framework.page_object.CertificatePageObject;
-import htmlverification.service.CvsCertificateTestDataProvider;
 import org.junit.Before;
 import org.junit.Test;
-import uk.gov.dvsa.model.cvs.VTP30;
 import uk.gov.dvsa.model.mot.InspectionChecklist;
-import uk.gov.dvsa.model.mot.enums.CertificateTypes;
+import uk.gov.dvsa.enums.CertificateTypes;
 import uk.gov.dvsa.service.HtmlGenerator;
 
 import java.io.IOException;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static uk.gov.dvsa.model.mot.results.Summary.EU_NUMBER_SUMMARY_HEADER;
 
 public class InspectionChecklistTest {
 
@@ -117,7 +113,7 @@ public class InspectionChecklistTest {
 
         InspectionChecklist inspectionChecklist = new InspectionChecklist();
 
-        inspectionChecklist.setDocumentName(CertificateTypes.INSPECTION_CHECKLIST.getType());
+        inspectionChecklist.setDocumentName(CertificateTypes.INSPECTION_CHECKLIST.getCertificateType());
 
         return inspectionChecklist
                 .setBrakeWeight("1000 kg")

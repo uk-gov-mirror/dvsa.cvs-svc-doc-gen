@@ -13,13 +13,12 @@ import uk.gov.dvsa.logging.EventLogger;
 import uk.gov.dvsa.logging.EventType;
 import uk.gov.dvsa.logging.LoggingExecutor;
 import uk.gov.dvsa.model.Document;
-import uk.gov.dvsa.model.mot.enums.DocumentsConfig;
+import uk.gov.dvsa.enums.DocumentsConfig;
 
 import java.io.IOException;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -94,11 +93,12 @@ public class HtmlGenerator {
 
     private Handlebars registerIsoDateFormatHelper(Handlebars handlebars) {
         return handlebars.registerHelper("formatIsoDate", (context, options) -> {
-            String input = context.toString();
-            DateTimeFormatter ukFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            LocalDate ukDate;
-
             try {
+                DateTimeFormatter ukFormat = DateTimeFormatter.ofPattern(options.param(0, "dd/MM/yyyy"));
+                LocalDate ukDate;
+
+                String input = context.toString();
+
                 if (input.length() == 10) {
                     // likely yyyy-mm-dd
                     DateTimeFormatter f = DateTimeFormatter.ISO_LOCAL_DATE;

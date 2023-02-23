@@ -1,32 +1,47 @@
 package uk.gov.dvsa.model.cvs.certificateData;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ApplicantDetails {
     @JsonProperty
     private String name;
 
     @JsonProperty
-    private String street;
+    private String address1;
 
     @JsonProperty
-    private String town;
+    private String address2;
 
     @JsonProperty
-    private String city;
+    private String postTown;
 
     @JsonProperty
-    private String postcode;
+    private String address3;
+
+    @JsonProperty
+    private String postCode;
+
+    @JsonProperty
+    private String telephoneNumber;
+
+    @JsonProperty
+    private String emailAddress;
 
     public ApplicantDetails() {
     }
 
-    public ApplicantDetails(String name, String street, String town, String city, String postcode) {
+    public ApplicantDetails(String name, String address1, String address2, String postTown,
+     String address3, String postCode, String telephoneNumber, String emailAddress) {
         this.name = name;
-        this.street = street;
-        this.town = town;
-        this.city = city;
-        this.postcode = postcode;
+        this.address1 = address1;
+        this.address2 = address2;
+        this.postTown = postTown;
+        this.address3 = address3;
+        this.postCode = postCode;
+        this.telephoneNumber = telephoneNumber;
+        this.emailAddress = emailAddress;
     }
 
     public String getName() {
@@ -37,35 +52,61 @@ public class ApplicantDetails {
         this.name = name;
     }
 
-    public String getStreet() {
-        return street;
+    public String getAddress1() {
+        return address1;
     }
 
-    public void setStreet(String street) {
-        this.street = street;
+    public void setAddress1(String address1) {
+        this.address1 = address1;
     }
 
-    public String getTown() {
-        return town;
+    public String getAddress2() {
+        return address2;
     }
 
-    public void setTown(String town) {
-        this.town = town;
+    public void setAddress2(String address2) {
+        this.address2 = address2;
     }
 
-    public String getCity() {
-        return city;
+    public String getPostTown() {
+        return postTown;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setPostTown(String postTown) {
+        this.postTown = postTown;
     }
 
-    public String getPostcode() {
-        return postcode;
+    public String getAddress3() {
+        return address3;
     }
 
-    public void setPostcode(String postcode) {
-        this.postcode = postcode;
+    public void setAddress3(String address3) {
+        this.address3 = address3;
+    }
+
+    public String getPostCode() {
+        return postCode;
+    }
+
+    public void setPostCode(String postCode) {
+        this.postCode = postCode;
+    }
+
+    public String getTelephoneNumber() {
+        return telephoneNumber;
+    }
+
+    public void setTelephoneNumber(String telephoneNumber) {
+        this.telephoneNumber = telephoneNumber;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
 }
+
+

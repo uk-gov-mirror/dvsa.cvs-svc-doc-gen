@@ -42,12 +42,6 @@ public class AdrPassTest {
     }
 
     @Test
-    public void verifyApplicantDetailsStreet() {
-        String applicantDetailsStreet = certificatePageObject.getApplicantDetailsStreet();
-        assertEquals(testCertificate.getAdrData().getApplicantDetails().getStreet(), applicantDetailsStreet);
-    }
-
-    @Test
     public void verifyVehicleType() {
         String vehicleType = certificatePageObject.getVehicleType();
         assertEquals(testCertificate.getAdrData().getVehicleType(), vehicleType);

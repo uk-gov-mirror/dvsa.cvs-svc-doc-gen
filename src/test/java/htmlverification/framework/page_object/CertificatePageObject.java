@@ -12,6 +12,10 @@ public class CertificatePageObject extends BasePageObject {
         super(htmlContent);
     }
 
+    public String getTextByElementId(String id) { return getElementById(id).text(); }
+    public String getTextByElementSelector(String selector) { return getElement(selector).text(); }
+
+
     public MileageHistoryComponent getMileageHistoryComponent() {
         Element mileageHistoryElement = getElementById(CertificatePageSelector.MILEAGE_HISTORY_ID.getSelector());
 

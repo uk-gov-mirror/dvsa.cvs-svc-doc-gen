@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title>Trailer Into Service</title>
+        <style type="text/css" media="print, screen">
+           {{~> assets/stylesheets/core-styles this}}
+           {{~> assets/stylesheets/trailer-into-service this}}
+       </style>
+    </head>
+
+    <body>
+        <table id="letter-heading-logos">
+            <tr>
+                <td class="logo-cell left"><img id="dvsa-logo" src="{{root}}/assets/images/dvsa-crest-small.png" alt="DVSA logo"/></td>
+                <td class="logo-cell right"><img id="dva-logo" src="{{root}}/assets/images/dva-logo.png" alt="DVA logo"/></td>
+            </tr>
+        </table>
+
+        <table id="letter-heading">
+            <tbody>
+                <tr>
+                    <td id="applicant-details">
+                        {{#if applicantDetails.name}}<span class="name">{{applicantDetails.name}}</span>{{/if}}
+                        {{#if applicantDetails.address1}}<span class="address1">{{applicantDetails.address1}}</span>{{/if}}
+                        {{#if applicantDetails.address2}}<span class="address2">{{applicantDetails.address2}}</span>{{/if}}
+                        {{#if applicantDetails.postTown}}<span class="postTown">{{applicantDetails.postTown}}</span>{{/if}}
+                        {{#if applicantDetails.address3}}<span class="address3">{{applicantDetails.address3}}</span>{{/if}}
+                        {{#if applicantDetails.postCode}}<span class="postCode">{{applicantDetails.postCode}}</span>{{/if}}
+                    </td>
+                    <td id="office-details">
+                        Trailer Section<br/>
+                        DVSA,<br/>
+                        Ellipse,<br/>
+                        Padley Road,<br/>
+                        Swansea<br/>
+                        SA1 8AN<br/>
+                        <br/>
+                        Tel: 0300 1239000<br/>
+                        Fax: 01792 454273<br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Date: <span id="letter-date-requested">{{formatIsoDate letterDateRequested "d MMMM yyyy"}}</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p id="letter-subject">
+            {{#if (eq paragraphId 4)}}
+                Refusal to issue a consent to supply a large trailer for use on the road
+            {{else}}
+                Consent to supply a large trailer for use on the road
+            {{/if}}
+        </p>
+
+        <table id="vehicle-information">
+            <tbody>
+                <tr><td>Vehicle Identification Number:</td><td id="vin">{{vin}}</td></tr>
+                {{#if (neq paragraphId 4)}}
+                    <tr><td>Type Approval Number (If applicable):</td><td id="approval-type-number">{{approvalTypeNumber}}</td></tr>
+                    <tr><td>The Trailer ID Number allocated to the trailer is:</td><td id="trailer-id">{{trailerId}}</td></tr>
+                {{/if}}
+            </tbody>
+        </table>
+
+        {{#if (eq paragraphId 3)}}
+        <p id="paragraph-3">
+            On behalf of the UK approval authority and pursuant to the Road Vehicles (Approval) Regulations 2020, Chapter 2, Regulation 23, we hereby give consent to the supply of the trailer having the above identification numbers for use on a road in Great Britain or Northern Ireland.<br/><br/>
+            Please ensure that the allocated identification number is permanently marked in a conspicuous position on the nearside, on the chassis or a fixed component.<br/><br/>
+            To check the authenticity of this document, please contact the above number quoting the trailer ID number.
+        </p>
+        {{/if}}
+
+        {{#if (eq paragraphId 4)}}
+        <p id="paragraph-4">
+            On behalf of the UK approval authority and pursuant to the Road Vehicles (Approval) Regulations 2020, Chapter 2, Regulation 23, we hereby refuse consent to the supply of the trailer having the above identification numbers for use on a road.
+        </p>
+        {{/if}}
+
+        {{#if (eq paragraphId 5)}}
+        <p id="paragraph-5">
+            On behalf of the UK approval authority and pursuant to the Road Vehicles (Approval) Regulations 2020, Chapter 2, Regulation 23, we hereby give consent to the supply of the trailer having the above identification numbers for use on a road.<br/><br/>
+            Please ensure that the allocated identification number is permanently marked in a conspicuous position on the nearside, on the chassis or a fixed component.<br/><br/>
+            This consent is issued on the basis that the trailer was completed before it became necessary to have type approval.<br/><br/>
+            In order to obtain "Plating" documents it is necessary to submit to the Driver and Vehicle Standards Agency (DVSA) a First Test application (VTG2L) and provide evidence of brake compliance.<br/><br/>
+            To check the authenticity of this document, please contact the above number quoting the trailer ID number.<br/><br/>
+        </p>
+        {{/if}}
+
+        {{#if (eq paragraphId 6)}}
+        <p id="paragraph-6">
+            On behalf of the UK approval authority and pursuant to the Road Vehicles (Approval) Regulations 2020, Chapter 2, Regulation 23, we hereby give consent to the supply of the trailer having the above identification numbers for use on a road in Great Britain only.<br/><br/>
+            Please ensure that the allocated identification number is permanently marked in a conspicuous position on the nearside, on the chassis or a fixed component.<br/><br/>
+            To check the authenticity of this document, please contact the above number quoting the trailer ID number.<br/><br/>
+        </p>
+        {{/if}}
+
+        {{#if (eq paragraphId 7)}}
+        <p id="paragraph-7">
+            On behalf of the UK approval authority and pursuant to the Road Vehicles (Approval) Regulations 2020, Chapter 2, Regulation 23, we hereby give consent to the supply of the trailer having the above identification numbers for use on a road in <strong>Northern Ireland</strong> only.<br/><br/>
+            Please ensure that the allocated identification number is permanently marked in a conspicuous position on the nearside, on the chassis or a fixed component.<br/><br/>
+            To check the authenticity of this document, please contact the above number quoting the trailer ID number.<br/><br/>
+        </p>
+        {{/if}}
+
+        <p id="footer">
+            Yours faithfully
+            <p>
+                <img id="letter-signature" src="{{root}}/assets/images/signature-ceo-loveday-ryder.png" alt="DVSA CEO Loveday Ryder's signature"/>
+            </p>
+            Loveday Ryder<br/>
+            Chief Executive Officer
+        </p>
+    </body>
+</html>

@@ -1,0 +1,82 @@
+html {
+    box-sizing: !important margin-box;
+    font-size: 12px;
+}
+    *, *:before, *:after {
+    box-sizing: !important margin-box;
+}
+
+@font-face {
+    font-family: nta;
+    font-weight: 100;
+    src: url({{root}}/assets/fonts/NTA-Light.ttf);
+    -fs-pdf-font-embed: embed;
+    -fs-pdf-font-encoding: Identity-H
+}
+
+@font-face {
+    font-family: nta-bold;
+    font-weight: 700;
+    src: url({{root}}/assets/fonts/NTA-Bold.ttf);
+    -fs-pdf-font-embed: embed;
+    -fs-pdf-font-encoding: Identity-H
+}
+
+@font-face {
+    font-family: gds-transport;
+    font-weight: 400;
+    src: url({{root}}/assets/fonts/GDSTransportWebsite.ttf);
+    -fs-pdf-font-embed: embed;
+    -fs-pdf-font-encoding: Identity-H
+}
+
+@font-face {
+    font-family: courier-new-regular;
+    font-weight: 100;
+    src: url({{root}}/assets/fonts/courier-new-regular.ttf);
+    -fs-pdf-font-embed: embed;
+    -fs-pdf-font-encoding: Identity-H
+}
+
+@font-face {
+    font-family: courier-new-bold;
+    font-weight: 100;
+    src: url({{root}}/assets/fonts/courier-new-bold.ttf);
+    -fs-pdf-font-embed: embed;
+    -fs-pdf-font-encoding: Identity-H
+}
+
+@page {
+    size: A4;
+    margin: 1cm 1cm 50px 1cm;
+    @top-center {
+    content: element(header)
+    }
+    @bottom-center {
+        content: element(footer)
+    }
+}
+
+@page :first {
+    @bottom-center {
+        content: element(footer-first-page)
+    }
+}
+
+body,
+html {
+    font-family: nta;
+    font-weight: 100;
+    line-height: 1;
+    margin: 0;
+    -fs-page-sequence: start;
+    page-break-before: always
+}
+
+.clearfix {
+    clear: both
+}
+
+.util-avoid-page-break-inside {
+    page-break-inside: avoid
+}

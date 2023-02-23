@@ -2,14 +2,12 @@ package pdfverification.tests;
 
 import com.github.jknack.handlebars.Handlebars;
 import com.itextpdf.text.pdf.PdfReader;
-import htmlverification.service.CvsCertificateTestDataProvider;
 import org.junit.Before;
 import org.junit.Test;
 import org.xhtmlrenderer.pdf.ITextRenderer;
 import pdfverification.service.PDFParser;
-import uk.gov.dvsa.model.cvs.CvsMotCertificate;
 import uk.gov.dvsa.model.mot.VT29;
-import uk.gov.dvsa.model.mot.enums.CertificateTypes;
+import uk.gov.dvsa.enums.CertificateTypes;
 import uk.gov.dvsa.service.HtmlGenerator;
 import uk.gov.dvsa.service.PDFGenerationService;
 
@@ -51,7 +49,7 @@ public class VT29Tests {
                 .setVin("VIN123456789VIN12")
                 .setVrm("VRM 123");
 
-        vt29.setDocumentName(CertificateTypes.VT29.getType());
+        vt29.setDocumentName(CertificateTypes.VT29.getCertificateType());
 
         return vt29;
     }

@@ -1,0 +1,18 @@
+{
+  "resource": "/certificate-generation-service",
+  "path": "/certificate-print",
+  "httpMethod": "POST",
+  "headers": null,
+  "queryStringParameters": null,
+  "pathParameters": {
+    "documentDirectory": "CVS",
+    "documentName": "TrailerIntoService"
+  },
+  "requestContext": {
+    "path": "/certificate-print",
+    "resourcePath": "/certificate-print",
+    "httpMethod": "POST"
+  },
+  "body": "{\n  \"vin\": \"VIN\",\n  \"trailerId\": \"1233456Z\",\n  \"applicantDetails\": {\n    \"name\": \"Dr T Railer\",\n    \"address1\": \"Address Line 1\",\n    \"address2\": \"Address Line 2\",\n    \"postTown\": \"Postal Town\",\n    \"address3\": \"Address Line 3\",\n    \"postCode\": \"P057 CDE\",\n    \"telephoneNumber\": \"01234 5678901\",\n    \"emailAddress\": \"someone@example.com\"\n  },\n  \"letterDateRequested\": \"2023-02-17T18:15:00.000Z\",\n  \"approvalTypeNumber\": \"APPROVAL/TYPE/**/NUMBER\",\n  \"paragraphId\": 4\n}",
+  "isBase64Encoded": false
+}
