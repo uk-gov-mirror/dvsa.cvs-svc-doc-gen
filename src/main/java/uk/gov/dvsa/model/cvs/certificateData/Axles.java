@@ -4,16 +4,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Axles {
 
-    @JsonProperty("Axle1")
+    @JsonProperty("axle1")
     private Axle axle1;
 
-    @JsonProperty("Axle2")
+    @JsonProperty("axle2")
     private Axle axle2;
 
-    @JsonProperty("Axle3")
+    @JsonProperty("axle3")
     private Axle axle3;
 
-    @JsonProperty("Axle4")
+    @JsonProperty("axle4")
     private Axle axle4;
 
     public Axles() {

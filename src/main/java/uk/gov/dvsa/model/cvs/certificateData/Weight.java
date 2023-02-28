@@ -4,13 +4,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Weight {
 
-    @JsonProperty("GbWeight")
+    @JsonProperty("gbWeight")
     private String gbWeight;
 
-    @JsonProperty("DesignWeight")
+    @JsonProperty("designWeight")
     private String designWeight;
 
-    @JsonProperty("EecWeight")
+    @JsonProperty("eecWeight")
     private String eecWeight;
 
     public Weight() {

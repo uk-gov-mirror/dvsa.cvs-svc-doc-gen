@@ -1,9 +1,11 @@
 package uk.gov.dvsa.model.cvs;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import uk.gov.dvsa.model.Document;
 import uk.gov.dvsa.model.cvs.certificateData.MinistryPlateData;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class MinistryPlate extends Document {
 
     @JsonProperty("ID")

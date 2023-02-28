@@ -10,94 +10,94 @@ public class MinistryPlateData {
 
     private static final Logger logger = LogManager.getLogger(MinistryPlateData.class);
 
-    @JsonProperty("PlateSerialNumber")
+    @JsonProperty("plateSerialNumber")
     private String plateSerialNumber;
 
-    @JsonProperty("DtpNumber")
+    @JsonProperty("dtpNumber")
     private String dtpNumber;
 
-    @JsonProperty("PrimaryVrm")
+    @JsonProperty("primaryVrm")
     private String primaryVrm;
 
-    @JsonProperty("Vin")
+    @JsonProperty("vin")
     private String vin;
 
-    @JsonProperty("VariantNumber")
+    @JsonProperty("variantNumber")
     private String variantNumber;
 
-    @JsonProperty("ApprovalTypeNumber")
+    @JsonProperty("approvalTypeNumber")
     private String approvalTypeNumber;
 
-    @JsonProperty("Make")
+    @JsonProperty("make")
     private String make;
 
-    @JsonProperty("Model")
+    @JsonProperty("model")
     private String model;
 
-    @JsonProperty("SpeedLimiterMrk")
+    @JsonProperty("speedLimiterMrk")
     private String speedLimiterMrk;
 
-    @JsonProperty("FunctionCode")
+    @JsonProperty("functionCode")
     private String functionCode;
 
-    @JsonProperty("RegnDate")
+    @JsonProperty("regnDate")
     private String regnDate;
 
-    @JsonProperty("ManufactureYear")
+    @JsonProperty("manufactureYear")
     private String manufactureYear;
 
-    @JsonProperty("GrossGbWeight")
+    @JsonProperty("grossGbWeight")
     private String grossGbWeight;
 
-    @JsonProperty("GrossEecWeight")
+    @JsonProperty("grossEecWeight")
     private String grossEecWeight;
 
-    @JsonProperty("GrossDesignWeight")
+    @JsonProperty("grossDesignWeight")
     private String grossDesignWeight;
 
-    @JsonProperty("TrainGbWeight")
+    @JsonProperty("trainGbWeight")
     private String trainGbWeight;
 
-    @JsonProperty("TrainEecWeight")
+    @JsonProperty("trainEecWeight")
     private String trainEecWeight;
 
-    @JsonProperty("TrainDesignWeight")
+    @JsonProperty("trainDesignWeight")
     private String trainDesignWeight;
 
-    @JsonProperty("MaxTrainGbWeight")
+    @JsonProperty("maxTrainGbWeight")
     private String maxTrainGbWeight;
 
-    @JsonProperty("MaxTrainEecWeight")
+    @JsonProperty("maxTrainEecWeight")
     private String maxTrainEecWeight;
 
-    @JsonProperty("MaxLoadOnCoupling")
+    @JsonProperty("maxLoadOnCoupling")
     private String maxLoadOnCoupling;
 
-    @JsonProperty("FrontAxleTo5thWheelCouplingMin")
+    @JsonProperty("frontAxleTo5thWheelCouplingMin")
     private String frontAxleTo5thWheelCouplingMin;
 
-    @JsonProperty("FrontAxleTo5thWheelCouplingMax")
+    @JsonProperty("frontAxleTo5thWheelCouplingMax")
     private String frontAxleTo5thWheelCouplingMax;
 
-    @JsonProperty("CouplingCenterToRearTrlMax")
+    @JsonProperty("couplingCenterToRearTrlMax")
     private String couplingCenterToRearTrlMax;
 
-    @JsonProperty("CouplingCenterToRearTrlMin")
+    @JsonProperty("couplingCenterToRearTrlMin")
     private String couplingCenterToRearTrlMin;
 
-    @JsonProperty("PlateIssueDate")
+    @JsonProperty("plateIssueDate")
     private String plateIssueDate;
 
-    @JsonProperty("TyreUseCode")
+    @JsonProperty("tyreUseCode")
     private String tyreUseCode;
 
-    @JsonProperty("DimensionLength")
+    @JsonProperty("dimensionLength")
     private String dimensionLength;
 
-    @JsonProperty("DimensionWidth")
+    @JsonProperty("dimensionWidth")
     private String dimensionWidth;
 
-    @JsonProperty("Axles")
+    @JsonProperty("axles")
     private Axles axles;
 
     public String getPlateSerialNumber() {

@@ -4,13 +4,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Tyre {
 
-    @JsonProperty("TyreSize")
+    @JsonProperty("tyreSize")
     private String tyreSize;
 
-    @JsonProperty("PlyRating")
+    @JsonProperty("plyRating")
     private String plyRating;
 
-    @JsonProperty("FitmentCode")
+    @JsonProperty("fitmentCode")
     private String fitmentCode;
 
     public Tyre() {

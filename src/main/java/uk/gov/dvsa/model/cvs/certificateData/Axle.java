@@ -4,10 +4,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Axle {
 
-    @JsonProperty("Weights")
+    @JsonProperty("weights")
     private Weight weights;
 
-    @JsonProperty("Tyres")
+    @JsonProperty("tyres")
     private Tyre tyres;
 
     public Axle() {
