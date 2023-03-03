@@ -73,11 +73,11 @@ public class MinistryPlateData {
     @JsonProperty("maxLoadOnCoupling")
     private String maxLoadOnCoupling;
 
-    @JsonProperty("frontAxleTo5thWheelCouplingMin")
-    private String frontAxleTo5thWheelCouplingMin;
+    @JsonProperty("frontVehicleTo5thWheelCouplingMin")
+    private String frontVehicleTo5thWheelCouplingMin;
 
-    @JsonProperty("frontAxleTo5thWheelCouplingMax")
-    private String frontAxleTo5thWheelCouplingMax;
+    @JsonProperty("frontVehicleTo5thWheelCouplingMax")
+    private String frontVehicleTo5thWheelCouplingMax;
 
     @JsonProperty("couplingCenterToRearTrlMax")
     private String couplingCenterToRearTrlMax;
@@ -289,21 +289,21 @@ public class MinistryPlateData {
         return this;
     }
 
-    public String getFrontAxleTo5thWheelCouplingMin() {
-        return frontAxleTo5thWheelCouplingMin;
+    public String getFrontVehicleTo5thWheelCouplingMin() {
+        return frontVehicleTo5thWheelCouplingMin;
     }
 
-    public MinistryPlateData setFrontAxleTo5thWheelCouplingMin(String frontAxleTo5thWheelCouplingMin) {
-        this.frontAxleTo5thWheelCouplingMin = frontAxleTo5thWheelCouplingMin;
+    public MinistryPlateData setFrontVehicleTo5thWheelCouplingMin(String frontVehicleTo5thWheelCouplingMin) {
+        this.frontVehicleTo5thWheelCouplingMin = frontVehicleTo5thWheelCouplingMin;
         return this;
     }
 
-    public String getFrontAxleTo5thWheelCouplingMax() {
-        return frontAxleTo5thWheelCouplingMax;
+    public String getFrontVehicleTo5thWheelCouplingMax() {
+        return frontVehicleTo5thWheelCouplingMax;
     }
 
-    public MinistryPlateData setFrontAxleTo5thWheelCouplingMax(String frontAxleTo5thWheelCouplingMax) {
-        this.frontAxleTo5thWheelCouplingMax = frontAxleTo5thWheelCouplingMax;
+    public MinistryPlateData setFrontVehicleTo5thWheelCouplingMax(String frontVehicleTo5thWheelCouplingMax) {
+        this.frontVehicleTo5thWheelCouplingMax = frontVehicleTo5thWheelCouplingMax;
         return this;
     }
 
