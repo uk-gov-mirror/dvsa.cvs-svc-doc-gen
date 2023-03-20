@@ -159,7 +159,12 @@
                     <span class="inline_elem_child weight_title">Weights not to be exceeded in Gt. Britain</span>
                 </div>
             </td>
-            <td rowspan="2" class="no_border_left_top align_top width_25 gray_box">
+            <td rowspan="2" class="no_border_left_top align_top width_25">
+                <div class="inline_elem">
+                    <span class="inline_elem_child weight_numbering"> (3) </span>
+                    <span class="inline_elem_child weight_title">EEC Maximum permitted weights</span>
+                </div>
+                <p class="weight_notes">(See note 8)</p>
             </td>
             <td colspan="2" rowspan="2" class="no_border_left_top align_top width_25">
                 <div class="inline_elem">
@@ -194,8 +199,10 @@
                     <strong id="grossGbWeight">{{plateData.grossGbWeight}}</strong>
                 </p>
             </td>
-            <td class="no_border_left_top align_middle gray_box">
-
+            <td class="no_border_left_top align_middle">
+                <p class="centered_data">
+                    <strong id="grossEecWeight">{{plateData.grossEecWeight}}</strong>
+                </p>
             </td>
             <td colspan="2" class="no_border_left_top align_middle">
                 <p class="centered_data">
@@ -227,7 +234,10 @@
                     <strong id="trainGbWeight">{{plateData.trainGbWeight}}</strong>
                 </p>
             </td>
-            <td class="no_border_left_top align_middle gray_box">
+            <td class="no_border_left_top align_middle">
+                <p class="centered_data">
+                    <strong id="trainEecWeight">{{plateData.trainEecWeight}}</strong>
+                </p>
             </td>
             <td colspan="2" class="no_border_left_top align_middle">
                 <p class="centered_data">
@@ -255,7 +265,10 @@
                     <strong id="maxTrainGbWeight">{{plateData.maxTrainGbWeight}}</strong>
                 </p>
             </td>
-            <td class="no_border_left_top align_middle gray_box">
+            <td class="no_border_left_top align_middle">
+                <p class="centered_data">
+                    <strong id="maxTrainEecWeight">{{plateData.maxTrainEecWeight}}</strong>
+                </p>
             </td>
             <td colspan="2" class="no_border_left_top gray_box">
             </td>
@@ -318,7 +331,14 @@
                     <br/>
                 {{/if}}
             </td>
-            <td class="no_border_left_top axle_data gray_box">
+            <td class="no_border_left_top axle_data">
+                {{#if plateData.axles.axle1.weights.eecWeight}}
+                    <p class="centered_data">
+                        <strong id="axle1_eecWeight">{{plateData.axles.axle1.weights.eecWeight}}</strong>
+                    </p>
+                {{else}}
+                    <br/>
+                {{/if}}
             </td>
             <td colspan="2" class="no_border_left_top axle_data">
                 {{#if plateData.axles.axle1.weights.designWeight}}
@@ -370,7 +390,14 @@
                     <br/>
                 {{/if}}
             </td>
-            <td class="no_border_left_top axle_data gray_box">
+            <td class="no_border_left_top axle_data">
+                {{#if plateData.axles.axle2.weights.eecWeight}}
+                    <p class="centered_data">
+                        <strong id="axle2_eecWeight">{{plateData.axles.axle2.weights.eecWeight}}</strong>
+                    </p>
+                {{else}}
+                    <br/>
+                {{/if}}
             </td>
             <td colspan="2" class="no_border_left_top axle_data">
                 {{#if plateData.axles.axle2.weights.designWeight}}
@@ -422,7 +449,14 @@
                     <br/>
                 {{/if}}
             </td>
-            <td class="no_border_left_top axle_data gray_box">
+            <td class="no_border_left_top axle_data">
+                {{#if plateData.axles.axle3.weights.eecWeight}}
+                    <p class="centered_data">
+                        <strong id="axle3_eecWeight">{{plateData.axles.axle3.weights.eecWeight}}</strong>
+                    </p>
+                {{else}}
+                    <br/>
+                {{/if}}
             </td>
             <td colspan="2" class="no_border_left_top axle_data">
                 {{#if plateData.axles.axle3.weights.designWeight}}
@@ -474,7 +508,14 @@
                     <br/>
                 {{/if}}
             </td>
-            <td class="no_border_left_top axle_data gray_box">
+            <td class="no_border_left_top axle_data">
+                {{#if plateData.axles.axle4.weights.eecWeight}}
+                    <p class="centered_data">
+                        <strong id="axle4_eecWeight">{{plateData.axles.axle4.weights.eecWeight}}</strong>
+                    </p>
+                {{else}}
+                    <br/>
+                {{/if}}
             </td>
             <td colspan="2" class="no_border_left_top axle_data">
                 {{#if plateData.axles.axle4.weights.designWeight}}
@@ -591,7 +632,7 @@
                                     <p>Date of Issue</p>
                                 </div>
                                 <div class="inline_elem_child issue_date">
-                                    <p id="plateIssueDate">{{plateData.plateIssueDate}}</p>
+                                    <p id="plateIssueDate">{{formatIsoDate plateData.plateIssueDate}}</p>
                                 </div>
                             </div>
                             <div class="inline_elem black_square_container">
@@ -772,9 +813,12 @@
                             <span class="inline_elem_child weight_title">Weights not to be exceeded in Gt. Britain</span>
                         </div>
                     </td>
-                    <td rowspan="2" class="no_border_left_top align_top width_25 w-30 gray_box">
+                    <td rowspan="2" class="no_border_left_top align_top width_25">
                         <div class="inline_elem">
+                            <span class="inline_elem_child weight_numbering"> (3) </span>
+                            <span class="inline_elem_child weight_title">EEC Maximum permitted weights</span>
                         </div>
+                        <p class="weight_notes">(See note 8)</p>
                     </td>
                     <td colspan="2" rowspan="2" class="no_border_left_top align_top width_25">
                         <div class="inline_elem">
@@ -808,7 +852,10 @@
                             <strong id="grossGbWeight">{{plateData.grossGbWeight}}</strong>
                         </p>
                     </td>
-                    <td class="no_border_left_top align_middle gray_box">
+                    <td class="no_border_left_top align_middle">
+                        <p class="centered_data">
+                            <strong id="grossEecWeight">{{plateData.grossEecWeight}}</strong>
+                        </p>
                     </td>
                     <td colspan="2" class="no_border_left_top align_middle">
                         <p class="centered_data">
@@ -836,7 +883,10 @@
                             <strong id="trainGbWeight">{{plateData.trainGbWeight}}</strong>
                         </p>
                     </td>
-                    <td class="no_border_left_top align_middle gray_box">
+                    <td class="no_border_left_top align_middle">
+                        <p class="centered_data">
+                            <strong id="trainEecWeight">{{plateData.trainEecWeight}}</strong>
+                        </p>
                     </td>
                     <td colspan="2" class="no_border_left_top align_middle">
                         <p class="centered_data">
@@ -864,7 +914,10 @@
                             <strong id="maxTrainGbWeight">{{plateData.maxTrainGbWeight}}</strong>
                         </p>
                     </td>
-                    <td class="no_border_left_top align_middle gray_box">
+                    <td class="no_border_left_top align_middle">
+                        <p class="centered_data">
+                            <strong id="maxTrainEecWeight">{{plateData.maxTrainEecWeight}}</strong>
+                        </p>
                     </td>
                     <td colspan="2" class="no_border_left_top gray_box">
                     </td>
@@ -880,7 +933,7 @@
                                     DEPARTMENT FOR
                                 </p>
                                 <p class="department_data">
-                                    [{{plateData.plateIssueDate}}]
+                                    [{{formatIsoDate plateData.plateIssueDate}}]
                                 </p>
                                 <p class="department_for">
                                     TRANSPORT
@@ -933,7 +986,14 @@
                             <br/>
                         {{/if}}
                     </td>
-                    <td class="no_border_left_top axle_data gray_box">
+                    <td class="no_border_left_top axle_data">
+                        {{#if plateData.axles.axle1.weights.eecWeight}}
+                            <p class="centered_data">
+                                <strong id="axle1_eecWeight">{{plateData.axles.axle1.weights.eecWeight}}</strong>
+                            </p>
+                        {{else}}
+                            <br/>
+                        {{/if}}
                     </td>
                     <td colspan="2" class="no_border_left_top axle_data">
                         {{#if plateData.axles.axle1.weights.designWeight}}
@@ -958,7 +1018,14 @@
                             <br/>
                         {{/if}}
                     </td>
-                    <td class="no_border_left_top axle_data gray_box">
+                    <td class="no_border_left_top axle_data">
+                        {{#if plateData.axles.axle2.weights.eecWeight}}
+                            <p class="centered_data">
+                                <strong id="axle2_eecWeight">{{plateData.axles.axle2.weights.eecWeight}}</strong>
+                            </p>
+                        {{else}}
+                            <br/>
+                        {{/if}}
                     </td>
                     <td colspan="2" class="no_border_left_top axle_data">
                         {{#if plateData.axles.axle2.weights.designWeight}}
@@ -983,7 +1050,14 @@
                             <br/>
                         {{/if}}
                     </td>
-                    <td class="no_border_left_top axle_data gray_box">
+                    <td class="no_border_left_top axle_data">
+                        {{#if plateData.axles.axle3.weights.eecWeight}}
+                            <p class="centered_data">
+                                <strong id="axle3_eecWeight">{{plateData.axles.axle3.weights.eecWeight}}</strong>
+                            </p>
+                        {{else}}
+                            <br/>
+                        {{/if}}
                     </td>
                     <td colspan="2" class="no_border_left_top axle_data">
                         {{#if plateData.axles.axle3.weights.designWeight}}
@@ -1008,7 +1082,14 @@
                             <br/>
                         {{/if}}
                     </td>
-                    <td class="no_border_left_top axle_data gray_box">
+                    <td class="no_border_left_top axle_data">
+                        {{#if plateData.axles.axle4.weights.eecWeight}}
+                            <p class="centered_data">
+                                <strong id="axle4_eecWeight">{{plateData.axles.axle4.weights.eecWeight}}</strong>
+                            </p>
+                        {{else}}
+                            <br/>
+                        {{/if}}
                     </td>
                     <td colspan="2" class="no_border_left_top axle_data">
                         {{#if plateData.axles.axle4.weights.designWeight}}
