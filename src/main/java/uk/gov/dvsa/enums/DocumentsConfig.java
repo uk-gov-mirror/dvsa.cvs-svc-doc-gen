@@ -60,8 +60,6 @@ public enum DocumentsConfig {
 
     VTG6_VTG7(CertificateTypes.VTG6_VTG7.getCertificateType(), MinistryPlate.class,
             new String[]{CertificateTemplates.VTG6_VTG7.getCertificateTemplateName()}),
-    VTG6_VTG7_TRL(CertificateTypes.VTG6_VTG7_TRL.getCertificateType(), MinistryPlate.class,
-            new String[]{CertificateTemplates.VTG6_VTG7_TRL.getCertificateTemplateName()}),
 
     TRAILER_INTO_SERVICE(CertificateTypes.TRAILER_INTO_SERVICE.getCertificateType(), TrailerIntoService.class,
             new String[]{CertificateTemplates.TRAILER_INTO_SERVICE.getCertificateTemplateName()}),

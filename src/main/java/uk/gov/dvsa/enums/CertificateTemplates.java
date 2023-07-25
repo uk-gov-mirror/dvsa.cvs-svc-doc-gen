@@ -28,7 +28,6 @@ public enum CertificateTemplates {
     ADR_PASS("CommercialVehicles/ADR_PASS"),
 
     VTG6_VTG7("CommercialVehicles/VTG6_VTG7"),
-    VTG6_VTG7_TRL("CommercialVehicles/VTG6_VTG7_TRL"),
 
     TRAILER_INTO_SERVICE("CommercialVehicles/TrailerIntoService"),
 

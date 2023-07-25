@@ -194,7 +194,7 @@ public class CertificateTestDataProvider {
         MinistryPlate ministryPlateCertificate = new MinistryPlate();
         Reissue reissue = new Reissue();
         reissue.setReason("REPLACEMENT");
-        ministryPlateCertificate.setDocumentName(CertificateTypes.VTG6_VTG7_TRL.getCertificateType());
+        ministryPlateCertificate.setDocumentName(CertificateTypes.VTG6_VTG7.getCertificateType());
         ministryPlateCertificate.setReissue(reissue);
         MinistryPlateData ministryPlateCertificateData = new MinistryPlateData();
 
