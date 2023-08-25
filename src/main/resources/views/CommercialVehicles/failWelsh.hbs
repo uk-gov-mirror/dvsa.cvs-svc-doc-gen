@@ -1,0 +1,360 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Gwrthod tystysgrif prawf MOT</title>
+    <style type="text/css" media="print, screen">
+            {{~> assets/stylesheets/cvs-version-1 this}}
+    </style>
+</head>
+<body>
+{{~> views/component/watermarkComponent watermark=watermark}}
+<div class="footer footer--first-page">
+    <div class="signature-image__wrapper">
+        <img id="signature-first-page" class="signature-image" src="{{signature.formattedImageData}}" alt="signature"/>
+    </div>
+    <div class="footer__wrapper">
+        <div class="footer__bottom">
+            <div class="footer__bottom-one">
+            </div>
+            <div class="footer__bottom-two">
+                <div class="footer__bottom-page-counter">
+                     <span class="footer__bottom-page-counter-text">
+                     Tudalen
+                     </span>
+                    <span class="footer__bottom-page-counter-text footer__bottom-page-counter-text--page-number"></span>
+                    <span class="footer__bottom-page-counter-text">o</span>
+                    <span class="footer__bottom-page-counter-text footer__bottom-page-counter-text--pages-count"></span>
+                </div>
+            </div>
+            <div class="footer__bottom-three">
+                <div class="footer__top-signature-line"></div>
+                <div class="issuer-signature-text">Llofnod y cyhoeddwr</div>
+            </div>
+        </div>
+        <div class="footer__certificate-tag">
+               <span class="footer__certificate-tag-text">
+               {{presentedDocumentNameFail}}/{{versionNumberFail}}
+               </span>
+        </div>
+    </div>
+</div>
+<!-- /footer -->
+<!-- footer -->
+<div class="footer">
+    <div class="signature-image__wrapper">
+        <img id="signature-second-page" class="signature-image" src="{{signature.formattedImageData}}" alt="signature"/>
+    </div>
+    <div class="footer__wrapper">
+        <div class="footer__bottom">
+            <div class="footer__bottom-one">
+                  <span class="footer__bottom-light-text footer__bottom-light-text--vin">
+                  VIN: {{failData.rawVin}}
+                  </span>
+            </div>
+            <div class="footer__bottom-two">
+                <div class="footer__bottom-page-counter">
+                     <span class="footer__bottom-page-counter-text">
+                     Tudalen
+                     </span>
+                    <span class="footer__bottom-page-counter-text footer__bottom-page-counter-text--page-number"></span>
+                     <span class="footer__bottom-page-counter-text">
+                     o
+                     </span>
+                    <span class="footer__bottom-page-counter-text footer__bottom-page-counter-text--pages-count"></span>
+                </div>
+            </div>
+            <div class="footer__bottom-three">
+                <div class="footer__top-signature-line"></div>
+                <div class="issuer-signature-text">Llofnod y cyhoeddwr</div>
+            </div>
+        </div>
+        <div class="footer__certificate-tag">
+               <span class="footer__certificate-tag-text">
+                   {{presentedDocumentNameFail}}/{{versionNumberFail}}
+               </span>
+        </div>
+    </div>
+</div>
+<!-- /footer -->
+<!-- certificate -->
+<div class="certificate">
+    <div class="certificate__wrapper">
+        <!-- header -->
+        <div class="header">
+            <div class="header__left">
+                <h1 class="header__title">
+                    {{#if reissue}}
+                    <p class="heading-info--no-margin">{{reissue.reason}}</p>
+                    {{/if}}
+                    Gwrthod tystysgrif prawf MOT
+                </h1>
+                <!-- heading-info -->
+                <div class="heading-info">
+                    <h2 class="heading-info__title">
+                        <span class="heading-info__title-left">
+                        <span class="circle-text">
+                        <span class="circle-text__number">(1)</span>
+                        </span>
+                        </span>
+                        <span class="heading-info__title-right">
+                        <span class="heading-info__title-message">
+                        Rhif adnabod cerbyd
+                        </span>
+                        </span>
+                    </h2>
+                     <span class="heading-info__content" id="vin">
+                         {{failData.rawVin}}
+                     </span>
+                </div>
+                <!-- /heading-info -->
+                <!-- header__two-columns -->
+                <div class="header__two-columns">
+                    <div class="header__two-columns-one">
+                        <!-- heading-info -->
+                        <div class="heading-info">
+                            <h2 class="heading-info__title">
+                              <span class="heading-info__title-left">
+                              <span class="circle-text">
+                              <span class="circle-text__number">(2a)</span>
+                              </span>
+                              </span>
+                              <span class="heading-info__title-right">
+                              <span class="heading-info__title-message">
+                                  {{regOrIdHeading}}
+                              </span>
+                              </span>
+                            </h2>
+                           <span class="heading-info__content" id="reg-number">
+                               {{failData.rawVrm}}
+                           </span>
+                        </div>
+                        <!-- /heading-info -->
+                    </div>
+                    <div class="header__two-columns-two">
+                        <!-- heading-info -->
+                        <div class="heading-info">
+                            <h2 class="heading-info__title">
+                              <span class="heading-info__title-left">
+                              <span class="circle-text">
+                              <span class="circle-text__number">(2b)</span>
+                              </span>
+                              </span>
+                              <span class="heading-info__title-right">
+                              <span class="heading-info__title-message">
+                              Gwlad cofrestru
+                              </span>
+                              </span>
+                            </h2>
+                           <span class="heading-info__content" id="country">
+                               {{failData.countryOfRegistrationCodeFormatted}}
+                           </span>
+                        </div>
+                        <!-- /heading-info -->
+                    </div>
+                </div>
+                <!-- /header__two-columns -->
+                <!-- heading-info -->
+                <div class="heading-info">
+                    <h2 class="heading-info__title">
+                        <span class="heading-info__title-message">
+                        Math a model
+                        </span>
+                    </h2>
+                     <span class="heading-info__content" id="make-model">
+                     {{failData.make}}, {{failData.model}}
+                     </span>
+                </div>
+                <!-- /heading-info -->
+            </div>
+            <div class="header__right">
+                <img src="{{root}}/assets/images/dvsa_crest.png" alt="DVSA Crown" class="header__logo" id="logo"/>
+            </div>
+            <div class="clearfix"></div>
+            <!-- header__three-columns -->
+            <div class="header__three-columns">
+                <div class="header__three-columns-one">
+                    <!-- heading-info -->
+                    <div class="heading-info">
+                        <h2 class="heading-info__title">
+                           <span class="heading-info__title-left">
+                           <span class="circle-text">
+                           <span class="circle-text__number">(5)</span>
+                           </span>
+                           </span>
+                           <span class="heading-info__title-right">
+                           <span class="heading-info__title-message">
+                           Categori cerbyd
+                           </span>
+                           </span>
+                        </h2>
+                        <span class="heading-info__content" id="vehicle-category">
+                            {{failData.vehicleEuClassification}}
+                        </span>
+                    </div>
+                    <!-- /heading-info -->
+                </div>
+                {{#if failData.formattedCurrentOdometer}}
+                <div class="header__three-columns-two">
+                    <!-- heading-info -->
+                    <div class="heading-info">
+                        <h2 class="heading-info__title">
+                           <span class="heading-info__title-left">
+                           <span class="circle-text">
+                           <span class="circle-text__number">(4)</span>
+                           </span>
+                           </span>
+                           <span class="heading-info__title-right">
+                           <span class="heading-info__title-message">
+                           Odomedr
+                           </span>
+                           </span>
+                        </h2>
+                        <span class="heading-info__content" id="mileage">
+                            {{failData.formattedCurrentOdometer}}
+                        </span>
+                    </div>
+                    <!-- /heading-info -->
+                </div>
+                {{/if}}
+            </div>
+            <!-- header__three-columns -->
+        </div>
+        <!-- /header -->
+        <!-- results -->
+        <div class="results">
+            <div class="results__wrapper">
+                {{#if failData.summary.present}}
+                    {{~> views/CommercialVehicles/reasonsForRejection failData.summary}}
+                {{/if}}
+                {{#if failData.dangerous.present}}
+                    {{~> views/CommercialVehicles/reasonsForRejection failData.dangerous}}
+                {{/if}}
+                {{#if failData.major.present}}
+                    {{~> views/CommercialVehicles/reasonsForRejection failData.major}}
+                {{/if}}
+                {{#if failData.minor.present}}
+                    {{~> views/CommercialVehicles/reasonsForRejection failData.minor}}
+                {{/if}}
+                {{#if failData.advisory.present}}
+                    {{~> views/CommercialVehicles/reasonsForRejection failData.advisory}}
+                {{/if}}
+                {{#if failData.prs.present}}
+                    {{~> views/CommercialVehicles/reasonsForRejection failData.prs}}
+                {{/if}}
+            </div>
+        </div>
+        <!-- /results -->
+        <!-- test-information -->
+        <div class="test-information">
+            <div class="test-information__wrapper">
+                <!-- heading-info -->
+                <div class="heading-info util-avoid-page-break-inside">
+                    <h2 class="heading-info__title">
+                        <span class="heading-info__title-left">
+                        <span class="circle-text">
+                        <span class="circle-text__number">(3b)</span>
+                        </span>
+                        </span>
+                        <span class="heading-info__title-right">
+                        <span class="heading-info__title-message">
+                        Dyddiad y prawf
+                        </span>
+                        </span>
+                    </h2>
+                     <span class="heading-info__content" id="location-of-test">
+                         {{failData.dateOfTheTest}}
+                     </span>
+                </div>
+                <!-- heading-info -->
+                <div class="heading-info util-avoid-page-break-inside">
+                    <h2 class="heading-info__title">
+                        <span class="heading-info__title-left">
+                        <span class="circle-text">
+                        <span class="circle-text__number">(3a)</span>
+                        </span>
+                        </span>
+                        <span class="heading-info__title-right">
+                        <span class="heading-info__title-message">
+                        Lleoliad y prawf
+                        </span>
+                        </span>
+                    </h2>
+                     <span class="heading-info__content" id="location-of-test">
+                         {{failData.locationOfTheTest}}
+                     </span>
+                </div>
+                <!-- /heading-info -->
+                <!-- heading-info -->
+                <div class="heading-info util-avoid-page-break-inside">
+                    <h2 class="heading-info__title">
+                        <span class="heading-info__title-left">
+                        <span class="circle-text">
+                        <span class="circle-text__number">(9)</span>
+                        </span>
+                        </span>
+                        <span class="heading-info__title-right">
+                        <span class="heading-info__title-message">
+                        Sefydliad ac arolygydd y prawf
+                        </span>
+                        </span>
+                    </h2>
+                     <span class="heading-info__content"
+                           id="organisation-and-inspection-name">
+                     {{failData.testingOrganisation}}
+                         <br/>
+                         {{failData.issuersName}}
+                     </span>
+                </div>
+                <!-- /heading-info -->
+                <!-- heading-info -->
+                <div class="heading-info util-avoid-page-break-inside">
+                    <h2 class="heading-info__title">
+                        <span class="heading-info__title-message">
+                        Rhif prawf
+                        </span>
+                    </h2>
+                     <span class="heading-info__content" id="mot-test-number">
+                         {{failData.testNumber}}
+                     </span>
+                </div>
+
+                {{#if reissue}}
+                <div class="util-avoid-page-break-inside" id="reissueInfo">
+                    <p class="test-information__message">
+                        {{reissue.reason}} certificate issued by {{reissue.issuer}} on {{reissue.date}}
+                    </p>
+                </div>
+                {{/if}}
+
+                <div class="util-avoid-page-break-inside">
+                    <p class="test-information__message">
+                        Ar gyfer ail brawf, rhaid i chi drwsio'r diffygion a threfnu i fynd â'r cerbyd i gyfleuster profi awdurdodedig o fewn 14 diwrnod gwaith i ddyddiad y prawf hwn, a thalu'r taliad priodol.
+                    </p>
+                </div>
+
+                <!-- /heading-info -->
+                <div class="util-avoid-page-break-inside">
+                    <p class="test-information__message">
+                        Mae rhagor o wybodaeth ar gael ar wefan <a class="test-information__message-link"
+                                                                           href="www.gov.uk/annual-test-for-lorries-buses-and-trailers">www.gov.uk/annual-test-for-lorries-buses-and-trailers.</a>
+                    </p>
+                    <p class="test-information__message">
+                        Os nad yw unrhyw un o’r manylion yn gywir, cysylltwch â DVSA drwy e-bost ar <br/><a
+                            class="test-information__message-link"
+                            href="mailto:test.errors@dvsa.gov.uk">test.errors@dvsa.gov.uk</a> neu drwy ffôn ar 0300 1239000.
+                    </p>
+                    <p class="test-information__message">
+                        Derbynnwch nodyn atgoffa MOT blynyddol am ddim trwy danysgrifio
+                        <br/> ar wefan <a class="test-information__message-link"
+                                                                                     href="www.gov.uk/mot-reminder">www.gov.uk/mot-reminder</a>
+                        neu drwy ffôn ar 0300 1239000.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- /test-information -->
+    </div>
+</div>
+<!-- /certificate -->
+</body>
+</html>
