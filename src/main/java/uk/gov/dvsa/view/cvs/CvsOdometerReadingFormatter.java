@@ -2,13 +2,13 @@ package uk.gov.dvsa.view.cvs;
 
 import org.apache.commons.lang3.StringUtils;
 import uk.gov.dvsa.model.cvs.certificateData.CvsOdometerReading;
-import uk.gov.dvsa.model.mot.certificateData.OdometerReading;
 
 import java.util.Optional;
 
 public class CvsOdometerReadingFormatter {
 
     public static final String MILES = "miles";
+    public static final String MILES_WELSH = "milltiroedd";
 
     private static final String MILES_UNIT = "mi";
     private static final String KILOMETERS_UNIT = "km";
@@ -30,10 +30,25 @@ public class CvsOdometerReadingFormatter {
             .orElse("");
     }
 
+    public String formatWelshValue(CvsOdometerReading odometer) {
+        if (odometer == null) {
+            return "";
+        }
+
+        if (isRemark(odometer)) {
+            return odometer.getValue();
+        }
+
+        return formatNumberValue(odometer.getValue()) +
+                Optional.ofNullable(odometer.getUnit())
+                        .map(unit -> " " + formatUnit(unit, true))
+                        .orElse("");
+    }
+
     private String formatUnit(String unit, Boolean unitWelsh) {
         switch (unit) {
             case MILES_UNIT:
-                return MILES;
+                return unitWelsh.equals(Boolean.TRUE) ? MILES_WELSH : MILES;
             case KILOMETERS_UNIT:
                 return "km";
             default:
