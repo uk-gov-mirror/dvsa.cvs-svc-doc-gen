@@ -33,7 +33,7 @@
         </div>
         <div class="footer__certificate-tag">
                <span class="footer__certificate-tag-text">
-                {{presentedDocumentNamePass}}/{{versionNumberPass}}
+                {{presentedDocumentNamePassWelsh}}/{{versionNumberPassWelsh}}
                </span>
         </div>
     </div>
@@ -70,7 +70,7 @@
         </div>
         <div class="footer__certificate-tag">
                <span class="footer__certificate-tag-text">
-                {{presentedDocumentNamePass}}/{{versionNumberPass}}
+                {{presentedDocumentNamePassWelsh}}/{{versionNumberPassWelsh}}
                </span>
         </div>
     </div>
@@ -120,7 +120,7 @@
                               </span>
                               <span class="heading-info__title-right">
                               <span class="heading-info__title-message">
-                                  {{regOrIdHeading}}
+                                  {{regOrIdHeadingWelsh}}
                               </span>
                               </span>
                             </h2>
@@ -190,7 +190,7 @@
                 <!-- /heading-info -->
             </div>
             <div class="header__right">
-                <img src="{{root}}/assets/images/dvsa_crest.png" alt="DVSA Crown" class="header__logo" id="logo"/>
+                <img src="{{root}}/assets/images/dvsa-crest-welsh-v2.png" alt="DVSA Crown" class="header__logo" id="logo"/>
             </div>
             <div class="clearfix"></div>
             <!-- header__three-columns -->
@@ -216,7 +216,7 @@
                     </div>
                     <!-- /heading-info -->
                 </div>
-                {{#if data.formattedCurrentOdometer}}
+                {{#if data.formattedCurrentOdometerWelsh}}
                 <div class="header__three-columns-two">
                     <!-- heading-info -->
                     <div class="heading-info">
@@ -233,7 +233,7 @@
                            </span>
                         </h2>
                         <span class="heading-info__content" id="mileage">
-                            {{data.formattedCurrentOdometer}}
+                            {{data.formattedCurrentOdometerWelsh}}
                         </span>
                     </div>
                     <!-- /heading-info -->
@@ -251,7 +251,7 @@
                                 <!-- header__histories -->
                                 {{#if data.odometerHistoryList}}
                                 <ul class="header__histories">
-                                    {{#each data.mileageHistory}}
+                                    {{#each data.mileageHistoryWelsh}}
                                         <li class="header__history">
                                             <div class="header__history-left-wide">
                                     <span class="header__history-mileage">
@@ -283,12 +283,12 @@
         <!-- results -->
         <div class="results">
             <div class="results__wrapper">
-                {{~> views/CommercialVehicles/reasonsForRejection data.summary}}
-                {{#if data.minor.present}}
-                    {{~> views/CommercialVehicles/reasonsForRejection data.minor}}
+                {{~> views/CommercialVehicles/reasonsForRejection data.summaryWelsh}}
+                {{#if data.minorWelsh.present}}
+                    {{~> views/CommercialVehicles/reasonsForRejection data.minorWelsh}}
                 {{/if}}
                 {{#if data.advisory.present}}
-                    {{~> views/CommercialVehicles/reasonsForRejection data.advisory}}
+                    {{~> views/CommercialVehicles/reasonsForRejection data.advisoryWelsh}}
                 {{/if}}
             </div>
         </div>
@@ -381,7 +381,7 @@
                     </h2>
                      <span class="heading-info__content"
                            id="organisation-and-inspection-name">
-                     {{data.testingOrganisation}}
+                     {{data.testingOrganisationWelsh}}
                          <br/>
                          {{data.issuersName}}
                      </span>
