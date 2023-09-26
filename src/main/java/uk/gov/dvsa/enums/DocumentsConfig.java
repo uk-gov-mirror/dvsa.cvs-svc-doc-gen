@@ -46,6 +46,8 @@ public enum DocumentsConfig {
             new String[]{CertificateTemplates.VTP20.getCertificateTemplateName(), CertificateTemplates.VTP30.getCertificateTemplateName()}),
     VTP20(CertificateTypes.CVS_PASS.getCertificateType(), uk.gov.dvsa.model.cvs.VTP20.class,
             new String[]{CertificateTemplates.VTP20.getCertificateTemplateName()}),
+    VTP20W(CertificateTypes.CVS_PASS_WELSH.getCertificateType(), uk.gov.dvsa.model.cvs.VTP20W.class,
+            new String[]{CertificateTemplates.VTP20W.getCertificateTemplateName()}),
     VTP30(CertificateTypes.CVS_FAIL.getCertificateType(), uk.gov.dvsa.model.cvs.VTP30.class,
             new String[]{CertificateTemplates.VTP30.getCertificateTemplateName()}),
 
@@ -72,6 +74,8 @@ public enum DocumentsConfig {
             new String[]{CertificateTemplates.RWT_DATA.getCertificateTemplateName()}),
     CVS_HGV_PRS(CertificateTypes.CVS_HGV_PRS.getCertificateType(), uk.gov.dvsa.model.cvs.CvsHgvPRS.class,
             new String[]{CertificateTemplates.VTG5.getCertificateTemplateName(), CertificateTemplates.VTG30.getCertificateTemplateName()}),
+    CVS_PASS_BILINGUAL(CertificateTypes.CVS_PASS_BILINGUAL.getCertificateType(), uk.gov.dvsa.model.cvs.CvsPsvPassBilingual.class,
+            new String[]{CertificateTemplates.VTP20.getCertificateTemplateName(), CertificateTemplates.VTP20W.getCertificateTemplateName()}),
     CVS_HGV_PASS_BILINGUAL(CertificateTypes.CVS_HGV_PASS_BILINGUAL.getCertificateType(), uk.gov.dvsa.model.cvs.CvsHgvPassBilingual.class,
             new String[]{CertificateTemplates.VTG5.getCertificateTemplateName(), CertificateTemplates.VTG5W.getCertificateTemplateName()}),
     CVS_TRL_PASS_BILINGUAL(CertificateTypes.CVS_TRL_PASS_BILINGUAL.getCertificateType(), uk.gov.dvsa.model.cvs.CvsTrlPassBilingual.class,
