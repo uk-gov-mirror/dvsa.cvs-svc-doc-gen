@@ -24,6 +24,8 @@ public enum CertificateTypes {
     VT29("MOT/VT29"),
 
     CVS_PASS("CVS/VTP20"),
+    CVS_PASS_WELSH("CVS/VTP20W"),
+    CVS_PASS_BILINGUAL("CVS/VTP20_BILINGUAL"),
     CVS_FAIL("CVS/VTP30"),
     CVS_PSV_PRS("CVS/PSV_PRS"),
 
