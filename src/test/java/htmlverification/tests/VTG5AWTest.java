@@ -5,7 +5,7 @@ import htmlverification.framework.page_object.CertificatePageObject;
 import htmlverification.service.CvsCertificateTestDataProvider;
 import org.junit.Before;
 import org.junit.Test;
-import uk.gov.dvsa.model.cvs.VTG5W;
+import uk.gov.dvsa.model.cvs.VTG5AW;
 import uk.gov.dvsa.model.cvs.certificateData.CvsMotCertificateDataWelsh;
 import uk.gov.dvsa.service.HtmlGenerator;
 
@@ -15,22 +15,21 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static uk.gov.dvsa.model.cvs.certificateData.CvsMotCertificateDataWelsh.TESTING_ORGANISATION_WELSH;
 import static uk.gov.dvsa.model.mot.results.Summary.EU_NUMBER_SUMMARY_HEADER;
-import static uk.gov.dvsa.view.cvs.CvsOdometerReadingFormatter.MILES_WELSH;
 
-public class Vtg5WTest {
+public class VTG5AWTest {
 
     protected HtmlGenerator htmlGenerator;
-    protected VTG5W vtg5W;
+    protected VTG5AW vtg5AW;
     protected CertificatePageObject certificatePageObject;
 
-    public Vtg5WTest() {
+    public VTG5AWTest() {
         this.htmlGenerator = new HtmlGenerator(new Handlebars());
     }
 
     @Before
     public void setup() throws IOException {
-        vtg5W = CvsCertificateTestDataProvider.getVTG5W();
-        String certHtml = htmlGenerator.generate(vtg5W).get(0);
+        vtg5AW = CvsCertificateTestDataProvider.getVTG5AW();
+        String certHtml = htmlGenerator.generate(vtg5AW).get(0);
         certificatePageObject = new CertificatePageObject(certHtml);
     }
 
@@ -46,47 +45,23 @@ public class Vtg5WTest {
     @Test
     public void verifyVin() {
         String vin = certificatePageObject.getVin();
-        assertEquals(vtg5W.getData().getRawVin(), vin);
-    }
-
-    @Test
-    public void verifyRegistrationNumber() {
-        String vrm = certificatePageObject.getRegistrationNumber();
-        assertEquals(vtg5W.getData().getRawVrm(), vrm);
+        assertEquals(vtg5AW.getData().getRawVin(), vin);
     }
 
     @Test
     public void verifyCountryOfRegistration() {
         String countryOfRegistration = certificatePageObject.getCountryOfRegistration();
-        assertEquals(vtg5W.getData().getCountryOfRegistrationCode(), countryOfRegistration);
+        assertEquals(vtg5AW.getData().getCountryOfRegistrationCode(), countryOfRegistration);
     }
 
     @Test
-    public void verifyVehicleEuClassification() {
-        String vehicleEuClassification = certificatePageObject.getVehicleCategory();
-        assertEquals(vtg5W.getData().getVehicleEuClassification(), vehicleEuClassification);
-    }
-
-    @Test
-    public void verifyMileage() {
-        String value = certificatePageObject.getMileage();
-        assertEquals("20,000 " + MILES_WELSH, value);
-    }
-
-    @Test
-    public void verifyOdometerHistoryCount() {
-        List<Object> list = List.of(certificatePageObject.getMileageHistoryComponent().getEntries().toArray());
-        assertEquals(2, list.size());
-    }
-
-    @Test
-    public void verifyAdvisories() {
+    public void verifyAdvisoryDefects() {
         List<String> advisoryDefects = certificatePageObject.getDefectSummaryComponent().getAdvisoriesWelshCVS().eachText();
         assertEquals(1, advisoryDefects.size());
     }
 
     @Test
-    public void verifyMinorDefect() {
+    public void verifyMinorDefects() {
         List<String> minorDefects = certificatePageObject.getDefectSummaryComponent().getMinorDefectsWelshCVS().eachText();
         assertEquals(1, minorDefects.size());
     }
@@ -94,19 +69,19 @@ public class Vtg5WTest {
     @Test
     public void verifyDateOfTheTest() {
         String dateOfTheTest = certificatePageObject.getDateOfTheTest();
-        assertEquals(vtg5W.getData().getDateOfTheTest(), dateOfTheTest);
+        assertEquals(vtg5AW.getData().getDateOfTheTest(), dateOfTheTest);
     }
 
     @Test
     public void verifyExpiryDate() {
         String expiryDate = certificatePageObject.getExpiryDate();
-        assertEquals(vtg5W.getData().getExpiryDate(), expiryDate);
+        assertEquals(vtg5AW.getData().getExpiryDate(), expiryDate);
     }
 
     @Test
     public void verifyLocationOfTheTest() {
         String locationOfTheTest = certificatePageObject.getLocationOfTheTest();
-        assertEquals(vtg5W.getData().getLocationOfTheTest(), locationOfTheTest);
+        assertEquals(vtg5AW.getData().getLocationOfTheTest(), locationOfTheTest);
     }
 
     @Test
@@ -115,14 +90,24 @@ public class Vtg5WTest {
         assertEquals(
                 String.format("%s %s",
                         TESTING_ORGANISATION_WELSH,
-                        vtg5W.getData().getIssuersName()),
+                        vtg5AW.getData().getIssuersName()),
                 orgAndName
         );
     }
+    @Test
+    public void verifyTestNumber() {
+        String testNumber = certificatePageObject.getTestNumber();
+        assertEquals(vtg5AW.getData().getTestNumber(), testNumber);
+    }
+    @Test
+    public void verifyEarliestDateOfTheNextTest() {
+        String earliestDateOfNextTest = certificatePageObject.getEarliestDateOfTheNextTest();
+        assertEquals(vtg5AW.getData().getEarliestDateOfTheNextTest(), earliestDateOfNextTest);
+    }
 
     @Test
-    public void verifyMotTestNumber() {
-        String testNumber = certificatePageObject.getTestNumber();
-        assertEquals(vtg5W.getData().getTestNumber(), testNumber);
+    public void verifyTrailerNumber() {
+        String trlNo = certificatePageObject.getTrn();
+        assertEquals(vtg5AW.getData().getTrn(), trlNo);
     }
 }
