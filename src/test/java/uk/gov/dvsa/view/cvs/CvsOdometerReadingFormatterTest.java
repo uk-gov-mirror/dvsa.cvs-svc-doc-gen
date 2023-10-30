@@ -26,7 +26,7 @@ public class CvsOdometerReadingFormatterTest {
                 {
                         "format in kilometers",
                         new CvsOdometerReading("15012", "km", "01.12.2017"),
-                        "15,012 km"
+                        "15,012 kilometres"
                 },
                 {
                         "format without unit",

@@ -152,7 +152,7 @@ public class VTP20WTest {
         certificatePageObject = new CertificatePageObject(certHtml);
 
         String actual = certificatePageObject.getElement("#no_data_message").text();
-        String expected = "No data available";
+        String expected = "Dim data ar gael";
         assertEquals(expected, actual);
     }
 }
