@@ -10,8 +10,8 @@ public class CvsOdometerReadingFormatter {
     public static final String MILES = "miles";
     public static final String MILES_WELSH = "milltiroedd";
     private static final String MILES_UNIT = "mi";
-    public static final String KILOMETER = "kilometres";
-    public static final String KILOMETER_WELSH = "cilomedr";
+    public static final String KILOMETERS = "kilometres";
+    public static final String KILOMETERS_WELSH = "cilomedr";
     private static final String KILOMETERS_UNIT = "km";
     private static final String THOUSANDS_PATTERN = "\\B(?=(?:.{3})+$)";
     private static final String THOUSANDS_SEPARATOR = ",";
@@ -51,9 +51,9 @@ public class CvsOdometerReadingFormatter {
             case MILES:
             case MILES_UNIT:
                 return unitWelsh.equals(Boolean.TRUE) ? MILES_WELSH : MILES;
-            case KILOMETER:
+            case KILOMETERS:
             case KILOMETERS_UNIT:
-                return unitWelsh.equals(Boolean.TRUE) ? KILOMETER_WELSH : KILOMETER;
+                return unitWelsh.equals(Boolean.TRUE) ? KILOMETERS_WELSH : KILOMETERS;
             default:
                 return unit;
         }
