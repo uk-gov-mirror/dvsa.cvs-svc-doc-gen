@@ -101,7 +101,7 @@ public class CvsHgvPassBilingualTest {
         String mileage2 = certificatePageObjectVTG5W.getMileage();
 
         assertEquals(testCertificate.getData().getFormattedCurrentOdometer(), mileage);
-        assertEquals("20,000 cilomedr", mileage2);
+        assertEquals("20,000 cilometrau", mileage2);
     }
 
     @Test

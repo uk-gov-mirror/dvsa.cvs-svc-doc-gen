@@ -11,7 +11,7 @@ public class CvsOdometerReadingFormatter {
     public static final String MILES_WELSH = "milltiroedd";
     private static final String MILES_UNIT = "mi";
     public static final String KILOMETERS = "kilometres";
-    public static final String KILOMETERS_WELSH = "cilomedr";
+    public static final String KILOMETERS_WELSH = "cilometrau";
     private static final String KILOMETERS_UNIT = "km";
     private static final String THOUSANDS_PATTERN = "\\B(?=(?:.{3})+$)";
     private static final String THOUSANDS_SEPARATOR = ",";
