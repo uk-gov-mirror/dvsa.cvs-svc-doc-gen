@@ -72,7 +72,10 @@ public enum DocumentsConfig {
             new String[]{CertificateTemplates.VTG5A.getCertificateTemplateName(), CertificateTemplates.VTG30.getCertificateTemplateName()}),
 
     INSPECTION_CHECKLIST(CertificateTypes.INSPECTION_CHECKLIST.getCertificateType(), InspectionChecklist.class,
-            new String[]{CertificateTemplates.INSPECTION_CHECKLIST.getCertificateTemplateName()});
+            new String[]{CertificateTemplates.INSPECTION_CHECKLIST.getCertificateTemplateName()}),
+
+    IVA30(CertificateTypes.IVA30.getCertificateType(), IVA30.class,
+            new String[]{CertificateTemplates.IVA30.getCertificateTemplateName()});
 
 
     private final String documentName;

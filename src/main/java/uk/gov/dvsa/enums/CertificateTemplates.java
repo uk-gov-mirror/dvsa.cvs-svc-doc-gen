@@ -33,7 +33,9 @@ public enum CertificateTemplates {
 
     RWT_DATA("CommercialVehicles/RWT_DATA"),
 
-    INSPECTION_CHECKLIST("MOT/Inspection_Checklist");
+    INSPECTION_CHECKLIST("MOT/Inspection_Checklist"),
+
+    IVA30("CommercialVehicles/IVA30");
 
     private final String certificateTemplateName;
 

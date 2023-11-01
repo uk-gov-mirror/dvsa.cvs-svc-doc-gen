@@ -23,7 +23,6 @@ public enum CertificateTypes {
 
     VT29("MOT/VT29"),
 
-
     CVS_PASS("CVS/VTP20"),
     CVS_FAIL("CVS/VTP30"),
     CVS_PSV_PRS("CVS/PSV_PRS"),
@@ -39,7 +38,9 @@ public enum CertificateTypes {
 
     TRAILER_INTO_SERVICE("CVS/TrailerIntoService"),
 
-    INSPECTION_CHECKLIST("MOT/InspectionChecklist");
+    INSPECTION_CHECKLIST("MOT/InspectionChecklist"),
+
+    IVA30("CVS/IVA30");
 
     private final String certificateType;
 
