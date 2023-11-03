@@ -176,7 +176,7 @@ public class VTP20Test {
     @Test
     public void verifyOdomoterHistory() {
         String actual = certificatePageObject.getElement("#mileage-history").text();
-        String expected = "120 km 01.02.2016 330 km 30.01.2017";
+        String expected = "120 kilometres 01.02.2016 330 kilometres 30.01.2017";
         assertEquals(expected, actual);
     }
 
