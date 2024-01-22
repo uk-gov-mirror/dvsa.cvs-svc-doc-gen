@@ -20,10 +20,13 @@ public enum CertificateTemplates {
     VT29("MOT/VT29"),
 
     VTP20("CommercialVehicles/pass"),
+    VTP20W("CommercialVehicles/passWelsh"),
     VTP30("CommercialVehicles/fail"),
 
     VTG5("CommercialVehicles/passNoSeatbeltFields"),
+    VTG5W("CommercialVehicles/passNoSeatbeltFieldsWelsh"),
     VTG5A("CommercialVehicles/passNoSeatbeltFields"),
+    VTG5AW("CommercialVehicles/passNoSeatbeltFieldsWelsh"),
     VTG30("CommercialVehicles/VTG30"),
     ADR_PASS("CommercialVehicles/ADR_PASS"),
 
