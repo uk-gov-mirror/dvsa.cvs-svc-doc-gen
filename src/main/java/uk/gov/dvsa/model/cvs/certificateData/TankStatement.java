@@ -11,8 +11,6 @@ public class TankStatement {
     @JsonProperty
     private String statement;
 
-    @JsonProperty
-    private String town;
 
     @JsonProperty
     private String productList;
@@ -24,7 +22,6 @@ public class TankStatement {
     public TankStatement(String substancesPermitted, String statement, String productList) {
         this.substancesPermitted = substancesPermitted;
         this.statement = statement;
-        this.town = town;
         this.productList = productList;
     }
 
@@ -44,13 +41,6 @@ public class TankStatement {
         this.statement = statement;
     }
 
-    public String getTown() {
-        return town;
-    }
-
-    public void setTown(String town) {
-        this.town = town;
-    }
 
     public String getProductList() {
         return productList;

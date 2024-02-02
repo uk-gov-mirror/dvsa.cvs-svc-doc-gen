@@ -30,6 +30,8 @@ public enum CertificatePageSelector {
     APPLICANT_DETAILS_NAME_ID("applicantDetailsName"),
     APPLICANT_DETAILS_STREET_ID("applicantDetailsStreet"),
     VEHICLE_TYPE_ID("vehicleType"),
+    ADR_VEHICLE_TYPE_ID("adrVehicleType"),
+
     FORMATTED_PERMITTED_DANGEROUS_GOODS_ID("formattedPermittedDangerousGoods"),
     WEIGHT_ID("weight"),
     TANK_MANUFACTURER_ID("tankManufacturer"),

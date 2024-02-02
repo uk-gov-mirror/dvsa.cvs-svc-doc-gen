@@ -31,8 +31,8 @@ public class AdrPassTest {
 
     @Test
     public void verifyChassisNumber() {
-        String chassisNumber = certificatePageObject.getChassisNumber();
-        assertEquals(testCertificate.getAdrData().getChasisNumber(), chassisNumber);
+        String chassisNumber = certificatePageObject.getVin();
+        assertEquals(testCertificate.getAdrData().getVin(), chassisNumber);
     }
 
     @Test
@@ -43,14 +43,8 @@ public class AdrPassTest {
 
     @Test
     public void verifyVehicleType() {
-        String vehicleType = certificatePageObject.getVehicleType();
-        assertEquals(testCertificate.getAdrData().getVehicleType(), vehicleType);
-    }
-
-    @Test
-    public void verifyFormattedPermittedDangerousGoods() {
-        String formattedPermittedDangerousGoods = certificatePageObject.getFormattedPermittedDangerousGoods();
-        assertEquals(testCertificate.getAdrData().getFormattedPermittedDangerousGoods().trim(), formattedPermittedDangerousGoods.trim());
+        String vehicleType = certificatePageObject.getAdrVehicleType();
+        assertEquals(testCertificate.getAdrData().getAdrVehicleType(), vehicleType);
     }
 
     @Test
@@ -93,23 +87,5 @@ public class AdrPassTest {
     public void verifyTankCode() {
         String tankCode = certificatePageObject.getTankCode();
         assertEquals(testCertificate.getAdrData().getTankCode(), tankCode);
-    }
-
-    @Test
-    public void verifyNotes() {
-        String notes = certificatePageObject.getNotes();
-        assertEquals(testCertificate.getAdrData().getNotes(), notes);
-    }
-
-    @Test
-    public void verifyTestTypeDate() {
-        String testTypeDate = certificatePageObject.getTestTypeDate();
-        assertEquals(testCertificate.getAdrData().getTestTypeDate(), testTypeDate);
-    }
-
-    @Test
-    public void verifyAtfNameAtfPNumber() {
-        String atfNameAtfPNumber = certificatePageObject.getAtfNameAtfPNumber();
-        assertEquals(testCertificate.getAdrData().getAtfNameAtfPNumber(), atfNameAtfPNumber);
     }
 }

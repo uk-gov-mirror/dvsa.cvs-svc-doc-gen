@@ -1,94 +1,124 @@
 @page {
-size: 23.01cm 29.7cm;
-}
-@page: left{
-margin-top: 0.63cm;
-}
-.float{
-float: left;
-}
-.floatValues{
-padding-top:0.09%;
-}
-.tick{
-width: 9pt
-}
-#make{
-float: left;
-margin-left: 18%;
-}
-#chasisNumber{
-margin-left:23%;
-}
-#registrationNumber{
-margin-left: 29%;
-}
-.applicantDetails{
-border-style: solid;
-border-width: 1px;
-padding-left:0.8%;
-}
-#dangerousGoodsDescription{
-padding-bottom: 9%;
-padding-right: 20%;
-}
-body {
-font-size: 12px;
-padding-top: 20%;
-}
-p{
-margin: 0;
-}
-.vehicleType {
-border-style: solid;
-border-width: 1px;
-margin-top:0.2%;
-padding-left:0.8%;
-}
-.permittedDangerousGoods {
-border-style: solid;
-border-width: 1px;
-margin-top:0.2%;
-padding-left:0.8%;
-}
-.brakeEndurance {
-border-style: solid;
-border-width: 1px;
-margin-top:0.2%;
-padding-left:0.8%;
-padding-bottom:2%;
-}
-.tank {
-border-style: solid;
-border-width: 1px;
-margin-top:0.2%;
-padding-left:0.8%;
-}
-.dangerousGoods {
-border-style: solid;
-border-width: 1px;
-margin-top:0.2%;
-padding-left:0.8%;
-padding-bottom:2%;
-}
-.dangerousGoodsHeader{
-padding-bottom: 24%;
-}
-#tankDescription {
-padding-right: 10%;
-}
-.header{
-padding-bottom: 5%;
-}
-.remarks{
-padding-bottom:7.5%;
-}
-#atfNameAtfPNumber{
-padding-top:3.5%;
-}
-#testTypeDate{
-padding-top:3.5%;
-}
-#signature{
-padding-top:5%;
-}
+    size: 21.01cm 29.7cm;
+    }
+    @page: left{
+    margin-top: 0.63cm;
+    }
+    .float{
+    float: left;
+    }
+    .floatValues{
+    padding-top:0.09%;
+    }
+    .tick{
+    width: 9pt
+    }
+    #make{
+    float: left;
+    margin-left: 18%;
+    }
+    #vin{
+    margin-left:24%;
+    }
+    #vrm{
+    margin-left: 29%;
+    }
+    .firstPage{
+    padding-top:70px;
+    }
+    .applicantDetails{
+    border-style: solid;
+    border-width: 1px;
+    padding-left:0.8%;
+    }
+    #dangerousGoodsDescription{
+    padding-bottom: 9%;
+    padding-right: 20%;
+    }
+    .document {
+    font-size: 12px;
+    padding-top: 15%;
+    }
+    p{
+    margin: 0;
+    }
+    .adrVehicleType {
+    border-style: solid;
+    border-width: 1px;
+    margin-top:0.2%;
+    padding-left:0.8%;
+    }
+    .permittedDangerousGoods {
+    border-style: solid;
+    border-width: 1px;
+    margin-top:0.2%;
+    padding-left:0.8%;
+    }
+    .brakeEndurance {
+    border-style: solid;
+    border-width: 1px;
+    margin-top:0.2%;
+    padding-left:0.8%;
+    padding-bottom:2%;
+    }
+    .tank {
+    border-style: solid;
+    border-width: 1px;
+    margin-top:0.2%;
+    padding-left:0.8%;
+    }
+    .dangerousGoods {
+    border-style: solid;
+    border-width: 1px;
+    margin-top:0.2%;
+    padding-left:0.8%;
+    padding-bottom:0%;
+    }
+    .dangerousGoodsHeader{
+    padding-bottom: 3%;
+    }
+    #tankDescription {
+    padding-right: 10%;
+    }
+    .header{
+    padding-bottom: 5%;
+    }
+    .remarks{
+    padding-bottom:7.5%;
+    }
+    .bottomReplacement{
+    text-align: center;
+    }
+    .topReplacement{
+    text-align: right;
+    padding-right: 3%;
+    padding-top: 4%;
+    font-size: 12px;
+    }
+    #atfNameAtfPNumber{
+    padding-top:3.5%;
+    }
+    #testTypeDate{
+    padding-top:3.5%;
+    }
+    #signature{
+    padding-top:5%;
+    }
+    .dangerousGoodAcronyms{
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+    .dangerousGoodAcronyms > span{
+        display:inline-block;
+        width:15%;
+        text-align:center;
+    }
+    h3
+    {
+        margin-bottom: 1px !important;
+        margin-top: 2px !important;
+    }
+    .statements > p {
+      font-weight: bold;
+    }

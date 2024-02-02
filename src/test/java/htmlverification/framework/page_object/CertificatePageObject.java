@@ -131,6 +131,8 @@ public class CertificatePageObject extends BasePageObject {
     public String getApplicantDetailsStreet() { return getElementById(APPLICANT_DETAILS_STREET_ID.getSelector()).text(); }
 
     public String getVehicleType() { return getElementById(VEHICLE_TYPE_ID.getSelector()).text(); }
+    public String getAdrVehicleType() { return getElementById(ADR_VEHICLE_TYPE_ID.getSelector()).text(); }
+
 
     public String getFormattedPermittedDangerousGoods() { return getElementById(FORMATTED_PERMITTED_DANGEROUS_GOODS_ID.getSelector()).text(); }
 

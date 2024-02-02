@@ -3,97 +3,78 @@ package uk.gov.dvsa.model.cvs.certificateData;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AdrPassCertificateData {
     private final String SUBSTANCES_PERMITTED_OPTION_1 = "Substances permitted under the tank code and any special provisions specified in 9 may be carried";
     private final String PERMITTED_DANGEROUS_GOODS_EXPLOSIVES_2 = "Explosives (type 2)";
     private final String PERMITTED_DANGEROUS_GOODS_EXPLOSIVES_3 = "Explosives (type 3)";
 
-    @JsonProperty("ChasisNumber")
-    private String chasisNumber;
-
-    
-    @JsonProperty("Make")
+    @JsonProperty("vin")
+    private String vin;
+    @JsonProperty("make")
     private String make;
-
-    
-    @JsonProperty("Model")
-    private String model;
-
-    
-    @JsonProperty("RegistrationNumber")
-    private String registrationNumber;
-
-    
-    @JsonProperty("ApplicantDetails")
+    @JsonProperty("vrm")
+    private String vrm;
+    @JsonProperty("applicantDetails")
     private ApplicantDetails applicantDetails;
+    @JsonProperty("adrVehicleType")
+    private String adrVehicleType;
+    @JsonProperty("permittedDangerousGoods")
 
-    
-    @JsonProperty("VehicleType")
-    private String vehicleType;
-
-    
-    @JsonProperty("PermittedDangerousGoods")
     private String[] permittedDangerousGoods;
+    @JsonProperty("brakeEndurance")
 
-    
-    @JsonProperty("BrakeEndurance")
     private boolean brakeEndurance;
+    @JsonProperty("weight")
 
-    
-    @JsonProperty("Weight")
     private String weight;
+    @JsonProperty("tankManufacturer")
 
-    
-    @JsonProperty("TankManufacturer")
     private String tankManufacturer;
+    @JsonProperty("tankManufactureSerialNo")
 
-    
-    @JsonProperty("Tc2InitApprovalNo")
-    private String tc2InitApprovalNo;
-
-    
-    @JsonProperty("TankManufactureSerialNo")
     private String tankManufactureSerialNo;
 
-    
-    @JsonProperty("YearOfManufacture")
+    @JsonProperty("tc2InitApprovalNo")
+
+    private String tc2InitApprovalNo;
+    @JsonProperty("yearOfManufacture")
+
     private String yearOfManufacture;
 
-    
-    @JsonProperty("TankCode")
+    @JsonProperty("tankCode")
+
     private String tankCode;
+    @JsonProperty("specialProvisions")
 
-    
-    @JsonProperty("SpecialProvisions")
     private String specialProvisions;
+    @JsonProperty("tankStatement")
 
-    
-    @JsonProperty("TankStatement")
     private TankStatement tankStatement;
 
-    
-    @JsonProperty("ExpiryDate")
-    private String expiryDate;
-
-    
-    @JsonProperty("AtfNameAtfPNumber")
-    private String atfNameAtfPNumber;
-
-    
-    @JsonProperty("Notes")
+    @JsonProperty("notes")
     private String notes;
 
-    
-    @JsonProperty("TestTypeDate")
-    private String testTypeDate;
+    @JsonProperty("replacement")
+    private boolean replacement;
 
-    public String getChasisNumber() {
-        return chasisNumber;
+    @JsonProperty("batteryListNumber")
+    private String batteryListNumber;
+
+    @JsonProperty("m145Statement")
+    private boolean m145Statement;
+
+    public String getVin() {
+        return vin;
     }
 
-    public AdrPassCertificateData setChasisNumber(String chasisNumber) {
-        this.chasisNumber = chasisNumber;
+    public AdrPassCertificateData setVin(String vin) {
+        this.vin = vin;
         return this;
     }
 
@@ -106,21 +87,12 @@ public class AdrPassCertificateData {
         return this;
     }
 
-    public String getModel() {
-        return model;
+    public String getVrm() {
+        return vrm;
     }
 
-    public AdrPassCertificateData setModel(String model) {
-        this.model = model;
-        return this;
-    }
-
-    public String getRegistrationNumber() {
-        return registrationNumber;
-    }
-
-    public AdrPassCertificateData setRegistrationNumber(String registrationNumber) {
-        this.registrationNumber = registrationNumber;
+    public AdrPassCertificateData setVrm(String vrm) {
+        this.vrm = vrm;
         return this;
     }
 
@@ -133,12 +105,12 @@ public class AdrPassCertificateData {
         return this;
     }
 
-    public String getVehicleType() {
-        return vehicleType;
+    public String getAdrVehicleType() {
+        return adrVehicleType;
     }
 
-    public AdrPassCertificateData setVehicleType(String vehicleType) {
-        this.vehicleType = vehicleType;
+    public AdrPassCertificateData setAdrVehicleType(String adrVehicleType) {
+        this.adrVehicleType = adrVehicleType;
         return this;
     }
 
@@ -232,24 +204,6 @@ public class AdrPassCertificateData {
         return this;
     }
 
-    public String getExpiryDate() {
-        return expiryDate;
-    }
-
-    public AdrPassCertificateData setExpiryDate(String expiryDate) {
-        this.expiryDate = expiryDate;
-        return this;
-    }
-
-    public String getAtfNameAtfPNumber() {
-        return atfNameAtfPNumber;
-    }
-
-    public AdrPassCertificateData setAtfNameAtfPNumber(String atfNameAtfPNumber) {
-        this.atfNameAtfPNumber = atfNameAtfPNumber;
-        return this;
-    }
-
     public String getNotes() {
         return notes;
     }
@@ -282,31 +236,58 @@ public class AdrPassCertificateData {
         return this.notes.length() >= 474 && this.notes.length() <= 632;
     }
 
-    public String getTestTypeDate() {
-        return testTypeDate;
-    }
-
-    public AdrPassCertificateData setTestTypeDate(String testTypeDate) {
-        this.testTypeDate = testTypeDate;
-        return this;
-    }
-
-    public String getFormattedPermittedDangerousGoods() {
-        StringBuilder formattedPermittedDangerousGoods =  new StringBuilder("");
-        if(this.permittedDangerousGoods == null)
-            return "";
+    public boolean getPermittedDangerousGoodsHasFL() {
         for (String permittedDangerousGood : this.permittedDangerousGoods) {
-            formattedPermittedDangerousGoods.append(permittedDangerousGood + " ");
+            if (permittedDangerousGood.equals("FP <61 (FL)")){
+                return true;
+            }
         }
-        return formattedPermittedDangerousGoods.toString();
-    }
+        return false;
+    };
+    public boolean getPermittedDangerousGoodsHasAT() {
+        for (String permittedDangerousGood : this.permittedDangerousGoods) {
+            if (permittedDangerousGood.equals("AT")){
+                return true;
+            }
+        }
+        return false;
+    };
+    public boolean getPermittedDangerousGoodsHasMEMU() {
+        for (String permittedDangerousGood : this.permittedDangerousGoods) {
+            if (permittedDangerousGood.equals("MEMU")){
+                return true;
+            }
+        }
+        return false;
+    };
+    public boolean getPermittedDangerousGoodsHasEXII() {
+        for (String permittedDangerousGood : this.permittedDangerousGoods) {
+            if (permittedDangerousGood.equals("Explosives (type 2)")){
+                return true;
+            }
+        }
+        return false;
+    };
+    public boolean getPermittedDangerousGoodsHasEXIII() {
+        for (String permittedDangerousGood : this.permittedDangerousGoods) {
+            if (permittedDangerousGood.equals("Explosives (type 3)")){
+                return true;
+            }
+        }
+        return false;
+    };
+
 
     public boolean getFormattedSubstancesPermitted() { // returns true for the first value that tankStatement can have and false for the other one so it can be processed in view
-        if(this.tankStatement != null && tankStatement.getSubstancesPermitted() != null && this.tankStatement.getSubstancesPermitted().equals(SUBSTANCES_PERMITTED_OPTION_1)){
-            return true;
-        } else {
-            return false;
-        }
+        return this.tankStatement != null && tankStatement.getSubstancesPermitted() != null && this.tankStatement.getSubstancesPermitted().equals(SUBSTANCES_PERMITTED_OPTION_1);
+    }
+
+    public List<String> carriageBodyTypes = Arrays.asList("Rigid skeletal", "Full drawbar skeletal",
+            "Centre axle skeletal", "Semi trailer skeletal");
+
+
+    public boolean getHasCarriageStatement(){
+        return (this.getPermittedDangerousGoodsHasEXII() || this.getPermittedDangerousGoodsHasEXIII()) && carriageBodyTypes.contains(adrVehicleType);
     }
 
     public boolean getIsTankStatementNull() {
@@ -318,7 +299,7 @@ public class AdrPassCertificateData {
     }
 
     public boolean getIsVehicleTypeNull() {
-        return this.vehicleType == null;
+        return this.adrVehicleType == null;
     }
 
     public boolean getIsExplosivesType2() {
@@ -344,5 +325,29 @@ public class AdrPassCertificateData {
 
         }
         return false;
+    }
+
+    public boolean isReplacement() {
+        return replacement;
+    }
+
+    public void setReplacement(boolean replacement) {
+        this.replacement = replacement;
+    }
+
+    public String isBatteryListNumber() {
+        return batteryListNumber;
+    }
+
+    public void setBatteryListNumber(String batteryListNumber) {
+        this.batteryListNumber = batteryListNumber;
+    }
+
+    public boolean isM145Statement() {
+        return m145Statement;
+    }
+
+    public void setM145Statement(boolean m145Statement) {
+        this.m145Statement = m145Statement;
     }
 }
