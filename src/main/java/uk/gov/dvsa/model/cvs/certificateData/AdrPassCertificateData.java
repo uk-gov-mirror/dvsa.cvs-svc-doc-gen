@@ -276,7 +276,30 @@ public class AdrPassCertificateData {
         }
         return false;
     };
-
+    public boolean getPermittedDangerousGoodsHasOX() {
+        for (String permittedDangerousGood : this.permittedDangerousGoods) {
+            if (permittedDangerousGood.equals("Class 5.1 Hydrogen Peroxide (OX)")){
+                return true;
+            }
+        }
+        return false;
+    };
+    public boolean getPermittedDangerousGoodsHasCS2() {
+        for (String permittedDangerousGood : this.permittedDangerousGoods) {
+            if (permittedDangerousGood.equals("Carbon Disulphide")){
+                return true;
+            }
+        }
+        return false;
+    };
+    public boolean getPermittedDangerousGoodsHasHydrogen() {
+        for (String permittedDangerousGood : this.permittedDangerousGoods) {
+            if (permittedDangerousGood.equals("Hydrogen")){
+                return true;
+            }
+        }
+        return false;
+    };
 
     public boolean getFormattedSubstancesPermitted() { // returns true for the first value that tankStatement can have and false for the other one so it can be processed in view
         return this.tankStatement != null && tankStatement.getSubstancesPermitted() != null && this.tankStatement.getSubstancesPermitted().equals(SUBSTANCES_PERMITTED_OPTION_1);
