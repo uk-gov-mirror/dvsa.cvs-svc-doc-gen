@@ -88,12 +88,12 @@
                             <p>10.2 In the case of a tank-vehicle/battery vehicle</p>
                         </div>
                         <div class= "floatValues">
-                            {{#if adrData.isExplosivesType2}}
+                            {{#if adrData.showCatJInclusion}}
                                 <p>(<img src="{{root}}/assets/images/tick.png" alt="tick" class="tick" id="tick"/>) goods of Class 1 including compatibility group J</p>
                             {{else}}
                                 <p>( ) goods of Class 1 including compatibility group J</p>
                             {{/if}}
-                            {{#if adrData.isExplosivesType3}}
+                            {{#if adrData.showCatJExclusion}}
                                 <p>(<img src="{{root}}/assets/images/tick.png" alt="tick" class="tick" id="tick"/>) goods of Class 1 excluding compatibility group J</p>
                             {{else}}
                                 <p>( ) goods of Class 1 excluding compatibility group J</p>

@@ -69,6 +69,9 @@ public class AdrPassCertificateData {
     @JsonProperty("m145Statement")
     private boolean m145Statement;
 
+    @JsonProperty("compatibilityGroupJ")
+    private boolean compatibilityGroupJ;
+
     public String getVin() {
         return vin;
     }
@@ -277,6 +280,13 @@ public class AdrPassCertificateData {
         return false;
     };
 
+    public boolean getShowCatJInclusion() {
+        return (this.getPermittedDangerousGoodsHasEXIII() || this.getPermittedDangerousGoodsHasEXII()) && this.compatibilityGroupJ;
+    }
+
+    public boolean getShowCatJExclusion() {
+        return (this.getPermittedDangerousGoodsHasEXIII() || this.getPermittedDangerousGoodsHasEXII()) && !this.compatibilityGroupJ;
+    }
 
     public boolean getFormattedSubstancesPermitted() { // returns true for the first value that tankStatement can have and false for the other one so it can be processed in view
         return this.tankStatement != null && tankStatement.getSubstancesPermitted() != null && this.tankStatement.getSubstancesPermitted().equals(SUBSTANCES_PERMITTED_OPTION_1);
@@ -302,31 +312,6 @@ public class AdrPassCertificateData {
         return this.adrVehicleType == null;
     }
 
-    public boolean getIsExplosivesType2() {
-        if(this.permittedDangerousGoods == null){
-            return false;
-        }
-        for (String permittedDangerousGood : this.permittedDangerousGoods) {
-            if(permittedDangerousGood.equals(PERMITTED_DANGEROUS_GOODS_EXPLOSIVES_2)){
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean getIsExplosivesType3() {
-        if(this.permittedDangerousGoods == null){
-            return false;
-        }
-        for (String permittedDangerousGood : this.permittedDangerousGoods) {
-            if(permittedDangerousGood.equals(PERMITTED_DANGEROUS_GOODS_EXPLOSIVES_3)){
-                return true;
-            }
-
-        }
-        return false;
-    }
-
     public boolean isReplacement() {
         return replacement;
     }
@@ -349,5 +334,13 @@ public class AdrPassCertificateData {
 
     public void setM145Statement(boolean m145Statement) {
         this.m145Statement = m145Statement;
+    }
+
+    public boolean isCompatibilityGroupJ() {
+        return compatibilityGroupJ;
+    }
+
+    public void setCompatibilityGroupJ(boolean compatibilityGroupJ) {
+        this.compatibilityGroupJ = compatibilityGroupJ;
     }
 }
