@@ -3,7 +3,7 @@
     <head>
         <title>IVA30</title>
         <style type="text/css" media="print, screen">
-           {{~> assets/stylesheets/iva-30 this}}
+            {{~> assets/stylesheets/iva-30 this}}
        </style>
     </head>
 
@@ -12,44 +12,47 @@
         <!-- Title Section -->
         <div class="header">
             <div class="header-left">
-                <div>
-                    <p> Serial Number: <!-- data here --> </p>
+                <div class="header-serial-no">
+                    <div class="header-serial-no-title">
+                        Serial Number:
+                        <span class="header-serial-no-value">
+                            <!-- put serial no here -->
+                        </span>
+                    </div>
                 </div>
-                <div>
-                    <p> Page 1 of 2</p>
-                </div>
+                <div class="header-pagination"> Page 1 of 2</div>
             </div>
             <div id="header-right">
                 <img src="{{root}}*/assets/images/dvsa-crest-small.png" alt="DVSA" width="110"/>
             </div>
         </div>
-        <div class="section-border">
-            <div class="section-title-border">
-                <h1> INDIVIDUAL VEHICLE APPROVAL (IVA)</h1>
-                <h1> NOTIFICATION OF REFUSAL TO ISSUE AN INDIVIDUAL APPROVAL CERTIFICATE </h1>
-                <p><b>The Road Vehicles (Approval) Regulations 2020</b></p>
-            </div>
+        <div class="section-title-border">
+            <h1> INDIVIDUAL VEHICLE APPROVAL (IVA)</h1>
+            <h1> NOTIFICATION OF REFUSAL TO ISSUE AN INDIVIDUAL APPROVAL CERTIFICATE </h1>
+            <p><b>The Road Vehicles (Approval) Regulations 2020</b></p>
         </div>
 
         <p> AN APPOINTMENT FOR RE-EXAMINATION <b>CANNOT</b> BE MADE ON THE DAY ON WHICH THIS EXAMINATION WAS CARRIED OUT
             PLEASE CONTACT <b> (0300) 200 1188 </b> TO MAKE AN APPOINTMENT QUOTING YOUR TAS REFERENCE NUMBER </p>
 
-        <div class="section-border">
-            <div class="section-title-border">
-                <h1> VEHICLE DETAILS </h1>
-            </div>
+        <div>
             <!-- put details table here -->
-            <table>
-                <tr>
-                    <td> <b>Vehicle/Trailer NR No: </b> <!--Put data here --> </td>
-                    <td> <b>Test Category: </b> <!--Put data here --> </td>
+            <table class="vehicle-detail-table">
+                <thead>
+                    <th scope="row" colspan="2" class="section-title-border">
+                        <h1> VEHICLE DETAILS </h1>
+                    </th>
+                </thead>
+                <tr class="table-row-cell">
+                    <td class="table-row-cell"><b>Vehicle/Trailer NR No: </b> <!--Put data here --> </td>
+                    <td class="table-row-cell"><b>Test Category: </b> <!--Put data here --> </td>
                 </tr>
-                <tr>
-                    <td> <b>Make/Model: </b> <!--Put data here --> </td>
-                    <td> <b>VIN/Chassis No: </b> <!--Put data here --> </td>
+                <tr class="table-row-cell">
+                    <td class="table-row-cell"><b>Make/Model: </b> <!--Put data here --> </td>
+                    <td class="table-row-cell"><b>VIN/Chassis No: </b> <!--Put data here --> </td>
                 </tr>
-                <tr>
-                    <td> <b>Body Type: </b> <!--Put data here --> </td>
+                <tr class="table-row-cell">
+                    <td class="table-row-cell"> <b>Body Type: </b> <!--Put data here --> </td>
                 </tr>
             </table>
         </div>
@@ -66,26 +69,26 @@
             </div>
         </div>
 
-            <p> I hereby refuse an Individual Approval Certificate in respect of thr above described vehicle on the
-            grounds that the vehicle fails to comply with the relevant requirements prescribed under The Road Vehicles
-            (Approval) Regulations 2020 </p>
+        <p> I hereby refuse an Individual Approval Certificate in respect of the above described vehicle on the
+        grounds that the vehicle fails to comply with the relevant requirements prescribed under The Road Vehicles
+        (Approval) Regulations 2020 </p>
 
-            <!-- Date/name table here -->
-        <table>
+        <!-- Date/name table here -->
+        <table class="inspector-detail-table">
             <tr>
                 <td></td>
-                <td> <b>Reapplication Required By: </b> <!--Put data here --> </td>
+                <td class="table-row-cell"> <b>Reapplication Required By: </b> <!--Put data here --> </td>
             </tr>
             <tr>
-                <td> <b>Signed: </b> <!--Put data here --> </td>
-                <td> <b>Date: </b> <!--Put data here --> </td>
+                <td class="table-row-cell"> <b>Signed: </b> <!--Put data here --> </td>
+                <td class="table-row-cell"> <b>Date: </b> <!--Put data here --> </td>
             </tr>
             <tr>
-                <td> <b>name: </b> <!--Put data here --> </td>
-                <td> <b>Station: </b> <!--Put data here --> </td>
+                <td class="table-row-cell"> <b>name: </b> <!--Put data here --> </td>
+                <td class="table-row-cell"> <b>Station: </b> <!--Put data here --> </td>
             </tr>
             <tr>
-                <td colspan="2"> <p><b>The Following additional defects may result in the vehicle not complying with the requirements
+                <td class="table-row-cell" colspan="2"> <p><b>The Following additional defects may result in the vehicle not complying with the requirements
                 of the Road Vehicles (Construction and Use) Regulations 1986. (See notes overleaf) </b></p>
                     <!--Put data here -->
                 </td>
