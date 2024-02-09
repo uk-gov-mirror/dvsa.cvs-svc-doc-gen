@@ -1,0 +1,14 @@
+name: Build hash and deploy to S3
+run-name: "${{ github.actor }} - ${{ github.ref_name }} - ${{ github.run_id }} 🚀"
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  Build:
+    uses: dvsa/cvs-github-actions/.github/workflows/build-java-hash.yaml@feature/CB2-10412
+    secrets:
+      CVS_MGMT_AWS_ROLE: ${{ secrets.CVS_MGMT_AWS_ROLE }}
+      DVSA_AWS_REGION: ${{ secrets.DVSA_AWS_REGION }}
+
