@@ -1,63 +1,59 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
-    <head>
-        <title>IVA30</title>
-        <style type="text/css" media="print, screen">
+<head>
+    <title>IVA30</title>
+    <style type="text/css" media="print, screen">
             {{~> assets/stylesheets/iva-30 this}}
-       </style>
-    </head>
+    </style>
+</head>
 
-    <body>
-    <div class="separate-page">
-        <!-- Header Section -->
-        <div class="page-header">
-            <div class="header-left">
-                <div class="header-serial-no">
-                    <div class="header-serial-no-title">
-                        Serial Number:
-                        <span class="header-serial-no-value">
-                            <!-- put serial no here -->
-                        </span>
-                    </div>
+<body>
+<div class="separate-page">
+    <!-- Header Section -->
+    <div class="page-header">
+        <div class="header-left">
+            <div class="header-serial-no">
+                <div class="header-serial-no-title">
+                    <span> <b>Serial Number: </b> <!-- TODO: Put Serial Number data here --> </span>
                 </div>
-                <div class="header-pagination"> Page 1 of 2</div>
             </div>
-            <div id="header-right">
-                <img src="{{root}}*/assets/images/dvsa-crest-small.png" alt="DVSA" width="110"/>
-            </div>
+            <div class="header-pagination"> Page 1 of 2</div>
         </div>
-        <div class="section-title-border">
-            <h1> INDIVIDUAL VEHICLE APPROVAL (IVA)</h1>
-            <h1> NOTIFICATION OF REFUSAL TO ISSUE AN INDIVIDUAL APPROVAL CERTIFICATE </h1>
-            <p><b>The Road Vehicles (Approval) Regulations 2020</b></p>
+        <div class="header-right">
+            <img src="{{root}}*/assets/images/dvsa-crest-small.png" alt="DVSA" width="110"/>
         </div>
+    </div>
+    <div class="section-title-border">
+        <h1> INDIVIDUAL VEHICLE APPROVAL (IVA)</h1>
+        <h1> NOTIFICATION OF REFUSAL TO ISSUE AN INDIVIDUAL APPROVAL CERTIFICATE </h1>
+        <p><b>The Road Vehicles (Approval) Regulations 2020</b></p>
+    </div>
 
     <p> AN APPOINTMENT FOR RE-EXAMINATION <b>CANNOT</b> BE MADE ON THE DAY ON WHICH THIS EXAMINATION WAS CARRIED OUT
         PLEASE CONTACT <b> (0300) 200 1188 </b> TO MAKE AN APPOINTMENT QUOTING YOUR TAS REFERENCE NUMBER </p>
 
-        <div>
-            <!-- put details table here -->
-            <table class="vehicle-detail-table">
-                <thead>
-                    <th scope="row" colspan="2" class="section-title-border">
-                        <h1> VEHICLE DETAILS </h1>
-                    </th>
-                </thead>
-                <tr class="table-row-cell">
-                    <td class="table-row-cell"><b>Vehicle/Trailer NR No: </b> <!--Put data here --> </td>
-                    <td class="table-row-cell"><b>Test Category: </b> <!--Put data here --> </td>
-                </tr>
-                <tr class="table-row-cell">
-                    <td class="table-row-cell"><b>Make/Model: </b> <!--Put data here --> </td>
-                    <td class="table-row-cell"><b>VIN/Chassis No: </b> <!--Put data here --> </td>
-                </tr>
-                <tr class="table-row-cell">
-                    <td class="table-row-cell"> <b>Body Type: </b> <!--Put data here --> </td>
-                </tr>
-            </table>
-        </div>
+    <!-- put details table here -->
+    <table class="vehicle-detail-table">
+        <thead>
+        <th scope="row" colspan="2" class="section-title-border">
+            <h1> VEHICLE DETAILS </h1>
+        </th>
+        </thead>
+        <tr class="table-row-cell">
+            <td class="table-row-cell"><b>Vehicle/Trailer NR No: </b> <!--Put data here --> </td>
+            <td class="table-row-cell"><b>Test Category: </b> <!--Put data here --> </td>
+        </tr>
+        <tr class="table-row-cell">
+            <td class="table-row-cell"><b>Make/Model: </b> <!--Put data here --> </td>
+            <td class="table-row-cell"><b>VIN/Chassis No: </b> <!--Put data here --> </td>
+        </tr>
+        <tr class="table-row-cell">
+            <td class="table-row-cell"> <b>Body Type: </b> <!--Put data here --> </td>
+            <td></td>
+        </tr>
+    </table>
 
-    <!-- Required Standars Not Met Section -->
+    <!-- Required Standards Not Met Section -->
     <div class="section-border">
         <div class="section-title-border">
             <h1> DEFECT DETAILS </h1>
@@ -66,38 +62,41 @@
             <h1> Required Standard(s) Not Met: </h1>
         </div>
         <div class="section-text-wrapper">
+            <p> NOISE RS1: Exhaust must be securely mounted</p>
+            <p> additional Information: Held on with a three-year-old pritt stick</p>
             <!-- TODO: List incoming defects here -->
         </div>
     </div>
 
-        <p> I hereby refuse an Individual Approval Certificate in respect of the above described vehicle on the
+    <p> I hereby refuse an Individual Approval Certificate in respect of the above described vehicle on the
         grounds that the vehicle fails to comply with the relevant requirements prescribed under The Road Vehicles
         (Approval) Regulations 2020 </p>
 
-        <!-- Date/name table here -->
-        <table class="inspector-detail-table">
-            <tr>
-                <td></td>
-                <td class="table-row-cell"> <b>Reapplication Required By: </b> <!--Put data here --> </td>
-            </tr>
-            <tr>
-                <td class="table-row-cell"> <b>Signed: </b> <!--Put data here --> </td>
-                <td class="table-row-cell"> <b>Date: </b> <!--Put data here --> </td>
-            </tr>
-            <tr>
-                <td class="table-row-cell"> <b>name: </b> <!--Put data here --> </td>
-                <td class="table-row-cell"> <b>Station: </b> <!--Put data here --> </td>
-            </tr>
-            <tr>
-                <td class="table-row-cell" colspan="2"> <p><b>The Following additional defects may result in the vehicle not complying with the requirements
+    <!-- Date/name table here -->
+    <table class="inspector-detail-table">
+        <tr>
+            <td></td>
+            <td class="table-row-cell"> <b>Reapplication Required By: </b> <!--Put data here --> </td>
+        </tr>
+        <tr>
+            <td class="table-row-cell"> <b>Signed: </b> <!--Put data here --> </td>
+            <td class="table-row-cell"> <b>Date: </b> <!--Put data here --> </td>
+        </tr>
+        <tr>
+            <td class="table-row-cell"> <b>Name: </b> <!--Put data here --> </td>
+            <td class="table-row-cell"> <b>Station: </b> <!--Put data here --> </td>
+        </tr>
+        <tr>
+            <td class="table-row-cell" colspan="2"> <p><b>The Following additional defects may result in the vehicle not complying with the requirements
                 of the Road Vehicles (Construction and Use) Regulations 1986. (See notes overleaf) </b></p>
                 <!-- TODO: Put AdditionalDefects here -->
             </td>
         </tr>
     </table>
 
+
     <!-- Data Protection Section -->
-    <div class="section-border">
+    <div class="section-border" id = "data-prot-section">
         <div class="section-title-border">
             <h1> DATA PROTECTION STATEMENT 2019 </h1>
         </div>
@@ -113,8 +112,9 @@
     <!-- footer -->
     <!-- TODO: ADD PAGE COUNTER AS SEEN IN TICKET -->
     <div class="footer">
-        <p class="footer-left"> <strong class="bold-title">IVA30VTA</strong> (DVSA 0211) </p>
-        <p class="footer-right"> Version 2.3 (30/11/2022) </p>
+        <p class="footer-left"> <b class="bold-title">IVA30VTA (DVSA0842) </b> </p>
+        <p class="footer-mid"> <b> 1 of 2 </b> </p>
+        <p class="footer-right"> <b>Version 1.0 Oct 2023</b> </p>
     </div>
 
 </div>
