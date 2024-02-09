@@ -301,7 +301,8 @@ public class AdrPassCertificateData {
     }
 
     public boolean getIsTankStatementNull() {
-        return this.tankStatement == null;
+        return this.tankStatement == null || (this.tankStatement.getSubstancesPermitted() == null
+                && this.tankStatement.getStatement() == null && this.tankStatement.getProductList() == null);
     }
 
     public boolean getIsApplicantDetailsNull() {
