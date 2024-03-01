@@ -590,6 +590,40 @@ public class CvsCertificateTestDataProvider {
         return vtg30;
     }
 
+    public static IVA30 getIVA30() {
+        IVA30 iva30 = new IVA30();
+        iva30.setDocumentName(CertificateTypes.IVA30.getCertificateType());
+        IvaFailCertificateData iva30Data = new IvaFailCertificateData();
+        iva30Data.setVin("T0000111134");
+        iva30Data.setSerialNo("012345");
+        iva30Data.setVehicleTrailerNrNo("ABC123");
+        iva30Data.setTestCategoryClass("M1");
+        iva30Data.setTestCategoryBasicNormal("Normal");
+        iva30Data.setMake("Make");
+        iva30Data.setModel("Model");
+        iva30Data.setBodyType("Body Type");
+        iva30Data.setDate("28/11/2023");
+        iva30Data.setTesterName("Tester One");
+        iva30Data.setReapplicationDate("27/05/2024");
+        iva30Data.setStation("Abshire-Kub");
+        iva30Data.setAdditionalDefects(new AdditionalDefect[]{new AdditionalDefect("DefectName", "DefectNotes")});
+        RequiredStandard mockRS = new RequiredStandard();
+        mockRS.setPrs(false);
+        mockRS.setRequiredStandard("Noise");
+        mockRS.setRefCalculation("1.1");
+        mockRS.setSectionNumber("1");
+        mockRS.setAdditionalInfo(false);
+        mockRS.setSectionDescription("description");
+        mockRS.setRsNumber(1);
+        mockRS.setInspectionTypes(new String[]{"Normal"});
+        mockRS.setAdditionalNotes("Some additional defect");
+        RequiredStandard[] requiredStandards = new RequiredStandard[]{mockRS};
+        iva30Data.setRequiredStandards(requiredStandards);
+        iva30.setIvaData(iva30Data);
+
+        return iva30;
+    }
+
     public static VTG30 getVtg30HavingInvalidXMLCharacter() {
         VTG30 document = getVtg30();
 

@@ -1,8 +1,26 @@
 
-@page {
+@page{
 size: A4 portrait;
-margin: 20px 24px 0 24px;
-padding: 0;
+margin: 1cm 1cm 1cm 1cm;
+@bottom-left {
+content: element(footer-left);
+}
+@bottom-center {
+content: element(footer-mid);
+}
+@bottom-right {
+content: element(footer-right);
+}
+}
+
+@page :first{
+margin-top: 35mm;
+@top-left{
+content: element(first-page-header-left);
+}
+@top-right{
+content: element(first-page-header-right);
+}
 }
 
 p { margin:5px; }
@@ -26,6 +44,19 @@ page-break-inside: avoid;
 font-size: 90%;
 }
 
+#cert-subtitle{
+margin-top: 0;
+font-size: 85%;
+}
+
+.separate-page{
+page-break-after: always;
+}
+
+#back-page{
+page-break-after: avoid;
+}
+
 *,
 :after,
 :before {
@@ -33,24 +64,26 @@ box-sizing: border-box;
 line-height: 1;
 }
 
-.separate-page {
-page-break-after: always;
-}
 .section-border {
 border-style: solid;
-border-color: black grey grey grey;
+border-color: black;
 margin-bottom: 5px;
 }
 
 .section-title-border {
 border-style: solid;
+border-width: 1px;
 border-color: black;
-background-color: grey;
+background-color: #d0d0d0;
 font-weight:bold;
 text-align: center;
-margin-left: -3px;
-margin-top: -2px;
-width: 100.7%;
+margin-top: -1px;
+margin-left: -1px;
+width: 100.3%;
+}
+
+#cert-title-border{
+margin-top: 0px;
 }
 
 .section-title-border h1 {
@@ -76,20 +109,29 @@ float: right;
 width: 50%;
 }
 
-.footer {
-width: 100%;
+
+.footer-left {
+position: running(footer-left);
 }
 
-#footer-left {
-float: left;
-text-align: left;
-width: 50%;
+.footer-mid {
+position: running(footer-mid);
+text-align: center;
 }
 
-#footer-right {
-float: right;
+.footer-current-page-number:before{
+content: counter(page);
+font-weight: bold;
+}
+
+.footer-total-page-count:before{
+content: counter(pages);
+font-weight: bold;
+}
+
+.footer-right {
 text-align: right;
-width: 40%;
+position: running(footer-right);
 }
 
 #no-margin-p {
@@ -97,7 +139,7 @@ margin: 0px;
 }
 
 .bold-title {
-font-size: 1.5em;
+font-size: 1.25em;
 }
 
 .vehicle-section-list {
@@ -105,6 +147,23 @@ margin-top: 0px;
 padding-top: 0px;
 list-style-type: none;
 }
+
+.required-standard-list {
+list-style-type: none;
+}
+
+.additional-defect-list {
+list-style-type: none;
+}
+
+.required-standard-section {
+text-transform:uppercase;
+}
+
+.test-category-value {
+text-transform:uppercase;
+}
+
 .item-list {
 margin-left: 50px;
 margin-bottom: 0px;
@@ -121,4 +180,73 @@ clear: both;
 .refusal-list p {
 margin: 0px;
 clear: both;
+}
+
+.first-page-header-left {
+margin-top: 50px;
+position: running(first-page-header-left);
+padding-bottom: 0px;
+margin-bottom: 5px;
+}
+.first-page-header-right{
+margin-top: 50px;
+position: running(first-page-header-right);
+padding-left: 350px;
+padding-bottom: 0px;
+margin-bottom: 5px;
+}
+
+#defect-details-subtitle-border {
+background-color: white;
+}
+
+.header-serial-no {
+width: 250px;
+border-style: solid;
+border-width: 1px;
+}
+
+.header-serial-no-title {
+padding: 2px;
+margin-bottom: 0px;
+}
+
+.header-pagination {
+width: 109px;
+border-style: solid;
+border-width: 1px;
+padding-left: 1em;
+padding-right: 1em;
+padding-top: 2em;
+padding-bottom: 2em;
+margin-top: -1px;
+}
+
+#header-pagination-num:before{
+content: counter(pages);
+}
+
+.table {
+width: 100%;
+border-collapse: collapse;
+margin-bottom: 1em;
+table-layout: auto;
+}
+
+.table-row-cell {
+border-style: solid;
+border-width: 1px;
+padding-bottom: 0.25em;
+width: 50%;
+vertical-align: middle;
+font-size: 92%;
+}
+
+.no-border-cell{
+border: none;
+}
+
+#appointment-text{
+text-align: center;
+font-size: 85%;
 }
