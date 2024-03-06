@@ -109,7 +109,12 @@
             <td class="table-row-cell" id="re-app-date"> <b>Reapplication required by: </b> {{ivaData.reapplicationDate}} </td>
         </tr>
         <tr>
-            <td class="table-row-cell"> <b>Signed: </b> </td>
+            <td class="table-row-cell"> 
+                <b>Signed: </b>
+                <div class="signature-image__wrapper">
+                    <img id="signature-first-page" class="signature-image" src="{{signature.formattedImageData}}" alt="signature"/>
+                </div>
+            </td>
             <td class="table-row-cell" id="date"> <b>Date: </b>  {{ivaData.date}} </td>
         </tr>
         <tr>

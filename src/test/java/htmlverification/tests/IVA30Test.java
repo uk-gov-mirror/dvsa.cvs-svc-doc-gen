@@ -30,6 +30,14 @@ public class IVA30Test {
     }
 
     @Test
+    public void verifySignature() {
+        String signatureElement = ivaPageObject.getSignatureImageSrc();
+        String expected = testCertificate.getSignature().getFormattedImageData();
+
+        assertEquals(expected, signatureElement);
+    }
+
+    @Test
     public void verifySerialNumber() {
         String serialNumber = ivaPageObject.getSerialNumber();
         assertEquals("Serial Number: ".concat(testCertificate.getIvaData().getSerialNo()), serialNumber);
