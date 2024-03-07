@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>IVA30</title>
+    <style type="text/css" media="print, screen">
+        {{~> assets/stylesheets/iva-msva-30 this}}
+    </style>
+</head>
+
+<body>
+
+<div class="first-page-header-left">
+    <div class="header-serial-no">
+        <div class="header-serial-no-title">
+            <span id="serial-no"> <b>Serial Number: </b> {{msvaData.serialNumber}} </span>
+        </div>
+    </div>
+    <div class="header-pagination">
+        <span>Page 1 of</span>
+        <span id ="header-pagination-num"></span>
+    </div>
+</div>
+<div class="first-page-header-right">
+    <img src="{{root}}/assets/images/dvsa_crest.png" alt="logo" width="110"/>
+</div>
+
+
+<div class="footer-left">
+    <p> <b>MSVA30VTA (DVSA0848) </b></p>
+</div>
+<div class = "footer-mid">
+    <span class="footer-current-page-number"></span>
+    <span class="footer__bottom-page-counter-text"><b>of</b></span>
+    <span class="footer-total-page-count"></span>
+</div>
+<div class = "footer-right">
+    <p><b>Version 1.0 May 2024</b></p>
+</div>
+
+
+<div class="separate-page">
+    <div class="section-title-border" id ='cert-title-border'>
+        <h1> MOTORCYCLE SINGLE VEHICLE APPROVAL (MSVA)</h1>
+        <h1> NOTIFICATION OF REFUSAL TO ISSUE A MINISTERS APPROVAL CERTIFICATE </h1>
+        <p id="cert-subtitle"><b>Following an application under the Motor Cycles Etc. (Single Vehicles Approval) Regulations 2003</b></p>
+    </div>
+
+    <p id = "appointment-text"> AN APPOINTMENT FOR RE-EXAMINATION <b>CANNOT</b> BE MADE ON THE DAY ON WHICH THIS EXAMINATION WAS CARRIED OUT
+        PLEASE CONTACT <b> (0300) 200 1188 </b> TO MAKE AN APPOINTMENT QUOTING YOUR TAS REFERENCE NUMBER </p>
+
+
+    <table class="table">
+        <tr class="table-row-cell">
+            <td class="table-row-cell" id="veh-z-no"><b>Vehicle 'Z' No.: </b> {{msvaData.vehicleZNumber}} </td>
+            <td class="table-row-cell" id="type"><b>Type: </b> <span class="test-category-value">{{msvaData.type}}</span> </td>
+        </tr>
+        <tr class="table-row-cell">
+            <td class="table-row-cell" id="make-model"><b>Make/Model: </b>{{msvaData.make}}/{{msvaData.model}}</td>
+            <td class="no-border-cell"></td>
+        </tr>
+        <tr class="table-row-cell">
+            <td class="table-row-cell" id="vin-chassis-no"> <b>VIN/Chassis No: </b>{{msvaData.vin}} </td>
+            <td class = "no-border-cell"></td>
+        </tr>
+    </table>
+
+
+    <div class="section-border">
+        <div class="section-title-border">
+            <h1> DEFECT DETAILS </h1>
+        </div>
+        <div class="section-title-border" id="defect-details-subtitle-border">
+            <h1> Required Standard(s) Not Met: </h1>
+        </div>
+        <div class="section-text-wrapper" id="required-standards">
+            {{#if msvaData.requiredStandards}}
+                <ul class="required-standard-list">
+                    {{#each msvaData.requiredStandards}}
+                        <li>
+                            <div>
+                                <p><span class="required-standard-section">{{this.sectionNumber}} - {{this.sectionDescription}}</span></p>
+                            </div>
+                            <div>
+                                <p><span> RS{{this.rsNumber}}: {{this.requiredStandard}} </span></p>
+                                {{#if this.additionalNotes}}
+                                    Additional Information: <span> {{this.additionalNotes}} </span>
+                                {{/if}}
+                            </div>
+                        </li>
+                    {{/each}}
+                </ul>
+            {{/if}}
+        </div>
+    </div>
+
+    <p> I hereby refuse a Minister's Approval Certificate in respect of the above described vehicle on the
+        grounds that the vehicle fails to comply with the relevant requirements prescribed under section 54 of
+        The Road Traffic Act 1988 </p>
+
+
+    <table class="table">
+        <tr>
+            <td></td>
+            <td class="table-row-cell" id="re-app-date"> <b>Retest required by: </b> {{msvaData.retestDate}} </td>
+        </tr>
+        <tr>
+            <td class="table-row-cell"> <b>Signed: </b> </td>
+            <td class="table-row-cell" id="date"> <b>Date: </b> {{msvaData.date}} </td>
+        </tr>
+        <tr>
+            <td class="table-row-cell" id="tester-name"> <b>Name: </b> {{msvaData.testerName}} </td>
+            <td class="table-row-cell" id="station"> <b>Station: </b> {{msvaData.station}} </td>
+        </tr>
+        <tr>
+            <td class="table-row-cell" colspan="2"> <p><b>The following additional defects may result in the vehicle not complying with the requirements
+                of The Road Vehicles (Construction and Use) Regulations 1986. (See notes overleaf) </b></p>
+                {{#if msvaData.additionalDefects}}
+                    <ul class="additional-defect-list" id="additional-defects">
+                        {{#each msvaData.additionalDefects}}
+                            <li>
+                                <div>
+                                    <span>
+                                        {{this.defectName}}
+                                    </span>
+                                </div>
+                                <div>
+                                    <span>
+                                        {{this.defectNotes}}
+                                    </span>
+                                </div>
+                            </li>
+                        {{/each}}
+                    </ul>
+                {{/if}}
+            </td>
+        </tr>
+    </table>
+
+
+
+    <div class="section-border">
+        <div class="section-title-border">
+            <h1> DATA PROTECTION STATEMENT 2019 </h1>
+        </div>
+        <div class="section-text-wrapper">
+            <p> <b>DATA PROTECTION</b> - We collect and store your personal data so that we can provide you with a
+                notification of refusal to issue a Minister's Approval Certificate (MAC). </p>
+            <p> We may share your personal data if we have a lawful reason. For example, as part of a criminal
+                investigation or to prevent fraud. Find out more at <a href="www.gov.uk/dvsa/privacy">www.gov.uk/dvsa/privacy</a> </p>
+        </div>
+    </div>
+</div>
+
+
+<div class="separate-page" id="back-page">
+
+    <div class="section-border">
+        <div class="section-title-border">
+            <h1>RE-EXAMINATION</h1>
+        </div>
+        <div class="section-text-wrapper">
+            <p> This notification indicates the items of non-compliance being the reason(s)
+                why a Minister's Approval Certificate (MAC) has not been issued. An application
+                for re-examination can be made up to 6 calendar months following the issue date
+                of the first "Notification of Refusal" in respect of the original application.
+                In any other case, a new application and a full fee must be submitted.</p>
+            <p> When modification/rectification, etc. has been completed an application for a re-examination (verbally or in writing)
+                should be made to the test station that issued this notification. </p>
+            <p> At the time of submitting the vehicle for re-examination a fee will be payable, unless failure is due
+                only to one or more of the following items and the vehicle is submitted for re-examination at the test
+                station that issued this notification before the end of the fifth day on which DVSA are accepting vehicles
+                for test following the date of issue. </p>
+
+            <ul class="item-list">
+                <li>No more than three failure items in section 8 &amp; 9, external projections (unbodied and/or bodied),
+                and/or one or more failure items in the following sections:-</li>
+                <li>section 1, stands,</li>
+                <li>section 2 and/or 3, mirrors (unbodied/bodied),</li>
+                <li>section 4, speedometer,</li>
+                <li>section 5, audible warning,</li>
+                <li>section 6, lighting,</li>
+                <li>section 7, unauthorised use,</li>
+                <li>section 10, rear registration plate space,</li>
+                <li>section 11, handholds,</li>
+                <li>section 12, headlamp pattern (unbodied),</li>
+                <li>section 13, headlamp aim (bodied),</li>
+                <li>section 14, design and construction,</li>
+                <li>section 15, tyres,</li>
+                <li>section 17, radio suppression,</li>
+                <li>section 22, goods vehicle identification plate,</li>
+                <li>section 23, engine power restriction information plate,</li>
+                <li>section 24, defrost/demist,</li>
+                <li>section 26, glazing,</li>
+                <li>section 27, windscreen wipers and washers,</li>
+                <li>section 28, masses and dimensions,
+                and/or the following sections <b><u>except</u></b> for the specific sections noted:-</li>
+                <li>section 16, brakes, except any failure, the repair or adjustment of which may affect the system
+                performance, which must then be retested.</li>
+                <li>section 18, exhaust system, except for the noise limits/test.</li>
+            </ul>
+        </div>
+    </div>
+    <!-- second box -->
+    <div class="section-border">
+        <div class="section-title-border">
+            <h1>USE OF THE VEHICLE</h1>
+        </div>
+        <div class="section-text-wrapper">
+            <p id="use-vehicle-p">It is an offence to use a vehicle that requires type approval without a Minister's Approval
+                Certificate confirming compliance with the type approval requirements except for the purposes of:-</p>
+            <ul class="vehicle-section-list">
+                <li> - submitting it, by previous arrangement, for an examination for Approval;</li>
+                <li> - bringing it away from such an examination;</li>
+                <li> - delivering it, by previous arrangement, to a place where relevant work is to be done on it following
+                    receipt of a refusal to issue a Minister's Approval Certificate;</li>
+                <li> - bringing it away from a place where relevant work has been done on it.</li>
+            </ul>
+            <p>You may have been notified of defects in addition to those appertaining to the Approval requirements.
+                Even in the above circumstances you may be committing an offence if you use the vehicle and it does
+                not comply with the various regulations relating to its construction and use.</p>
+        </div>
+    </div>
+    <div class="section-border">
+        <div class="section-title-border">
+            <h1>YOUR RIGHT TO APPEAL</h1>
+        </div>
+        <div class="section-text-wrapper">
+            <p>If you do not agree with the Refusal to Issue a Minister's Approval Certificate, you may appeal. If you
+                wish to appeal against all or any of the grounds for refusal you must complete form <u><b>MSVA 17</b></u> which is
+                available from the <b>GOV.UK</b> website, <a href="www.gov.uk/vehicleapproval">www.gov.uk/vehicleapproval</a>.
+                Send the form to <a href = "approvals@dvsa.gov.uk"><b><u>approvals@dvsa.gov.uk</u></b></a>. DVSA will advise you how to pay by credit/debit card
+                or prefunded account after you have applied. It costs the same as the original test. The appeal must be received
+                at the <b>DVSA, Ellipse, Padley Road, Swansea, SA1 8AN</b> within 14 days, beginning with the date of the issue of the
+                notification of refusal.</p>
+
+            <p>It is important that no modification/rectification work is carried out on the vehicle before the appeal
+                test as this may affect the outcome of the appeal.</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

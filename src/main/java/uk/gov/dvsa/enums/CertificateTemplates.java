@@ -38,7 +38,9 @@ public enum CertificateTemplates {
 
     INSPECTION_CHECKLIST("MOT/Inspection_Checklist"),
 
-    IVA30("CommercialVehicles/IVA30");
+    IVA30("CommercialVehicles/IVA30"),
+
+    MSVA30("CommercialVehicles/MSVA30");
 
     private final String certificateTemplateName;
 

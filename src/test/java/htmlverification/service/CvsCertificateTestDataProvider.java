@@ -631,6 +631,38 @@ public class CvsCertificateTestDataProvider {
         return iva30;
     }
 
+    public static MSVA30 getMSVA30() {
+        MSVA30 msva30 = new MSVA30();
+        msva30.setDocumentName(CertificateTypes.MSVA30.getCertificateType());
+        MsvaFailCertificateData msva30Data = new MsvaFailCertificateData();
+        msva30Data.setVin("P0123010956789");
+        msva30Data.setSerialNumber("012345");
+        msva30Data.setVehicleZNumber("ABC123");
+        msva30Data.setType("motorcycle");
+        msva30Data.setMake("Make");
+        msva30Data.setModel("Model");
+        msva30Data.setDate("28/11/2023");
+        msva30Data.setTesterName("Tester One");
+        msva30Data.setRetestDate("27/05/2024");
+        msva30Data.setStation("Abshire-Kub");
+        msva30Data.setAdditionalDefects(new AdditionalDefect[]{new AdditionalDefect("DefectName", "DefectNotes")});
+        RequiredStandard mockRS = new RequiredStandard();
+        mockRS.setPrs(false);
+        mockRS.setRequiredStandard("Noise");
+        mockRS.setRefCalculation("1.1");
+        mockRS.setSectionNumber("1");
+        mockRS.setAdditionalInfo(false);
+        mockRS.setSectionDescription("description");
+        mockRS.setRsNumber(1);
+        mockRS.setInspectionTypes(new String[]{"Normal"});
+        mockRS.setAdditionalNotes("Some additional defect");
+        RequiredStandard[] requiredStandards = new RequiredStandard[]{mockRS};
+        msva30Data.setRequiredStandards(requiredStandards);
+        msva30.setMsvaData(msva30Data);
+
+        return msva30;
+    }
+
     public static VTG30 getVtg30HavingInvalidXMLCharacter() {
         VTG30 document = getVtg30();
 

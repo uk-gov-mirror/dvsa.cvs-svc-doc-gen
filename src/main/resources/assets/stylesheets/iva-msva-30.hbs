@@ -1,0 +1,275 @@
+/* Styling shared by IVA30 and MSVA30 */
+
+/* pdf Page styling */
+@page{
+size: A4 portrait;
+margin: 1cm;
+@bottom-left {
+content: element(footer-left);
+}
+@bottom-center {
+content: element(footer-mid);
+}
+@bottom-right {
+content: element(footer-right);
+}
+}
+
+@page :first{
+margin-top: 35mm;
+@top-left{
+content: element(first-page-header-left);
+}
+@top-right{
+content: element(first-page-header-right);
+}
+}
+
+/* Dynamic header &amp; footers */
+
+.first-page-header-left {
+margin-top: 50px;
+position: running(first-page-header-left);
+padding-bottom: 0px;
+margin-bottom: 5px;
+}
+.first-page-header-right{
+margin-top: 50px;
+position: running(first-page-header-right);
+padding-left: 350px;
+padding-bottom: 0px;
+margin-bottom: 5px;
+}
+
+#header-pagination-num:before{
+content: counter(pages);
+}
+
+.header-serial-no {
+width: 250px;
+border-style: solid;
+border-width: 1px;
+}
+
+.header-serial-no-title {
+padding: 2px;
+margin-bottom: 0px;
+}
+
+.header-pagination {
+width: 109px;
+border-style: solid;
+border-width: 1px;
+padding-left: 1em;
+padding-right: 1em;
+padding-top: 2em;
+padding-bottom: 2em;
+margin-top: -1px;
+}
+
+.footer-left {
+position: running(footer-left);
+font-size: 1.25em;
+}
+
+.footer-mid {
+position: running(footer-mid);
+text-align: center;
+}
+
+.footer-current-page-number:before{
+content: counter(page);
+font-weight: bold;
+}
+
+.footer-total-page-count:before{
+content: counter(pages);
+font-weight: bold;
+}
+
+.footer-right {
+text-align: right;
+position: running(footer-right);
+}
+
+/* element defaults */
+
+html,
+body {
+line-height: 1;
+margin: 0;
+-fs-page-sequence: start;
+page-break-inside: avoid;
+font-size: 90%;
+}
+
+*,
+:after,
+:before {
+box-sizing: border-box;
+line-height: 1;
+}
+
+p { margin:5px; }
+
+p,
+div,
+span {
+font-family: "Calibri", sans-serif;
+}
+
+h1 {
+font-size: 100%;
+margin: 0px;
+padding: 1px;
+}
+
+/* section formatting */
+
+.separate-page{
+page-break-after: always;
+}
+
+#back-page{
+page-break-after: avoid;
+}
+
+.section-border {
+border-style: solid;
+border-color: black;
+margin-bottom: 5px;
+}
+/* section title border */
+.section-title-border {
+border-style: solid;
+border-width: 1px;
+border-color: black;
+background-color: #d0d0d0;
+font-weight:bold;
+text-align: center;
+margin-top: -1px;
+margin-left: -1px;
+width: 100.3%;
+}
+
+#cert-subtitle{
+margin-top: 0px;
+font-size: 85%;
+}
+
+#cert-title-border{
+margin-top: 0px;
+}
+
+#defect-details-subtitle-border {
+background-color: white;
+}
+
+/* appointment for re-examination */
+
+#appointment-text{
+text-align: center;
+font-size: 85%;
+}
+
+/* wrapper body for section text */
+
+.section-text-wrapper {
+padding: 3px;
+}
+
+/* default tables styling */
+
+.table {
+width: 100%;
+border-collapse: collapse;
+margin-bottom: 1em;
+table-layout: auto;
+}
+
+.table-row-cell {
+border-style: solid;
+border-width: 1px;
+padding-bottom: 0.25em;
+width: 50%;
+vertical-align: middle;
+font-size: 92%;
+}
+
+.no-border-cell{
+border: none;
+}
+
+/* VEHICLE DETAILS section */
+
+
+.test-category-value {
+text-transform:uppercase;
+}
+
+/* DEFECT DETAILS section */
+
+.required-standard-list {
+list-style-type: none;
+}
+
+.required-standard-section {
+text-transform:uppercase;
+}
+
+/* Additional defects section */
+
+.additional-defect-list {
+list-style-type: none;
+}
+
+/* exam list section */
+
+.exam-list {
+width: 100%;
+}
+
+#left-exam-list {
+float: left;
+width: 50%;
+}
+
+#right-exam-list {
+float: right;
+width: 50%;
+}
+
+/* refusal lists */
+
+.refusal-list {
+clear: both;
+}
+
+.refusal-list p {
+margin: 0px;
+clear: both;
+}
+
+.item-list {
+margin-left: 50px;
+margin-bottom: 0px;
+}
+
+.item-list li {
+white-space: pre-wrap;
+}
+
+/* USE OF THE VEHICLE section */
+
+#use-vehicle-p {
+margin: 0px;
+}
+
+.vehicle-section-list {
+margin-top: 0px;
+padding-top: 0px;
+list-style-type: none;
+}
+
+/* END */
+

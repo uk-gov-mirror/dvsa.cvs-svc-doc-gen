@@ -87,7 +87,10 @@ public enum DocumentsConfig {
             new String[]{CertificateTemplates.INSPECTION_CHECKLIST.getCertificateTemplateName()}),
 
     IVA30(CertificateTypes.IVA30.getCertificateType(), IVA30.class,
-            new String[]{CertificateTemplates.IVA30.getCertificateTemplateName()});
+            new String[]{CertificateTemplates.IVA30.getCertificateTemplateName()}),
+
+    MSVA30(CertificateTypes.MSVA30.getCertificateType(), MSVA30.class,
+            new String[]{CertificateTemplates.MSVA30.getCertificateTemplateName()});
 
 
     private final String documentName;

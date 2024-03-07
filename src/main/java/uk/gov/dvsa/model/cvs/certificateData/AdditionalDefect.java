@@ -5,9 +5,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AdditionalDefect {
-    @JsonProperty
+    @JsonProperty("defectName")
     private String defectName;
-    @JsonProperty
+    @JsonProperty("defectNotes")
     private String defectNotes;
 
     public AdditionalDefect(String defectName, String defectNotes) {
