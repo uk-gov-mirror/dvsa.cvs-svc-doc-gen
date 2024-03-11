@@ -1,5 +1,6 @@
 package htmlverification.framework.page_object;
 
+import static htmlverification.framework.page_object.CertificatePageSelector.CVS_SIGNATURE_FIRST_PAGE;
 import static htmlverification.framework.page_object.MsvaPageSelector.*;
 
 public class MsvaPageObject extends BasePageObject {
@@ -7,6 +8,10 @@ public class MsvaPageObject extends BasePageObject {
 
     public String getTextByElementId(String id) { return getElementById(id).text(); }
     public String getTextByElementSelector(String selector) { return getElement(selector).text(); }
+
+    public String getSignatureImageSrc() {
+        return getElementById(CVS_SIGNATURE_FIRST_PAGE.getSelector()).attr("src");
+    }
 
     public String getSerialNumber() {
         return getElementById(SERIAL_NO.getSelector()).text();

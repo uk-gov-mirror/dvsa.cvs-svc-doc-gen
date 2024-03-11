@@ -660,6 +660,13 @@ public class CvsCertificateTestDataProvider {
         msva30Data.setRequiredStandards(requiredStandards);
         msva30.setMsvaData(msva30Data);
 
+        Signature signature = new Signature();
+        signature
+                .setImageData("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==")
+                .setImageType("png");
+
+        msva30.setSignature(signature);
+
         return msva30;
     }
 

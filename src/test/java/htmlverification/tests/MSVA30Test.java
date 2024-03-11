@@ -30,6 +30,14 @@ public class MSVA30Test {
     }
 
     @Test
+    public void verifySignature() {
+        String signatureElement = msvaPageObject.getSignatureImageSrc();
+        String expected = testCertificate.getSignature().getFormattedImageData();
+
+        assertEquals(expected, signatureElement);
+    }
+
+    @Test
     public void verifySerialNumber() {
         String serialNumber = msvaPageObject.getSerialNumber();
         assertEquals("Serial Number: ".concat(testCertificate.getMsvaData().getSerialNumber()), serialNumber);
