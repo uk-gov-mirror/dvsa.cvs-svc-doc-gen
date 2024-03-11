@@ -1,0 +1,10 @@
+{
+  "name": "gen",
+  "description": "",
+  "team": "",
+  "documentation": "",
+  "language": "handlebars",
+  "terraform": false,
+  "monorepo": false,
+  "dynamo_tables": []
+}
