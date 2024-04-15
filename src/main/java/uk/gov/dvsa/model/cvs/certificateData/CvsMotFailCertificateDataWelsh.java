@@ -15,7 +15,7 @@ public class CvsMotFailCertificateDataWelsh extends CvsMotFailCertificateData {
     public static final String MINOR_DEFECTS_HEADER_WELSH = "Atgyweiriwch cyn gynted â phosibl (ddiffygion bach)";
     public static final String DANGEROUS_DEFECTS_HEADER_WELSH = "Peidiwch â gyrru nes ei fod wedi cael ei atgyweirio (diffygion peryglus)";
     public static final String MAJOR_DEFECT_HEADER_WELSH = "Atgyweirio ar unwaith (diffygion mawr)";
-    public static final String PRS_DEFECTS_HEADER_WELSH = "Defects rectified at time of test"; // TODO - Welsh translation
+    public static final String PRS_DEFECTS_HEADER_WELSH = "Diffygion wedi'u cywiro ar adeg y prawf";
     public static final String TESTING_ORGANISATION_WELSH = "ASIANTAETH SAFONAU GYRWYR A CHERBYDAU";
 
     @JsonProperty("AdvisoryDefectsWelsh")
