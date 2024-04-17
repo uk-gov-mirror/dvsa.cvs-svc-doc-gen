@@ -20,6 +20,8 @@ public class DefectSummaryComponent {
     public static final String  DANGEROUS_DEFECTS_HEADER_PARTIAL_TEXT_WELSH = "Peidiwch â gyrru nes iddo gael ei drwsio (diffygion peryglus)";
     public static final String DANGEROUS_DEFECTS_HEADER_PARTIAL_TEXT_WELSH_CVS = "Peidiwch â gyrru nes ei fod wedi cael ei atgyweirio (diffygion peryglus)";
 
+    public static final String DANGEROUS_DEFECTS_HEADER_TEXT_WELSH_CVS = "Peidiwch â gyrru nes ei fod wedi cael ei atgyweirio";
+
     //CVS only
     public static final String  PRS_DEFECTS_HEADER_TEXT = "Monitor and repair if necessary (advisories)";
 

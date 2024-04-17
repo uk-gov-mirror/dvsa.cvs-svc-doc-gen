@@ -50,7 +50,10 @@ public enum DocumentsConfig {
             new String[]{CertificateTemplates.VTP20W.getCertificateTemplateName()}),
     VTP30(CertificateTypes.CVS_FAIL.getCertificateType(), uk.gov.dvsa.model.cvs.VTP30.class,
             new String[]{CertificateTemplates.VTP30.getCertificateTemplateName()}),
-
+    VTP30W(CertificateTypes.CVS_FAIL_WELSH.getCertificateType(), uk.gov.dvsa.model.cvs.VTP30W.class,
+            new String[]{CertificateTemplates.VTP30W.getCertificateTemplateName()}),
+    CVS_FAIL_BILINGUAL(CertificateTypes.CVS_FAIL_BILINGUAL.getCertificateType(), VTP30Bilingual.class,
+            new String[]{CertificateTemplates.VTP30.getCertificateTemplateName(), CertificateTemplates.VTP30W.getCertificateTemplateName()}),
     VTG5A(CertificateTypes.CVS_TRL_PASS.getCertificateType(), uk.gov.dvsa.model.cvs.VTG5A.class,
             new String[]{CertificateTemplates.VTG5A.getCertificateTemplateName()}),
     VTG5AW(CertificateTypes.CVS_TRL_PASS_WELSH.getCertificateType(), uk.gov.dvsa.model.cvs.VTG5AW.class,

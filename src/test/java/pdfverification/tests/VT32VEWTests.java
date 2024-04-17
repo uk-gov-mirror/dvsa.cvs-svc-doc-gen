@@ -3,12 +3,9 @@ package pdfverification.tests;
 import static junit.framework.TestCase.assertFalse;
 import static uk.gov.dvsa.service.VT32VEHtmlGenerator.FOOTER;
 import static uk.gov.dvsa.service.VT32VEHtmlGenerator.FOOTER_WELSH;
-
 import static org.junit.Assert.assertTrue;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 
 import htmlverification.service.CertificateTestDataProvider;
 import pdfverification.service.PDFParser;

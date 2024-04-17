@@ -55,6 +55,15 @@ public class CvsCertificateTestDataProvider {
         return document;
     }
 
+    public static VTP30W getVtp30wWithNoOdometerHistory() {
+        VTP30W document = getVtp30w();
+
+        CvsMotCertificateData data = document.getFailData();
+        data.setOdometerHistoryList(null);
+
+        return document;
+    }
+
     public static VTP20 getVtp20() {
         VTP20 vtp20 = new VTP20();
         vtp20.setDocumentName(CertificateTypes.CVS_PASS.getCertificateType());
@@ -133,6 +142,7 @@ public class CvsCertificateTestDataProvider {
                 .setCurrentOdometer(
                         new CvsOdometerReading("22341", "mi", "01.02.2019")
                 )
+
                 .setOdometerHistoryList(Arrays.asList(
                         new CvsOdometerReading("120", "mi", "01.02.2016"),
                         new CvsOdometerReading("330", "mi", "30.01.2017")
@@ -226,6 +236,61 @@ public class CvsCertificateTestDataProvider {
 
         vtp30.setSignature(signature);
 
+        return vtp30;
+    }
+
+    public static VTP30W getVtp30w() {
+        VTP30W vtp30 = new VTP30W();
+        vtp30.setDocumentName(CertificateTypes.CVS_FAIL_WELSH.getCertificateType());
+        CvsMotFailCertificateDataWelsh vtp30Data = new CvsMotFailCertificateDataWelsh();
+
+        vtp30Data
+                .setMinorDefectsWelsh(generateRFRs(MINOR_RFR_TEXT, 1))
+                .setAdvisoryDefectsWelsh(generateRFRs(ADVISORY_RFR_TEXT, 1))
+                .setMinorDefectsHeader(DefectSummaryComponent.MINOR_DEFECTS_HEADER_TEXT_WELSH_CVS)
+                .setAdvisoryDefectsHeader(DefectSummaryComponent.ADVISORIES_HEADER_TEXT_WELSH)
+                .setSeatBeltNumber("10")
+                .setDateOfTheTest("12.11.2018")
+                .setSeatBeltPreviousCheckDate("12.11.2018")
+                .setSeatBeltTested("Yes")
+                .setCountryOfRegistrationCode("GB")
+                .setRawVin(VIN)
+                .setDateOfTheTest("12.11.2018")
+                .setExpiryDate("12.10.2018")
+                .setTestStationPNumber("P12345")
+                .setTestStationName("TEST STATION NAME")
+                .setMake("Aston Martin")
+                .setModel("DB11")
+                .setVehicleEuClassification("M1")
+                .setRawVrm("KA1SAPH")
+                .setCurrentOdometer(
+                        new CvsOdometerReading("22341", "mi", "01.02.2019")
+                )
+                .setOdometerHistoryList(Arrays.asList(
+                        new CvsOdometerReading("120", "mi", "01.02.2016"),
+                        new CvsOdometerReading("330", "mi", "30.01.2017")
+                ))
+                .setIssuersName("R.DREWNO")
+                .setTestStationName("POPULAR GARAGES")
+                .setTestNumber("1806 8140 0628")
+                .setEarliestDateOfTheNextTest("13.10.2018")
+                .setOdometerUnit("mi");
+
+        vtp30Data
+                .setMajorDefectsWelsh(generateRFRs(MAJOR_RFR_TEXT, 1))
+                .setDangerousDefectsWelsh(generateRFRs(DANGEROUS_RFR_TEXT, 1))
+                .setMajorDefectsHeader(DefectSummaryComponent.MAJOR_DEFECTS_HEADER_TEXT_WELSH)
+                .setDangerousDefectsHeader(DefectSummaryComponent.DANGEROUS_DEFECTS_HEADER_PARTIAL_TEXT_WELSH_CVS)
+                .setPrsDefects(generateRFRs(PRS_RFR_TEXT, 1));
+
+        vtp30.setFailData(vtp30Data);
+
+        Signature signature = new Signature();
+        signature
+                .setImageData("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==")
+                .setImageType("png");
+
+        vtp30.setSignature(signature);
         return vtp30;
     }
 
@@ -486,6 +551,48 @@ public class CvsCertificateTestDataProvider {
         psvPassBilingual.setData(bilingualData);
         return psvPassBilingual;
     }
+    public static VTP30Bilingual getCvsPsvFailBilingual() {
+        VTP30Bilingual psvPassBilingual = new VTP30Bilingual();
+        psvPassBilingual.setDocumentName(CertificateTypes.CVS_PASS_BILINGUAL.getCertificateType());
+
+        CvsMotCertificateDataWelsh bilingualData = new CvsMotCertificateDataWelsh();
+        bilingualData
+                .setMinorDefectsWelsh(generateRFRs(MINOR_RFR_TEXT, 1))
+                .setAdvisoryDefectsWelsh(generateRFRs(ADVISORY_RFR_TEXT, 1))
+                .setMinorDefectsHeader(DefectSummaryComponent.MINOR_DEFECTS_HEADER_TEXT_WELSH_CVS)
+                .setAdvisoryDefectsHeader(DefectSummaryComponent.ADVISORIES_HEADER_TEXT_WELSH_CVS)
+                .setMinorDefects(generateRFRs(MINOR_RFR_TEXT, 1))
+                .setAdvisoryDefects(generateRFRs(ADVISORY_RFR_TEXT, 1))
+
+                .setSeatBeltNumber("10")
+                .setSeatBeltPreviousCheckDate("12.11.2018")
+                .setSeatBeltTested("Yes")
+
+                .setCountryOfRegistrationCode("GB")
+                .setRawVin(VIN)
+                .setDateOfTheTest("12.11.2018")
+                .setExpiryDate("12.10.2018")
+                .setTestStationPNumber("P12345")
+                .setTestStationName("TEST STATION NAME")
+                .setMake("Aston Martin")
+                .setModel("DB11")
+                .setVehicleEuClassification("M1")
+                .setRawVrm("KA1SAPH")
+                .setCurrentOdometer(
+                        new CvsOdometerReading("22341", "mi", "01.02.2019")
+                )
+                .setOdometerHistoryList(Arrays.asList(
+                        new CvsOdometerReading("120", "km", "01.02.2016"),
+                        new CvsOdometerReading("330", "km", "30.01.2017")
+                ))
+                .setIssuersName("R.DREWNO")
+                .setTestStationName("POPULAR GARAGES")
+                .setTestNumber("1806 8140 0628")
+                .setEarliestDateOfTheNextTest("13.10.2018");
+
+        psvPassBilingual.setData(bilingualData);
+        return psvPassBilingual;
+    }
 
     public static CvsTrlPassBilingual getCvsTrlPassBilingual() {
         CvsTrlPassBilingual trlPassBilingual = new CvsTrlPassBilingual();
@@ -522,6 +629,61 @@ public class CvsCertificateTestDataProvider {
     public static CvsHgvTrlFailBilingual getCvsHgvTrlFailBilingual() {
         CvsHgvTrlFailBilingual hgvFailBilingual = new CvsHgvTrlFailBilingual();
         hgvFailBilingual.setDocumentName(CertificateTypes.CVS_HGV_TRL_FAIL_BILINGUAL.getCertificateType());
+
+        CvsMotFailCertificateDataWelsh bilingualData = new CvsMotFailCertificateDataWelsh();
+        bilingualData
+                .setAdvisoryDefectsWelsh(generateRFRs(ADVISORY_RFR_TEXT, 1))
+                .setMinorDefectsWelsh(generateRFRs(MINOR_RFR_TEXT, 1))
+                .setDangerousDefectsWelsh(generateRFRs(DANGEROUS_RFR_TEXT, 1))
+                .setMajorDefectsWelsh(generateRFRs(MAJOR_RFR_TEXT, 1))
+                .setDangerousDefects(generateRFRs(MINOR_RFR_TEXT, 1))
+                .setMajorDefects(generateRFRs(MAJOR_RFR_TEXT, 1))
+                .setAdvisoryDefects(generateRFRs(ADVISORY_RFR_TEXT, 1))
+                .setMinorDefects(generateRFRs(MINOR_RFR_TEXT, 1))
+
+                .setSeatBeltNumber("10")
+                .setSeatBeltPreviousCheckDate("12.11.2018")
+                .setSeatBeltTested("Yes")
+
+                .setCountryOfRegistrationCode("GB")
+                .setRawVin(VIN)
+                .setDateOfTheTest("12.11.2018")
+                .setExpiryDate("12.10.2018")
+                .setTestStationPNumber("P12345")
+                .setTestStationName("TEST STATION NAME")
+                .setMake("Aston Martin")
+                .setModel("DB11")
+                .setVehicleEuClassification("M1")
+                .setRawVrm("KA1SAPH")
+                .setCurrentOdometer(
+                        new CvsOdometerReading("22341", "mi", "01.02.2019")
+                )
+                .setOdometerHistoryList(Arrays.asList(
+                        new CvsOdometerReading("120", "km", "01.02.2016"),
+                        new CvsOdometerReading("330", "km", "30.01.2017")
+                ))
+                .setIssuersName("TESTER NAME")
+                .setTestStationName("TEST STATION NAME")
+                .setTestNumber("X01X00001")
+                .setEarliestDateOfTheNextTest("13.10.2018")
+                .setTrn("ABC1234")
+                .setIsTrailer(true);
+
+        hgvFailBilingual.setFailData(bilingualData);
+
+        Signature signature = new Signature();
+        signature
+                .setImageData("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==")
+                .setImageType("png");
+
+        hgvFailBilingual.setSignature(signature);
+
+        return hgvFailBilingual;
+    };
+
+    public static VTP30Bilingual getVtp30Bilingual() {
+        VTP30Bilingual hgvFailBilingual = new VTP30Bilingual();
+        hgvFailBilingual.setDocumentName(CertificateTypes.CVS_FAIL_BILINGUAL.getCertificateType());
 
         CvsMotFailCertificateDataWelsh bilingualData = new CvsMotFailCertificateDataWelsh();
         bilingualData

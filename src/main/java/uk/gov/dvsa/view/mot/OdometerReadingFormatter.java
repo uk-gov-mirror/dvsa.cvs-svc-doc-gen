@@ -34,7 +34,6 @@ public class OdometerReadingFormatter {
         if (odometer == null) {
             return "";
         }
-
         if (isRemark(odometer)) {
             return odometer.getValueCy();
         }
