@@ -24,6 +24,7 @@ public class DefectSummaryComponent {
 
     //CVS only
     public static final String  PRS_DEFECTS_HEADER_TEXT = "Monitor and repair if necessary (advisories)";
+    public static final String PRS_DEFECTS_HEADER_TEXT_WELSH_CVS = "Diffygion wedi'u cywiro ar adeg y prawf";
 
     protected Element resultSummaryElement;
 

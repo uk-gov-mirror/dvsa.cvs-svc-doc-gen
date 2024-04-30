@@ -679,7 +679,81 @@ public class CvsCertificateTestDataProvider {
         hgvFailBilingual.setSignature(signature);
 
         return hgvFailBilingual;
-    };
+    }
+
+    public static CvsHgvPRSBilingual getCvsHgvPRSBilingual() {
+        CvsHgvPRSBilingual hgvPRSBilingual = new CvsHgvPRSBilingual();
+        hgvPRSBilingual.setDocumentName(CertificateTypes.CVS_HGV_PRS_BILINGUAL.getCertificateType());
+
+        CvsMotFailCertificateDataWelsh bilingualFailData = new CvsMotFailCertificateDataWelsh();
+        bilingualFailData
+                .setPrsDefectsHeaderWelsh(DefectSummaryComponent.PRS_DEFECTS_HEADER_TEXT_WELSH_CVS)
+                .setPrsDefectsWelsh(generateRFRs(PRS_RFR_TEXT, 1))
+                .setPrsDefects(generateRFRs(PRS_RFR_TEXT, 1))
+                .setSeatBeltNumber("10")
+                .setSeatBeltPreviousCheckDate("12.11.2018")
+                .setSeatBeltTested("Yes")
+                .setCountryOfRegistrationCode("GB")
+                .setRawVin(VIN)
+                .setDateOfTheTest("22.08.2023")
+                .setExpiryDate("31.08.2024")
+                .setTestStationPNumber("P12345")
+                .setTestStationName("TEST STATION NAME")
+                .setMake("Aston Martin")
+                .setModel("DB11")
+                .setVehicleEuClassification("M1")
+                .setRawVrm("KA1SAPH")
+                .setCurrentOdometer(
+                        new CvsOdometerReading("20000", "km", "22.08.2023")
+                )
+                .setOdometerHistoryList(Arrays.asList(
+                                new CvsOdometerReading("12000", "km", "13.08.2022"),
+                                new CvsOdometerReading("7000", "km", "02.08.2021")
+                        )
+                )
+                .setIssuersName("TESTER NAME")
+                .setTestStationName("TEST STATION NAME")
+                .setTestNumber("X01X00001")
+                .setEarliestDateOfTheNextTest("01.07.2024")
+                .setTrn(null)
+                .setIsTrailer(false);
+
+        CvsMotCertificateDataWelsh bilingualData = new CvsMotCertificateDataWelsh();
+        bilingualData
+                .setMinorDefectsWelsh(generateRFRs(MINOR_RFR_TEXT, 1))
+                .setAdvisoryDefectsWelsh(generateRFRs(ADVISORY_RFR_TEXT, 1))
+                .setMinorDefectsHeader(DefectSummaryComponent.MINOR_DEFECTS_HEADER_TEXT_WELSH_CVS)
+                .setAdvisoryDefectsHeader(DefectSummaryComponent.ADVISORIES_HEADER_TEXT_WELSH_CVS)
+                .setMinorDefects(generateRFRs(MINOR_RFR_TEXT, 1))
+                .setAdvisoryDefects(generateRFRs(ADVISORY_RFR_TEXT, 1))
+                .setCountryOfRegistrationCode("GB")
+                .setRawVin(VIN)
+                .setDateOfTheTest("22.08.2023")
+                .setExpiryDate("31.08.2024")
+                .setTestStationPNumber("P12345")
+                .setTestStationName("TEST STATION NAME")
+                .setMake("Aston Martin")
+                .setModel("DB11")
+                .setVehicleEuClassification("M1")
+                .setRawVrm("KA15APH")
+                .setCurrentOdometer(
+                        new CvsOdometerReading("20000", "km", "22.08.2023")
+                )
+                .setOdometerHistoryList(Arrays.asList(
+                                new CvsOdometerReading("12000", "km", "13.08.2022"),
+                                new CvsOdometerReading("7000", "km", "02.08.2021")
+                        )
+                )
+                .setIssuersName("TESTER NAME")
+                .setTestStationName("TEST STATION NAME")
+                .setTestNumber("X01X00001")
+                .setEarliestDateOfTheNextTest("01.07.2024");
+
+        hgvPRSBilingual.setFailData(bilingualFailData);
+        hgvPRSBilingual.setData(bilingualData);
+
+        return hgvPRSBilingual;
+    }
 
     public static VTP30Bilingual getVtp30Bilingual() {
         VTP30Bilingual hgvFailBilingual = new VTP30Bilingual();
@@ -961,6 +1035,15 @@ public class CvsCertificateTestDataProvider {
 
         CvsMotCertificateData data = document.getFailData();
         data.setAdvisoryDefects(generateRFRs(INVALID_XML_RFR_TEXT, 3));
+
+        return document;
+    }
+
+    public static CvsHgvPRSBilingual getCvsHgvPRSBilingualHavingInvalidXMLCharacter() {
+        CvsHgvPRSBilingual document = getCvsHgvPRSBilingual();
+
+        CvsMotFailCertificateData data = document.getFailData();
+        data.setPrsDefects(generateRFRs(INVALID_XML_RFR_TEXT, 3));
 
         return document;
     }

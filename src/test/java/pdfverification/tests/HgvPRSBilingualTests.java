@@ -15,19 +15,15 @@ import java.io.IOException;
 
 import static org.junit.Assert.assertTrue;
 
-public class VTG30WTests {
-    private static final String CERT_NAME = "Gwrthod tystysgrif prawf MOT";
-
+public class HgvPRSBilingualTests {
     private HtmlGenerator htmlGenerator;
     private PDFGenerationService pdfGenerationService;
     private CvsMotCertificate testCertificate;
     private PDFParser pdfParser;
-
     private PdfReader pdfReader;
-    private byte[] pdfData;
 
-    public VTG30WTests() {
-        this.testCertificate = CvsCertificateTestDataProvider.getVTG30W();
+    public HgvPRSBilingualTests() {
+        this.testCertificate = CvsCertificateTestDataProvider.getCvsHgvPRSBilingual();
         this.htmlGenerator = new HtmlGenerator(new Handlebars());
         this.pdfGenerationService = new PDFGenerationService(new ITextRenderer());
         this.pdfParser = new PDFParser();
@@ -35,18 +31,21 @@ public class VTG30WTests {
 
     @Before
     public void setup() throws Exception {
-        pdfData = pdfGenerationService.generate(htmlGenerator.generate(testCertificate));
+        byte[] pdfData = pdfGenerationService.generate(htmlGenerator.generate(testCertificate));
         pdfReader = pdfParser.readPdf(pdfData);
     }
 
     @Test
     public void verifyTitle() throws IOException {
-        assertTrue(pdfParser.getRawText(pdfReader, 1).contains(CERT_NAME));
+        assertTrue(pdfParser.getRawText(pdfReader, 1).contains("MOT test certificate (HGV)"));
+        assertTrue(pdfParser.getRawText(pdfReader, 2).contains("Refusal of MOT test certificate"));
+        assertTrue(pdfParser.getRawText(pdfReader, 3).contains("Tystysgrif prawf MOT (HGV)"));
+        assertTrue(pdfParser.getRawText(pdfReader, 4).contains("Gwrthod tystysgrif prawf MOT"));
     }
 
     @Test
     public void verifySinglePageWithInvalidXMLCharacter() throws Exception {
-        this.testCertificate = CvsCertificateTestDataProvider.getVTG30WHavingInvalidXMLCharacter();
+        this.testCertificate = CvsCertificateTestDataProvider.getCvsHgvPRSBilingualHavingInvalidXMLCharacter();
         pdfParser.getRawText(pdfReader, 1);
     }
 }
