@@ -626,6 +626,84 @@ public class CvsCertificateTestDataProvider {
         return trlPassBilingual;
     }
 
+    public static CvsTrlPRSBilingual getCvsTrlPrsBilingual() {
+        CvsTrlPRSBilingual trlPrsBilingual = new CvsTrlPRSBilingual();
+        trlPrsBilingual.setDocumentName(CertificateTypes.CVS_TRL_PRS_BILINGUAL.getCertificateType());
+        CvsMotFailCertificateDataWelsh failData = new CvsMotFailCertificateDataWelsh();
+        CvsMotCertificateDataWelsh passData = new CvsMotCertificateDataWelsh();
+
+        passData
+                .setMinorDefectsWelsh(generateRFRs(MINOR_RFR_TEXT, 1))
+                .setAdvisoryDefectsWelsh(generateRFRs(ADVISORY_RFR_TEXT, 1))
+                .setMinorDefectsHeader(DefectSummaryComponent.MINOR_DEFECTS_HEADER_TEXT_WELSH_CVS)
+                .setAdvisoryDefectsHeader(DefectSummaryComponent.ADVISORIES_HEADER_TEXT_WELSH_CVS)
+                .setMinorDefects(generateRFRs(MINOR_RFR_TEXT, 1))
+                .setAdvisoryDefects(generateRFRs(ADVISORY_RFR_TEXT, 1))
+                .setCurrentOdometer(
+                        new CvsOdometerReading("22341", "mi", "01.02.2019")
+                )
+                .setOdometerHistoryList(Arrays.asList(
+                        new CvsOdometerReading("120", "km", "01.02.2016"),
+                        new CvsOdometerReading("330", "km", "30.01.2017")
+                ))
+                .setCountryOfRegistrationCode("GB")
+                .setRawVin(VIN)
+                .setDateOfTheTest("12.11.2018")
+                .setExpiryDate("12.10.2018")
+                .setTestStationPNumber("P12345")
+                .setTestStationName("TEST STATION NAME")
+                .setMake("Aston Martin")
+                .setModel("DB11")
+                .setIssuersName("R.DREWNO")
+                .setTestStationName("POPULAR GARAGES")
+                .setTestNumber("1806 8140 0628")
+                .setEarliestDateOfTheNextTest("13.10.2018")
+                .setTrn("ABC1234")
+                .setIsTrailer(true);
+
+        failData
+                .setPrsDefectsHeaderWelsh(DefectSummaryComponent.PRS_DEFECTS_HEADER_TEXT_WELSH_CVS)
+                .setPrsDefectsWelsh(generateRFRs(PRS_RFR_TEXT, 1))
+                .setPrsDefects(generateRFRs(PRS_RFR_TEXT, 1))
+                .setSeatBeltNumber("10")
+                .setSeatBeltPreviousCheckDate("12.11.2018")
+                .setSeatBeltTested("Yes")
+                .setCountryOfRegistrationCode("GB")
+                .setRawVin(VIN)
+                .setDateOfTheTest("12.11.2018")
+                .setExpiryDate("12.10.2018")
+                .setMake("MERCEDES")
+                .setModel("Z WAGON")
+                .setVehicleEuClassification("M1")
+                .setRawVrm("KA1SAPH")
+                .setCurrentOdometer(
+                        new CvsOdometerReading("20000", "mi", "22.08.2023")
+                )
+                .setOdometerHistoryList(Arrays.asList(
+                        new CvsOdometerReading("12000", "mi", "13.08.2022"),
+                        new CvsOdometerReading("7000", "mi", "02.08.2021")
+                ))
+                .setIssuersName("TESTER NAME")
+                .setTestStationName("TEST STATION NAME")
+                .setTestStationPNumber("P12345")
+                .setTestNumber("X01X00001")
+                .setEarliestDateOfTheNextTest("01.07.2024")
+                .setTrn("ABC1234")
+                .setIsTrailer(true);
+        trlPrsBilingual.setFailData(failData);
+
+        Signature signature = new Signature();
+        signature
+                .setImageData("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==")
+                .setImageType("png");
+
+        trlPrsBilingual.setSignature(signature);
+        trlPrsBilingual.setData(passData);
+        trlPrsBilingual.setData(passData);
+
+        return trlPrsBilingual;
+    }
+
     public static CvsHgvTrlFailBilingual getCvsHgvTrlFailBilingual() {
         CvsHgvTrlFailBilingual hgvFailBilingual = new CvsHgvTrlFailBilingual();
         hgvFailBilingual.setDocumentName(CertificateTypes.CVS_HGV_TRL_FAIL_BILINGUAL.getCertificateType());

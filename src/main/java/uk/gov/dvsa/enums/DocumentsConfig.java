@@ -94,6 +94,10 @@ public enum DocumentsConfig {
     CVS_TRL_PRS(CertificateTypes.CVS_TRL_PRS.getCertificateType(), uk.gov.dvsa.model.cvs.CvsTrlPRS.class,
             new String[]{CertificateTemplates.VTG5A.getCertificateTemplateName(), CertificateTemplates.VTG30.getCertificateTemplateName()}),
 
+    CVS_TRL_PRS_BILINGUAL(CertificateTypes.CVS_TRL_PRS_BILINGUAL.getCertificateType(), uk.gov.dvsa.model.cvs.CvsTrlPRSBilingual.class,
+            new String[]{CertificateTemplates.VTG5A.getCertificateTemplateName(), CertificateTemplates.VTG30.getCertificateTemplateName(),
+                    CertificateTemplates.VTG5AW.getCertificateTemplateName(), CertificateTemplates.VTG30W.getCertificateTemplateName()}),
+
     INSPECTION_CHECKLIST(CertificateTypes.INSPECTION_CHECKLIST.getCertificateType(), InspectionChecklist.class,
             new String[]{CertificateTemplates.INSPECTION_CHECKLIST.getCertificateTemplateName()}),
 
