@@ -281,7 +281,9 @@ public class CvsCertificateTestDataProvider {
                 .setDangerousDefectsWelsh(generateRFRs(DANGEROUS_RFR_TEXT, 1))
                 .setMajorDefectsHeader(DefectSummaryComponent.MAJOR_DEFECTS_HEADER_TEXT_WELSH)
                 .setDangerousDefectsHeader(DefectSummaryComponent.DANGEROUS_DEFECTS_HEADER_PARTIAL_TEXT_WELSH_CVS)
-                .setPrsDefects(generateRFRs(PRS_RFR_TEXT, 1));
+                .setPrsDefects(generateRFRs(PRS_RFR_TEXT, 1))
+                .setMajorDefects(generateRFRs(MAJOR_RFR_TEXT, 1))
+                .setDangerousDefects(generateRFRs(DANGEROUS_RFR_TEXT, 1));
 
         vtp30.setFailData(vtp30Data);
 
@@ -1132,5 +1134,24 @@ public class CvsCertificateTestDataProvider {
         for (int i = 0; i < numberOfRfrs; i++) {
             reasonsForRejection.add(rfrName + " #" + i); }
         return reasonsForRejection;
+    }
+
+    public static CvsPsvPRSBilingual getCvsPsvPRSBilingual() {
+        CvsPsvPRSBilingual cvsPsvPRSBilingual = new CvsPsvPRSBilingual();
+        cvsPsvPRSBilingual.setDocumentName(CertificateTypes.CVS_PSV_PRS_BILINGUAL.getCertificateType());
+
+        cvsPsvPRSBilingual.setData(getVtp20W().getData());
+        cvsPsvPRSBilingual.setFailData(getVtp30w().getFailData());
+
+        return cvsPsvPRSBilingual;
+    }
+
+    public static CvsMotCertificate getCvsPsvPRSBilingualHavingInvalidXMLCharacter() {
+        CvsPsvPRSBilingual document = getCvsPsvPRSBilingual();
+
+        CvsMotFailCertificateData data = document.getFailData();
+        data.setPrsDefects(generateRFRs(INVALID_XML_RFR_TEXT, 3));
+
+        return document;
     }
 }

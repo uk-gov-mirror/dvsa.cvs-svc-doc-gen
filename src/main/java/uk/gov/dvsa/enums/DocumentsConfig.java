@@ -44,6 +44,9 @@ public enum DocumentsConfig {
 
     CVS_PSV_PRS(CertificateTypes.CVS_PSV_PRS.getCertificateType(), CvsPsvPRS.class,
             new String[]{CertificateTemplates.VTP20.getCertificateTemplateName(), CertificateTemplates.VTP30.getCertificateTemplateName()}),
+    CVS_PSV_PRS_BILINGUAL(CertificateTypes.CVS_PSV_PRS_BILINGUAL.getCertificateType(), CvsPsvPRSBilingual.class,
+            new String[]{CertificateTemplates.VTP20.getCertificateTemplateName(), CertificateTemplates.VTP30.getCertificateTemplateName(),
+                    CertificateTemplates.VTP20W.getCertificateTemplateName(), CertificateTemplates.VTP30W.getCertificateTemplateName()}),
     VTP20(CertificateTypes.CVS_PASS.getCertificateType(), uk.gov.dvsa.model.cvs.VTP20.class,
             new String[]{CertificateTemplates.VTP20.getCertificateTemplateName()}),
     VTP20W(CertificateTypes.CVS_PASS_WELSH.getCertificateType(), uk.gov.dvsa.model.cvs.VTP20W.class,
