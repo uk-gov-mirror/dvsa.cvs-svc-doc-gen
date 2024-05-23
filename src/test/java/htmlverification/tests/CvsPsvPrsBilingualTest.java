@@ -9,12 +9,8 @@ import org.junit.Test;
 import uk.gov.dvsa.model.cvs.CvsPsvPRSBilingual;
 import uk.gov.dvsa.service.HtmlGenerator;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.junit.Assert.assertEquals;
 import static uk.gov.dvsa.model.cvs.certificateData.CvsMotCertificateData.PASS_WITH_DEFECTS_HEADER;
@@ -40,24 +36,6 @@ public class CvsPsvPrsBilingualTest {
         String certHtmlVTP30 = htmlGenerator.generate(testCertificate).get(1);
         String certHtmlVTP20Welsh = htmlGenerator.generate(testCertificate).get(2);
         String certHtmlVTP30Welsh = htmlGenerator.generate(testCertificate).get(3);
-
-        AtomicInteger index = new AtomicInteger(1); // Start index at 1 or 0 as needed
-
-        htmlGenerator.generate(testCertificate).stream().forEach(x -> {
-            String fileName = "vtp30welshPage" + index.getAndIncrement() + ".html"; // Increment index for each file
-            try (FileOutputStream fileOutputStream = new FileOutputStream(fileName)) {
-                // Assuming x is a byte array that should be written to the file.
-                // You might need to adjust this if x is not a byte array.
-                fileOutputStream.write(x.getBytes());
-            } catch (FileNotFoundException e) {
-                System.err.println("File not found: " + e.getMessage());
-            } catch (IOException e) {
-                System.err.println("I/O Error: " + e.getMessage());
-                throw new RuntimeException(e);
-            }
-        });
-        System.out.println(testCertificate.getTestType());
-
 
         certificatePageObjectVTP20 = new CertificatePageObject(certHtmlVTP20);
         certificatePageObjectVTP30 = new CertificatePageObject(certHtmlVTP30);
