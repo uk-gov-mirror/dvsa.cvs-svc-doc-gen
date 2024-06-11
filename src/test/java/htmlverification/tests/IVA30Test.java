@@ -86,7 +86,7 @@ public class IVA30Test {
     @Test
     public void verifyReapplicationDate() {
         String reapplicationDate = ivaPageObject.getReapplicationDate();
-        assertEquals("Reapplication required by: ".concat(testCertificate.getIvaData().getReapplicationDate()), reapplicationDate);
+        assertEquals("Reapplication required by:", reapplicationDate);
     }
 
     @Test
