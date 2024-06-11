@@ -21,7 +21,7 @@ public class MSVA30Tests {
 
     private final String FOOTER_DOC_NAME = "MSVA30VTA (DVSA0848)";
 
-    private final String FOOTER_VERSION_DATE = "Version 1.0 May 2024";
+    private final String FOOTER_VERSION_DATE = "Version 1.1 June 2024";
 
     private PDFGenerationService pdfGenerationService;
     private HtmlGenerator htmlGenerator;
