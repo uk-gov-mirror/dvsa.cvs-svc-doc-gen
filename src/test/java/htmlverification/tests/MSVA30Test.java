@@ -77,9 +77,9 @@ public class MSVA30Test {
     }
 
     @Test
-    public void verifyRetestDate() {
-        String retestDate = msvaPageObject.getRetestDate();
-        assertEquals("Reapplication required by:", retestDate);
+    public void verifyReapplicationDate() {
+        String retestDate = msvaPageObject.getReapplicationDate();
+        assertEquals("Reapplication required by: 27/05/2024", retestDate);
     }
 
     @Test

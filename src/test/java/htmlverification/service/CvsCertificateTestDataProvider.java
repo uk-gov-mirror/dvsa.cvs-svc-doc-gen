@@ -1074,7 +1074,7 @@ public class CvsCertificateTestDataProvider {
         msva30Data.setModel("Model");
         msva30Data.setDate("28/11/2023");
         msva30Data.setTesterName("Tester One");
-        msva30Data.setRetestDate("27/05/2024");
+        msva30Data.setReapplicationDate("27/05/2024");
         msva30Data.setStation("Abshire-Kub");
         msva30Data.setAdditionalDefects(new AdditionalDefect[]{new AdditionalDefect("DefectName", "DefectNotes")});
         RequiredStandard mockRS = new RequiredStandard();
