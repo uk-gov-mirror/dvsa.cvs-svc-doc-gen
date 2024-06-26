@@ -1048,7 +1048,18 @@ public class CvsCertificateTestDataProvider {
         mockRS.setRsNumber(1);
         mockRS.setInspectionTypes(new String[]{"Normal"});
         mockRS.setAdditionalNotes("Some additional defect");
-        RequiredStandard[] requiredStandards = new RequiredStandard[]{mockRS};
+        // PRS mock
+        RequiredStandard mockRSPrs = new RequiredStandard();
+        mockRSPrs.setPrs(true);
+        mockRSPrs.setRequiredStandard("Noise");
+        mockRSPrs.setRefCalculation("1.1");
+        mockRSPrs.setSectionNumber("1");
+        mockRSPrs.setAdditionalInfo(false);
+        mockRSPrs.setSectionDescription("description");
+        mockRSPrs.setRsNumber(1);
+        mockRSPrs.setInspectionTypes(new String[]{"Normal"});
+        mockRSPrs.setAdditionalNotes("Some additional defect");
+        RequiredStandard[] requiredStandards = new RequiredStandard[]{mockRS, mockRSPrs};
         iva30Data.setRequiredStandards(requiredStandards);
         iva30.setIvaData(iva30Data);
 
@@ -1087,7 +1098,18 @@ public class CvsCertificateTestDataProvider {
         mockRS.setRsNumber(1);
         mockRS.setInspectionTypes(new String[]{"Normal"});
         mockRS.setAdditionalNotes("Some additional defect");
-        RequiredStandard[] requiredStandards = new RequiredStandard[]{mockRS};
+        // PRS mock
+        RequiredStandard mockRSPrs = new RequiredStandard();
+        mockRSPrs.setPrs(true);
+        mockRSPrs.setRequiredStandard("Noise");
+        mockRSPrs.setRefCalculation("1.1");
+        mockRSPrs.setSectionNumber("1");
+        mockRSPrs.setAdditionalInfo(false);
+        mockRSPrs.setSectionDescription("description");
+        mockRSPrs.setRsNumber(1);
+        mockRSPrs.setInspectionTypes(new String[]{"Normal"});
+        mockRSPrs.setAdditionalNotes("Some additional defect");
+        RequiredStandard[] requiredStandards = new RequiredStandard[]{mockRS, mockRSPrs};
         msva30Data.setRequiredStandards(requiredStandards);
         msva30.setMsvaData(msva30Data);
 

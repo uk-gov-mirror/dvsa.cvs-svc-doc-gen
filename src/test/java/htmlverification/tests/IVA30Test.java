@@ -112,7 +112,9 @@ public class IVA30Test {
         String rs = requiredStandardsArray[0].getRequiredStandard();
         String addNotes = requiredStandardsArray[0].getAdditionalNotes();
 
-        assertEquals(sectionNo + " - " + description + " RS" + rsNo + ": " + rs + " Additional Information: " + addNotes, requiredStandards);
+        assertEquals(sectionNo + " - " + description + " RS" + rsNo + ": " + rs + " Additional Information: " + addNotes
+                + " " + sectionNo + " - " + description + " RS" + rsNo + ": " + rs + " (PRS)" + " Additional Information: " + addNotes
+                , requiredStandards);
     }
 
     @Test

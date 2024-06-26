@@ -38,7 +38,6 @@
 </div>
 
 
-<div class="separate-page">
     <div class="section-title-border" id ='cert-title-border'>
         <h1> MOTORCYCLE SINGLE VEHICLE APPROVAL (MSVA)</h1>
         <h1> NOTIFICATION OF REFUSAL TO ISSUE A MINISTERS APPROVAL CERTIFICATE </h1>
@@ -65,7 +64,7 @@
     </table>
 
 
-    <div class="section-border">
+    <div class="section-border" id = "defect-section">
         <div class="section-title-border">
             <h1> DEFECT DETAILS </h1>
         </div>
@@ -76,12 +75,12 @@
             {{#if msvaData.requiredStandards}}
                 <ul class="required-standard-list">
                     {{#each msvaData.requiredStandards}}
-                        <li>
+                        <li class= "required-standard-list-item">
                             <div>
                                 <p><span class="required-standard-section">{{this.sectionNumber}} - {{this.sectionDescription}}</span></p>
                             </div>
                             <div>
-                                <p><span> RS{{this.rsNumber}}: {{this.requiredStandard}} </span></p>
+                                <p><span> RS{{this.rsNumber}}: {{this.requiredStandard}} {{#if this.prs}} (PRS) {{/if}}</span></p>
                                 {{#if this.additionalNotes}}
                                     Additional Information: <span> {{this.additionalNotes}} </span>
                                 {{/if}}
@@ -92,56 +91,54 @@
             {{/if}}
         </div>
     </div>
+    <div class = "signature-section">
+        <p> I hereby refuse a Minister's Approval Certificate in respect of the above described vehicle on the
+            grounds that the vehicle fails to comply with the relevant requirements prescribed under section 54 of
+            The Road Traffic Act 1988 </p>
 
-    <p> I hereby refuse a Minister's Approval Certificate in respect of the above described vehicle on the
-        grounds that the vehicle fails to comply with the relevant requirements prescribed under section 54 of
-        The Road Traffic Act 1988 </p>
-
-
-    <table class="table">
-        <tr>
-            <td rowspan="2" class="table-row-cell">
-                <div>
-                    <b class="signature-label">Signed: </b>
-                    <div class="signature-image__wrapper">
-                        <img id="signature-first-page" class="signature-image" src="{{signature.formattedImageData}}" alt="signature"/>                    </div>
-                </div>
-            </td>
-            <td class="table-row-cell" id="re-app-date"> <b>Reapplication required by: </b> {{msvaData.reapplicationDate}} </td>
-        </tr>
-        <tr>
-            <td class="table-row-cell" id="date"> <b>Date: </b> {{msvaData.date}} </td>
-        </tr>
-        <tr>
-            <td class="table-row-cell" id="tester-name"> <b>Name: </b> {{msvaData.testerName}} </td>
-            <td class="table-row-cell" id="station"> <b>Station: </b> {{msvaData.station}} </td>
-        </tr>
-        <tr>
-            <td class="table-row-cell" colspan="2"> <p><b>The following additional defects may result in the vehicle not complying with the requirements
-                of The Road Vehicles (Construction and Use) Regulations 1986. (See notes overleaf) </b></p>
-                {{#if msvaData.additionalDefects}}
-                    <ul class="additional-defect-list" id="additional-defects">
-                        {{#each msvaData.additionalDefects}}
-                            <li>
-                                <div>
-                                    <span>
-                                        {{this.defectName}}
-                                    </span>
-                                </div>
-                                <div>
-                                    <span>
-                                        {{this.defectNotes}}
-                                    </span>
-                                </div>
-                            </li>
-                        {{/each}}
-                    </ul>
-                {{/if}}
-            </td>
-        </tr>
-    </table>
-
-
+        <table class="table">
+            <tr>
+                <td rowspan="2" class="table-row-cell">
+                    <div>
+                        <b class="signature-label">Signed: </b>
+                        <div class="signature-image__wrapper">
+                            <img id="signature-first-page" class="signature-image" src="{{signature.formattedImageData}}" alt="signature"/>                    </div>
+                    </div>
+                </td>
+                <td class="table-row-cell" id="re-app-date"> <b>Reapplication required by: </b> {{msvaData.reapplicationDate}} </td>
+            </tr>
+            <tr>
+                <td class="table-row-cell" id="date"> <b>Date: </b> {{msvaData.date}} </td>
+            </tr>
+            <tr>
+                <td class="table-row-cell" id="tester-name"> <b>Name: </b> {{msvaData.testerName}} </td>
+                <td class="table-row-cell" id="station"> <b>Station: </b> {{msvaData.station}} </td>
+            </tr>
+            <tr>
+                <td class="table-row-cell" colspan="2"> <p><b>The following additional defects may result in the vehicle not complying with the requirements
+                    of The Road Vehicles (Construction and Use) Regulations 1986. (See notes overleaf) </b></p>
+                    {{#if msvaData.additionalDefects}}
+                        <ul class="additional-defect-list" id="additional-defects">
+                            {{#each msvaData.additionalDefects}}
+                                <li>
+                                    <div>
+                                        <span>
+                                            {{this.defectName}}
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span>
+                                            {{this.defectNotes}}
+                                        </span>
+                                    </div>
+                                </li>
+                            {{/each}}
+                        </ul>
+                    {{/if}}
+                </td>
+            </tr>
+        </table>
+    </div>
 
     <div class="section-border">
         <div class="section-title-border">
@@ -154,10 +151,6 @@
                 investigation or to prevent fraud. Find out more at <a href="www.gov.uk/dvsa/privacy">www.gov.uk/dvsa/privacy</a> </p>
         </div>
     </div>
-</div>
-
-
-<div class="separate-page" id="back-page">
 
     <div class="section-border">
         <div class="section-title-border">
@@ -242,6 +235,5 @@
                 test as this may affect the outcome of the appeal.</p>
         </div>
     </div>
-</div>
 </body>
 </html>
