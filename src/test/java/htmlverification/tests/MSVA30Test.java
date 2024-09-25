@@ -46,7 +46,7 @@ public class MSVA30Test {
     @Test
     public void verifyVehicleZNumber() {
         String vehicleZNumber = msvaPageObject.getVehicleZNumber();
-        assertEquals("Vehicle 'Z' No.: ".concat(testCertificate.getMsvaData().getVehicleZNumber()), vehicleZNumber);
+        assertEquals("Vehicle 'Z' No: ".concat(testCertificate.getMsvaData().getVehicleZNumber()), vehicleZNumber);
     }
 
     @Test
