@@ -3,7 +3,7 @@
   "description": "",
   "team": "",
   "documentation": "",
-  "language": "handlebars",
+  "language": "java",
   "terraform": false,
   "monorepo": false,
   "dynamo_tables": []
