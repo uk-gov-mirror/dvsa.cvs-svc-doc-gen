@@ -10,7 +10,6 @@ import pdfverification.service.PDFParser;
 import uk.gov.dvsa.model.cvs.CvsMotCertificate;
 import uk.gov.dvsa.service.HtmlGenerator;
 import uk.gov.dvsa.service.PDFGenerationService;
-
 import java.io.IOException;
 
 import static org.junit.Assert.assertTrue;
@@ -41,6 +40,10 @@ public class PsvPRSBilingualTests {
         assertTrue(pdfParser.getRawText(pdfReader, 3).contains("Refusal of MOT test certificate"));
         assertTrue(pdfParser.getRawText(pdfReader, 5).contains("Tystysgrif prawf MOT (PSV)"));
         assertTrue(pdfParser.getRawText(pdfReader, 7).contains("Gwrthod tystysgrif prawf MOT"));
+        assertTrue(pdfParser.getRawText(pdfReader, 1).contains("This vehicle has an outstanding recall"));
+        assertTrue(pdfParser.getRawText(pdfReader, 3).contains("This vehicle has an outstanding recall"));
+        assertTrue(pdfParser.getRawText(pdfReader, 5).contains("Mae gan y cerbyd hwn wedi cael ei alw'n ôl"));
+        assertTrue(pdfParser.getRawText(pdfReader, 7).contains("Mae gan y cerbyd hwn wedi cael ei alw'n ôl"));
     }
 
     @Test

@@ -12,9 +12,7 @@ import java.io.IOException;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static uk.gov.dvsa.model.cvs.certificateData.CvsMotCertificateData.PASS_SUMMARY_HEADER;
 import static uk.gov.dvsa.model.cvs.certificateData.CvsMotCertificateData.PASS_WITH_DEFECTS_HEADER;
-import static uk.gov.dvsa.model.cvs.certificateData.CvsMotCertificateDataWelsh.PASS_SUMMARY_HEADER_WELSH;
 import static uk.gov.dvsa.model.cvs.certificateData.CvsMotCertificateDataWelsh.PASS_WITH_DEFECTS_HEADER_WELSH;
 import static uk.gov.dvsa.model.cvs.certificateData.CvsMotFailCertificateData.FAILED_SUMMARY_HEADER;
 import static uk.gov.dvsa.model.cvs.certificateData.CvsMotFailCertificateDataWelsh.FAILED_SUMMARY_HEADER_WELSH;
@@ -243,5 +241,21 @@ public class CvsHgvPRSBilingualTest {
         assertEquals(testCertificate.getFailData().getTestNumber(), testNumberFail);
         assertEquals(testCertificate.getData().getTestNumber(), testNumberWelsh);
         assertEquals(testCertificate.getFailData().getTestNumber(), testNumberFailWelsh);
+    }
+
+    @Test
+    public void verifyRecallsWelsh() {
+        String titleText = certificatePageObjectVTG5W.getRecallsHeader();
+        String contentText = certificatePageObjectVTG5W.getRecallsBody();
+        assertEquals("Mae gan y cerbyd hwn wedi cael ei alw'n ôl", titleText);
+        assertEquals("Cysylltwch â'ch agosaf Aston Martin deliwr i gael gwybodaeth ac i drefnu atgyweiriad am ddim.", contentText);
+    }
+
+    @Test
+    public void verifyRecallsEnglish() {
+        String titleText = certificatePageObjectVTG5.getRecallsHeader();
+        String contentText = certificatePageObjectVTG5.getRecallsBody();
+        assertEquals("This vehicle has an outstanding recall", titleText);
+        assertEquals("Contact your nearest Aston Martin dealership for information and to arrange a free repair.", contentText);
     }
 }

@@ -17,6 +17,8 @@ public enum CertificatePageSelector {
     MOT_TEST_NUMBER_ID("mot-test-number"),
     TEST_STATION_ID("test-station-id"),
     RESULTS_SUMMARY_CLASS("results"),
+    RECALLS_HEADER("recalls__content-header"),
+    RECALLS_BODY("recalls__content-text"),
     DVSA_LOGO_ID("logo"),
     EXPIRY_DATE_ID("expiry-date"),
     ISSUER_INFO_ID("issuer-info"),

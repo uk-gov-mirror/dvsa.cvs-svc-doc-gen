@@ -10,7 +10,6 @@ import pdfverification.service.PDFParser;
 import uk.gov.dvsa.model.cvs.CvsMotCertificate;
 import uk.gov.dvsa.service.HtmlGenerator;
 import uk.gov.dvsa.service.PDFGenerationService;
-
 import java.io.IOException;
 
 import static htmlverification.framework.component.DefectSummaryComponent.*;
@@ -41,25 +40,28 @@ public class TrlPrsBilingual {
     @Test
     public void verifyEnglishTitles() throws IOException {
         assertTrue(pdfParser.getRawText(pdfReader, 1).contains("MOT test certificate (TRL)"));
-        assertTrue(pdfParser.getRawText(pdfReader, 2).contains("Refusal of MOT test certificate"));
+        assertTrue(pdfParser.getRawText(pdfReader, 3).contains("Refusal of MOT test certificate"));
+        assertTrue(pdfParser.getRawText(pdfReader, 1).contains("This vehicle has an outstanding recall"));
+        assertTrue(pdfParser.getRawText(pdfReader, 3).contains("This vehicle has an outstanding recall"));
     }
 
     @Test
     public void verifyWelshTitles() throws IOException {
-        assertTrue(pdfParser.getRawText(pdfReader, 3).contains("Tystysgrif prawf MOT (TRL)"));
-        assertTrue(pdfParser.getRawText(pdfReader, 4).contains("Gwrthod tystysgrif prawf MOT"));
-
+        assertTrue(pdfParser.getRawText(pdfReader, 4).contains("Tystysgrif prawf MOT (TRL)"));
+        assertTrue(pdfParser.getRawText(pdfReader, 6).contains("Gwrthod tystysgrif prawf MOT"));
+        assertTrue(pdfParser.getRawText(pdfReader, 4).contains("Mae gan y cerbyd hwn wedi cael ei alw'n ôl"));
+        assertTrue(pdfParser.getRawText(pdfReader, 6).contains("Mae gan y cerbyd hwn wedi cael ei alw'n ôl"));
     }
 
     @Test
     public void verifyBilingualMinorDefectsHeader() throws Exception {
         assertTrue(pdfParser.getRawText(pdfReader, 1).contains(MINOR_DEFECTS_HEADER_TEXT));
-        assertTrue(pdfParser.getRawText(pdfReader, 3).contains(MINOR_DEFECTS_HEADER_WELSH));
+        assertTrue(pdfParser.getRawText(pdfReader, 4).contains(MINOR_DEFECTS_HEADER_WELSH));
     }
 
     @Test
     public void verifyBilingualAdvisoryDefectsHeader() throws Exception {
         assertTrue(pdfParser.getRawText(pdfReader, 1).contains(ADVISORIES_HEADER_TEXT));
-        assertTrue(pdfParser.getRawText(pdfReader, 3).contains(ADVISORIES_HEADER_TEXT_WELSH));
+        assertTrue(pdfParser.getRawText(pdfReader, 4).contains(ADVISORIES_HEADER_TEXT_WELSH));
     }
 }

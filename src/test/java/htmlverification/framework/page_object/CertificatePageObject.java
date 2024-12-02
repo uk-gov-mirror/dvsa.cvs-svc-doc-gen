@@ -48,6 +48,10 @@ public class CertificatePageObject extends BasePageObject {
         return getElementById(MILEAGE_ID.getSelector()).text();
     }
 
+    public String getRecallsHeader() {return getElementById(RECALLS_HEADER.getSelector()).text();}
+
+    public String getRecallsBody() {return getElementById(RECALLS_BODY.getSelector()).text();}
+
     public String getDateOfTheTest() {
         return getElementById(DATE_OF_THE_TEST_ID.getSelector()).text();
     }
