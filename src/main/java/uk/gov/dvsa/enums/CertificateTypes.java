@@ -55,7 +55,9 @@ public enum CertificateTypes {
 
     IVA30("CVS/IVA30"),
 
-    MSVA30("CVS/MSVA30");
+    MSVA30("CVS/MSVA30"),
+    VTG12("CVS/VTG12"),
+    VTP12("CVS/VTP12");
 
     private final String certificateType;
 

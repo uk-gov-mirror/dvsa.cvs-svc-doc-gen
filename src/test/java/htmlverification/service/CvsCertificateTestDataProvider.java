@@ -1180,6 +1180,59 @@ public class CvsCertificateTestDataProvider {
         return msva30;
     }
 
+    public static VTG12 getVTG12() {
+        VTG12 vtg12 = new VTG12();
+        vtg12.setDocumentName(CertificateTypes.VTG12.getCertificateType());
+        String[] reasonsForRefusal = { "Reason 1 exists VTG12","Reason 2 exists VTG12" };
+        String additionalComments = "additional comments VTG12";
+
+        AbandonedData abandonedData = new AbandonedData(
+                "poiuytrewq01230109567891",
+                reasonsForRefusal,
+                "01.02.2024",
+                "fake location",
+                "fake12312312",
+                "fake tester",
+                additionalComments);
+
+        Signature signature = new Signature();
+        signature
+                .setImageData("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==")
+                .setImageType("png");
+
+        vtg12.setSignature(signature);
+
+        vtg12.setData(abandonedData);
+        return vtg12;
+    }
+
+    public static VTP12 getVTP12() {
+        VTP12 vtp12 = new VTP12();
+        vtp12.setDocumentName(CertificateTypes.VTP12.getCertificateType());
+        String[] reasonsForRefusal = { "Reason 1 exists VTP12","Reason 2 exists VTP12" };
+        String additionalComments = "additional comments VTP12";
+
+        AbandonedData abandonedData = new AbandonedData(
+                "poiuytrewq01230109567891",
+                reasonsForRefusal,
+                "01.02.2024",
+                "fake location",
+                "fake12312312",
+                "fake tester",
+                additionalComments);
+
+        Signature signature = new Signature();
+        signature
+                .setImageData("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==")
+                .setImageType("png");
+
+        vtp12.setSignature(signature);
+
+        vtp12.setData(abandonedData);
+        return vtp12;
+    }
+
+
     public static VTG30 getVtg30HavingInvalidXMLCharacter() {
         VTG30 document = getVtg30();
 

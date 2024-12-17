@@ -108,7 +108,13 @@ public enum DocumentsConfig {
             new String[]{CertificateTemplates.IVA30.getCertificateTemplateName()}),
 
     MSVA30(CertificateTypes.MSVA30.getCertificateType(), MSVA30.class,
-            new String[]{CertificateTemplates.MSVA30.getCertificateTemplateName()});
+            new String[]{CertificateTemplates.MSVA30.getCertificateTemplateName()}),
+
+    VTG12(CertificateTypes.VTG12.getCertificateType(), VTG12.class,
+            new String[]{CertificateTemplates.VTG12.getCertificateTemplateName()}),
+
+    VTP12(CertificateTypes.VTP12.getCertificateType(), VTP12.class,
+            new String[]{CertificateTemplates.VTP12.getCertificateTemplateName()});
 
 
     private final String documentName;
