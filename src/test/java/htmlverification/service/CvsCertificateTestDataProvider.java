@@ -1286,4 +1286,32 @@ public class CvsCertificateTestDataProvider {
 
         return document;
     }
+
+    public static MinistryPlate getMinistryPlate() {
+        MinistryPlate ministryPlateCertificate = new MinistryPlate();
+        Reissue reissue = new Reissue();
+        reissue.setReason("REPLACEMENT");
+        ministryPlateCertificate.setDocumentName(CertificateTypes.VTG6_VTG7.getCertificateType());
+        ministryPlateCertificate.setReissue(reissue);
+        MinistryPlateData ministryPlateCertificateData = new MinistryPlateData();
+
+        ministryPlateCertificateData.setPlateSerialNumber("12345")
+                .setDtpNumber("DTPNUM").setPrimaryVrm("BBB333").setVin("MMMMMMMMMMMMMMMMMMMMW").setApprovalTypeNumber("23456")
+                .setMake("Ford").setModel("Focus").setSpeedLimiterMrk("Yes").setFunctionCode("2AT").setRegnDate("2019-12-12").setManufactureYear("2018")
+                .setGrossGbWeight("2987").setGrossEecWeight("2876").setGrossDesignWeight("2765").setTrainGbWeight("2764").setTrainEecWeight("2466")
+                .setTrainDesignWeight("4452").setMaxTrainGbWeight("2233").setMaxTrainEecWeight("4567").setMaxLoadOnCoupling("2500")
+                .setDimensionLength("5600").setDimensionWidth("8700").setFrontVehicleTo5thWheelCouplingMax("9845").setFrontVehicleTo5thWheelCouplingMin("9999")
+                .setCouplingCenterToRearTrlMax("4012").setCouplingCenterToRearTrlMin("4013").setPlateIssueDate("2020-06-12T16:46:09.060Z").setTyreUseCode("2B")
+                .setAxles(
+                        new Axles(
+                                new Axle(new Weight("1230", "5522", "1245"), new Tyre("205/45/R17", "152/148", "single")),
+                                new Axle(new Weight("1231", "5523", "1246"), new Tyre("205/45/R18", "152/147", "single")),
+                                new Axle(new Weight("1232", "5524", "1247"), new Tyre("205/45/R19", "152/146", "double")),
+                                new Axle(new Weight("1233", "5525", "1248"), new Tyre("205/45/R20", "152/145", "single")))
+                );
+        //35 wide characters
+        ministryPlateCertificateData.setVariantNumber("MWMMMMMMMMMMMMMMMMMWMMMMMMMMMMMMMMW");
+        ministryPlateCertificate.setPlateData(ministryPlateCertificateData);
+        return ministryPlateCertificate;
+    }
 }
