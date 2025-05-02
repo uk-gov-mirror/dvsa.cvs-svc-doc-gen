@@ -35,6 +35,12 @@
             <b id="footerDocumentType">{{documentType}}</b>
             <span id="footerTestNumber"><b> (DVSA{{formNumber}})</b></span>
           </div>
+          <div class="footer__bottom--page-counter footer-center">
+            <span class="footer__bottom--page-counter-text">Page</span>
+            <span class="footer__bottom--page-counter-text--page-number"></span>
+            <span class="footer__bottom--page-counter-text">of</span>
+            <span class="footer__bottom--page-counter-text--pages-count"></span>
+          </div>
           <div class="footer-right">
             <p id="footerDatePopulated" class="bold-text">May 2025</p>
           </div>
@@ -57,7 +63,7 @@
             having been submitted for an examination under Section {{sectionTextRef}} of the Road Traffic Act 1988, it is hereby notified that the examination did not proceed or could not be completed because of a failure to comply with those conditions of acceptance for examination recorded below.
           </div>
 
-          <b class="standard-text">
+          <b class="standard-text sub-title-text">
             Reason(s) for refusal to accept or complete examination:
           </b>
 
@@ -77,6 +83,14 @@
               <li class="standard-text" id="reasonsForAbandonment_{{@index}}">{{this}}</li>
             {{/each}}
           </ul>
+
+          {{~> views/CommercialVehicles/Defects
+              dangerous=data.defects.dangerousDefects
+              major=data.defects.majorDefects
+              minor=data.defects.minorDefects
+              advisory=data.defects.advisoryDefects
+              pRS=data.defects.pRSDefects
+          }}
 
         </div>
       </div>
